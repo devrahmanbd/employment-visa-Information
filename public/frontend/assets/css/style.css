@@ -1,289 +1,313 @@
 body {
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        overflow-x: hidden;
-      }
-
-      .date-bar {
-        background-color: #b08d57;
-        color: white;
-        padding: 8px 15px;
-        text-align: left;
-        font-size: 14px;
-      }
-
-      .header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding: 10px 20px;
-        background-color: white;
-        border-bottom: 1px solid #ddd;
-        flex-wrap: wrap;
-      }
-
-      .kuwait-logo {
-        width: 100px;
-        margin-bottom: 10px;
-      }
-
-      .manpower-logo {
-        height: 100px;
-        margin-bottom: 10px;
-      }
-
-      .page-title {
-        font-size: 24px;
-        font-weight: bold;
-        color: #333;
-        margin: 0;
-        text-align: center;
-        width: 100%;
-        order: 3;
-      }
-
-      .nav-menu {
-        background-color: #b08d57;
-        padding: 10px 0;
-      }
-
-      .nav-menu ul {
-        display: flex;
-        list-style: none;
-        margin: 0;
-        padding: 0;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-      }
-
-      .nav-menu li {
-        margin: 5px 15px;
-      }
-
-      .nav-menu a {
-        color: white;
-        text-decoration: none;
-        font-weight: bold;
-      }
-
-      .main-content {
-        padding: 20px;
-        background-color: white;
-      }
-
-      .info-item {
-        display: flex;
-        margin-bottom: 20px;
-        align-items: flex-start;
-        flex-wrap: wrap;
-      }
-
-      .icon-circle {
-        background-color: #b08d57;
-        color: white;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin-right: 15px;
-        flex-shrink: 0;
-      }
-
-      .info-text {
-        flex: 1;
-        min-width: 250px;
-        font-size: 14px;
-      }
-
-      .info-text a {
-        color: blue;
-        text-decoration: none;
-        word-break: break-all;
-      }
-
-      .footer {
-        background-color: #b08d57;
-        color: white;
-        padding: 20px;
-      }
-
-      .footer-section {
-        margin-bottom: 20px;
-      }
-
-      .footer-section h3 {
-        font-size: 18px;
-        margin-bottom: 15px;
-      }
-
-      .footer-section ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-      }
-
-      .footer-section li {
-        margin-bottom: 8px;
-      }
-
-      .footer-section a {
-        color: white;
-        text-decoration: none;
-      }
-
-      .social-icons {
-        display: flex;
-        justify-content: center;
-        margin-top: 20px;
-        flex-wrap: wrap;
-      }
-
-      .social-icons a {
-        color: white;
-        background-color: #333;
-        width: 30px;
-        height: 30px;
-        border-radius: 50%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        margin: 5px;
-      }
-
-      .copyright {
-        text-align: center;
-        margin-top: 20px;
-        font-size: 14px;
-      }
-
-      .btn-email {
-        background-color: white;
-        color: #333;
-        border: none;
-        padding: 8px 15px;
-        border-radius: 4px;
-        display: inline-flex;
-        align-items: center;
-        font-weight: bold;
-        margin-top: 10px;
-      }
-
-      .btn-email i {
-        margin-left: 8px;
-      }
-
-      /* Mobile responsive styles */
-      @media (max-width: 767px) {
-        .header {
-          flex-direction: column;
-          text-align: center;
-        }
-
-        .page-title {
-          font-size: 20px;
-          margin: 10px 0;
-          order: 1;
-        }
-
-        .kuwait-logo {
-          order: 2;
-          margin: 0 auto;
-        }
-
-        .manpower-logo {
-          order: 3;
-          margin: 10px auto 0;
-        }
-
-        .nav-menu ul {
-          flex-direction: column;
-          align-items: center;
-        }
-
-        .nav-menu li {
-          margin: 5px 0;
-          text-align: center;
-          width: 100%;
-        }
-
-        .info-item {
-          flex-direction: column;
-        }
-
-        .icon-circle {
-          margin-bottom: 10px;
-        }
-
-        .info-text {
-          width: 100%;
-        }
-
-        .footer-section {
-          text-align: center;
-        }
-      }
-
-      @media (min-width: 768px) and (max-width: 991px) {
-        .page-title {
-          font-size: 22px;
-          flex: 1;
-          text-align: center;
-          order: 2;
-        }
-
-        .kuwait-logo {
-          order: 1;
-        }
-
-        .manpower-logo {
-          order: 3;
-        }
-
-        .nav-menu ul {
-          justify-content: center;
-        }
-      }
-
-        @media (max-width: 767.98px) {
-    .header {
-      padding: 10px;
-    }
-    
-    .kuwait-logo, .manpower-logo {
-      max-height: 50px;
-    }
-    
-    h1 {
-      font-size: 1.2rem;
-      margin: 8px 0;
-    }
-    
-    .nav-menu li {
-      margin-bottom: 5px;
-    }
-    
-    .nav-menu li a {
-      padding: 8px 0;
-    }
-  }
-  
-  /* Medium screens */
-  @media (min-width: 768px) and (max-width: 991.98px) {
-    h1 {
-      font-size: 1.5rem;
-    }
-  }
-
-  .nav-menu a {
-  padding: 8px 12px;
-  transition: border 0.3s ease-in-out, color 0.3s ease-in-out;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
 }
 
-.nav-menu a:hover {
-  border-bottom: 2px solid white;
-  border-radius: 5px;
-  color: #ffcc00; 
+.date-bar {
+    background-color: #b08d57;
+    color: white;
+    padding: 8px 15px;
+    text-align: left;
+    font-size: 14px;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background-color: white;
+    border-bottom: 1px solid #ddd;
+    flex-wrap: wrap;
+}
+
+.kuwait-logo {
+    width: 100px;
+    margin-bottom: 10px;
+}
+
+.manpower-logo {
+    height: 100px;
+    margin-bottom: 10px;
+}
+
+.page-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    margin: 0;
+    text-align: center;
+    width: 100%;
+    order: 3;
+}
+
+.nav-menu {
+    background-color: #b08d57;
+    padding: 10px 0;
+}
+
+.nav-menu ul {
+    display: flex;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.nav-menu li {
+    margin: 5px 15px;
+}
+
+.nav-menu a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.main-content {
+    padding: 20px;
+    background-color: white;
+}
+
+.info-item {
+    display: flex;
+    margin-bottom: 20px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+}
+
+.icon-circle {
+    background-color: #b08d57;
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 15px;
+    flex-shrink: 0;
+}
+
+.info-text {
+    flex: 1;
+    min-width: 250px;
+    font-size: 14px;
+}
+
+.info-text a {
+    color: blue;
+    text-decoration: none;
+    word-break: break-all;
+}
+
+.footer {
+    background-color: #b08d57;
+    color: white;
+    padding: 20px;
+}
+
+.footer-section {
+    margin-bottom: 20px;
+}
+
+.footer-section h3 {
+    font-size: 18px;
+    margin-bottom: 15px;
+}
+
+.footer-section ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-section li {
+    margin-bottom: 8px;
+}
+
+.footer-section a {
+    color: white;
+    text-decoration: none;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.social-icons a {
+    color: white;
+    background-color: #333;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5px;
+}
+
+.copyright {
+    text-align: center;
+    margin-top: 20px;
+    font-size: 14px;
+}
+
+.btn-email {
+    background-color: white;
+    color: #333;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 4px;
+    display: inline-flex;
+    align-items: center;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.btn-email i {
+    margin-left: 8px;
+}
+
+/* Mobile responsive styles */
+@media (max-width: 767px) {
+    .header {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .page-title {
+        font-size: 20px;
+        margin: 10px 0;
+        order: 1;
+    }
+
+    .kuwait-logo {
+        order: 2;
+        margin: 0 auto;
+    }
+
+    .manpower-logo {
+        order: 3;
+        margin: 10px auto 0;
+    }
+
+    .nav-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-menu li {
+        margin: 5px 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .info-item {
+        flex-direction: column;
+    }
+
+    .icon-circle {
+        margin-bottom: 10px;
+    }
+
+    .info-text {
+        width: 100%;
+    }
+
+    .footer-section {
+        text-align: center;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .page-title {
+        font-size: 22px;
+        flex: 1;
+        text-align: center;
+        order: 2;
+    }
+
+    .kuwait-logo {
+        order: 1;
+    }
+
+    .manpower-logo {
+        order: 3;
+    }
+
+    .nav-menu ul {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 767.98px) {
+    .header {
+        padding: 10px;
+    }
+
+    .kuwait-logo,
+    .manpower-logo {
+        max-height: 50px;
+    }
+
+    h1 {
+        font-size: 1.2rem;
+        margin: 8px 0;
+    }
+
+    .nav-menu li {
+        margin-bottom: 5px;
+    }
+
+    .nav-menu li a {
+        padding: 8px 0;
+    }
+}
+
+/* Medium screens */
+@media (min-width: 768px) and (max-width: 991.98px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+}
+.nav-link {
+    position: relative;
+    padding: 8px 12px;
+    transition: color 0.3s ease-in-out;
+    display: inline-block; /* টেক্সটের নিচেই সীমাবদ্ধ রাখবে */
+}
+
+.nav-link::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 0;
+    height: 2px;
+    background-color: white;
+    transition: width 0.3s ease-in-out, left 0.3s ease-in-out;
+}
+
+.nav-link:hover {
+    color: #ffcc00;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.footer-hr {
+    border: none;
+    height: 3px;
+    background: linear-gradient(to right, #fffffe, #fdfdfd);
+    margin: 20px auto;
+    border-radius: 5px;
 }

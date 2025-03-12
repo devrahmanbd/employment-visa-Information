@@ -13,7 +13,7 @@
     <!-- Date Bar -->
     <div class="date-bar">
         <div class="container">
-            <i class="fas fa-calendar-alt"></i> 2025/01/02 - 18:00
+            <i class="fas fa-calendar-alt"></i> <span id="datetime"></span>
         </div>
     </div>
     <div class="container">
@@ -25,7 +25,7 @@
                 <img src="{{ asset('/images') }}/logo-left.png" alt="Kuwait Logo" class="kuwait-logo img-fluid" />
             </div>
             <div class="col-12 col-md-6 text-center mb-2 mb-md-0">
-                <h1 class="fs-1 fs-md-3 mb-0">Employment Visa Information - Kuwait</h1>
+                <h1 class="fs-2 fs-md-3 mb-0">Employment Visa Information - Kuwait</h1>
             </div>
             <div class="col-12 col-md-3 text-center text-md-end">
                 <img src="{{ asset('/images') }}/logo-right.png" alt="Public Authority of Manpower Logo"
@@ -38,17 +38,21 @@
     <nav class="nav-menu py-2">
         <div class="container">
             <ul class="row p-0 m-0 list-unstyled">
-                <li class="col-6 col-md-3 text-center py-2 m-0">
-                    <a href="#" class="d-block text-white text-decoration-none fw-bold">Home</a>
+                <li class="col-6 col-md-3 text-center m-0">
+                    <a href="#" class="d-block text-white text-decoration-none fw-bold"><span
+                            class="nav-link">Home</span></a>
                 </li>
-                <li class="col-6 col-md-3 text-center py-2 m-0">
-                    <a href="#" class="d-block text-white text-decoration-none fw-bold">About us</a>
+                <li class="col-6 col-md-3 text-center m-0">
+                    <a href="#" class="d-block text-white text-decoration-none fw-bold"><span
+                            class="nav-link">About us</span></a>
                 </li>
-                <li class="col-6 col-md-3 text-center py-2 m-0">
-                    <a href="#" class="d-block text-white text-decoration-none fw-bold">Information of Visa</a>
+                <li class="col-6 col-md-3 text-center m-0">
+                    <a href="#" class="d-block text-white text-decoration-none fw-bold"><span
+                            class="nav-link">Information of Visa</span></a>
                 </li>
-                <li class="col-6 col-md-3 text-center py-2 m-0">
-                    <a href="#" class="d-block text-white text-decoration-none fw-bold">Contact us</a>
+                <li class="col-6 col-md-3 text-center m-0">
+                    <a href="#" class="d-block text-white text-decoration-none fw-bold"><span
+                            class="nav-link">Contact us</span></a>
                 </li>
             </ul>
         </div>
@@ -92,13 +96,13 @@
                 </div>
             </div>
 
+            <hr class="footer-hr" />
             <div class="social-icons">
                 <a href="#"><i class="fab fa-instagram"></i></a>
                 <a href="#"><i class="fab fa-twitter"></i></a>
                 <a href="#"><i class="fab fa-facebook"></i></a>
                 <a href="#"><i class="fab fa-youtube"></i></a>
             </div>
-
             <div class="copyright">
                 All rights reserved to the Public Authority of Manpower ©
             </div>
@@ -106,6 +110,28 @@
     </div>
 
     @include('frontend.includes.scripts')
+    <script>
+        function updateDateTime() {
+            let now = new Date();
+            let hours = now.getHours();
+            let minutes = now.getMinutes();
+            let ampm = hours >= 12 ? 'PM' : 'AM';
+
+            hours = hours % 12;
+            hours = hours ? hours : 12; // 0 হলে 12 হবে
+            minutes = minutes < 10 ? '0' + minutes : minutes;
+
+            let formattedDate = now.getFullYear() + '/' +
+                ('0' + (now.getMonth() + 1)).slice(-2) + '/' +
+                ('0' + now.getDate()).slice(-2) + ' - ' +
+                hours + ':' + minutes + ' ' + ampm;
+
+            document.getElementById('datetime').innerHTML = formattedDate;
+        }
+
+        updateDateTime();
+        setInterval(updateDateTime, 60000);
+    </script>
 </body>
 
 </html>
