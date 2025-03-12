@@ -41,7 +41,7 @@
                             class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="#">About
                             us</a></li>
                     <li class="nav-item">
-                        <a href="#" class="nav-link" href="#">Information of Visa</a>
+                        <a href="{{ route('visa-information') }}" class="nav-link {{ request()->routeIs('visa-information') ? 'active' : '' }}" href="#">Information of Visa</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#">Contact us</a>
