@@ -91,10 +91,14 @@
 
             <hr class="footer-hr" />
             <div class="social-icons">
-                <a href="#"><img src="Images/icons8-instagram-100.png" width="40px" alt="Instagram" class="social-img"></a>
-                <a href="#"><img src="Images/icons8-x-50.png" width="40px" alt="X" class="social-img"></a>
-                <a href="#"><img src="Images/icons8-youtube-48.png" width="40px" alt="YouTube" class="social-img"></a>
-                <a href="#"><img src="Images/icons8-facebook-48.png" alt="Facebook" width="40px" class="social-img"></a>
+                <a href="#"><img src="Images/icons8-instagram-100.png" width="40px" alt="Instagram"
+                        class="social-img"></a>
+                <a href="#"><img src="Images/icons8-x-50.png" width="40px" alt="X"
+                        class="social-img"></a>
+                <a href="#"><img src="Images/icons8-youtube-48.png" width="40px" alt="YouTube"
+                        class="social-img"></a>
+                <a href="#"><img src="Images/icons8-facebook-48.png" alt="Facebook" width="40px"
+                        class="social-img"></a>
             </div>
             <div class="copyright">
                 All rights reserved to the Public Authority of Manpower ©
@@ -108,22 +112,27 @@
             let now = new Date();
             let hours = now.getHours();
             let minutes = now.getMinutes();
+            let seconds = now.getSeconds();
             let ampm = hours >= 12 ? 'PM' : 'AM';
 
             hours = hours % 12;
             hours = hours ? hours : 12;
             minutes = minutes < 10 ? '0' + minutes : minutes;
+            seconds = seconds < 10 ? '0' + seconds : seconds;
 
             let formattedDate = now.getFullYear() + '/' +
                 ('0' + (now.getMonth() + 1)).slice(-2) + '/' +
                 ('0' + now.getDate()).slice(-2) + ' - ' +
-                hours + ':' + minutes + ' ' + ampm;
+                hours + ':' + minutes + ':' + seconds + ' ' + ampm;
 
             document.getElementById('datetime').innerHTML = formattedDate;
         }
 
+        // First call to display the time immediately
         updateDateTime();
-        setInterval(updateDateTime, 60000);
+
+        // Update every second
+        setInterval(updateDateTime, 1000);
     </script>
 </body>
 

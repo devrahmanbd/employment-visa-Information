@@ -121,74 +121,10 @@
                 font-size: 18px;
             }
 
-            .timeline {
-                display: flex;
-                flex-direction: column;
-                align-items: start;
-                position: relative;
-            }
-
-            .timeline-item {
-                display: flex;
-                align-items: flex-start;
-                position: relative;
-                width: 100%;
-                margin-bottom: 20px;
-            }
-
-            .timeline-icon {
-                width: 30px;
-                height: 30px;
-                border: 4px solid #b58329;
-                border-radius: 50%;
-                background-color: white;
-                position: absolute;
-                left: 0;
-                top: 5px;
-            }
-
-            .timeline-item:not(:last-child)::after {
-                content: "";
-                position: absolute;
-                top: 40px;
-                left: 14px;
-                width: 4px;
-                height: calc(100% - 40px);
-                background-color: #b58329;
-            }
-
-            .timeline-content {
-                background: #fff;
-                padding: 12px 15px;
-                margin-left: 50px;
-                word-wrap: break-word;
-            }
-
-            /* Responsive Design */
-            @media (max-width: 768px) {
-                .timeline {
-                    padding-left: 20px;
-                }
-
-                .timeline-icon {
-                    width: 25px;
-                    height: 25px;
-                    left: -5px;
-                }
-
-                .timeline-item:not(:last-child)::after {
-                    left: 10px;
-                }
-
-                .timeline-content {
-                    margin-left: 40px;
-                    max-width: 100%;
-                }
-            }
         </style>
     @endpush
     <div class="">
-        <h1>About us</h1>
+        <h1><ins>About us</ins></h1>
 
         <p>The webpage of Public Authority of Manpower is authorized and fully controlled by the Ministry of Interior [<a
                 href="https://www.moi.gov.kw">https://www.moi.gov.kw</a>] (MOI), State of Kuwait and Ministry of Foreign
@@ -420,8 +356,22 @@
 
 
     <div class="timeline">
+        <h1><ins>Approval of the Employment Visa (Manual and eVisa):</ins> </h1>
+
+        <p>The webpage of Public Authority of Manpower is authorized and fully controlled by the Ministry of Interior [<a
+                href="https://www.moi.gov.kw">https://www.moi.gov.kw</a>] (MOI), State of Kuwait and Ministry of Foreign
+            Affairs
+            [<a href="https://www.mofa.gov.kw">https://www.mofa.gov.kw</a>] (MOFA), State of Kuwait.</p>
+
+        <p>This "Employment Visa Information" service is provided by the Ministry of Interior [<a
+                href="https://www.moi.gov.kw">https://www.moi.gov.kw</a>] (MOI), State of Kuwait and Ministry of Foreign
+            Affairs
+            [<a href="https://www.mofa.gov.kw">https://www.mofa.gov.kw</a>] (MOFA), State of Kuwait. And it's strictly
+            controlled.</p>
         <div class="timeline-item">
-            <div class="timeline-icon"></div>
+            <div class="timeline-icon">
+                <div class="timeline-circle"></div>
+            </div>
             <div class="timeline-content">
                 <p>Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web
                     development.
@@ -430,32 +380,45 @@
             </div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-icon"></div>
+            <div class="timeline-icon">
+                <div class="timeline-circle"></div>
+            </div>
             <div class="timeline-content">
                 <p>Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web
                     development. </p>
             </div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-icon"></div>
+            <div class="timeline-icon">
+                <div class="timeline-circle"></div>
+            </div>
             <div class="timeline-content">
                 <p>Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web
                     development.</p>
             </div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-icon"></div>
+            <div class="timeline-icon">
+                <div class="timeline-circle"></div>
+            </div>
             <div class="timeline-content">
                 <p>Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web
                     development.</p>
             </div>
         </div>
         <div class="timeline-item">
-            <div class="timeline-icon"></div>
+            <div class="timeline-icon">
+                <div class="timeline-circle"></div>
+            </div>
             <div class="timeline-content">
                 <p>Lorem ipsum is a dummy or placeholder text commonly used in graphic design, publishing, and web
                     development.</p>
             </div>
+        </div>
+        <div class="">
+            <p class="fst-italic">The Approval Copy provides a new Employment Visa holder with all the correct information,
+                including permission to enter the State of Kuwait, many of which are not recorded on the Visa. The Approval
+                Copy is issued by the Public Authority of Manpower along with the issuance of the Employment Visa.</p>
         </div>
     </div>
 

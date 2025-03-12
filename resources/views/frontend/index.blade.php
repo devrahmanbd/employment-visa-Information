@@ -1,63 +1,56 @@
 @extends('frontend.app')
 
 @section('content')
-    <div class="info-item">
-        <div class="icon-circle">
-            <i class="fas fa-info"></i>
+    <div class="timeline">
+
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <div class="timeline-circle"></div>
+            </div>
+            <div class="timeline-content">
+                <p>This website is authorized and fully controlled by the Ministry of Interior https://www.moi.gov.kw (MOI),
+                    State of Kuwait and Ministry of Foreign Affairs https://www.mofa.gov.kw (MOFA), State of Kuwait.</p>
+            </div>
         </div>
-        <div class="info-text">
-            <p>
-                This website is authorized and fully controlled by the Ministry of
-                Interior <a href="#">https://www.moi.gov.kw</a> (MOI), State of
-                Kuwait and Ministry of Foreign Affairs
-                <a href="#">https://www.mofa.gov.kw</a> (MOFA), State of Kuwait.
-            </p>
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <div class="timeline-circle"></div>
+            </div>
+            <div class="timeline-content">
+                <p> We Public Authority of Manpower enter visa information from MOI on
+                    this site as per the instructions of MOI and MOFA. Visa holders
+                    can get all the details of Employment Visa updates here and can
+                    easily download the copy of Employment Visa and can verify the
+                    correctness of Employment Visa from this site after the Employment
+                    Visa is issued. All types of Visas in Kuwait are issued by the
+                    Ministry of Interior <a href="#">https://www.moi.gov.kw</a> (MOI),
+                    Kuwait. But the Ministry of Interior
+                    <a href="#">https://www.moi.gov.kw</a> (MOI) does not provide the
+                    facility to automatically download any Visa. Especially Employment
+                    Visas have to be collected from the Visa Centre of the Ministry of
+                    Interior <a href="#">https://www.moi.gov.kw</a> (MOI) by the
+                    Company's Public Relations Officer (PRO) or the Sponsor himself or
+                    his/her authorized Representative..
+                </p>
+            </div>
         </div>
+
+        <div class="timeline-item">
+            <div class="timeline-icon">
+                <div class="timeline-circle"></div>
+            </div>
+            <div class="timeline-content">
+                <p>From March 3, 2024, the Ministry of Interior https://www.moi.gov.kw (MOI) and the Ministry of Foreign
+                    Affairs https://www.mofa.gov.kw (MOFA) have jointly instructed the Public Authority of Manpower, in
+                    addition to the responsibility of granting visa Approvals, to download copies of Employment Visas by
+                    allowing visa holders to fill in the necessary information and upload copies of all types of Employment
+                    Visas online after verification. And from the mentioned time, Employment Visa holders can download
+                    Employment Visas issued by the Ministry of Interior https://www.moi.gov.kw (MOI), Kuwait by submitting
+                    the necessary information on this site.</p>
+            </div>
+        </div>
+
     </div>
 
-    <div class="info-item">
-        <div class="icon-circle">
-            <i class="fas fa-user-shield"></i>
-        </div>
-        <div class="info-text">
-            <p>
-                We Public Authority of Manpower enter visa information from MOI on
-                this site as per the instructions of MOI and MOFA. Visa holders
-                can get all the details of Employment Visa updates here and can
-                easily download the copy of Employment Visa and can verify the
-                correctness of Employment Visa from this site after the Employment
-                Visa is issued. All types of Visas in Kuwait are issued by the
-                Ministry of Interior <a href="#">https://www.moi.gov.kw</a> (MOI),
-                Kuwait. But the Ministry of Interior
-                <a href="#">https://www.moi.gov.kw</a> (MOI) does not provide the
-                facility to automatically download any Visa. Especially Employment
-                Visas have to be collected from the Visa Centre of the Ministry of
-                Interior <a href="#">https://www.moi.gov.kw</a> (MOI) by the
-                Company's Public Relations Officer (PRO) or the Sponsor himself or
-                his/her authorized Representative.
-            </p>
-        </div>
-    </div>
-
-    <div class="info-item">
-        <div class="icon-circle">
-            <i class="fas fa-file-alt"></i>
-        </div>
-        <div class="info-text">
-            <p>
-                From March 3, 2024, the Ministry of Interior
-                <a href="#">https://www.moi.gov.kw</a> (MOI) and the Ministry of
-                Foreign Affairs <a href="#">https://www.mofa.gov.kw</a> (MOFA)
-                have jointly instructed the Public Authority of Manpower, in
-                addition to the responsibility of granting visa Approvals, to
-                download copies of Employment Visas by allowing visa holders to
-                fill in the necessary information and upload copies of all types
-                of Employment Visas online after verification. And from the
-                mentioned time, Employment Visa holders can download Employment
-                Visas issued by the Ministry of Interior
-                <a href="#">https://www.moi.gov.kw</a> (MOI), Kuwait by submitting
-                the necessary information on this site.
-            </p>
-        </div>
-    </div>
+   
 @endsection
