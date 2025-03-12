@@ -16,45 +16,38 @@
             <i class="fas fa-calendar-alt"></i> <span id="datetime"></span>
         </div>
     </div>
-    <div class="container">
-
-
-        <!-- Header -->
-        <div class="header d-flex justify-content-between align-items-center flex-wrap py-3">
-            <div class="col-12 col-md-3 text-center text-md-start mb-2 mb-md-0">
-                <img src="{{ asset('/images') }}/logo-left.png" alt="Kuwait Logo" class="kuwait-logo img-fluid" />
-            </div>
-            <div class="col-12 col-md-6 text-center mb-2 mb-md-0">
-                <h1 class="fs-2 fs-md-3 mb-0">Employment Visa Information - Kuwait</h1>
-            </div>
-            <div class="col-12 col-md-3 text-center text-md-end">
-                <img src="{{ asset('/images') }}/logo-right.png" alt="Public Authority of Manpower Logo"
-                    class="manpower-logo img-fluid" />
-            </div>
+    <div class="title-container">
+        <img src="{{ asset('images/logo-left.png') }}" alt="Left Image">
+        <div class="title-section">
+            Employment Visa Information - Kuwait
         </div>
+        <img src="{{ asset('images/logo-right.png') }}" alt="Right Image">
     </div>
 
+
     <!-- Navigation Menu -->
-    <nav class="nav-menu py-2">
+    <nav class="navbar navbar-expand-lg navbar-light">
         <div class="container">
-            <ul class="row p-0 m-0 list-unstyled">
-                <li class="col-6 col-md-3 text-center m-0">
-                    <a href="#" class="d-block text-white text-decoration-none fw-bold"><span
-                            class="nav-link">Home</span></a>
-                </li>
-                <li class="col-6 col-md-3 text-center m-0">
-                    <a href="#" class="d-block text-white text-decoration-none fw-bold"><span
-                            class="nav-link">About us</span></a>
-                </li>
-                <li class="col-6 col-md-3 text-center m-0">
-                    <a href="#" class="d-block text-white text-decoration-none fw-bold"><span
-                            class="nav-link">Information of Visa</span></a>
-                </li>
-                <li class="col-6 col-md-3 text-center m-0">
-                    <a href="#" class="d-block text-white text-decoration-none fw-bold"><span
-                            class="nav-link">Contact us</span></a>
-                </li>
-            </ul>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="{{ route('home') }}" class="nav-link {{ request()->routeIs('home') ? 'active' : '' }}"
+                            href="#">Home</a>
+                    </li>
+                    <li class="nav-item"><a href="{{ route('about') }}"
+                            class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="#">About
+                            us</a></li>
+                    <li class="nav-item">
+                        <a href="#" class="nav-link" href="#">Information of Visa</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#">Contact us</a>
+                    </li>
+                </ul>
+            </div>
         </div>
     </nav>
 
@@ -98,10 +91,10 @@
 
             <hr class="footer-hr" />
             <div class="social-icons">
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-twitter"></i></a>
-                <a href="#"><i class="fab fa-facebook"></i></a>
-                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><img src="Images/icons8-instagram-100.png" width="40px" alt="Instagram" class="social-img"></a>
+                <a href="#"><img src="Images/icons8-x-50.png" width="40px" alt="X" class="social-img"></a>
+                <a href="#"><img src="Images/icons8-youtube-48.png" width="40px" alt="YouTube" class="social-img"></a>
+                <a href="#"><img src="Images/icons8-facebook-48.png" alt="Facebook" width="40px" class="social-img"></a>
             </div>
             <div class="copyright">
                 All rights reserved to the Public Authority of Manpower ©
@@ -118,7 +111,7 @@
             let ampm = hours >= 12 ? 'PM' : 'AM';
 
             hours = hours % 12;
-            hours = hours ? hours : 12; // 0 হলে 12 হবে
+            hours = hours ? hours : 12;
             minutes = minutes < 10 ? '0' + minutes : minutes;
 
             let formattedDate = now.getFullYear() + '/' +
