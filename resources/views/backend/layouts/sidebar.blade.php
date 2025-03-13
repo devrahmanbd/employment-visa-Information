@@ -48,8 +48,6 @@
                     </a>
                 </li>
 
-                <li class="nav-header {{ request()->routeIs('admin.contacts.*') ? 'active' : '' }}">
-                    Contacts</li>
 
                 <li class="nav-item">
                     <a href="{{ route('admin.contacts.index') }}"
@@ -57,6 +55,16 @@
                         <i class="nav-icon fas fa-address-book"></i>
                         <p>
                             Contacts
+                        </p>
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a href="{{ route('admin.users.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.users.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-user"></i>
+                        <p>
+                            Users
                         </p>
                     </a>
                 </li>

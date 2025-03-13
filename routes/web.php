@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Backend\UsersController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\ContactController;
@@ -32,6 +33,7 @@ Route::get('/dashboard', function () {
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('contacts', AdminContactController::class);
+    Route::resource('users', UsersController::class);
 });
 
 Route::middleware('auth')->group(function () {
