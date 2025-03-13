@@ -10,7 +10,7 @@ use App\Http\Controllers\Frontend\VisaEmailController;
 use App\Http\Controllers\Backend\AdminContactController;
 use App\Http\Controllers\Frontend\VisaInquiryController;
 use App\Http\Controllers\Frontend\VisaInformationController;
-
+use App\Http\Controllers\Backend\VisaController;
 
 // Home page
 Route::get('/',[HomeController::class, 'index'])->name('home');
@@ -26,10 +26,6 @@ Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::get('/visa-inquiry',[VisaInquiryController::class, 'index'])->name('visa-inquiry');
 // Visa Email page
 Route::get('/visa-email',[VisaEmailController::class, 'index'])->name('visa-email');
-
-// Contact page
-Route::get('/contact',[ContactController::class,'index'])->name('contact');
-
 
 
 Route::get('/dashboard', function () {
