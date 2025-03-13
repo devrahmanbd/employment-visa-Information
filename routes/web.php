@@ -5,6 +5,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Backend\UsersController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
+use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\VisaEmailController;
 use App\Http\Controllers\Backend\AdminContactController;
@@ -25,6 +26,8 @@ Route::get('/visa-inquiry',[VisaInquiryController::class, 'index'])->name('visa-
 // Visa Email page
 Route::get('/visa-email',[VisaEmailController::class, 'index'])->name('visa-email');
 
+
+
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -34,6 +37,9 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     Route::resource('contacts', AdminContactController::class);
     Route::resource('users', UsersController::class);
+    // Setting
+    Route::get('/setting',[SettingController::class, 'index'])->name('setting');
+    Route::post('/setting/update',[SettingController::class, 'update'])->name('settings.update');
 });
 
 Route::middleware('auth')->group(function () {

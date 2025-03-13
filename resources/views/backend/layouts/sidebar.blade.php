@@ -69,6 +69,17 @@
                     </a>
                 </li>
 
+                {{-- setting --}}
+                <li class="nav-item">
+                    <a href="{{ route('admin.setting') }}"
+                        class="nav-link {{ request()->routeIs('admin.setting') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-cogs"></i>
+                        <p>
+                            Settings
+                        </p>
+                    </a>
+                </li>
+
                 {{-- <li class="nav-header">Appearance</li>
 
 
