@@ -1,13 +1,14 @@
 <?php
 
-use App\Http\Controllers\Frontend\VisaInquiryController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
 use App\Http\Controllers\Frontend\ContactController;
-use App\Http\Controllers\Frontend\VisaInformationController;
 use App\Http\Controllers\Frontend\VisaEmailController;
+use App\Http\Controllers\Backend\AdminContactController;
+use App\Http\Controllers\Frontend\VisaInquiryController;
+use App\Http\Controllers\Frontend\VisaInformationController;
 
 
 // Home page
@@ -26,6 +27,12 @@ Route::get('/visa-email',[VisaEmailController::class, 'index'])->name('visa-emai
 Route::get('/dashboard', function () {
     return view('backend.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
+
+// route group for authenticated users
+
+Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    Route::resource('contacts', AdminContactController::class);
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
