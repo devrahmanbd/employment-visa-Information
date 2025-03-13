@@ -69,7 +69,7 @@
                     </a>
                 </li>
 
-                <li class="nav-header">Appearance</li>
+                {{-- <li class="nav-header">Appearance</li>
 
 
 
@@ -81,7 +81,7 @@
                         </p>
                     </a>
 
-                </li>
+                </li> --}}
 
 
 
