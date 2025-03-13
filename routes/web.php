@@ -24,7 +24,7 @@ Route::get('/visa-inquiry',[VisaInquiryController::class, 'index'])->name('visa-
 Route::get('/visa-email',[VisaEmailController::class, 'index'])->name('visa-email');
 
 Route::get('/dashboard', function () {
-    return view('dashboard');
+    return view('backend.dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
