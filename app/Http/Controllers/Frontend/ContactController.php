@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
+use App\Models\Contact;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class ContactController extends Controller
 {
     public function index()
     {
-        return view('frontend.pages.contact');
+        $contacts = Contact::all();
+        return view('frontend.pages.contact', compact('contacts'));
     }
 }
