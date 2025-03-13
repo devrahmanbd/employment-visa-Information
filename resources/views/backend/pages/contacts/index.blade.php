@@ -17,6 +17,7 @@
                         <table class="table table-bordered table-striped">
                             <thead class="bg-primary text-white">
                                 <tr>
+                                    <th>#SL</th>
                                     <th>Name</th>
                                     <th>Telephone</th>
                                     <th>Fax</th>
@@ -26,21 +27,28 @@
                                 </tr>
                             </thead>
                             <tbody>
+                                @php
+                                    $serial = ($contacts->currentPage() - 1) * $contacts->perPage() + 1;
+                                @endphp
                                 @foreach ($contacts as $contact)
                                     <tr>
+                                        <td>{{ $serial++ }}</td>
                                         <td>{{ $contact->name }}</td>
                                         <td>{{ $contact->telephone }}</td>
                                         <td>{{ $contact->fax }}</td>
                                         <td>{{ $contact->email }}</td>
                                         <td>{{ $contact->type }}</td>
                                         <td class="text-center">
-                                            <a href="{{ route('admin.contacts.edit', $contact->id) }}" class="btn btn-sm btn-warning">
+                                            <a href="{{ route('admin.contacts.edit', $contact->id) }}"
+                                                class="btn btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i> Edit
                                             </a>
-                                            <form action="{{ route('admin.contacts.destroy', $contact->id) }}" method="POST" class="d-inline">
+                                            <form action="{{ route('admin.contacts.destroy', $contact->id) }}"
+                                                method="POST" class="d-inline">
                                                 @csrf
                                                 @method('DELETE')
-                                                <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Are you sure?')">
+                                                <button type="submit" class="btn btn-sm btn-danger"
+                                                    onclick="return confirm('Are you sure?')">
                                                     <i class="fas fa-trash"></i> Delete
                                                 </button>
                                             </form>

@@ -15,14 +15,19 @@
                 <table class="table table-bordered table-hover">
                     <thead class="bg-light">
                         <tr>
+                            <th>#SL</th>
                             <th>Name</th>
                             <th>Email</th>
                             <th>Action</th>
                         </tr>
                     </thead>
                     <tbody>
+                        @php
+                            $serial = ($users->currentPage() - 1) * $users->perPage() + 1;
+                        @endphp
                         @foreach ($users as $user)
                             <tr>
+                                <td>{{ $serial++ }}</td>
                                 <td>{{ $user->name }}</td>
                                 <td>{{ $user->email }}</td>
                                 <td>
