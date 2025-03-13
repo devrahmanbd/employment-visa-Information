@@ -32,22 +32,41 @@
 
                             <div class="form-group">
                                 <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" name="name" id="name" class="form-control" value="{{ old('name', $contact->name) }}" required>
+                                <input type="text" name="name" id="name" class="form-control"
+                                    value="{{ old('name', $contact->name) }}" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="telephone">Telephone <span class="text-danger">*</span></label>
-                                <input type="text" name="telephone" id="telephone" class="form-control" value="{{ old('telephone', $contact->telephone) }}" required>
+                                <input type="text" name="telephone" id="telephone" class="form-control"
+                                    value="{{ old('telephone', $contact->telephone) }}" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="fax">Fax</label>
-                                <input type="text" name="fax" id="fax" class="form-control" value="{{ old('fax', $contact->fax) }}">
+                                <input type="text" name="fax" id="fax" class="form-control"
+                                    value="{{ old('fax', $contact->fax) }}">
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" name="email" id="email" class="form-control" value="{{ old('email', $contact->email) }}" required>
+                                <input type="email" name="email" id="email" class="form-control"
+                                    value="{{ old('email', $contact->email) }}" required>
+                            </div>
+
+                            <div class="form-group">
+                                {{-- type --}}
+                                <label for="type">Type <span class="text-danger">*</span></label>
+                                <select name="type" id="type" class="form-control" required>
+                                    <option value="">Select Type</option>
+                                    {{-- 'Ministries and Government' and 'State Organization' and Authorities --}}
+                                    <option value="Ministries and Government"
+                                        {{ old('type', $contact->type) == 'Ministries and Government' ? 'selected' : '' }}>
+                                        Ministries and Government</option>
+                                    <option value="State Organization"
+                                        {{ old('type', $contact->type) == 'State Organization' ? 'selected' : '' }}>State
+                                        Organization</option>
+                                </select>
                             </div>
 
                             <div class="form-group text-center">

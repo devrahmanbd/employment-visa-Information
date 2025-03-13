@@ -22,25 +22,41 @@
 
                         <form action="{{ route('admin.contacts.store') }}" method="POST">
                             @csrf
-                            
+
                             <div class="form-group">
                                 <label for="name">Name <span class="text-danger">*</span></label>
-                                <input type="text" name="name" id="name" class="form-control" placeholder="Enter full name" required>
+                                <input type="text" name="name" id="name" class="form-control"
+                                    placeholder="Enter full name" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="telephone">Telephone <span class="text-danger">*</span></label>
-                                <input type="text" name="telephone" id="telephone" class="form-control" placeholder="Enter phone number" required>
+                                <input type="text" name="telephone" id="telephone" class="form-control"
+                                    placeholder="Enter phone number" required>
                             </div>
 
                             <div class="form-group">
                                 <label for="fax">Fax</label>
-                                <input type="text" name="fax" id="fax" class="form-control" placeholder="Enter fax number (optional)">
+                                <input type="text" name="fax" id="fax" class="form-control"
+                                    placeholder="Enter fax number (optional)">
                             </div>
 
                             <div class="form-group">
                                 <label for="email">Email <span class="text-danger">*</span></label>
-                                <input type="email" name="email" id="email" class="form-control" placeholder="Enter email address" required>
+                                <input type="email" name="email" id="email" class="form-control"
+                                    placeholder="Enter email address" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="type">Type <span class="text-danger">*</span></label>
+                                <select name="type" id="type" class="form-control" required>
+                                    <option value="">Select Type</option>
+                                    {{-- 'Ministries and Government' and 'State Organization' and Authorities --}}
+                                    <option value="Ministries and Government">
+                                        Ministries and Government</option>
+                                    <option value="State Organization">State
+                                        Organization</option>
+                                </select>
                             </div>
 
                             <div class="form-group text-center">

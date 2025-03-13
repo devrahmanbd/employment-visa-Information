@@ -21,6 +21,7 @@
                                     <th>Telephone</th>
                                     <th>Fax</th>
                                     <th>Email</th>
+                                    <th>Type</th>
                                     <th class="text-center">Action</th>
                                 </tr>
                             </thead>
@@ -31,6 +32,7 @@
                                         <td>{{ $contact->telephone }}</td>
                                         <td>{{ $contact->fax }}</td>
                                         <td>{{ $contact->email }}</td>
+                                        <td>{{ $contact->type }}</td>
                                         <td class="text-center">
                                             <a href="{{ route('admin.contacts.edit', $contact->id) }}" class="btn btn-sm btn-warning">
                                                 <i class="fas fa-edit"></i> Edit
