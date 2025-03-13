@@ -65,10 +65,10 @@
                 <div class="col-lg-4 col-md-6 footer-section">
                     <h3>Feature</h3>
                     <ul>
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About us</a></li>
-                        <li><a href="#">Information of Visa</a></li>
-                        <li><a href="#">Contact us</a></li>
+                        <li><a href="{{ route('home') }}">Home</a></li>
+                        <li><a href="{{ route('about') }}">About us</a></li>
+                        <li><a href="{{ route('visa-information') }}">Information of Visa</a></li>
+                        <li><a href="{{ route('contact') }}">Contact us</a></li>
                     </ul>
                 </div>
 
@@ -83,9 +83,9 @@
                 </div>
 
                 <div class="col-lg-4 col-md-12 footer-section text-lg-end text-md-center">
-                    <button class="btn-email">
+                    <a href="{{ route('visa-email') }}" class="btn-email text-dark">
                         Email Us <i class="fas fa-arrow-right"></i>
-                    </button>
+                    </a>
                 </div>
             </div>
 
