@@ -71,37 +71,54 @@
                                 </div>
                             </div>
 
+
+                            @php
+                                $socialLinks = json_decode($settings['social_links'], true);
+                            @endphp
                             <!-- Social Links Section -->
                             <div class="mt-4">
                                 <h4>Social Links</h4>
-                                <div x-data="{ socialLinks: @json(isset($settings['social_links']) ? json_decode($settings['social_links'], true) : []) }">
+                                <div x-data="{
+                                    socialLinks: [
+                                        { name: 'Instagram', url: '{{ isset($socialLinks[0]['url']) ? $socialLinks[0]['url'] : '' }}' },
+                                        { name: 'X', url: '{{ isset($socialLinks[1]['url']) ? $socialLinks[1]['url'] : '' }}' },
+                                        { name: 'YouTube', url: '{{ isset($socialLinks[2]['url']) ? $socialLinks[2]['url'] : '' }}' },
+                                        { name: 'Facebook', url: '{{ isset($socialLinks[3]['url']) ? $socialLinks[3]['url'] : '' }}' }
+                                    ]
+                                }">
                                     <template x-for="(link, index) in socialLinks" :key="index">
                                         <div class="row mb-2">
                                             <div class="col-md-5">
-                                                <input type="text" x-model="link.name" class="form-control"
-                                                    placeholder="Social Media Name">
+                                                <!-- Static Social Media Names (Non-editable) -->
+                                                <input type="text" x-model="link.name" class="form-control" readonly>
                                             </div>
                                             <div class="col-md-5">
+                                                <!-- Input for Social Media URL -->
                                                 <input type="url" x-model="link.url" class="form-control"
                                                     placeholder="Social Media URL">
                                             </div>
-                                            <div class="col-md-2">
+                                            {{-- <div class="col-md-2">
                                                 <button type="button" class="btn btn-danger"
                                                     @click="socialLinks.splice(index, 1)">
                                                     <i class="fas fa-trash"></i>
                                                 </button>
-                                            </div>
+                                            </div> --}}
                                         </div>
                                     </template>
 
+                                    {{-- <!-- Button to Add New Social Link (if needed) -->
                                     <button type="button" class="btn btn-success mt-2"
                                         @click="socialLinks.push({ name: '', url: '' })">
                                         <i class="fas fa-plus"></i> Add Social Link
-                                    </button>
+                                    </button> --}}
 
+                                    <!-- Hidden Input to Store JSON data of Social Links -->
                                     <input type="hidden" name="social_links" x-model="JSON.stringify(socialLinks)">
                                 </div>
                             </div>
+
+
+
 
                             <!-- Submit Button -->
                             <button type="submit" class="btn btn-primary mt-4">Save Settings</button>
