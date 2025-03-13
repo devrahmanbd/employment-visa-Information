@@ -8,8 +8,8 @@
                 <div class="timeline-circle"></div>
             </div>
             <div class="timeline-content">
-                <p>This website is authorized and fully controlled by the Ministry of Interior https://www.moi.gov.kw (MOI),
-                    State of Kuwait and Ministry of Foreign Affairs https://www.mofa.gov.kw (MOFA), State of Kuwait.</p>
+                <p>This website is authorized and fully controlled by the Ministry of Interior <a href="https://www.moi.gov.kw">https://www.moi.gov.kw</a> (MOI),
+                    State of Kuwait and Ministry of Foreign Affairs <a href="https://www.mofa.gov.kw">https://www.mofa.gov.kw</a> (MOFA), State of Kuwait.</p>
             </div>
         </div>
         <div class="timeline-item">
@@ -23,12 +23,12 @@
                     easily download the copy of Employment Visa and can verify the
                     correctness of Employment Visa from this site after the Employment
                     Visa is issued. All types of Visas in Kuwait are issued by the
-                    Ministry of Interior <a href="#">https://www.moi.gov.kw</a> (MOI),
+                    Ministry of Interior <a href="https://www.moi.gov.kw">(https://www.moi.gov.kw)</a> (MOI),
                     Kuwait. But the Ministry of Interior
-                    <a href="#">https://www.moi.gov.kw</a> (MOI) does not provide the
+                    <a href="https://www.moi.gov.kw">(https://www.moi.gov.kw)</a> (MOI) does not provide the
                     facility to automatically download any Visa. Especially Employment
                     Visas have to be collected from the Visa Centre of the Ministry of
-                    Interior <a href="#">https://www.moi.gov.kw</a> (MOI) by the
+                    Interior <a href="https://www.moi.gov.kw">(https://www.moi.gov.kw)</a> (MOI) by the
                     Company's Public Relations Officer (PRO) or the Sponsor himself or
                     his/her authorized Representative..
                 </p>
@@ -40,12 +40,12 @@
                 <div class="timeline-circle"></div>
             </div>
             <div class="timeline-content">
-                <p>From March 3, 2024, the Ministry of Interior https://www.moi.gov.kw (MOI) and the Ministry of Foreign
-                    Affairs https://www.mofa.gov.kw (MOFA) have jointly instructed the Public Authority of Manpower, in
+                <p>From March 3, 2024, the Ministry of Interior <a href="https://www.moi.gov.kw">https://www.moi.gov.kw</a> (MOI) and the Ministry of Foreign
+                    Affairs <a href="https://www.mofa.gov.kw">https://www.mofa.gov.kw</a> (MOFA) have jointly instructed the Public Authority of Manpower, in
                     addition to the responsibility of granting visa Approvals, to download copies of Employment Visas by
                     allowing visa holders to fill in the necessary information and upload copies of all types of Employment
                     Visas online after verification. And from the mentioned time, Employment Visa holders can download
-                    Employment Visas issued by the Ministry of Interior https://www.moi.gov.kw (MOI), Kuwait by submitting
+                    Employment Visas issued by the Ministry of Interior <a href="https://www.moi.gov.kw">https://www.moi.gov.kw</a> (MOI), Kuwait by submitting
                     the necessary information on this site.</p>
             </div>
         </div>
