@@ -43,7 +43,8 @@ class VisaController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $visa = Visa::find($id); // Find the visa by the ID
+        return view('backend.pages.visa.show', compact('visa'));
     }
 
     /**

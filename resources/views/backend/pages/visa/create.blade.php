@@ -163,10 +163,10 @@
             <label>Occupation In English</label>
             <input type="text" name="occupation_en" value="{{ old('occupation_en') }}" placeholder="" class="form-control">
         </div>
-        <div class="col-md-12">
+        {{-- <div class="col-md-12">
             <label>Date of Birth</label>
             <input type="date" name="dob" value="{{ old('dob') }}" class="form-control">
-        </div>
+        </div> --}}
         <div class="col-md-12">
             <label>Passport No</label>
             <input type="text" name="passport_no" value="{{ old('passport_no') }}" placeholder="Enter Passport Number" class="form-control">
@@ -228,7 +228,7 @@
                 countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
                 countries.forEach(country => {
                     let option = document.createElement("option");
-                    option.value = country.cca2;
+                    option.value = country.name.common;
                     option.textContent = country.name.common;
                     nationalitySelect.appendChild(option);
                 });

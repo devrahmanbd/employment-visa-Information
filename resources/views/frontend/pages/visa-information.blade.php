@@ -88,7 +88,7 @@
             <div class="col-md-4 col-6 d-flex flex-column align-items-center gap-3">
                 <div class="card p-4 shadow-sm rounded border-0 d-flex flex-column align-items-center"
                     style="height: 300px; width: 100%; display: flex; justify-content: space-between;">
-                    <a href="" class="text-decoration-none">
+                    <a href="{{ route('visa-inquiry') }}" class="text-decoration-none">
                         <img src="{{ asset('images/Kuwait-Police-logo.png') }}" alt="Kuwait Police Logo"
                             class="img-fluid mb-3" style="max-width: 150px;">
                         <h5 class="text-primary text-center">Present Visa Status</h5>

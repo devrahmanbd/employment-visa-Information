@@ -25,6 +25,10 @@ Route::get('/contact',[ContactController::class,'index'])->name('contact');
 
 // Visa Inquiry page
 Route::get('/visa-inquiry',[VisaInquiryController::class, 'index'])->name('visa-inquiry');
+// visa find
+Route::get('/visa-find',[VisaInquiryController::class, 'find'])->name('visa.find');
+// visa details
+Route::get('/visa-details/{id}',[VisaInquiryController::class, 'details'])->name('visa.details');
 // Visa Email page
 Route::get('/visa-email',[VisaEmailController::class, 'index'])->name('visa-email');
 

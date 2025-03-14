@@ -37,6 +37,8 @@
                                 <td>
                                     <a href="{{ route('admin.visas.edit', $visa->id) }}"
                                         class="btn btn-primary btn-sm">Edit</a>
+
+                                        <a href="{{ route('admin.visas.show', $visa->id) }}" class="btn btn-info btn-sm">Show</a>
                                     <form action="{{ route('admin.visas.destroy', $visa->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf

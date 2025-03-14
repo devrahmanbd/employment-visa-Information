@@ -41,10 +41,13 @@
                             class="nav-link {{ request()->routeIs('about') ? 'active' : '' }}" href="#">About
                             us</a></li>
                     <li class="nav-item">
-                        <a href="{{ route('visa-information') }}" class="nav-link {{ request()->routeIs(['visa-information', 'visa-inquiry','visa-email']) ? 'active' : '' }}" href="#">Information of Visa</a>
+                        <a href="{{ route('visa-information') }}"
+                            class="nav-link {{ request()->routeIs(['visa-information', 'visa-inquiry', 'visa-email']) ? 'active' : '' }}"
+                            href="#">Information of Visa</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link  {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact us</a>
+                        <a class="nav-link  {{ request()->routeIs('contact') ? 'active' : '' }}"
+                            href="{{ route('contact') }}">Contact us</a>
                     </li>
                 </ul>
             </div>
