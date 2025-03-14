@@ -56,8 +56,6 @@
             .phone-input input {
                 flex: 1;
                 width: 100% !important;
-                min-width: 250px !important;
-                max-width: 700px !important;
             }
 
             .submit-btn {
@@ -77,7 +75,6 @@
                 transform: scale(1.02);
             }
 
-
             .char-counter {
                 font-size: 12px;
                 color: #666;
@@ -89,7 +86,6 @@
             .textarea-container {
                 position: relative;
             }
-
 
             @media (max-width: 768px) {
                 .email-form-container {
@@ -104,33 +100,50 @@
                 }
             }
         </style>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/css/intlTelInput.css">
     @endpush
+
     <div class="email-form-container">
-        <form class="email-form">
+        @if(session('success'))
+            <div class="alert alert-success">{{ session('success') }}</div>
+        @endif
+        @if($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
+
+        <form class="email-form" action="{{ route('message.store') }}" method="POST">
+            @csrf
             <div class="mb-3">
                 <label>Email Us</label>
             </div>
             <br>
             <div class="mb-3">
                 <label class="required">Name</label>
-                <input type="text" class="form-control" placeholder="Enter your name">
+                <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
             </div>
 
             <div class="mb-3">
                 <label class="required">Email</label>
-                <input type="email" class="form-control" placeholder="Enter your email">
+                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
             </div>
 
             <div class="mb-3">
                 <label>Phone Number</label>
                 <div class="phone-input">
-                    <input type="tel" id="phone" class="form-control">
+                    <input type="tel" name="phone_number" id="phone" class="form-control" required>
+                    <input type="hidden" name="full_phone_number" id="full_phone_number">
                 </div>
             </div>
 
             <div class="mb-3">
                 <label>Nationality</label>
-                <select id="nationality" class="form-control">
+                <select name="nationality" id="nationality" class="form-control" required>
                     <option value="" selected>Select Nationality</option>
                 </select>
             </div>
@@ -138,8 +151,8 @@
             <div class="mb-3">
                 <label>Subject</label>
                 <div class="textarea-container">
-                    <textarea id="subject" class="form-control" rows="4" placeholder="Enter your main text here"
-                        maxlength="500"></textarea>
+                    <textarea name="subject" id="subject" class="form-control" rows="4" placeholder="Enter your main text here"
+                        maxlength="500" required></textarea>
                     <span class="char-counter">500/500</span>
                 </div>
             </div>
@@ -147,9 +160,12 @@
             <button type="submit" class="submit-btn">Submit</button>
         </form>
     </div>
+
     @push('scripts')
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/intlTelInput.min.js"></script>
         <script>
             const phoneInputField = document.querySelector("#phone");
+            const fullPhoneInput = document.querySelector("#full_phone_number");
             const phoneInput = window.intlTelInput(phoneInputField, {
                 initialCountry: "auto",
                 geoIpLookup: function (success, failure) {
@@ -161,20 +177,22 @@
                 utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
             });
 
+            phoneInputField.addEventListener("blur", function () {
+                fullPhoneInput.value = phoneInput.getNumber();
+            });
+
             async function loadNationalities() {
                 try {
                     let response = await fetch("https://restcountries.com/v3.1/all");
                     let countries = await response.json();
                     let nationalitySelect = document.getElementById("nationality");
 
-
                     countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
 
                     countries.forEach(country => {
                         let option = document.createElement("option");
-                        option.value = country.cca2;
+                        option.value = country.name.common;
                         option.textContent = country.name.common;
-
                         nationalitySelect.appendChild(option);
                     });
                 } catch (error) {
@@ -183,7 +201,6 @@
             }
 
             document.addEventListener("DOMContentLoaded", loadNationalities);
-            loadNationalities();
 
             const textArea = document.getElementById("subject");
             const charCounter = document.querySelector(".char-counter");
@@ -193,6 +210,5 @@
                 charCounter.textContent = `${remaining}/500`;
             });
         </script>
-
     @endpush
 @endsection

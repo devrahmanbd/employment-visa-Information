@@ -134,6 +134,15 @@
                         </li>
                     </ul>
                 </li>
+                <li class="nav-item">
+                    <a href="{{ route('admin.messages.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.messages.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-message"></i>
+                        <p>
+                            Message
+                        </p>
+                    </a>
+                </li>
 
                 {{-- setting --}}
                 <li class="nav-item">

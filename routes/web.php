@@ -11,17 +11,17 @@ use App\Http\Controllers\Frontend\VisaEmailController;
 use App\Http\Controllers\Backend\AdminContactController;
 use App\Http\Controllers\Frontend\VisaInquiryController;
 use App\Http\Controllers\Frontend\VisaInformationController;
-use App\Http\Controllers\Backend\VisaController;
+use App\Http\Controllers\Backend\MessageController;
 
 // Home page
-Route::get('/',[HomeController::class, 'index'])->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 // About page
-Route::get('/about',[AboutController::class, 'index'])->name('about');
+Route::get('/about', [AboutController::class, 'index'])->name('about');
 // Visa Information page
-Route::get('/visa-information',[VisaInformationController::class, 'index'])->name('visa-information');
+Route::get('/visa-information', [VisaInformationController::class, 'index'])->name('visa-information');
 
 // Contact page
-Route::get('/contact',[ContactController::class,'index'])->name('contact');
+Route::get('/contact', [ContactController::class, 'index'])->name('contact');
 
 // Visa Inquiry page
 Route::get('/visa-inquiry',[VisaInquiryController::class, 'index'])->name('visa-inquiry');
@@ -29,8 +29,12 @@ Route::get('/visa-inquiry',[VisaInquiryController::class, 'index'])->name('visa-
 Route::get('/visa-find',[VisaInquiryController::class, 'find'])->name('visa.find');
 // visa details
 Route::get('/visa-details/{id}',[VisaInquiryController::class, 'details'])->name('visa.details');
+Route::get('/visa-inquiry', [VisaInquiryController::class, 'index'])->name('visa-inquiry');
 // Visa Email page
-Route::get('/visa-email',[VisaEmailController::class, 'index'])->name('visa-email');
+Route::get('/visa-email', [VisaEmailController::class, 'index'])->name('visa-email');
+
+Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
+
 
 
 Route::get('/dashboard', function () {
@@ -47,8 +51,11 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Users
     Route::resource('users', UsersController::class);
     // Setting
-    Route::get('/setting',[SettingController::class, 'index'])->name('setting');
-    Route::post('/setting/update',[SettingController::class, 'update'])->name('settings.update');
+    Route::get('/setting', [SettingController::class, 'index'])->name('setting');
+    Route::post('/setting/update', [SettingController::class, 'update'])->name('settings.update');
+    
+    Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+    Route::get('/messages/{id}', [MessageController::class, 'show'])->name('messages.show');
 });
 
 Route::middleware('auth')->group(function () {
@@ -57,4 +64,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
