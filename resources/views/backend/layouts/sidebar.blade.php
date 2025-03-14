@@ -49,34 +49,90 @@
                 </li>
 
                 {{-- visas --}}
+
                 <li class="nav-item">
-                    <a href="{{ route('admin.visas.index') }}"
-                        class="nav-link {{ request()->routeIs('admin.visas.index') ? 'active' : '' }}">
+                    <a href="#" class="nav-link {{ request()->routeIs('admin.visas.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-passport"></i>
                         <p>
                             Visas
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.visas.index') }}"
+                                class="nav-link {{ request()->routeIs('admin.visas.index') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Visas</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.visas.create') }}"
+                                class="nav-link {{ request()->routeIs('admin.visas.create') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Visa</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
+
+
+                {{-- contacts --}}
+
                 <li class="nav-item">
-                    <a href="{{ route('admin.contacts.index') }}"
+                    <a href="#"
                         class="nav-link {{ request()->routeIs('admin.contacts.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-address-book"></i>
                         <p>
-                            Contacts
+                            Contact
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.contacts.index') }}"
+                                class="nav-link {{ request()->routeIs('admin.contacts.index') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Contacts</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.contacts.create') }}"
+                                class="nav-link {{ request()->routeIs('admin.contacts.create') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Contact</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
+                {{-- users --}}
+
                 <li class="nav-item">
-                    <a href="{{ route('admin.users.index') }}"
-                        class="nav-link {{ request()->routeIs('admin.users.index') ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-user"></i>
+                    <a href="#" class="nav-link {{ request()->routeIs('admin.users.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-users"></i>
                         <p>
                             Users
+                            <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.users.index') }}"
+                                class="nav-link {{ request()->routeIs('admin.users.index') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Users</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.users.create') }}"
+                                class="nav-link {{ request()->routeIs('admin.users.create') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add User</p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 {{-- setting --}}
