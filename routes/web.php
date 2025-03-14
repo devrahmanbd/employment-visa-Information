@@ -35,7 +35,11 @@ Route::get('/dashboard', function () {
 // route group for authenticated users
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
+    // Visa
+    Route::resource('visas', VisaController::class);
+    // Contact
     Route::resource('contacts', AdminContactController::class);
+    // Users
     Route::resource('users', UsersController::class);
     // Setting
     Route::get('/setting',[SettingController::class, 'index'])->name('setting');
