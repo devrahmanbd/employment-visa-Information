@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Employment Visa Information - Kuwait</title>
+    <title>{{ $setting['site_title'] ?? 'Employment Visa Information - Kuwait' }}</title>
     @include('frontend.includes.styles')
 
 </head>
@@ -17,11 +17,11 @@
         </div>
     </div>
     <div class="title-container">
-        <img src="{{ asset('images/logo-left.png') }}" alt="Left Image">
+        <img src="{{ asset($setting['left_logo']) }}" alt="Left Image">
         <div class="title-section">
             Employment Visa Information - Kuwait
         </div>
-        <img src="{{ asset('images/logo-right.png') }}" alt="Right Image">
+        <img src="{{ asset($setting['right_logo']) }}" alt="Right Image">
     </div>
 
 
@@ -78,10 +78,7 @@
                 <div class="col-lg-4 col-md-6 footer-section">
                     <h3>Physical Location</h3>
                     <ul>
-                        <li>Public Authority of Manpower</li>
-                        <li>PO Box# 13025</li>
-                        <li>Ibrahim Husain Al Ma'rafi Street</li>
-                        <li>Jabriya, Kuwait</li>
+                        <li>{{ $setting['address'] }}</li>
                     </ul>
                 </div>
 
@@ -94,14 +91,17 @@
 
             <hr class="footer-hr" />
             <div class="social-icons">
-                <a href="#"><img src="Images/icons8-instagram-100.png" width="40px" alt="Instagram"
-                        class="social-img"></a>
-                <a href="#"><img src="Images/icons8-x-50.png" width="40px" alt="X"
-                        class="social-img"></a>
-                <a href="#"><img src="Images/icons8-youtube-48.png" width="40px" alt="YouTube"
-                        class="social-img"></a>
-                <a href="#"><img src="Images/icons8-facebook-48.png" alt="Facebook" width="40px"
-                        class="social-img"></a>
+                @php
+                    $socialLinks = json_decode($setting['social_links'], true);
+                @endphp
+                <a href="{{ $socialLinks[0]['url'] }}"><img src="{{ asset('images/icons8-instagram-100.png') }}"
+                        width="40px" alt="Instagram" class="social-img"></a>
+                <a href="{{ $socialLinks[1]['url'] }}"><img src="{{ asset('images/icons8-x-50.png') }}" width="40px"
+                        alt="X" class="social-img"></a>
+                <a href="{{ $socialLinks[2]['url'] }}"><img src="{{ asset('images/icons8-youtube-48.png') }}"
+                        width="40px" alt="YouTube" class="social-img"></a>
+                <a href="{{ $socialLinks[3]['url'] }}"><img src="{{ asset('images/icons8-facebook-48.png') }}"
+                        alt="Facebook" width="40px" class="social-img"></a>
             </div>
             <div class="copyright">
                 All rights reserved to the Public Authority of Manpower ©
