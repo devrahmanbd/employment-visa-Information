@@ -2,7 +2,7 @@
 
 @section('content')
 <div class="container mt-4">
-    <div class="email-form-container p-4"> {{-- Matching background color and styling --}}
+    <div class="email-form-container p-4"> 
         <h2 class="mb-4">Message Details</h2>
         <div class="card bg-white shadow-sm p-4 rounded">
             <p><strong>Name:</strong> {{ $message->name }}</p>
@@ -11,7 +11,7 @@
             <p><strong>Nationality:</strong> {{ $message->nationality }}</p>
             <p><strong>Subject:</strong></p>
             <p class="border p-3 rounded bg-light">{{ $message->subject }}</p>
-            <a href="{{ route('messages.index') }}" class="btn btn-primary">Back</a>
+            <a href="{{ route('admin.messages.index') }}" class="btn btn-primary">Back</a>
         </div>
     </div>
 </div>
@@ -20,7 +20,7 @@
 <style>
     .email-form-container {
         max-width: 80%;
-        background-color: #eef7ee; /* Matching form background */
+        background-color: #eef7ee; 
         padding: 30px;
         border-radius: 15px;
         box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);

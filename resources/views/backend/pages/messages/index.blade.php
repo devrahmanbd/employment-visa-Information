@@ -30,7 +30,7 @@
                             </span>
                         </td>
                         <td>
-                            <a href="{{ route('messages.show', $message->id) }}" class="btn btn-sm btn-primary">
+                            <a href="{{ route('admin.messages.show', $message->id) }}" class="btn btn-sm btn-primary">
                                 Read
                             </a>
                         </td>
