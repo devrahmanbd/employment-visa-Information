@@ -1,0 +1,49 @@
+<?php
+
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class extends Migration
+{
+    /**
+     * Run the migrations.
+     */
+   public function up()
+{
+    Schema::create('visas', function (Blueprint $table) {
+        $table->id();
+        $table->string('visa_number');
+        $table->string('visa_type_ar');
+        $table->string('visa_type_en');
+        $table->string('visa_purpose_ar');
+        $table->string('visa_purpose_en');
+        $table->date('issue_date');
+        $table->date('expiry_date');
+        $table->string('place_of_issue');
+        $table->string('full_name_ar');
+        $table->string('full_name_en');
+        $table->string('moi_reference')->nullable();
+        $table->string('nationality');
+        $table->string('gender');
+        $table->string('occupation_ar');
+        $table->string('occupation_en');
+        $table->date('dob');
+        $table->string('passport_no');
+        $table->string('passport_type');
+        $table->string('company_name_ar');
+        $table->string('company_moi_reference')->nullable();
+        $table->string('mobile_number');
+        $table->text('message')->nullable();
+        $table->timestamps();
+    });
+}
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::dropIfExists('visas');
+    }
+};

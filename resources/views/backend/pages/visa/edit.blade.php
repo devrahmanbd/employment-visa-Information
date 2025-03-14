@@ -68,7 +68,7 @@
     @endpush
 
     <div class="visa-form-container">
-        <h2 class="text-center">Add Visa Form</h2>
+        <h2 class="text-center">Edit Visa Form</h2>
 
         <!-- Displaying All Errors at the Top -->
         @if ($errors->any())
@@ -81,43 +81,44 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.visas.store') }}" method="POST" class="visa-form">
+        <form action="{{ route('admin.visas.update', $visa->id) }}" method="POST" class="visa-form">
             @csrf
+            @method('PUT')
 
             <div class="section-heading">Visa Details (ﺑﻴﺎﻧﺎت اﻟﺘﺄﺷﻴﺮة)</div>
             <hr>
             <div class="row">
                 <div class="col-md-12 ">
                     <label>Visa Number</label>
-                    <input type="text" name="visa_number" placeholder="Enter Visa Number" class="form-control">
+                    <input type="text" name="visa_number" value="{{ old('visa_number', $visa->visa_number) }}" class="form-control">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Visa Type In Arabic </label>
-                    <input type="text" name="visa_type_ar" placeholder="نوع التأشيرة" class="form-control">
+                    <input type="text" name="visa_type_ar" value="{{ old('visa_type_ar', $visa->visa_type_ar) }}" class="form-control">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Visa Type In English </label>
-                    <input type="text" name="visa_type_en" placeholder="visa type" class="form-control">
+                    <input type="text" name="visa_type_en" value="{{ old('visa_type_en', $visa->visa_type_en) }}" class="form-control">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Visa Purpose In Arabic</label>
-                    <input type="text" name="visa_purpose_ar" placeholder="الغرض من التأشيرة" class="form-control">
+                    <input type="text" name="visa_purpose_ar" value="{{ old('visa_purpose_ar', $visa->visa_purpose_ar) }}" class="form-control">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Visa Purpose In English</label>
-                    <input type="text" name="visa_purpose_en" placeholder="Visa Purpose" class="form-control">
+                    <input type="text" name="visa_purpose_en" value="{{ old('visa_purpose_en', $visa->visa_purpose_en) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label>Date of Issue</label>
-                    <input type="date" name="issue_date" class="form-control">
+                    <input type="date" name="issue_date" value="{{ old('issue_date', $visa->issue_date) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label>Date Of Expiry</label>
-                    <input type="date" name="expiry_date" class="form-control">
+                    <input type="date" name="expiry_date" value="{{ old('expiry_date', $visa->expiry_date) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label>Place of Issue In Arabic </label>
-                    <input type="text" name="place_of_issue" placeholder="Place Of Issue in Arabic" class="form-control">
+                    <input type="text" name="place_of_issue" value="{{ old('place_of_issue', $visa->place_of_issue) }}" class="form-control">
                 </div>
             </div>
 
@@ -126,66 +127,65 @@
             <div class="row">
                 <div class="col-md-6 mb-3">
                     <label>Full Name in Arabic</label>
-                    <input type="text" name="full_name_ar" placeholder="الاسم الكامل" class="form-control">
+                    <input type="text" name="full_name_ar" value="{{ old('full_name_ar', $visa->full_name_ar) }}" class="form-control">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Full Name in English</label>
-                    <input type="text" name="full_name_en" placeholder="Full Name" class="form-control">
+                    <input type="text" name="full_name_en" value="{{ old('full_name_en', $visa->full_name_en) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label>MOI Reference</label>
-                    <input type="text" name="moi_reference" placeholder="Enter MOI Reference" class="form-control">
+                    <input type="text" name="moi_reference" value="{{ old('moi_reference', $visa->moi_reference) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label>Nationality</label>
                     <select id="nationality" name="nationality" class="form-control">
                         <option value="">Select Nationality</option>
+                        {{-- @foreach ($countries as $country)
+                            <option value="{{ $country['cca2'] }}" {{ $visa->nationality == $country['cca2'] ? 'selected' : '' }}>
+                                {{ $country['name']['common'] }}
+                            </option>
+                        @endforeach --}}
                     </select>
                 </div>
                 <div class="col-md-12">
-                    <label>Date of Issue</label>
-                    <input type="date" name="dob" class="form-control">
+                    <label>Date of Birth</label>
+                    <input type="date" name="dob" value="{{ old('dob', $visa->dob) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label>Gender</label>
                     <select name="gender" class="form-control">
-                        <option value="">Select Gender</option>
-                        <option value="Male">Male</option>
-                        <option value="Female">Female</option>
+                        <option value="Male" {{ $visa->gender == 'Male' ? 'selected' : '' }}>Male</option>
+                        <option value="Female" {{ $visa->gender == 'Female' ? 'selected' : '' }}>Female</option>
                     </select>
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Occupation In Arabic</label>
-                    <input type="text" name="occupation_ar" placeholder="" class="form-control">
+                    <input type="text" name="occupation_ar" value="{{ old('occupation_ar', $visa->occupation_ar) }}" class="form-control">
                 </div>
                 <div class="col-md-6 mb-3">
                     <label>Occupation In English</label>
-                    <input type="text" name="occupation_en" placeholder="" class="form-control">
+                    <input type="text" name="occupation_en" value="{{ old('occupation_en', $visa->occupation_en) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
-                    <label>Date of Birth</label>
-                    <input type="date" name="dob" class="form-control">
-                </div>
-                <div class="col-md-12 ">
                     <label>Passport No</label>
-                    <input type="text" name="passport_no" placeholder="Enter Passport Number" class="form-control">
+                    <input type="text" name="passport_no" value="{{ old('passport_no', $visa->passport_no) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label>Place Of Issue</label>
-                    <input type="text" name="place_issue" placeholder="Enter Place Of Issue" class="form-control">
+                    <input type="text" name="place_issue" value="{{ old('place_issue', $visa->place_issue) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label>Passport Type</label>
                     <select name="passport_type" class="form-control">
-                        <option value="">Select type</option>
-                        <option value="Diplomatic">Diplomatic</option>
-                        <option value="Official">Official</option>
-                        <option value="Normal">Normal</option>
+                        <option value="Diplomatic" {{ $visa->passport_type == 'Diplomatic' ? 'selected' : '' }}>Diplomatic</option>
+                        <option value="Official" {{ $visa->passport_type == 'Official' ? 'selected' : '' }}>Official</option>
+                        <option value="Normal" {{ $visa->passport_type == 'Normal' ? 'selected' : '' }}>Normal</option>
                     </select>
                 </div>
                 <div class="col-md-12">
-                    <label>Expiry Date</label>
-                    <input type="date" name="expiry_date" class="form-control">
+                    <label>Passport Expiry Date</label>
+                    <input type="date" name="passport_expiry_date" value="{{ old('passport_expiry_date', $visa->passport_expiry_date) }}" class="form-control">
                 </div>
             </div>
 
@@ -194,28 +194,26 @@
             <div class="row">
                 <div class="col-md-12">
                     <label>Full Name of Company in Arabic</label>
-                    <input type="text" name="company_name_ar" placeholder="Enter Full Name of Company in Arabic"
-                        class="form-control">
+                    <input type="text" name="company_name_ar" value="{{ old('company_name_ar', $visa->company_name_ar) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label>MOI Reference</label>
-                    <input type="text" name="company_moi_reference" placeholder="Enter MOI Reference"
-                        class="form-control">
+                    <input type="text" name="company_moi_reference" value="{{ old('company_moi_reference', $visa->company_moi_reference) }}" class="form-control">
                 </div>
                 <div class="col-md-12">
                     <label>Mobile Number</label>
-                    <input type="text" name="mobile_number" placeholder="Enter Mobile Number" class="form-control">
+                    <input type="text" name="mobile_number" value="{{ old('mobile_number', $visa->mobile_number) }}" class="form-control">
                 </div>
             </div>
 
             <div class="section-heading">Message</div>
             <div class="row">
                 <div class="col-md-12 mb-3">
-                    <textarea name="message" placeholder="Enter Message" class="form-control"></textarea>
+                    <textarea name="message" placeholder="Enter Message" class="form-control">{{ old('message', $visa->message) }}</textarea>
                 </div>
             </div>
 
-            <button type="submit" class="submit-btn">Add Visa</button>
+            <button type="submit" class="submit-btn">Update Visa</button>
         </form>
     </div>
 

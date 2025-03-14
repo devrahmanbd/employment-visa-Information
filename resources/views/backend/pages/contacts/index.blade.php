@@ -7,7 +7,7 @@
                 <div class="card shadow">
                     <div class="card-header d-flex justify-content-between align-items-center">
                         <h3 class="card-title">Contact List</h3>
-                        <a href="{{ route('admin.contacts.create') }}" class="btn btn-primary">
+                        <a href="{{ route('admin.contacts.create') }}" class="btn bg-info">
                             <i class="fas fa-plus"></i> Add New Contact
                         </a>
                     </div>
@@ -15,7 +15,7 @@
                     <div class="card-body">
 
                         <table class="table table-bordered table-striped">
-                            <thead class="bg-primary text-white">
+                            <thead class="bg-info text-white">
                                 <tr>
                                     <th>#SL</th>
                                     <th>Name</th>

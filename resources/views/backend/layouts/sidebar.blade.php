@@ -48,6 +48,16 @@
                     </a>
                 </li>
 
+                {{-- visas --}}
+                <li class="nav-item">
+                    <a href="{{ route('admin.visas.index') }}"
+                        class="nav-link {{ request()->routeIs('admin.visas.index') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-passport"></i>
+                        <p>
+                            Visas
+                        </p>
+                    </a>
+                </li>
 
                 <li class="nav-item">
                     <a href="{{ route('admin.contacts.index') }}"
