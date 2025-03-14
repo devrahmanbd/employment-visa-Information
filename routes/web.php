@@ -11,7 +11,7 @@ use App\Http\Controllers\Frontend\VisaEmailController;
 use App\Http\Controllers\Backend\AdminContactController;
 use App\Http\Controllers\Frontend\VisaInquiryController;
 use App\Http\Controllers\Frontend\VisaInformationController;
-use App\Http\Controllers\Backend\VisaController;
+use App\Http\Controllers\Backend\MessageController;
 
 // Home page
 Route::get('/',[HomeController::class, 'index'])->name('home');
@@ -27,6 +27,10 @@ Route::get('/contact',[ContactController::class,'index'])->name('contact');
 Route::get('/visa-inquiry',[VisaInquiryController::class, 'index'])->name('visa-inquiry');
 // Visa Email page
 Route::get('/visa-email',[VisaEmailController::class, 'index'])->name('visa-email');
+
+Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
+Route::get('/messages', [MessageController::class, 'index'])->name('messages.index');
+Route::get('/messages/{id}', [MessageController::class, 'show'])->name('messages.show');
 
 
 Route::get('/dashboard', function () {
