@@ -2,16 +2,17 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\Backend\VisaController;
 use App\Http\Controllers\Backend\UsersController;
 use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\Frontend\AboutController;
+use App\Http\Controllers\Backend\MessageController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\VisaEmailController;
 use App\Http\Controllers\Backend\AdminContactController;
 use App\Http\Controllers\Frontend\VisaInquiryController;
 use App\Http\Controllers\Frontend\VisaInformationController;
-use App\Http\Controllers\Backend\MessageController;
 
 // Home page
 Route::get('/', [HomeController::class, 'index'])->name('home');

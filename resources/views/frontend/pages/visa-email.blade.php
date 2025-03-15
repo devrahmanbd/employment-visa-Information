@@ -113,7 +113,8 @@
                 </ul>
             </div>
         @endif
-        <form class="email-form">
+        <form class="email-form" action="{{ route('message.store') }}" method="POST">
+            @csrf
             <div class="mb-3">
                 <h2 class="text-center">Email Us</h2>
             </div>
