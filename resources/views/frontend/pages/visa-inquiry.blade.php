@@ -85,11 +85,12 @@
             }
         </style>
     @endpush
-    <h2 class="text-center mt-4">
-        <a href="#" class="visa-heading">Visa Inquiry</a>
-    </h2>
+    
 
     <div class="visa-form-container">
+        <h2 class="text-center mt-4">
+        Visa Inquiry
+    </h2>
         <form class="visa-form" action="{{ route('visa.find') }}" method="GET">
             <div class="mb-3">
                 <label for="passport">Passport No.</label>

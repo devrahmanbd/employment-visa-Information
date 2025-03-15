@@ -6,7 +6,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ $setting['site_title'] ?? 'Employment Visa Information - Kuwait' }}</title>
     @include('frontend.includes.styles')
-
+    <style>
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
 </head>
 
 <body>
@@ -78,7 +82,7 @@
                 <div class="col-lg-4 col-md-6 footer-section">
                     <h3 class="fw-bold">Physical Location</h3>
                     <ul>
-                        <li>{{ $setting['address'] }}</li>
+                        <li>{!! nl2br(e($setting['address'])) !!}</li>
                     </ul>
                 </div>
 
@@ -89,7 +93,7 @@
                 </div>
             </div>
 
-            <hr class="footer-hr" />
+            <hr class="footer-hr m-0" />
             <div class="social-icons">
                 @php
                     $socialLinks = json_decode($setting['social_links'], true);
