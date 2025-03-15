@@ -66,7 +66,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-4 col-md-6 footer-section">
-                    <h3>Feature</h3>
+                    <h3 class="fw-bold">Feature</h3>
                     <ul>
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('about') }}">About us</a></li>
@@ -76,7 +76,7 @@
                 </div>
 
                 <div class="col-lg-4 col-md-6 footer-section">
-                    <h3>Physical Location</h3>
+                    <h3 class="fw-bold">Physical Location</h3>
                     <ul>
                         <li>{{ $setting['address'] }}</li>
                     </ul>
