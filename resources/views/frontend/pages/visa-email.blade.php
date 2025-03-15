@@ -106,9 +106,18 @@
         </style>
     @endpush
     <div class="email-form-container">
+         @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form class="email-form">
             <div class="mb-3">
-                <label>Email Us</label>
+                <h2 class="text-center">Email Us</h2>
             </div>
             <br>
             <div class="mb-3">
@@ -146,13 +155,26 @@
 
             <button type="submit" class="submit-btn">Submit</button>
         </form>
+        @if (session('success'))
+            <script>
+                document.addEventListener("DOMContentLoaded", function() {
+                    Swal.fire({
+                        icon: 'success',
+                        title: 'Success!',
+                        text: "{{ session('success') }}",
+                        showConfirmButton: false,
+                        timer: 3000
+                    });
+                });
+            </script>
+        @endif
     </div>
     @push('scripts')
         <script>
             const phoneInputField = document.querySelector("#phone");
             const phoneInput = window.intlTelInput(phoneInputField, {
                 initialCountry: "auto",
-                geoIpLookup: function (success, failure) {
+                geoIpLookup: function(success, failure) {
                     fetch("https://ipapi.co/json")
                         .then(res => res.json())
                         .then(data => success(data.country_code))
@@ -188,7 +210,7 @@
             const textArea = document.getElementById("subject");
             const charCounter = document.querySelector(".char-counter");
 
-            textArea.addEventListener("input", function () {
+            textArea.addEventListener("input", function() {
                 let remaining = 500 - this.value.length;
                 charCounter.textContent = `${remaining}/500`;
             });
