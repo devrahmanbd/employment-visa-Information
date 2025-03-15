@@ -3,4 +3,5 @@
 return [
     App\Providers\AppServiceProvider::class,
     App\Providers\GlobalSettingsServiceProvider::class,
+    Mews\Captcha\CaptchaServiceProvider::class
 ];

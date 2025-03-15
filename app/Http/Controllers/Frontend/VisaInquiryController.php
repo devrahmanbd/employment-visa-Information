@@ -26,6 +26,7 @@ class VisaInquiryController extends Controller
             'passport_no' => 'required|string',
             'dob' => 'required|date',
             'nationality' => 'required|string',
+            'captcha' => 'required|captcha',
         ]);
 
         // Find visa by passport number, date of birth, and nationality

@@ -36,6 +36,10 @@ Route::get('/visa-email', [VisaEmailController::class, 'index'])->name('visa-ema
 
 Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
 
+// captcha
+Route::get('/captcha', function () {
+    return Captcha::create();
+});
 
 
 Route::get('/dashboard', function () {

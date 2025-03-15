@@ -83,18 +83,49 @@
                     padding: 12px;
                 }
             }
+
+            .captcha-box {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                background: #f8f9fa;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .captcha-box img {
+                border: 1px solid #ddd;
+                border-radius: 5px;
+            }
+
+            .captcha-refresh {
+                cursor: pointer;
+                font-size: 20px;
+                color: #007bff;
+            }
         </style>
     @endpush
-    
+
 
     <div class="visa-form-container">
         <h2 class="text-center mt-4">
-        Visa Inquiry
-    </h2>
+            Visa Inquiry
+        </h2>
         <form class="visa-form" action="{{ route('visa.find') }}" method="GET">
+            {{-- any error will be shown here --}}
+            @if ($errors->any())
+                <div class="alert alert-danger">
+                    <ul>
+                        @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                        @endforeach
+                    </ul>
+                </div>
+            @endif
             <div class="mb-3">
                 <label for="passport">Passport No.</label>
-                <input type="text" name="passport_no" id="passport" class="form-control" placeholder="Enter Passport No" value="{{ old('passport_no') }}">
+                <input type="text" name="passport_no" id="passport" class="form-control" placeholder="Enter Passport No"
+                    value="{{ old('passport_no') }}">
             </div>
 
             <div class="mb-3">
@@ -113,13 +144,24 @@
 
             <div class="mb-3">
                 <label for="captcha">Enter Captcha</label>
-                <input type="text" id="captcha" class="form-control" placeholder="Enter Captcha Here">
+                <input type="text" id="captcha" name="captcha" class="form-control mb-2"
+                    placeholder="Enter Captcha Here">
+
+                <div class="captcha-box">
+                    <img src="{{ url('/captcha') }}" id="captchaImage">
+                    <span class="captcha-refresh" onclick="reloadCaptcha()">⟳</span>
+                </div>
             </div>
 
             <button type="submit" class="submit-btn">Submit and Find</button>
         </form>
     </div>
     @push('scripts')
+        <script>
+            function reloadCaptcha() {
+                document.getElementById('captchaImage').src = "{{ url('/captcha') }}?" + Math.random();
+            }
+        </script>
         <script>
             async function loadNationalities() {
                 try {
