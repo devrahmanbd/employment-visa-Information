@@ -148,8 +148,7 @@
                     placeholder="Enter Captcha Here">
 
                 <div class="captcha-box">
-                    <img src="{{ url('/captcha') }}" id="captchaImage">
-                    <span class="captcha-refresh" onclick="reloadCaptcha()">⟳</span>
+                    @captcha
                 </div>
             </div>
 

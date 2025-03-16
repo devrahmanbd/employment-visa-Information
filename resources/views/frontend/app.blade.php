@@ -10,6 +10,14 @@
         html {
             scroll-behavior: smooth;
         }
+
+        /* Prevent Text Selection */
+        body {
+            user-select: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+        }
     </style>
 </head>
 
@@ -140,6 +148,24 @@
 
         // Update every second
         setInterval(updateDateTime, 1000);
+    </script>
+    <script>
+        document.addEventListener('copy', function(event) {
+            event.preventDefault();
+            alert('Copying content is disabled.');
+        });
+
+        document.addEventListener('cut', function(event) {
+            event.preventDefault();
+            alert('Cutting content is disabled.');
+        });
+
+        document.addEventListener('keydown', function(event) {
+            if (event.ctrlKey && (event.key === 'c' || event.key === 'x')) {
+                event.preventDefault();
+                alert('Copy & Cut functions are disabled.');
+            }
+        });
     </script>
 </body>
 
