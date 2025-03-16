@@ -220,22 +220,30 @@
     </div>
 
     <script>
-        async function loadNationalities() {
-            try {
-                let response = await fetch("https://restcountries.com/v3.1/all");
-                let countries = await response.json();
-                let nationalitySelect = document.getElementById("nationality");
-                countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
-                countries.forEach(country => {
-                    let option = document.createElement("option");
-                    option.value = country.name.common;
-                    option.textContent = country.name.common;
-                    nationalitySelect.appendChild(option);
-                });
-            } catch (error) {
-                console.error("Error fetching country list:", error);
+            async function loadNationalities() {
+                try {
+                    let response = await fetch("https://restcountries.com/v3.1/all");
+                    let countries = await response.json();
+                    let nationalitySelect = document.getElementById("nationality");
+                    countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
+
+                    countries.forEach(country => {
+                        let englishName = country.name.common;
+                        let arabicName = country.translations?.ara?.common || "";
+
+                        let option = document.createElement("option");
+
+
+                        option.value = englishName;
+                        option.textContent = arabicName ? `${englishName} - ${arabicName}` : englishName;
+
+                        nationalitySelect.appendChild(option);
+                    });
+                } catch (error) {
+                    console.error("Error fetching country list:", error);
+                }
             }
-        }
-        document.addEventListener("DOMContentLoaded", loadNationalities);
-    </script>
+
+            document.addEventListener("DOMContentLoaded", loadNationalities);
+        </script>
 @endsection

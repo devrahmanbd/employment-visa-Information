@@ -164,19 +164,20 @@
         <script>
             async function loadNationalities() {
                 try {
-
                     let response = await fetch("https://restcountries.com/v3.1/all");
                     let countries = await response.json();
                     let nationalitySelect = document.getElementById("nationality");
-
-
                     countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
 
-
                     countries.forEach(country => {
+                        let englishName = country.name.common;
+                        let arabicName = country.translations?.ara?.common || "";
+
                         let option = document.createElement("option");
-                        option.value = country.name.common;
-                        option.textContent = country.name.common;
+
+
+                        option.value = englishName;
+                        option.textContent = arabicName ? `${englishName} - ${arabicName}` : englishName;
 
                         nationalitySelect.appendChild(option);
                     });

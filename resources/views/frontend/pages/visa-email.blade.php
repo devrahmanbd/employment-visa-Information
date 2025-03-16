@@ -104,7 +104,7 @@
     @endpush
 
     <div class="email-form-container">
-         @if ($errors->any())
+        @if ($errors->any())
             <div class="alert alert-danger">
                 <ul>
                     @foreach ($errors->all() as $error)
@@ -186,30 +186,9 @@
                 utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js"
             });
 
-            phoneInputField.addEventListener("blur", function () {
+            phoneInputField.addEventListener("blur", function() {
                 fullPhoneInput.value = phoneInput.getNumber();
             });
-
-            async function loadNationalities() {
-                try {
-                    let response = await fetch("https://restcountries.com/v3.1/all");
-                    let countries = await response.json();
-                    let nationalitySelect = document.getElementById("nationality");
-
-                    countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
-
-                    countries.forEach(country => {
-                        let option = document.createElement("option");
-                        option.value = country.name.common;
-                        option.textContent = country.name.common;
-                        nationalitySelect.appendChild(option);
-                    });
-                } catch (error) {
-                    console.error("Error fetching country list:", error);
-                }
-            }
-
-            document.addEventListener("DOMContentLoaded", loadNationalities);
 
             const textArea = document.getElementById("subject");
             const charCounter = document.querySelector(".char-counter");
@@ -218,6 +197,34 @@
                 let remaining = 500 - this.value.length;
                 charCounter.textContent = `${remaining}/500`;
             });
+        </script>
+
+        <script>
+            async function loadNationalities() {
+                try {
+                    let response = await fetch("https://restcountries.com/v3.1/all");
+                    let countries = await response.json();
+                    let nationalitySelect = document.getElementById("nationality");
+                    countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
+
+                    countries.forEach(country => {
+                        let englishName = country.name.common;
+                        let arabicName = country.translations?.ara?.common || "";
+
+                        let option = document.createElement("option");
+
+
+                        option.value = englishName;
+                        option.textContent = arabicName ? `${englishName} - ${arabicName}` : englishName;
+
+                        nationalitySelect.appendChild(option);
+                    });
+                } catch (error) {
+                    console.error("Error fetching country list:", error);
+                }
+            }
+
+            document.addEventListener("DOMContentLoaded", loadNationalities);
         </script>
     @endpush
 @endsection
