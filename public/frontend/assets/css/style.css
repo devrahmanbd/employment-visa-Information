@@ -1,5 +1,5 @@
 body {
-    font-family: Arial, sans-serif;
+      font-family: 'Cairo', sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -67,8 +67,16 @@ body {
     font-weight: bold;
 }
 
+a.nav-link {
+    padding: 0px;
+}
+
+a {
+    text-decoration: none;
+}
+
 .main-content {
-    padding: 20px;
+    padding: 10px;
     background-color: white;
 }
 
@@ -321,8 +329,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 30px;
-    height: 180px;
+    padding: 10px 30px;
+    height: 150px;
 }
 
 .title-container img {
@@ -425,8 +433,8 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 45px;
-    height: 45px;
+    width: 35px;
+    height: 35px;
     border-radius: 50%;
     overflow: hidden;
 }

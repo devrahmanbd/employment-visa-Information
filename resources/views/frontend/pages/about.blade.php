@@ -128,6 +128,10 @@
             .blue-theme span {
                 color: blue !important;
             }
+
+            a {
+                text-decoration: none;
+            }
         </style>
     @endpush
     <div class="">
@@ -489,7 +493,8 @@
             </div>
         </div>
         <div class="">
-            <p class="fst-italic fw-bold">The Approval Copy provides a new Employment Visa holder with all the correct information,
+            <p class="fst-italic fw-bold">The Approval Copy provides a new Employment Visa holder with all the correct
+                information,
                 including permission to enter the State of Kuwait, many of which are not recorded on the Visa. The Approval
                 Copy is issued by the Public Authority of Manpower along with the issuance of the Employment Visa.</p>
         </div>
