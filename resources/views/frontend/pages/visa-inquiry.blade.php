@@ -179,8 +179,14 @@
                         option.value = englishName;
                         option.textContent = arabicName ? `${englishName} - ${arabicName}` : englishName;
 
-    document.addEventListener("DOMContentLoaded", loadNationalities);
-</script>
+                        nationalitySelect.appendChild(option);
+                    });
+                } catch (error) {
+                    console.error("Error fetching country list:", error);
+                }
+            }
 
+            document.addEventListener("DOMContentLoaded", loadNationalities);
+        </script>
     @endpush
 @endsection
