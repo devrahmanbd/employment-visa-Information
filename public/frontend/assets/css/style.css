@@ -374,7 +374,7 @@ a.nav-link {
     color: white !important;
     font-size: 1.3rem;
     position: relative;
-    padding-bottom: 3px;
+    padding-bottom: 1px;
     display: inline-block;
 }
 
@@ -530,7 +530,7 @@ a.nav-link {
 
 /* max 400 px */
 @media screen and (max-width: 400px) {
-   .timeline {
+    .timeline {
         padding-left: 2px;
     }
 
@@ -551,11 +551,9 @@ a.nav-link {
     }
 
     .timeline-circle {
-    width: 8px;
-    height: 8px;
-}
-    
-    
+        width: 8px;
+        height: 8px;
+    }
 }
 
 h1 {
@@ -714,7 +712,7 @@ ul {
     }
 }
 @media screen and (max-width: 1100px) {
-    .title-container{
+    .title-container {
         overflow: auto;
     }
 }
