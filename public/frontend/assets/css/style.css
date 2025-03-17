@@ -321,7 +321,7 @@ a {
 .footer-hr {
     border: none;
     height: 3px;
-    background: linear-gradient(to right, #fffffe, #fdfdfd);
+    background: #ffffff;
     /* margin: 20px auto; */
     border-radius: 5px;
 }
