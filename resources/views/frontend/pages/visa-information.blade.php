@@ -4,15 +4,15 @@
     <div class="timeline">
         <h2 class="fw-bold"><ins>eVisa (Electronic Visa) checking rules</ins>:</h2>
 
-        <p class="">To check your Electronic Visa (eVisa), you can install the <a href="https://kuwaitvisa.moi.gov.kw/"
-                target="_blank">Kuwait Visa app</a> on your Android
+        <p class="">To check your Electronic Visa (eVisa), you can install the <a
+                href="https://kuwaitvisa.moi.gov.kw/">Kuwait Visa app</a> on your Android
             operating system-powered smart phone by going to the Google Play Store or Apple iPhone's App Store. </p>
         <div class="timeline-item">
             <div class="timeline-icon">
                 <div class="timeline-circle"></div>
             </div>
             <div class="timeline-content">
-                <p>Then click on the <a href="{{ route('visa-inquiry') }}" target="_blank">Inquiry-Visa Inquiries</a>
+                <p>Then click on the <a href="{{ route('visa-inquiry') }}">Inquiry-Visa Inquiries</a>
                     option and enter all the information of Visa Number, MOI
                     Reference (Only Reference is written on the Employment Visa) and Passport Number and click on the
                     Inquiry option written in blue. <br> <br>
@@ -49,8 +49,8 @@
         <div class="">
             <h2 class="fw-bold"><ins>Manual Employment Visa checking rules</ins>:</h2>
             <p>
-                To check all information thoroughly,<a href="https://rnt.moi.gov.kw/esrv/VisaStat.do?lang=eng#mobSec"
-                    target="_blank"> click on</a> link,
+                To check all information thoroughly,<a href="https://rnt.moi.gov.kw/esrv/VisaStat.do?lang=eng#mobSec"> click
+                    on</a> link,
                 there you will find the Visa Application Status link. For Manual Employment Visa by clicking on the
                 mentioned link, enter the Captcha with Application Number, Unified Number, Visa Number, Entry Number,
                 Position Number submit. You can see APPROVED in the top place where you entered the number at the moment of

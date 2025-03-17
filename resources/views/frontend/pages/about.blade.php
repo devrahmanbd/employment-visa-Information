@@ -138,13 +138,13 @@
         <h1 class="fw-bold"><ins>About us</ins></h1>
 
         <p>The webpage of Public Authority of Manpower is authorized and fully controlled by the <a
-                href="https://www.moi.gov.kw" target="_blank">Ministry of Interior</a> (MOI), State of Kuwait and
-            <a href="https://www.mofa.gov.kw" target="_blank">Ministry of Foreign
+                href="https://www.moi.gov.kw">Ministry of Interior</a> (MOI), State of Kuwait and
+            <a href="https://www.mofa.gov.kw">Ministry of Foreign
                 Affairs</a> (MOFA), State of Kuwait.
         </p>
 
-        <p>This "Employment Visa Information" service is provided by the <a href="https://www.moi.gov.kw"
-                target="_blank">Ministry of Interior</a> (MOI), State of Kuwait and
+        <p>This "Employment Visa Information" service is provided by the <a href="https://www.moi.gov.kw">Ministry of
+                Interior</a> (MOI), State of Kuwait and
             <a href="https://www.mofa.gov.kw">Ministry of Foreign
                 Affairs</a> (MOFA), State of Kuwait. And it's strictly
             controlled.
