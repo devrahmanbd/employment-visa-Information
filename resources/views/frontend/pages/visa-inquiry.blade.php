@@ -3,11 +3,6 @@
 @section('content')
     @push('styles')
         <style>
-            body {
-                background-color: #f5faf5;
-                font-family: Arial, sans-serif;
-            }
-
             .visa-form-container {
                 max-width: 700px;
                 background-color: #eef7ee;
