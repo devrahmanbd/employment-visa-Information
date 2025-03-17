@@ -29,11 +29,11 @@
         </div>
     </div>
     <div class="title-container">
-        <img src="{{ asset($setting['left_logo']) }}" alt="Left Image">
+        <a href="{{ route('home') }}"><img src="{{ asset($setting['left_logo']) }}" alt="Left Image"></a>
         <div class="title-section">
             Employment Visa Information - Kuwait
         </div>
-        <img src="{{ asset($setting['right_logo']) }}" alt="Right Image">
+        <a href="{{ route('home') }}"><img src="{{ asset($setting['right_logo']) }}" alt="Right Image"></a>
     </div>
 
 
