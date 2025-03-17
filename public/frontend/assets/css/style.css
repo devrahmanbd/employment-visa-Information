@@ -76,7 +76,7 @@ a {
 }
 
 .main-content {
-    padding: 18.5px;
+    padding: 29.5px;
     background-color: white;
 }
 
@@ -329,12 +329,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 10px 30px;
+    padding: 0px 30px;
     height: 150px;
 }
 
 .title-container img {
-    height: 130px;
+    height: 135px;
     width: auto;
     margin: 0 15px;
 }
@@ -487,7 +487,7 @@ a {
 .timeline-item:not(:last-child)::after {
     content: "";
     position: absolute;
-    top: 40px;
+    top: 35px;
     left: 14px;
     width: 4px;
     height: calc(100% - 40px);
@@ -496,7 +496,7 @@ a {
 
 .timeline-content {
     background: #fff;
-    padding: 5px 12px;
+    padding: 1px 12px;
     margin-left: 50px;
     word-wrap: break-word;
 }
