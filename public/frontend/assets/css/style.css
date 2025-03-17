@@ -1,5 +1,5 @@
 body {
-      font-family: 'Cairo', sans-serif;
+    font-family: "Cairo", sans-serif;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
@@ -295,7 +295,7 @@ a {
     position: relative;
     padding: 8px 12px;
     transition: color 0.3s ease-in-out;
-    display: inline-block; /* টেক্সটের নিচেই সীমাবদ্ধ রাখবে */
+    display: inline-block; 
 }
 
 .nav-link::after {

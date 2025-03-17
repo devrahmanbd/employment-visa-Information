@@ -18,25 +18,6 @@
                 text-decoration: underline;
             }
 
-            .service-list {
-                display: flex;
-                flex-wrap: wrap;
-                margin: 20px 0;
-            }
-
-            .service-item {
-                width: 50%;
-                padding: 5px 0;
-                display: flex;
-                align-items: flex-start;
-            }
-
-            .service-item svg {
-                min-width: 16px;
-                height: 16px;
-                margin-right: 10px;
-                margin-top: 3px;
-            }
 
             .circle-icon {
                 fill: #777;
@@ -132,6 +113,53 @@
             a {
                 text-decoration: none;
             }
+
+            /* Circle styling */
+            .circle {
+                width: 25px;
+                height: 25px;
+                border: 2px solid #b58329;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 14px;
+                color: #000;
+                padding: 5px;
+                margin-right: 10px;
+            }
+
+            h5 {
+                margin: 0;
+                font-size: 14px;
+                font-weight: bold;
+            }
+
+            ul {
+                list-style-type: none;
+                padding-left: 0;
+            }
+
+            li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                font-weight: 500 ! important;
+            }
+
+            /* Responsive behavior */
+            @media (max-width: 768px) {
+
+                .circle {
+                    width: 20px;
+                    height: 20px;
+                    font-size: 12px;
+                }
+
+                h5 {
+                    font-size: 12px;
+                }
+            }
         </style>
     @endpush
     <div class="">
@@ -157,259 +185,188 @@
             service
             allows you to:</p>
 
-        <div class="service-list">
-            <!-- Left Column -->
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Issuing work permit for the first time - Expatriate Labor</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Renew work permit - National Labor</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Amending work permit - National Labor</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Issuing work permit - Expatriate Labor</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Work permit renewal - Expatriate Labor</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Managing business hours for each license in the file</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>File primary data</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Employee leave input - Sick/Urgent</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Enquiry about Labor complaints</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Requesting & Printing Labor list</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Enquiry about absence announcements</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>View completeness status and jobs details</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Amending or revoking contract and work location</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>National Labor list</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Amending need estimation</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Submitting Labor list request (RJ)</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Submitting licensed worker absence announcement</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Opening a file</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Registering - National Labor</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Revoking work permit - Expatriate Labor</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Revoking work permit - National Labor</span>
+
+
+        <div class="row">
+            <div class="col-md-6 col-sm-12">
+                <ul>
+                    <li>
+                        <div class="circle">1</div>
+                        <h5>Issuing work permit for the first time - Expatriate Labor</h5>
+                    </li>
+                    <li>
+                        <div class="circle">2</div>
+                        <h5>Renew work permit - National Labor</h5>
+                    </li>
+                    <li>
+                        <div class="circle">3</div>
+                        <h5>Amending work permit - National Labor</h5>
+                    </li>
+                    <li>
+                        <div class="circle">4</div>
+                        <h5>Issuing work permit - Expatriate Labor</h5>
+                    </li>
+                    <li>
+                        <div class="circle">5</div>
+                        <h5>Work permit renewal - Expatriate Labor</h5>
+                    </li>
+                    <li>
+                        <div class="circle">6</div>
+                        <h5>Managing business hours for each license in the file</h5>
+                    </li>
+                    <li>
+                        <div class="circle">7</div>
+                        <h5>File primary data</h5>
+                    </li>
+                    <li>
+                        <div class="circle">8</div>
+                        <h5>Employee leave input - Sick/Urgent</h5>
+                    </li>
+                    <li>
+                        <div class="circle">9</div>
+                        <h5>Enquiry about Labor complaints</h5>
+                    </li>
+                    <li>
+                        <div class="circle">10</div>
+                        <h5>Requesting & Printing Labor list</h5>
+                    </li>
+                    <li>
+                        <div class="circle">11</div>
+                        <h5>Enquiry about absence announcements</h5>
+                    </li>
+                    <li>
+                        <div class="circle">12</div>
+                        <h5>View completeness status and jobs details</h5>
+                    </li>
+                    <li>
+                        <div class="circle">13</div>
+                        <h5>Amending or revoking contract and work location</h5>
+                    </li>
+                    <li>
+                        <div class="circle">14</div>
+                        <h5>National Labor list</h5>
+                    </li>
+                    <li>
+                        <div class="circle">15</div>
+                        <h5>Amending need estimation</h5>
+                    </li>
+                    <li>
+                        <div class="circle">16</div>
+                        <h5>Submitting Labor list request (RJ)</h5>
+                    </li>
+                    <li>
+                        <div class="circle">17</div>
+                        <h5>Submitting licensed worker absence announcement</h5>
+                    </li>
+                    <li>
+                        <div class="circle">18</div>
+                        <h5>Opening a file</h5>
+                    </li>
+                    <li>
+                        <div class="circle">19</div>
+                        <h5>Registering - National Labor</h5>
+                    </li>
+                    <li>
+                        <div class="circle">20</div>
+                        <h5>Revoking work permit - Expatriate Labor</h5>
+                    </li>
+                    <li>
+                        <div class="circle">21</div>
+                        <h5>Revoking work permit - National Labor</h5>
+                    </li>
+
+                </ul>
             </div>
 
-            <!-- Right Column -->
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Enquiry about bank transfers</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Enquiry about license primary data</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Upload payroll file</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Employee leave input -Regular</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Enquiry about Employers entered leaves</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Estimating first time - Required Laborers</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Enquiry about payroll deductions</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Updating license data</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Adding contract and work location</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Lists of contracts, locations and working hours</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Expatriate Labor list</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Renew need estimation</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Enquiry about transaction (Upload payroll file)</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Submitting permitted worker absence announcement</span>
-            </div>
-            <div class="service-item">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>File accountancy report - Inspection</span>
-            </div>
-            <div class="service-item blue-theme">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Issued Employment Visa Cross check from Ministry of Interior, Kuwait</span>
-            </div>
-
-            <div class="service-item blue-theme">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Employment Visa upload in this site</span>
-            </div>
-            <div class="service-item blue-theme">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Approval and entry permission for new visa holders</span>
-            </div>
-            <div class="service-item blue-theme">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Overseeing the benefits and allowances of new workers after they join</span>
-            </div>
-            <div class="service-item blue-theme">
-                <svg viewBox="0 0 100 100" class="circle-icon">
-                    <circle cx="50" cy="50" r="40" stroke="#777" stroke-width="10" fill="none" />
-                </svg>
-                <span>Ensuring that workers receive all benefits when they are released from employment or voluntarily
-                    retire</span>
+            <div class="col-md-6 col-sm-12">
+                <ul>
+                    <li>
+                        <div class="circle">22</div>
+                        <h5>Enquiry about bank transfers</h5>
+                    </li>
+                    <li>
+                        <div class="circle">23</div>
+                        <h5>Enquiry about license primary data</h5>
+                    </li>
+                    <li>
+                        <div class="circle">24</div>
+                        <h5>Upload payroll file</h5>
+                    </li>
+                    <li>
+                        <div class="circle">25</div>
+                        <h5>Employee leave input - Regular</h5>
+                    </li>
+                    <li>
+                        <div class="circle">26</div>
+                        <h5>Enquiry about Employers entered leaves</h5>
+                    </li>
+                    <li>
+                        <div class="circle">27</div>
+                        <h5>Estimating first time - Required Laborers</h5>
+                    </li>
+                    <li>
+                        <div class="circle">28</div>
+                        <h5>Enquiry about payroll deductions</h5>
+                    </li>
+                    <li>
+                        <div class="circle">29</div>
+                        <h5>Updating license data</h5>
+                    </li>
+                    <li>
+                        <div class="circle">30</div>
+                        <h5>Adding contract and work location</h5>
+                    </li>
+                    <li>
+                        <div class="circle">31</div>
+                        <h5>Lists of contracts, locations and working hours</h5>
+                    </li>
+                    <li>
+                        <div class="circle">32</div>
+                        <h5>Expatriate Labor list</h5>
+                    </li>
+                    <li>
+                        <div class="circle">33</div>
+                        <h5>Renew need estimation</h5>
+                    </li>
+                    <li>
+                        <div class="circle">34</div>
+                        <h5>Enquiry about transaction (Upload payroll file)</h5>
+                    </li>
+                    <li>
+                        <div class="circle">35</div>
+                        <h5>Submitting permitted worker absence announcement</h5>
+                    </li>
+                    <li>
+                        <div class="circle">36</div>
+                        <h5>File accountancy report - Inspection</h5>
+                    </li>
+                    <li>
+                        <div class="circle" style="border: 2px solid #2b2cde">37</div>
+                        <h5 style="color: #2b2cde">Issued Employment Visa Cross check from Ministry of Interior, Kuwait</h5>
+                    </li>
+                    <li>
+                        <div class="circle" style="border: 2px solid #2b2cde">38</div>
+                        <h5 style="color: #2b2cde">Employment Visa upload in this site</h5>
+                    </li>
+                    <li>
+                        <div class="circle" style="border: 2px solid #2b2cde">39</div>
+                        <h5 style="color: #2b2cde">Approval and entry permission for new visa holders</h5>
+                    </li>
+                    <li>
+                        <div class="circle" style="border: 2px solid #2b2cde">40</div>
+                        <h5 style="color: #2b2cde">Overseeing the benefits and allowances of new workers after they join
+                        </h5>
+                    </li>
+                    <li>
+                        <div class="circle" style="border: 2px solid #2b2cde">41</div>
+                        <h5 style="color: #2b2cde">Ensuring that workers receive all benefits when they are released from
+                            employment or voluntarily
+                            retire</h5>
+                    </li>
+                </ul>
             </div>
         </div>
+
     </div>
 
 
