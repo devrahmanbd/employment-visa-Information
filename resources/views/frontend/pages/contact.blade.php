@@ -24,7 +24,7 @@
             }
         </style>
     @endpush
-    <div class="">
+    <div class="" style="overflow: scroll">
         <div class="py-3">
             <h3 class="text-center">Ministries and Government Bodies</h3>
         </div>
@@ -52,7 +52,7 @@
             </tbody>
         </table>
     </div>
-    <div class="">
+    <div class="" style="overflow: scroll">
         <div class="py-3">
             <h3 class="text-center">State Organization and Authorities</h3>
         </div>
