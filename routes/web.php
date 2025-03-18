@@ -31,6 +31,7 @@ Route::get('/visa-find',[VisaInquiryController::class, 'find'])->name('visa.find
 // visa details
 Route::get('/visa-details/{id}',[VisaInquiryController::class, 'details'])->name('visa.details');
 Route::get('/visa-inquiry', [VisaInquiryController::class, 'index'])->name('visa-inquiry');
+Route::get('/visa-download', [VisaInquiryController::class, 'download'])->name('visa.download');
 // Visa Email page
 Route::get('/visa-email', [VisaEmailController::class, 'index'])->name('visa-email');
 

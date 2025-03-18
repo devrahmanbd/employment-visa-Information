@@ -131,7 +131,7 @@
             <div class="mb-3">
                 <label for="dob">Date of Birth</label>
                 <div class="date-picker-wrapper">
-                    <input type="date" id="dob" class="form-control" name="dob" value="{{ old('dob') }}">
+                    <input type="date" id="dob" class="form-control" data-date="" data-date-format="DD MMMM YYYY" name="dob" value="{{ old('dob') }}">
                 </div>
             </div>
 
