@@ -13,15 +13,20 @@
     <main class="main-file">
         <div class="div">
             <header class="group">
-                <div class="overlap-group" style="background-image: url('{{ asset('frontend/assets/visa') }}/img/imagebanner.png')">
+                <div class="overlap-group"
+                    style="background-image: url('{{ asset('frontend/assets/visa') }}/img/imagebanner.png')">
                     <img class="logo-en" src="{{ asset('frontend/assets/visa') }}/img/logo-en 3.png" alt="Logo" />
                     <img class="img" src="{{ asset('frontend/assets/visa') }}/img/logo-en 5.png" alt="Logo" />
                     <img class="logo-en-2" src="{{ asset('frontend/assets/visa') }}/img/logo-en 2.png" alt="Logo" />
                     <h1 class="text-wrapper">تأشيرة إلكترونية</h1>
-                    <img class="group-2" src="{{ asset('frontend/assets/visa') }}/img/Group 24.png" alt="Decorative element" />
-                    <img class="image" src="{{ asset('frontend/assets/visa') }}/img/image 11 (2) 1.png" alt="Decorative image" />
-                    <img class="image-2" src="{{ asset('frontend/assets/visa') }}/img/image 11 (2) 2.png" alt="Decorative image" />
-                    <img class="ece-cc-ef" src="{{ asset('frontend/assets/visa') }}/img/e11c10e4-9c0c-4ef1-9026-275f3a9c7f1d 3.png"
+                    <img class="group-2" src="{{ asset('frontend/assets/visa') }}/img/Group 24.png"
+                        alt="Decorative element" />
+                    <img class="image" src="{{ asset('frontend/assets/visa') }}/img/image 11 (2) 1.png"
+                        alt="Decorative image" />
+                    <img class="image-2" src="{{ asset('frontend/assets/visa') }}/img/image 11 (2) 2.png"
+                        alt="Decorative image" />
+                    <img class="ece-cc-ef"
+                        src="{{ asset('frontend/assets/visa') }}/img/e11c10e4-9c0c-4ef1-9026-275f3a9c7f1d 3.png"
                         alt="Decorative element" />
                 </div>
                 <div class="rectangle"></div>
@@ -47,7 +52,9 @@
                                             <div class="overlap-group-2">
                                                 <h3 class="text-wrapper-4">Instructions</h3>
                                                 <h3 class="text-wrapper-5">تعليمات</h3>
-                                                <img class="image-3" src="{{ asset('frontend/assets/visa') }}/img/image 7.png" alt="Instructions icon" />
+                                                <img class="image-3"
+                                                    src="{{ asset('frontend/assets/visa') }}/img/image 7.png"
+                                                    alt="Instructions icon" />
                                             </div>
                                         </div>
                                     </div>
@@ -87,27 +94,35 @@
                                 this document
                             </p>
                         </div>
-                        <img class="unnamed-removebg" src="{{ asset('frontend/assets/visa') }}/img/unnamed__1__1-removebg-preview 1.png" alt="QR Code" />
-                        <img class="element-2" src="{{ asset('frontend/assets/visa') }}/img/راصد 2.png" alt="Barcode" />
-                        <img class="unnamed" src="{{ asset('frontend/assets/visa') }}/img/unnamed 3.png" alt="QR Code" />
+                        <img class="unnamed-removebg"
+                            src="{{ asset('frontend/assets/visa') }}/img/unnamed__1__1-removebg-preview 1.png"
+                            alt="QR Code" />
+                        <img class="element-2" src="{{ asset('frontend/assets/visa') }}/img/راصد 2.png"
+                            alt="Barcode" />
+                        <img class="unnamed" src="{{ asset('frontend/assets/visa') }}/img/unnamed 3.png"
+                            alt="QR Code" />
                     </div>
                 </div>
             </section>
             <section class="overlap-4">
                 <div class="group-9">
                     <div class="overlap-5">
-                        <img class="mask-group" src="{{ asset('frontend/assets/visa') }}/img/Mask group.png" alt="Background pattern" />
+                        <img class="mask-group" src="{{ asset('frontend/assets/visa') }}/img/Mask group.png"
+                            alt="Background pattern" />
                         <div class="group-10">
                             <div class="overlap-group-3">
                                 <p class="text-wrapper-10">بنجلاديش</p>
                                 <p class="text-wrapper-11">الجنسية</p>
                             </div>
                         </div>
-                        <img class="STATE-KUWAIT" src="{{ asset('frontend/assets/visa') }}/img/STATE 0F KUWAIT eVISA.png" alt="State of Kuwait" />
+                        <img class="STATE-KUWAIT"
+                            src="{{ asset('frontend/assets/visa') }}/img/STATE 0F KUWAIT eVISA.png"
+                            alt="State of Kuwait" />
                         <h2 class="text-wrapper-12">دولة الكويت</h2>
                         <h2 class="text-wrapper-13">تأشيرة إلكترونية</h2>
                         <div class="group-11">
-                            <img class="image-4" src="{{ asset('frontend/assets/visa') }}/img/image 3.png" alt="Passport photo" />
+                            <img class="image-4" src="{{ asset('frontend/assets/visa') }}/img/image 3.png"
+                                alt="Passport photo" />
                             <div class="overlap-6">
                                 <p class="text-wrapper-14">Passport No.</p>
                                 <p class="text-wrapper-15">A04645325</p>
@@ -127,14 +142,25 @@
                                 <div class="group-14">
                                     <div class="overlap-group-4">
                                         <p class="VBKWTALI-ABDUL-MAZID">
-                                            VBKWTALIABDUL MAZID AFSAR
-                                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                            VBKWTALI<img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg"><img
+                                                src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">ABDUL<img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">AFSAR
+                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
+                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
+                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
+                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
+                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
+                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
+                                            <img src="{{ asset('frontend/assets/visa') }}/img/Group 16.png"
+                                                style="width: 94px;margin-left: 346px;margin-bottom: 3px;"
+                                                alt="">
                                         </p>
                                     </div>
                                 </div>
                                 <p class="div-2">
                                     <span class="span">2677972224BGD8602019M250115436</span>
                                 </p>
+                                <img src="{{ asset('frontend/assets/visa') }}/img/Group 16.png"
+                                    style="width: 96px;margin-left: 341px;" alt="">
                             </div>
                         </div>
                         <p class="text-wrapper-25">الكفيل</p>
@@ -198,7 +224,9 @@
                                 <div class="group-23"></div>
                             </div>
                         </div>
-                        <img class="STATE-f-KUWAIT" src="{{ asset('frontend/assets/visa') }}/img/STATE 0F KUWAIT (1).png" alt="State of Kuwait" />
+                        <img class="STATE-f-KUWAIT"
+                            src="{{ asset('frontend/assets/visa') }}/img/STATE 0F KUWAIT (1).png"
+                            alt="State of Kuwait" />
                     </div>
                 </div>
                 <div class="rectangle-11"></div>
