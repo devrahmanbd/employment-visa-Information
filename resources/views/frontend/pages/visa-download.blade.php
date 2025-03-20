@@ -141,26 +141,19 @@
                             <div class="overlap-7">
                                 <div class="group-14">
                                     <div class="overlap-group-4">
+                                        @php
+                                            $line1 = 'VBKWTALI<<ABDUL<MAZID<AFSAR<<<<<<<<<<<<<<<<<<';
+                                            $line2 = '2677972224BGD8602019M250115436<<<<<<<<<<<<<<<';
+                                        @endphp
                                         <p class="VBKWTALI-ABDUL-MAZID">
-                                            VBKWTALI<img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg"><img
-                                                src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">ABDUL<img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">AFSAR
-                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
-                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
-                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
-                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
-                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
-                                                <img src="{{ asset('frontend/assets/visa') }}/img/Vector.svg">
-                                            <img src="{{ asset('frontend/assets/visa') }}/img/Group 16.png"
-                                                style="width: 94px;margin-left: 346px;margin-bottom: 3px;"
-                                                alt="">
+                                            {{ $line1 }}
                                         </p>
                                     </div>
                                 </div>
                                 <p class="div-2">
-                                    <span class="span">2677972224BGD8602019M250115436</span>
+                                    <span class="span">{{ $line2 }}</span>
                                 </p>
-                                <img src="{{ asset('frontend/assets/visa') }}/img/Group 16.png"
-                                    style="width: 96px;margin-left: 341px;" alt="">
+
                             </div>
                         </div>
                         <p class="text-wrapper-25">الكفيل</p>
@@ -169,7 +162,7 @@
                         </p>
                         <div class="group-17">
                             <p class="ABDUL-MAZID-AFSAR">
-                                <span class="span">ABDUL MAZID </span>
+                                <span class="span">ABDUL MAZID AFSAR ALI </span>
                             </p>
                             <p class="div-3">
                                 <span class="span">عبدالمزيد </span>
