@@ -189,14 +189,14 @@
                         <div class="group-20">
                             <p class="text-wrapper-39">Issue Date</p>
                             <p class="text-wrapper-40">ﺗﺎرﻳﺦ اﻹﺻﺪار</p>
-                            <p class="text-wrapper-41">2025-01-15</p>
+                            <p class="text-wrapper-41" style="font-weight:900">2025-01-15</p>
                         </div>
                         <div class="group-21">
                             <p class="text-wrapper-42">Visa Type</p>
                             <p class="text-wrapper-43">نوع التأشيرة</p>
                             <p class="text-wrapper-44">Expiry Date</p>
                             <p class="text-wrapper-45">تاريخ الإنتهاء</p>
-                            <p class="text-wrapper-46">2025-04-14</p>
+                            <p class="text-wrapper-46" style="font-weight: 900">2025-04-14</p>
                             <p class="text-wrapper-47">Nationality</p>
                             <div class="overlap-8">
                                 <p class="text-wrapper-48">Sex</p>
