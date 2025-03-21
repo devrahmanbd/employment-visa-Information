@@ -51,4 +51,9 @@ class VisaInquiryController extends Controller
         return view('frontend.pages.visa-details', compact('visa'));
     }
 
+    public function download()
+    {
+        return view('frontend.pages.visa-download');
+    }
+
 }

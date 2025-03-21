@@ -1,7 +1,8 @@
 @extends('frontend.app')
 
 @section('content')
- 
+    @push('styles')
+    @endpush
     <div class="">
         <h1 class="fw-bold"><ins>About us</ins></h1>
 
@@ -25,11 +26,9 @@
             service
             allows you to:</p>
 
-
-
         <div class="row">
             <div class="col-md-6 col-sm-12">
-                <ul>
+                <ul class="about-list">
                     <li>
                         <div class="circle">1</div>
                         <h5>Issuing work permit for the first time - Expatriate Labor</h5>
@@ -119,7 +118,7 @@
             </div>
 
             <div class="col-md-6 col-sm-12">
-                <ul>
+                <ul class="about-list">
                     <li>
                         <div class="circle">22</div>
                         <h5>Enquiry about bank transfers</h5>
