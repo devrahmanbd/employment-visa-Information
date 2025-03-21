@@ -8,7 +8,7 @@ body {
 .date-bar {
     background-color: #b68934;
     color: white;
-    padding: 8px 15px;
+    padding: 8px 49px;
     text-align: left;
     font-size: 14px;
 }
@@ -122,7 +122,7 @@ a {
 .footer {
     background-color: #b68934;
     color: white;
-    padding: 20px;
+    padding: 12px;
 }
 
 .footer-section {
@@ -131,7 +131,7 @@ a {
 
 .footer-section h3 {
     font-size: 18px;
-    margin-bottom: 15px;
+    margin-bottom: 10px;
 }
 
 .footer-section ul {
@@ -141,7 +141,7 @@ a {
 }
 
 .footer-section li {
-    margin-bottom: 8px;
+    margin-bottom: 5px;
 }
 
 .footer-section a {
@@ -170,7 +170,7 @@ a {
 
 .copyright {
     text-align: center;
-    margin-top: 5px;
+    /* margin-top: 5px; */
     font-size: 14px;
 }
 
@@ -178,7 +178,7 @@ a {
     background-color: white;
     color: #333;
     border: none;
-    padding: 8px 15px;
+    padding: 6px 13px;
     border-radius: 4px;
     display: inline-flex;
     align-items: center;
@@ -296,7 +296,7 @@ a {
     position: relative;
     padding: 8px 12px;
     transition: color 0.3s ease-in-out;
-    display: inline-block; /* টেক্সটের নিচেই সীমাবদ্ধ রাখবে */
+    display: inline-block; /* Ã Â¦Å¸Ã Â§â€¡Ã Â¦â€¢Ã Â§ÂÃ Â¦Â¸Ã Â¦Å¸Ã Â§â€¡Ã Â¦Â° Ã Â¦Â¨Ã Â¦Â¿Ã Â¦Å¡Ã Â§â€¡Ã Â¦â€¡ Ã Â¦Â¸Ã Â§â‚¬Ã Â¦Â®Ã Â¦Â¾Ã Â¦Â¬Ã Â¦Â¦Ã Â§ÂÃ Â¦Â§ Ã Â¦Â°Ã Â¦Â¾Ã Â¦â€“Ã Â¦Â¬Ã Â§â€¡ */
 }
 
 .nav-link::after {
@@ -330,12 +330,12 @@ a {
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 0px 30px;
-    height: 150px;
+    padding: 0px 20px;
+    height: 115px;
 }
 
 .title-container img {
-    height: 130px;
+    height: 106px;
     width: auto;
     margin: 0 15px;
 }
@@ -415,11 +415,11 @@ a.nav-link {
         overflow-x: auto;
         white-space: nowrap;
         display: flex;
-        justify-content: start;
+        /* justify-content: start; */
     }
 
     .title-container img {
-        height: 60px;
+        height: 55px;
         margin: 0 5px;
     }
 
@@ -707,8 +707,23 @@ ul {
     margin-bottom: 10px;
     font-weight: 500 !important;
 }
-
 /* Responsive behavior */
+@media (max-width: 1100px) {
+    .title-section {
+        overflow: auto;
+        font-size: 2.2rem;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 1040px) {
+    .title-section {
+        overflow: auto;
+        font-size: 2.2rem;
+        justify-content: center;
+    }
+}
+
 @media (max-width: 768px) {
     .circle {
         width: 20px;
@@ -719,9 +734,29 @@ ul {
     h5 {
         font-size: 12px;
     }
-}
-@media screen and (max-width: 1100px) {
+
     .title-container {
-        overflow: auto;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 610px) {
+    .title-section {
+        font-size: 1.3rem;
+    }
+}
+
+@media (max-width: 450px) {
+    .title-section {
+        font-size: 1rem;
+    }
+}
+
+@media (max-width: 375px) {
+    .title-section {
+        font-size: 0.8rem;
+    }
+    .title-container img {
+        height: 40px;
     }
 }

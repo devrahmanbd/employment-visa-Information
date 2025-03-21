@@ -31,7 +31,7 @@
     <div class="title-container">
         <a href="{{ route('home') }}"><img src="{{ asset($setting['left_logo']) }}" alt="Left Image"></a>
         <div class="title-section">
-            Employment Visa Information - Kuwait
+            {{ $setting['site_title'] ?? 'Kuwait eVisa Information - Kuwait' }}
         </div>
         <a href="{{ route('home') }}"><img src="{{ asset($setting['right_logo']) }}" alt="Right Image"></a>
     </div>
