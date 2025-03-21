@@ -13,6 +13,7 @@ use App\Http\Controllers\Frontend\VisaEmailController;
 use App\Http\Controllers\Backend\AdminContactController;
 use App\Http\Controllers\Frontend\VisaInquiryController;
 use App\Http\Controllers\Frontend\VisaInformationController;
+use App\Http\Controllers\Frontend\KuwaitVisaAppsModelController;
 
 // Home page
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -37,6 +38,8 @@ Route::get('/visa-email', [VisaEmailController::class, 'index'])->name('visa-ema
 
 Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
 
+// kuwait evisa verification
+Route::get('/kuwait-evisa-verification',[KuwaitVisaAppsModelController::class,'index'])->name('kuwait-evisa-verification');
 // captcha
 Route::get('/captcha', function () {
     return Captcha::create();

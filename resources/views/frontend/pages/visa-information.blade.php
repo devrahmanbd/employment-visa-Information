@@ -1,6 +1,17 @@
 @extends('frontend.app')
 
 @section('content')
+    @push('styles')
+        <style>
+            a.text-decoration-none {
+                padding-bottom: 46px;
+            }
+
+            h5.text-primary.text-center {
+                margin-left: -2px;
+            }
+        </style>
+    @endpush
     <div class="timeline">
         <h2 class="fw-bold"><ins>eVisa (Electronic Visa) checking rules</ins>:</h2>
 
@@ -98,7 +109,8 @@
                     <a href="{{ route('visa-inquiry') }}" class="text-decoration-none">
                         <img src="{{ asset('images/Kuwait-Police-logo.png') }}" alt="Kuwait Police Logo"
                             class="img-fluid mb-3" style="max-width: 150px;">
-                        <h5 class="text-primary text-center">Present Visa Status</h5>
+                        <h5 class="text-primary text-center">Manual Visa
+                        </h5>
                     </a>
 
                 </div>
@@ -106,11 +118,11 @@
             <!-- Second Card -->
             <div class="col-md-4 col-md-offset-2 col-sm-6 col-sm-offset-3 mb-2 d-flex flex-column align-items-center gap-3">
                 <div class="card p-4 shadow-sm rounded border-0 d-flex flex-column align-items-center"
-                    style="height: 300px; width: 100%; display: flex; justify-content: space-between;">
-                    <a href="" class="text-decoration-none">
-                        <img src="{{ asset('images/Kuwait-Police-logo.png') }}" alt="Kuwait Police Logo"
-                            class="img-fluid mb-3" style="max-width: 150px;">
-                        <h5 class="text-primary text-center">Download or Print the Employment Visa</h5>
+                    style="height: 300px; width: 100%; display: flex; justify-content: end;">
+                    <a href="{{ route('kuwait-evisa-verification') }}" class="text-decoration-none">
+                        <img src="{{ asset('images/unnamed__1_.png') }}" alt="Kuwait Police Logo" class="img-fluid mb-3"
+                            style="max-width: 150px;">
+                        <h5 class="text-primary text-center">Electronic Visa</h5>
                     </a>
 
                 </div>

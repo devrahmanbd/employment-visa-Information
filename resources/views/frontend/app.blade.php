@@ -5,6 +5,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{ $setting['site_title'] ?? 'Employment Visa Information - Kuwait' }}</title>
+    {{-- favicon --}}
+    <link rel="icon" href="{{ asset($setting['favicon']) }}" type="image/x-icon" />
+    {{-- Styles --}}
     @include('frontend.includes.styles')
     <style>
         html {
@@ -55,7 +58,7 @@
                     <li class="nav-item">
                         <a href="{{ route('visa-information') }}"
                             class="nav-link {{ request()->routeIs(['visa-information', 'visa-inquiry', 'visa-email']) ? 'active' : '' }}"
-                            href="#">Information of Visa</a>
+                            href="#">Visa Service</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link  {{ request()->routeIs('contact') ? 'active' : '' }}"
