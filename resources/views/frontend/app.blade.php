@@ -12,12 +12,12 @@
         }
 
         /* Prevent Text Selection */
-        body {
+        /* body {
             user-select: none;
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
-        }
+        } */
     </style>
 </head>
 
@@ -149,7 +149,7 @@
         // Update every second
         setInterval(updateDateTime, 1000);
     </script>
-    <script>
+    {{-- <script>
         document.addEventListener('copy', function(event) {
             event.preventDefault();
             alert('Copying content is disabled.');
@@ -166,7 +166,7 @@
                 alert('Copy & Cut functions are disabled.');
             }
         });
-    </script>
+    </script> --}}
 </body>
 
 </html>

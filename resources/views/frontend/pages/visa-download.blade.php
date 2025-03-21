@@ -162,7 +162,7 @@
                         </p>
                         <div class="group-17">
                             <p class="ABDUL-MAZID-AFSAR">
-                                <span class="span">ABDUL MAZID AFSAR ALI </span>
+                                <span class="span">ABDUL MAZID AFSAR ALI</span>
                             </p>
                             <p class="div-3">
                                 <span class="span">عبدالمزيد </span>

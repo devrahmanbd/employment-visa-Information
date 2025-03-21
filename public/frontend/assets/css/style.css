@@ -738,6 +738,13 @@ ul {
     .title-container {
         font-size: 0.9rem;
     }
+
+    .date-bar {
+        padding: 8px 0px;
+    }
+    .title-container img {
+        height: 50px;
+    }
 }
 
 @media (max-width: 610px) {
