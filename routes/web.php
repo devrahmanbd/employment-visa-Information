@@ -58,6 +58,14 @@ Route::get('/manual-visa', [ManualVisaController::class, 'manualVisa'])->name('m
 // eVisa 
 Route::get('/evisa', [ElectronicVisaFindPdfController::class, 'evisa'])->name('evisa-find');
 
+Route::get('/captcha', function () {
+    $captcha_text = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ123456789"), 0, 6);
+
+    // ক্যাপচা টেক্সট সেশন-এ সংরক্ষণ করা
+    Session::put('captcha', $captcha_text);
+
+    return response()->json(['captcha' => $captcha_text]);
+});
 // visa verification
 Route::get('/visa-verification-scan',[KuwaitVisaAppsModelController::class,'verificationScan'])->name('visa-verification-scan');
 Route::get('/barcode-search', [KuwaitVisaAppsModelController::class, 'search'])->name('barcode.search');

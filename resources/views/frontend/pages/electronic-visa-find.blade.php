@@ -8,6 +8,12 @@
                 src: url("../../../fonts/arial-mt-regular.ttf") format("truetype");
             }
 
+            @font-face {
+                font-family: "Moms typewriter";
+                src: url("../../../fonts/moms-typewriter.ttf") format("truetype");
+                font-weight: bold;
+            }
+
             body {
                 background-color: #f5faf5;
             }
@@ -19,7 +25,7 @@
                 border-radius: 15px;
                 margin: 50px auto;
                 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-                 font-family: "Arial Rounded MT Bold";
+                font-family: "Arial Rounded MT Bold";
             }
 
             .visa-form label {
@@ -108,12 +114,35 @@
                 font-size: 20px;
                 color: #007bff;
             }
+
+            .captcha-box {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                background: #f8f9fa;
+                padding: 10px;
+                border-radius: 5px;
+            }
+
+            .captcha-box img {
+                font-family: Moms typewriter;
+            }
+
+            span#captcha-text {
+                font-family: Moms typewriter;
+                font-size: 30px;
+            }
+
+            .captcha-box button {
+                border: none;
+                background: transparent;
+            }
         </style>
     @endpush
 
 
     <div class="visa-form-container">
-        <h2 class="text-center fw-bold mt-1" style="color: #b68934;">
+        <h2 class="text-center mt-1 fw-bold" style="color: #b68934;">
             eVisa (Electronic Visa) Inquiry
         </h2>
         <form class="visa-form" action="{{ route('visa.find') }}" method="GET">
@@ -154,17 +183,28 @@
                     placeholder="Enter Captcha Here">
 
                 <div class="captcha-box">
-                    @captcha
+                    <div>
+                        <span id="captcha-text">{{ session('captcha') }}</span>
+                        <button type="button" onclick="refreshCaptcha()">⟳</button>
+                    </div>
                 </div>
             </div>
+
+            @if ($errors->has('captcha'))
+                <p style="color: red;">{{ $errors->first('captcha') }}</p>
+            @endif
 
             <button type="submit" class="submit-btn">Submit and Find</button>
         </form>
     </div>
     @push('scripts')
         <script>
-            function reloadCaptcha() {
-                document.getElementById('captchaImage').src = "{{ url('/captcha') }}?" + Math.random();
+            function refreshCaptcha() {
+                fetch("{{ url('/captcha') }}")
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('captcha-text').innerText = data.captcha;
+                    });
             }
         </script>
         <script>
