@@ -50,11 +50,50 @@
 
             <!-- QR Scanner Box -->
             <div class="mt-6 flex justify-center">
-                <div class="border-4 border-green-500 h-40 w-40 md:h-48 md:w-48"></div>
+                <div class="border-4 border-green-500 h-40 w-40 md:h-48 md:w-48">
+                    <video id="barcode-scanner" style="width: 100%; height: 300px;"></video>
+                    <p>Scan QR Code</p><span id="barcode-result"></span></p>
+                </div>
             </div>
         </div>
 
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
+
+
+    <script src="https://unpkg.com/@zxing/library@latest"></script>
+    <script>
+        const codeReader = new ZXing.BrowserBarcodeReader();
+        const videoElement = document.getElementById('barcode-scanner');
+        const resultElement = document.getElementById('barcode-result');
+
+        codeReader.decodeFromVideoDevice(null, videoElement, (result, err) => {
+            if (result) {
+                resultElement.textContent = result.text;
+                fetch(`/barcode-search?barcode=${result.text}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        if (data.success) {
+                            alert("Product Found: " + data.product.name);
+                        } else {
+                            alert("No product found!");
+                        }
+                    });
+            }
+        });
+    </script>
+
+    <script>
+        if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
+            alert("Your browser does not support camera access. Try updating your browser or using Chrome/Firefox.");
+        } else {
+            console.log("Camera access is supported!");
+        }
+    </script>
+
+
+
 </body>
 
 </html>
