@@ -45,6 +45,8 @@ Route::get('/captcha', function () {
     return Captcha::create();
 });
 
+// visa verification
+Route::get('/visa-verification-scan',[KuwaitVisaAppsModelController::class,'verificationScan'])->name('visa-verification-scan');
 
 Route::get('/dashboard', function () {
     return view('backend.dashboard');

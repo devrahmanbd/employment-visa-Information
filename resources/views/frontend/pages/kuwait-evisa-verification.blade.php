@@ -48,7 +48,7 @@
                     <p class="text-xs text-gray-500">Visa Inquiries</p>
                 </div>
                 <div class="p-4 bg-gray-100 rounded-lg">
-                    <a href="">
+                    <a href="{{ route('visa-verification-scan') }}">
                         <div class="text-blue-600 text-2xl">
                         <img class="max-w-[65px]" src="{{ asset('images/barcode-scaner-icon.png') }}" alt=""
                             srcset="">
