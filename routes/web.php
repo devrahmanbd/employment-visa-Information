@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\VisaEmailController;
 use App\Http\Controllers\Frontend\ManualVisaController;
 use App\Http\Controllers\Backend\AdminContactController;
 use App\Http\Controllers\Frontend\VisaInquiryController;
+use App\Http\Controllers\Backend\AdminManualVisaController;
 use App\Http\Controllers\Frontend\VisaInformationController;
 use App\Http\Controllers\Frontend\KuwaitVisaAppsModelController;
 use App\Http\Controllers\Frontend\ElectronicVisaFindPdfController;
@@ -61,11 +62,13 @@ Route::get('/evisa', [ElectronicVisaFindPdfController::class, 'evisa'])->name('e
 Route::get('/captcha', function () {
     $captcha_text = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ123456789"), 0, 6);
 
-    // ক্যাপচা টেক্সট সেশন-এ সংরক্ষণ করা
     Session::put('captcha', $captcha_text);
 
     return response()->json(['captcha' => $captcha_text]);
 });
+
+
+
 // visa verification
 Route::get('/visa-verification-scan',[KuwaitVisaAppsModelController::class,'verificationScan'])->name('visa-verification-scan');
 Route::get('/barcode-search', [KuwaitVisaAppsModelController::class, 'search'])->name('barcode.search');
@@ -78,6 +81,8 @@ Route::get('/dashboard', function () {
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Visa
     Route::resource('visas', VisaController::class);
+    // manual visa
+    Route::get('/manual-evisa', [AdminManualVisaController::class, 'index'])->name('manual-evisa');
     // Contact
     Route::resource('contacts', AdminContactController::class);
     // Users

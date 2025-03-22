@@ -54,7 +54,7 @@
                     <a href="#" class="nav-link {{ request()->routeIs('admin.visas.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-passport"></i>
                         <p>
-                            Visas
+                            Visa
                             <i class="fas fa-angle-left right"></i>
                         </p>
                     </a>
@@ -63,7 +63,7 @@
                             <a href="{{ route('admin.visas.index') }}"
                                 class="nav-link {{ request()->routeIs('admin.visas.index') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Visas</p>
+                                <p>Visa</p>
                             </a>
                         </li>
                         <li class="nav-item">
@@ -71,6 +71,28 @@
                                 class="nav-link {{ request()->routeIs('admin.visas.create') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Visa</p>
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                {{-- manual-visa --}}
+
+                <li class="nav-item">
+                    <a href="#"
+                        class="nav-link {{ request()->routeIs('admin.manual-evisa') ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-passport"></i>
+                        <p>
+                            Manual Visa
+                            <i class="fas fa-angle-left right"></i>
+                        </p>
+                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href="{{ route('admin.manual-evisa') }}"
+                                class="nav-link {{ request()->routeIs('admin.manual-evisa') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Add Manual Visa</p>
                             </a>
                         </li>
                     </ul>
