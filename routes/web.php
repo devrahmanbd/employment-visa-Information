@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProfileController;
+use Karim007\LaravelCaptcha\Facades\Captcha;
 use App\Http\Controllers\Backend\VisaController;
 use App\Http\Controllers\Backend\UsersController;
 use App\Http\Controllers\Frontend\HomeController;
@@ -10,10 +11,12 @@ use App\Http\Controllers\Backend\MessageController;
 use App\Http\Controllers\Backend\SettingController;
 use App\Http\Controllers\Frontend\ContactController;
 use App\Http\Controllers\Frontend\VisaEmailController;
+use App\Http\Controllers\Frontend\ManualVisaController;
 use App\Http\Controllers\Backend\AdminContactController;
 use App\Http\Controllers\Frontend\VisaInquiryController;
 use App\Http\Controllers\Frontend\VisaInformationController;
 use App\Http\Controllers\Frontend\KuwaitVisaAppsModelController;
+use App\Http\Controllers\Frontend\DownloadEmploymentVisaController;
 
 // Home page
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -44,6 +47,13 @@ Route::get('/kuwait-evisa-verification',[KuwaitVisaAppsModelController::class,'i
 Route::get('/captcha', function () {
     return Captcha::create();
 });
+// Download Employment Visa
+Route::get('/download-employment-visa', [DownloadEmploymentVisaController::class, 'downloadEmploymentVisa'])->name('download-employment-visa');
+
+
+// ManualVisaController
+Route::get('/manual-visa', [ManualVisaController::class, 'manualVisa'])->name('manual-visa');
+
 
 // visa verification
 Route::get('/visa-verification-scan',[KuwaitVisaAppsModelController::class,'verificationScan'])->name('visa-verification-scan');
