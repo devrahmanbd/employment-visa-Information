@@ -113,7 +113,7 @@
 
 
     <div class="visa-form-container">
-        <h2 class="text-center mt-1 fw-bold" style="color: #b68934;">
+        <h2 class="text-center mt-4" style="color: #b68934;">
             Manual Visa Inquiry
         </h2>
         <form class="visa-form" action="{{ route('visa.find') }}" method="GET">
