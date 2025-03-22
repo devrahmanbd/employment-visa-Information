@@ -113,8 +113,8 @@
 
 
     <div class="visa-form-container">
-        <h2 class="text-center mt-1 fw-bold" style="color: #b68934;">
-            Manual Visa Inquiry
+        <h2 class="text-center fw-bold mt-1" style="color: #b68934;">
+            eVisa (Electronic Visa) Inquiry
         </h2>
         <form class="visa-form" action="{{ route('visa.find') }}" method="GET">
             {{-- any error will be shown here --}}

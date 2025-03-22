@@ -16,6 +16,7 @@ use App\Http\Controllers\Backend\AdminContactController;
 use App\Http\Controllers\Frontend\VisaInquiryController;
 use App\Http\Controllers\Frontend\VisaInformationController;
 use App\Http\Controllers\Frontend\KuwaitVisaAppsModelController;
+use App\Http\Controllers\Frontend\ElectronicVisaFindPdfController;
 use App\Http\Controllers\Frontend\DownloadEmploymentVisaController;
 
 // Home page
@@ -54,6 +55,8 @@ Route::get('/download-employment-visa', [DownloadEmploymentVisaController::class
 // ManualVisaController
 Route::get('/manual-visa', [ManualVisaController::class, 'manualVisa'])->name('manual-visa');
 
+// eVisa 
+Route::get('/evisa', [ElectronicVisaFindPdfController::class, 'evisa'])->name('evisa-find');
 
 // visa verification
 Route::get('/visa-verification-scan',[KuwaitVisaAppsModelController::class,'verificationScan'])->name('visa-verification-scan');
