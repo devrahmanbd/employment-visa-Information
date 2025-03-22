@@ -15,9 +15,9 @@
     <div class="timeline">
         <h2 class="fw-bold"><ins>eVisa (Electronic Visa) checking rules</ins>:</h2>
 
-        <p class="">To check your Electronic Visa (eVisa), you can install the <a
-                href="https://kuwaitvisa.moi.gov.kw/">Kuwait Visa app</a> on your Android
-            operating system-powered smart phone by going to the Google Play Store or Apple iPhone's App Store. </p>
+        <p class="">To check your Electronic Visa (eVisa), click on the logo image that says <strong>KV</strong> -
+            <strong>Kuwait Visa/Electronic Visa</strong> at the bottom right of this page.
+        </p>
         <div class="timeline-item">
             <div class="timeline-icon">
                 <div class="timeline-circle"></div>

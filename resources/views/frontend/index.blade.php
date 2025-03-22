@@ -1,6 +1,14 @@
 @extends('frontend.app')
 
 @section('content')
+    @push('styles')
+        <style>
+
+           
+        </style>
+    @endpush
+
+
     <div class="timeline">
 
         <div class="timeline-item">
