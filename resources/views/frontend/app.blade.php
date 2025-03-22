@@ -85,7 +85,7 @@
                     <ul>
                         <li><a href="{{ route('home') }}">Home</a></li>
                         <li><a href="{{ route('about') }}">About us</a></li>
-                        <li><a href="{{ route('visa-information') }}">Information of Visa</a></li>
+                        <li><a href="{{ route('visa-information') }}">Visa Service</a></li>
                         <li><a href="{{ route('contact') }}">Contact us</a></li>
                     </ul>
                 </div>
