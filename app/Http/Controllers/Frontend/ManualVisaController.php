@@ -9,6 +9,6 @@ class ManualVisaController extends Controller
 {
     public function manualVisa()
     {
-        return view('frontend.page.manual-visa');
+        return view('frontend.pages.manual-visa');
     }
 }
