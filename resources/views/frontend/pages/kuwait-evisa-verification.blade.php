@@ -23,7 +23,7 @@
 <body class="bg-gray-100">
     <div class="max-w-md mx-auto p-4 bg-white shadow-lg rounded-lg">
         <div class="text-center mb-6">
-            <img src="{{ asset('images/appslogo.png') }}" alt="Kuwait Visa Logo" class="mx-auto w-32">
+            <img src="{{ asset('images/apps-banner.png') }}" alt="Kuwait Visa Logo" class="mx-auto w-32">
             {{-- <h1 class="text-xl font-bold text-blue-900">Kuwait VISA</h1> --}}
         </div>
 
@@ -50,11 +50,11 @@
                 <div class="p-4 bg-gray-100 rounded-lg">
                     <a href="{{ route('visa-verification-scan') }}">
                         <div class="text-blue-600 text-2xl">
-                        <img class="max-w-[65px]" src="{{ asset('images/barcode-scaner-icon.png') }}" alt=""
-                            srcset="">
-                    </div>
-                    <p class="font-semibold">Verify</p>
-                    <p class="text-xs text-gray-500">Visa Verification</p>
+                            <img class="max-w-[65px]" src="{{ asset('images/barcode-scaner-icon.png') }}" alt=""
+                                srcset="">
+                        </div>
+                        <p class="font-semibold">Verify</p>
+                        <p class="text-xs text-gray-500">Visa Verification</p>
                     </a>
                 </div>
             </div>

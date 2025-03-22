@@ -1,15 +1,15 @@
 @font-face {
     font-family: "Arial Rounded MT Bold";
-    src: url("fonts/arlrdbd.ttf") format("truetype");
+    src: url("../../../fonts/arial-mt-regular.ttf") format("truetype");
 }
 body {
     font-family: "Arial Rounded MT Bold";
-    font-weight: 500;
+    font-weight: 700;
+    font-size: 20px !important;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
-
 .date-bar {
     background-color: #b68934;
     color: white;
