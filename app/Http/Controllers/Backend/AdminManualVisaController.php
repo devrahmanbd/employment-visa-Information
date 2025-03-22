@@ -2,15 +2,16 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
+use App\Models\ManualVisa;
 use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
 
 class AdminManualVisaController extends Controller
 {
      // Show All Visas
     public function index()
     {
-        $visas = Visa::latest()->paginate(10);
+        $visas = ManualVisa::latest()->paginate(10);
         return view('backend.pages.manual_visa.index', compact('visas'));
     }
 
@@ -34,7 +35,7 @@ class AdminManualVisaController extends Controller
         $pdfPath = $request->file('pdf_file')->store('pdfs', 'public');
 
         // Store Visa
-        Visa::create([
+        ManualVisa::create([
             'passport_no' => $request->passport_no,
             'dob' => $request->dob,
             'nationality_en' => $request->nationality_en,
