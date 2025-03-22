@@ -82,7 +82,7 @@ Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Visa
     Route::resource('visas', VisaController::class);
     // manual visa
-    Route::get('/manual-evisa', [AdminManualVisaController::class, 'index'])->name('manual-evisa');
+    Route::resource('manual-visas', AdminManualVisaController::class);
     // Contact
     Route::resource('contacts', AdminContactController::class);
     // Users

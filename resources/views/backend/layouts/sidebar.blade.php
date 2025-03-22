@@ -80,7 +80,7 @@
 
                 <li class="nav-item">
                     <a href="#"
-                        class="nav-link {{ request()->routeIs('admin.manual-evisa') ? 'active' : '' }}">
+                        class="nav-link {{ request()->routeIs('admin.manual-visas.index') ? 'active' : '' }}">
                         <i class="nav-icon fas fa-passport"></i>
                         <p>
                             Manual Visa
@@ -89,8 +89,15 @@
                     </a>
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
-                            <a href="{{ route('admin.manual-evisa') }}"
-                                class="nav-link {{ request()->routeIs('admin.manual-evisa') ? 'active' : '' }}">
+                            <a href="{{ route('admin.manual-visas.index') }}"
+                                class="nav-link {{ request()->routeIs('admin.manual-visas.index') ? 'active' : '' }}">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Manual Visa</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('admin.manual-visas.index') }}"
+                                class="nav-link {{ request()->routeIs('admin.manual-visas.Create') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Add Manual Visa</p>
                             </a>
