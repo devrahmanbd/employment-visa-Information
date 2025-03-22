@@ -1,9 +1,10 @@
 @font-face {
     font-family: "Arial Rounded MT Bold";
-    src: url("fonts/arialroundedmtbold.ttf") format("truetype");
+    src: url("fonts/arlrdbd.ttf") format("truetype");
 }
 body {
     font-family: "Arial Rounded MT Bold";
+    font-weight: 500;
     margin: 0;
     padding: 0;
     overflow-x: hidden;

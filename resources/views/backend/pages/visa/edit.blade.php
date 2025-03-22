@@ -2,7 +2,7 @@
 
 @section('content')
     @push('styles')
-        <style>
+       <style>
             body {
                 background-color: #f5faf5;
                 font-family: Arial, sans-serif;
@@ -11,9 +11,9 @@
             .visa-form-container {
                 max-width: 1200px;
                 background-color: #eef7ee;
-                padding: 40px;
+                padding: 15px 15px;
                 border-radius: 15px;
-                margin: 50px auto;
+                margin: 10px 10px;
                 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
             }
 
@@ -55,7 +55,7 @@
             .section-heading {
                 font-size: 22px;
                 font-weight: bold;
-                margin-top: 20px;
+                margin-top: 5px;
                 color: #0000FE;
                 text-align: center;
             }
@@ -103,31 +103,18 @@
                     <input type="text" name="visa_type_en" value="{{ old('visa_type_en', $visa->visa_type_en) }}"
                         class="form-control">
                 </div>
-                <div class="col-md-6 mb-3">
-                    <label>Visa Purpose In Arabic</label>
-                    <input type="text" name="visa_purpose_ar"
-                        value="{{ old('visa_purpose_ar', $visa->visa_purpose_ar) }}" class="form-control">
-                </div>
-                <div class="col-md-6 mb-3">
-                    <label>Visa Purpose In English</label>
-                    <input type="text" name="visa_purpose_en"
-                        value="{{ old('visa_purpose_en', $visa->visa_purpose_en) }}" class="form-control">
-                </div>
-                <div class="col-md-12">
+
+                <div class="col-md-6">
                     <label>Date of Issue</label>
                     <input type="date" name="issue_date" value="{{ old('issue_date', $visa->issue_date) }}"
                         class="form-control">
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label>Date Of Expiry</label>
                     <input type="date" name="expiry_date" value="{{ old('expiry_date', $visa->expiry_date) }}"
                         class="form-control">
                 </div>
-                <div class="col-md-12">
-                    <label>Place of Issue In Arabic </label>
-                    <input type="text" name="place_of_issue" value="{{ old('place_of_issue', $visa->place_of_issue) }}"
-                        class="form-control">
-                </div>
+
             </div>
 
             <div class="section-heading">Visa Holder Details (بيانات صاحب التأشيرة)</div>
@@ -148,22 +135,26 @@
                     <input type="text" name="moi_reference" value="{{ old('moi_reference', $visa->moi_reference) }}"
                         class="form-control">
                 </div>
-                <div class="col-md-12">
-                    <label>Nationality</label>
-                    <select id="nationality" name="nationality" class="form-control">
+                <div class="col-md-6">
+                    <label>Nationality Arabic</label>
+                    <select id="nationality_ar" name="nationality_ar" class="form-control">
                         <option value="">Select Nationality</option>
-                        {{-- @foreach ($countries as $country)
-                            <option value="{{ $country['cca2'] }}" {{ $visa->nationality == $country['cca2'] ? 'selected' : '' }}>
-                                {{ $country['name']['common'] }}
-                            </option>
-                        @endforeach --}}
+                        <!-- Add your nationality options here -->
                     </select>
                 </div>
-                <div class="col-md-12">
+
+                <div class="col-md-6">
+                    <label>Nationality English</label>
+                    <select id="nationality_en" name="nationality_en" class="form-control">
+                        <option value="">Select Nationality</option>
+                        <!-- Add your nationality options here -->
+                    </select>
+                </div>
+                <div class="col-md-6">
                     <label>Date of Birth</label>
                     <input type="date" name="dob" value="{{ old('dob', $visa->dob) }}" class="form-control">
                 </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label>Gender</label>
                     <select name="gender" class="form-control">
                         <option value="Male" {{ $visa->gender == 'Male' ? 'selected' : '' }}>Male</option>
@@ -185,26 +176,18 @@
                     <input type="text" name="passport_no" value="{{ old('passport_no', $visa->passport_no) }}"
                         class="form-control">
                 </div>
-                <div class="col-md-12">
-                    <label>Place Of Issue</label>
-                    <input type="text" name="place_issue" value="{{ old('place_issue', $visa->place_issue) }}"
+                 <div class="col-md-6">
+                    <label>Passport Issue Date</label>
+                    <input type="date" name="passport_issue_date" value="{{ old('passport_issue_date',$visa->passport_issue_date) }}"
                         class="form-control">
                 </div>
-                <div class="col-md-12">
-                    <label>Passport Type</label>
-                    <select name="passport_type" class="form-control">
-                        <option value="Diplomatic" {{ $visa->passport_type == 'Diplomatic' ? 'selected' : '' }}>Diplomatic
-                        </option>
-                        <option value="Official" {{ $visa->passport_type == 'Official' ? 'selected' : '' }}>Official
-                        </option>
-                        <option value="Normal" {{ $visa->passport_type == 'Normal' ? 'selected' : '' }}>Normal</option>
-                    </select>
-                </div>
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label>Passport Expiry Date</label>
-                    <input type="date" name="passport_expiry_date"
-                        value="{{ old('passport_expiry_date', $visa->passport_expiry_date) }}" class="form-control">
+                    <input type="date" name="passport_expiry_date" value="{{ old('passport_expiry_date',$visa->passport_expiry_date) }}"
+                        placeholder="Enter Passport Expiry Date" class="form-control">
                 </div>
+                
+               
             </div>
 
             <div class="section-heading">Employer/Family Breadwinner Details (بيانات صاحب العمل/العائل)</div>
@@ -215,54 +198,75 @@
                     <input type="text" name="company_name_ar"
                         value="{{ old('company_name_ar', $visa->company_name_ar) }}" class="form-control">
                 </div>
-                <div class="col-md-12">
-                    <label>MOI Reference</label>
-                    <input type="text" name="company_moi_reference"
-                        value="{{ old('company_moi_reference', $visa->company_moi_reference) }}" class="form-control">
-                </div>
-                <div class="col-md-12">
-                    <label>Mobile Number</label>
-                    <input type="text" name="mobile_number" value="{{ old('mobile_number', $visa->mobile_number) }}"
-                        class="form-control">
-                </div>
+               
             </div>
 
-            <div class="section-heading">Message</div>
-            <div class="row">
-                <div class="col-md-12 mb-3">
-                    <textarea name="message" placeholder="Enter Message" class="form-control">{{ old('message', $visa->message) }}</textarea>
-                </div>
-            </div>
+           
 
             <button type="submit" class="submit-btn">Update Visa</button>
         </form>
     </div>
 
     <script>
-        async function loadNationalities() {
+        async function loadNationalities(selectedValueEn = "", selectedValueAr = "") {
+            console.log("loadNationalities function called");
+
             try {
                 let response = await fetch("https://restcountries.com/v3.1/all");
+                if (!response.ok) {
+                    throw new Error("Failed to fetch countries");
+                }
                 let countries = await response.json();
-                let nationalitySelect = document.getElementById("nationality");
+                console.log("Countries fetched:", countries);
+
+                let nationalitySelectEn = document.getElementById("nationality_en");
+                let nationalitySelectAr = document.getElementById("nationality_ar");
+
+                if (!nationalitySelectEn || !nationalitySelectAr) {
+                    throw new Error("Dropdown elements not found");
+                }
+
+                // Clear existing options
+                nationalitySelectEn.innerHTML = `<option value="">Select Nationality (English)</option>`;
+                nationalitySelectAr.innerHTML = `<option value="">Select Nationality (Arabic)</option>`;
+
+                // Sort countries by English name
                 countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
 
+                // Populate dropdowns
                 countries.forEach(country => {
                     let englishName = country.name.common;
                     let arabicName = country.translations?.ara?.common || "";
 
-                    let option = document.createElement("option");
+                    // Add option to English dropdown
+                    let optionEn = document.createElement("option");
+                    optionEn.value = englishName;
+                    optionEn.textContent = englishName;
+                    nationalitySelectEn.appendChild(optionEn);
 
-
-                    option.value = englishName;
-                    option.textContent = arabicName ? `${englishName} - ${arabicName}` : englishName;
-
-                    nationalitySelect.appendChild(option);
+                    // Add option to Arabic dropdown
+                    let optionAr = document.createElement("option");
+                    optionAr.value = arabicName;
+                    optionAr.textContent = arabicName || englishName;
+                    nationalitySelectAr.appendChild(optionAr);
                 });
+
+                // Set selected values after populating options
+                console.log("Setting selected values...");
+                nationalitySelectEn.value = selectedValueEn;
+                nationalitySelectAr.value = selectedValueAr;
+                console.log("Selected values set successfully!");
+
             } catch (error) {
-                console.error("Error fetching country list:", error);
+                console.error("Error in loadNationalities:", error);
             }
         }
 
-        document.addEventListener("DOMContentLoaded", loadNationalities);
+        document.addEventListener("DOMContentLoaded", function() {
+            console.log("DOM fully loaded");
+            let selectedNationalityEn = "{{ old('nationality_en', $visa->nationality_en) }}"; // Example value
+            let selectedNationalityAr = "{{ old('nationality_ar', $visa->nationality_ar) }}"; // Example value
+            loadNationalities(selectedNationalityEn, selectedNationalityAr);
+        });
     </script>
 @endsection

@@ -38,13 +38,11 @@
                 <div class="timeline-circle"></div>
             </div>
             <div class="timeline-content">
-                <p>Here on this page, if you click on the QR Code on the right side of the Details option, you will
-                    automatically see a QR Code. There, Visa Verification QR Code is written above the QR Code. If you open
-                    the Verify-Visa Verification of the same Kuwait Visa app running on any other Android or IOS operating
-                    system and scan the displayed QR Code, a short detail of the Employment Visa written in <span
-                        style="color: green;">GREEN</span> with Valid
-                    document will show on your mobile screen as soon as possible. Here, if you wish, you can verify the
-                    information provided using the default QR code scanner on any smart phone. </p>
+                <p>On this page, if you click on the <strong>Verify - Visa Verification</strong> option on the right side of
+                    Inquiry-Visa
+                    Inquiries, a scanner will automatically open, when you scan the blue QR code under the passport details
+                    on your visa with that scanner, a brief description of the Employment Visa with the word Valid document
+                    written in GREEN colour will appear on your mobile screen as soon as possible.</p>
             </div>
         </div>
         <div class="timeline-item">
