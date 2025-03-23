@@ -69,43 +69,71 @@ class AdminManualVisaController extends Controller
     }
 
     // Show Edit Form
-    public function edit(Visa $visa)
+    public function edit($id)
     {
-        return view('backend.pages.manual_visa.edit', compact('manual_visa'));
+        $manualVisa = ManualVisa::findOrFail($id);
+        return view('backend.pages.manual_visa.edit', compact('manualVisa'));
     }
+    
 
     // Update Visa
-    public function update(Request $request, Visa $visa)
-    {
-        $request->validate([
-            'passport_no' => 'required|unique:manual_visas,passport_no,' . $visa->id,
-            'dob' => 'required|date',
-            'nationality_en' => 'required|string',
-            'pdf_file' => 'nullable|mimes:pdf',
-        ]);
+    public function update(Request $request, $id)
+{
+    $manualVisa = ManualVisa::findOrFail($id);
 
-        $pdfPath = $visa->pdf_file;
-        if ($request->hasFile('pdf_file')) {
-            $pdfPath = $request->file('pdf_file')->store('pdfs', 'public');
+    $request->validate([
+        'passport_no' => 'required|unique:manual_visas,passport_no,' . $id,
+        'dob' => 'required|date',
+        'nationality_en' => 'required|string',
+        'pdf_file' => 'nullable|mimes:pdf', // PDF validation (optional)
+    ]);
+
+    // Handle PDF Upload
+    if ($request->hasFile('pdf_file')) {
+        $destinationPath = public_path('pdfs');
+
+        // Ensure the folder exists
+        if (!file_exists($destinationPath)) {
+            mkdir($destinationPath, 0777, true);
         }
 
-        $visa->update([
-            'passport_no' => $request->passport_no,
-            'dob' => $request->dob,
-            'nationality_en' => $request->nationality_en,
-            'pdf_file' => $pdfPath,
-        ]);
+        // Delete old PDF file (if exists)
+        if ($manualVisa->pdf_file && file_exists(public_path($manualVisa->pdf_file))) {
+            unlink(public_path($manualVisa->pdf_file));
+        }
 
-        return redirect()->route('admin.admin-manual-visas.index')->with('success', 'Manual Visa updated successfully!');
+        // Upload new PDF file
+        $originalName = $request->file('pdf_file')->getClientOriginalName();
+        $extension = $request->file('pdf_file')->getClientOriginalExtension();
+        $fileName = date('Y-m-d_H-i-s') . '_' . pathinfo($originalName, PATHINFO_FILENAME) . '.' . $extension;
+        $request->file('pdf_file')->move($destinationPath, $fileName);
+
+        $pdfPath = 'pdfs/' . $fileName;
+    } else {
+        $pdfPath = $manualVisa->pdf_file; // Keep the old file if no new file is uploaded
     }
 
+    // Update Visa Data
+    $manualVisa->update([
+        'passport_no' => $request->passport_no,
+        'dob' => $request->dob,
+        'nationality_en' => $request->nationality_en,
+        'file_owner_name' => $originalName ?? $manualVisa->file_owner_name,
+        'pdf_file' => $pdfPath,
+    ]);
+
+    return redirect()->route('admin.admin-manual-visas.index')->with('success', 'Manual Visa updated successfully!');
+}
+
+
     // Delete Visa
-    public function destroy(Visa $visa)
+    public function destroy($id)
     {
-        if ($visa->pdf_file) {
-            \Storage::disk('public')->delete($visa->pdf_file);
+        $manualVisa = ManualVisa::findOrFail($id);
+        if ($manualVisa->pdf_file && file_exists(public_path($manualVisa->pdf_file))) {
+            unlink(public_path($manualVisa->pdf_file));
         }
-        $visa->delete();
+        $manualVisa->delete();
 
         return redirect()->route('admin.admin-manual-visas.index')->with('success', 'Manual Visa deleted successfully!');
     }

@@ -92,23 +92,20 @@
                     <input type="text" name="visa_number" value="{{ old('visa_number') }}" placeholder="Enter Visa Number"
                         class="form-control">
                 </div>
-                <div class="col-md-6 mb-3">
+                <div class="col-md-12 mb-3">
                     <label>Visa Type In Arabic</label>
                     <input type="text" name="visa_type_ar" value="{{ old('visa_type_ar') }}" placeholder="نوع التأشيرة"
                         class="form-control">
                 </div>
-                <div class="col-md-6 mb-3">
-                    <label>Visa Type In English</label>
-                    <input type="text" name="visa_type_en" value="{{ old('visa_type_en') }}" placeholder="visa type"
-                        class="form-control">
+
+
+                <div class="col-md-6">
+                    <label>Visa Issue Date</label>
+                    <input type="date" name="issue_date" value="{{ old('issue_date') }}" class="form-control">
                 </div>
 
                 <div class="col-md-6">
-                    <label>Date of Issue</label>
-                    <input type="date" name="issue_date" value="{{ old('issue_date') }}" class="form-control">
-                </div>
-                <div class="col-md-6">
-                    <label>Date Of Expiry</label>
+                    <label>Visa Expiry Date</label>
                     <input type="date" name="expiry_date" value="{{ old('expiry_date') }}" class="form-control">
                 </div>
 
@@ -167,14 +164,16 @@
 
                 <div class="col-md-6 mb-3">
                     <label>Occupation In Arabic</label>
-                    <input type="text" name="occupation_ar" value="{{ old('occupation_ar') }}" placeholder=""
-                        class="form-control">
+                    <input type="text" name="occupation_ar" value="{{ old('occupation_ar') }}" class="form-control"
+                        placeholder="Enter Occupation In Arabic">
                 </div>
+
                 <div class="col-md-6 mb-3">
                     <label>Occupation In English</label>
-                    <input type="text" name="occupation_en" value="{{ old('occupation_en') }}" placeholder=""
-                        class="form-control">
+                    <input type="text" name="occupation_en" value="{{ old('occupation_en') }}" class="form-control"
+                        placeholder="Enter Occupation In English">
                 </div>
+
                 <div class="col-md-12">
                     <label>Passport No</label>
                     <input type="text" name="passport_no" value="{{ old('passport_no') }}"
@@ -184,6 +183,11 @@
                     <label>Passport Issue Date</label>
                     <input type="date" name="passport_issue_date" value="{{ old('passport_issue_date') }}"
                         class="form-control">
+                </div>
+                <div class="col-md-6 mb-3">
+                    <label>Passport Type In Arabic</label>
+                    <input type="text" name="passport_type_ar" value="{{ old('passport_type_ar') }}"
+                        placeholder="Passport Type In Arabic" class="form-control">
                 </div>
                 <div class="col-md-6">
                     <label>Passport Expiry Date</label>
@@ -204,13 +208,14 @@
 
                 <div class="col-md-12">
                     <label for="barcode_text_up" class="form-label">Barcode Text (Up)</label>
-                    <textarea name="barcode_text_up" id="barcode_text_up" class="form-control" rows="1" style="resize: none;" placeholder="Enter Barcode Text Up">{{ old('barcode_text_up') }}</textarea>
+                    <textarea name="barcode_text_up" id="barcode_text_up" class="form-control" rows="1" style="resize: none;"
+                        placeholder="Enter Barcode Text Up">{{ old('barcode_text_up') }}</textarea>
                 </div>
 
                 <div class="col-md-12 mt-3">
                     <label for="barcode_text_down" class="form-label">Barcode Text (Down)</label>
-                    <textarea name="barcode_text_down" id="barcode_text_down" class="form-control" rows="1"
-                        style="resize: none;" placeholder="Enter Barcode Text Down"></textarea>
+                    <textarea name="barcode_text_down" id="barcode_text_down" class="form-control" rows="1" style="resize: none;"
+                        placeholder="Enter Barcode Text Down">{{ old('barcode_text_down') }}</textarea>
                 </div>
 
             </div>
@@ -222,33 +227,20 @@
 
     </div>
 
+
     <script>
-        async function loadNationalities() {
-            try {
-                let response = await fetch("https://restcountries.com/v3.1/all");
-                let countries = await response.json();
-                let nationalitySelect = document.getElementById("nationality_en");
-                countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
+        document.addEventListener("DOMContentLoaded", function() {
+            let barcodeTextUp = document.getElementById("barcode_text_up");
+            let barcodeTextDown = document.getElementById("barcode_text_down");
 
-                countries.forEach(country => {
-                    let englishName = country.name.common;
-                    let arabicName = country.translations?.ara?.common || "";
-
-                    let option = document.createElement("option");
-
-
-                    option.value = englishName;
-                    option.textContent = arabicName ? `${englishName} - ${arabicName}` : englishName;
-
-                    nationalitySelect.appendChild(option);
-                });
-            } catch (error) {
-                console.error("Error fetching country list:", error);
+            function limitInputLength(event) {
+                if (event.target.value.length > 45) {
+                    event.target.value = event.target.value.substring(0, 45);
+                }
             }
-        }
 
-        document.addEventListener("DOMContentLoaded", loadNationalities);
+            barcodeTextUp.addEventListener("input", limitInputLength);
+            barcodeTextDown.addEventListener("input", limitInputLength);
+        });
     </script>
-
-
 @endsection

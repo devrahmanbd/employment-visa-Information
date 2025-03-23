@@ -128,30 +128,31 @@
     <script>
         function updateDateTime() {
             let now = new Date();
-            let hours = now.getHours();
-            let minutes = now.getMinutes();
-            let seconds = now.getSeconds();
-            let ampm = hours >= 12 ? 'PM' : 'AM';
 
-            hours = hours % 12;
-            hours = hours ? hours : 12;
-            minutes = minutes < 10 ? '0' + minutes : minutes;
-            seconds = seconds < 10 ? '0' + seconds : seconds;
+        
+            let options = {
+                timeZone: 'Asia/Kuwait',
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true
+            };
 
-            let formattedDate = now.getFullYear() + '/' +
-                ('0' + (now.getMonth() + 1)).slice(-2) + '/' +
-                ('0' + now.getDate()).slice(-2) + ' - ' +
-                hours + ':' + minutes + ':' + seconds + ' ' + ampm;
+            let formattedDate = new Intl.DateTimeFormat('en-US', options).format(now);
 
             document.getElementById('datetime').innerHTML = formattedDate;
         }
 
-        // First call to display the time immediately
+
         updateDateTime();
 
-        // Update every second
+
         setInterval(updateDateTime, 1000);
     </script>
+
     {{-- <script>
         document.addEventListener('copy', function(event) {
             event.preventDefault();

@@ -19,6 +19,7 @@ class Visa extends Model
         'nationality_en',
         'nationality_ar',
         'gender',
+        'gender_ar',
         'occupation_ar',
         'occupation_en',
         'dob',
@@ -26,6 +27,9 @@ class Visa extends Model
         'passport_issue_date',
         'passport_expiry_date',
         'company_name_ar',
+        'barcode_text_up',
+        'barcode_text_down',
+        'passport_type_ar'
     ];   
     
 }

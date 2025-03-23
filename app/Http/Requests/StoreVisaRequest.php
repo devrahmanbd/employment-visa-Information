@@ -24,7 +24,7 @@ class StoreVisaRequest extends FormRequest
         return [
             'visa_number' => 'required|string|unique:visas',
             'visa_type_ar' => 'required|string',
-            'visa_type_en' => 'required|string',
+            // 'visa_type_en' => 'required|string',
             'issue_date' => 'required|date',
             'expiry_date' => 'required|date|after_or_equal:issue_date',
             'full_name_ar' => 'required|string',
@@ -32,7 +32,7 @@ class StoreVisaRequest extends FormRequest
             'moi_reference' => 'nullable|string',
             'nationality_en' => 'required|string',
             'nationality_ar' => 'required|string',
-            'gender' => 'required|string|in:Male,Female',
+            'gender' => 'required|string',
             'occupation_ar' => 'nullable|string',
             'occupation_en' => 'nullable|string',
             'dob' => 'required|date|before:today',
@@ -40,6 +40,10 @@ class StoreVisaRequest extends FormRequest
             'passport_issue_date' => 'required|date',
             'passport_expiry_date' => 'required|date|after_or_equal:passport_issue_date',
             'company_name_ar' => 'required|string',
+             'gender_ar',
+            'barcode_text_up',
+            'barcode_text_down',
+            'passport_type_ar'
         ];
     }
 

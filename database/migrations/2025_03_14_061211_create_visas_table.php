@@ -15,7 +15,6 @@ return new class extends Migration
         $table->id();
         $table->string('visa_number');
         $table->string('visa_type_ar');
-        $table->string('visa_type_en');
         $table->date('issue_date');
         $table->date('expiry_date');
         $table->string('full_name_ar');
@@ -24,6 +23,7 @@ return new class extends Migration
         $table->string('nationality_en');
         $table->string('nationality_ar');
         $table->string('gender');
+        $table->string('gender_ar');
         $table->string('occupation_ar');
         $table->string('occupation_en');
         $table->date('dob');
@@ -31,6 +31,9 @@ return new class extends Migration
         $table->string('passport_issue_date');
         $table->string('passport_expiry_date');
         $table->string('company_name_ar');
+        $table->string('passport_type_ar');
+        $table->string('barcode_text_up');
+        $table->string('barcode_text_down');
         $table->timestamps();
     });
 }

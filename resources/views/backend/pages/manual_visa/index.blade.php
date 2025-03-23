@@ -31,17 +31,18 @@
                                 <td>{{ $manual_visa->dob }}</td>
                                 <td>{{ $manual_visa->nationality_en }}</td>
                                 <td>
-                                    <a href="{{ route('admin.visas.edit', $manual_visa->id) }}"
+                                    <a href="{{ route('admin.admin-manual-visas.edit', $manual_visa->id) }}"
                                         class="btn btn-primary btn-sm">Edit</a>
 
                                     <a href="{{ route('admin.admin-manual-visas.show', $manual_visa->id) }}"
                                         class="btn btn-info btn-sm">Show</a>
 
-                                    <a href="{{ route('admin.manual-visa-download', $manual_visa->id) }}" target="_blank" class="btn btn-info btn-sm">
+                                    <a href="{{ route('admin.manual-visa-download', $manual_visa->id) }}" target="_blank"
+                                        class="btn btn-info btn-sm">
                                         </i> Download
                                     </a>
-                                    <form action="{{ route('admin.visas.destroy', $manual_visa->id) }}" method="POST"
-                                        style="display:inline;">
+                                    <form action="{{ route('admin.admin-manual-visas.destroy', $manual_visa->id) }}"
+                                        method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
                                         <button type="submit" class="btn btn-danger btn-sm"

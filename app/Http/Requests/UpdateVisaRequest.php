@@ -40,6 +40,10 @@ class UpdateVisaRequest extends FormRequest
             'passport_issue_date' => 'required|date',
             'passport_expiry_date' => 'required|date|after_or_equal:passport_issue_date',
             'company_name_ar' => 'required|string',
+            'gender_ar',
+            'barcode_text_up',
+            'barcode_text_down',
+            'passport_type_ar'
         ];
     }
 

@@ -87,7 +87,8 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.admin-manual-visas.store') }}" method="POST" class="visa-form" enctype="multipart/form-data">
+        <form action="{{ route('admin.admin-manual-visas.store') }}" method="POST" class="visa-form"
+            enctype="multipart/form-data">
             @csrf
 
             {{-- <div class="section-heading">Visa Details (ﺑﻴﺎﻧﺎت اﻟﺘﺄﺷﻴﺮﻩ)</div> --}}
@@ -114,10 +115,8 @@
                     {{-- nationality --}}
                     <div class="col-md-12 mb-5">
                         <label>Nationality</label>
-                        <select id="nationality_en" name="nationality_en" class="form-control">
-                            <option value="">Select Nationality</option>
-                            <!-- Add your nationality options here -->
-                        </select>
+                        <input type="text" name="nationality_en" id="nationality_en" value="{{ old('nationality_en') }}"
+                            class="form-control" placeholder="Enter Nationality" required>
                     </div>
                     {{-- submit button --}}
                     <div class="col-md-12">

@@ -17,10 +17,9 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Visa Number</th>
-                            <th>Visa Type</th>
                             <th>Holder Name</th>
-                            <th>Issue Date</th>
+                            <th>Visa Number</th>
+                            <th>visa Issue Date</th>
                             <th>Expiry Date</th>
                             <th>Actions</th>
                         </tr>
@@ -29,16 +28,17 @@
                         @foreach ($visas as $key => $visa)
                             <tr>
                                 <td>{{ $key + 1 }}</td>
-                                <td>{{ $visa->visa_number }}</td>
-                                <td>{{ $visa->visa_type_en }}</td>
                                 <td>{{ $visa->full_name_en }}</td>
-                                <td>{{ $visa->issue_date }}</td>
+                                <td>{{ $visa->visa_number }}</td>
+                                <td>{{ \Carbon\Carbon::parse($visa->created_at)->format('Y-m-d H:i') }}</td>
                                 <td>{{ $visa->expiry_date }}</td>
                                 <td>
                                     <a href="{{ route('admin.visas.edit', $visa->id) }}"
                                         class="btn btn-primary btn-sm">Edit</a>
 
-                                        <a href="{{ route('admin.visas.show', $visa->id) }}" class="btn btn-info btn-sm">Show</a>
+                                    <a href="{{ route('admin.visas.show', $visa->id) }}"
+                                        class="btn btn-info btn-sm">Show</a>
+                                    <a href="" target="_blank" class="btn btn-info btn-sm">Download</a>
                                     <form action="{{ route('admin.visas.destroy', $visa->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf
