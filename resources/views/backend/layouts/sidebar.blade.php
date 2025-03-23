@@ -63,14 +63,14 @@
                             <a href="{{ route('admin.visas.index') }}"
                                 class="nav-link {{ request()->routeIs('admin.visas.index') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Visa</p>
+                                <p>List of eVisa</p>
                             </a>
                         </li>
                         <li class="nav-item">
                             <a href="{{ route('admin.visas.create') }}"
                                 class="nav-link {{ request()->routeIs('admin.visas.create') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Add Visa</p>
+                                <p>Add eVisa</p>
                             </a>
                         </li>
                     </ul>
@@ -92,7 +92,7 @@
                             <a href="{{ route('admin.admin-manual-visas.index') }}"
                                 class="nav-link {{ request()->routeIs('admin.admin-manual-visas.index') ? 'active' : '' }}">
                                 <i class="far fa-circle nav-icon"></i>
-                                <p>Manual Visa</p>
+                                <p>List of Manual Visa</p>
                             </a>
                         </li>
                         <li class="nav-item">
