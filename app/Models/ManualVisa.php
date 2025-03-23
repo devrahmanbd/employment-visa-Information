@@ -10,6 +10,8 @@ class ManualVisa extends Model
         'passport_no',
         'dob',
         'nationality_en',
+        'file_owner_name',
+        'status',
         'pdf_file',
     ];
 }

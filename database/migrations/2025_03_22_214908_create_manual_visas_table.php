@@ -16,7 +16,9 @@ return new class extends Migration
             $table->string('passport_no')->unique();
             $table->date('dob');
             $table->string('nationality_en');
+            $table->string('file_owner_name'); // Store the file path
             $table->string('pdf_file'); // Store the file path
+            $table->string('status')->default('approved'); // Store the file path
             $table->timestamps();
         });
     }

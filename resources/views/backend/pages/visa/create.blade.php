@@ -39,7 +39,7 @@
                 background-color: #b68a35;
                 color: white;
                 font-weight: bold;
-                padding: 14px;
+                padding: 8px;
                 border-radius: 8px;
                 font-size: 1rem;
                 width: 100%;
@@ -133,36 +133,38 @@
                         placeholder="Enter MOI Reference" class="form-control">
                 </div>
 
-                
+
 
                 <div class="col-md-6">
                     <label>Nationality Arabic</label>
-                    <select id="nationality_ar" name="nationality_ar" class="form-control">
-                        <option value="">Select Nationality</option>
-                        <!-- Add your nationality options here -->
-                    </select>
+                    <input type="text" name="nationality_ar" value="{{ old('nationality_ar') }}"
+                        placeholder="Enter National Arabic" class="form-control">
                 </div>
 
                 <div class="col-md-6">
                     <label>Nationality English</label>
-                    <select id="nationality_en" name="nationality_en" class="form-control">
-                        <option value="">Select Nationality</option>
-                        <!-- Add your nationality options here -->
-                    </select>
+                    <input type="text" name="nationality_en" value="{{ old('nationality_en') }}"
+                        placeholder="Enter National English" class="form-control">
                 </div>
 
                 <div class="col-md-6">
                     <label>Date of Birth</label>
                     <input type="date" name="dob" value="{{ old('dob') }}" class="form-control">
                 </div>
-                <div class="col-md-6">
-                    <label>Gender</label>
-                    <select name="gender" class="form-control">
-                        <option value="">Select Gender</option>
-                        <option value="Male" {{ old('gender') == 'Male' ? 'selected' : '' }}>Male</option>
-                        <option value="Female" {{ old('gender') == 'Female' ? 'selected' : '' }}>Female</option>
-                    </select>
+                <div class="col-md-3">
+                    <label>Sex (English)</label>
+                    {{-- gender --}}
+                    <input type="text" name="gender" value="{{ old('gender') }}" placeholder="Enter Sex"
+                        class="form-control">
                 </div>
+
+                <div class="col-md-3">
+                    <label>Sex (Arabic)</label>
+                    {{-- gender --}}
+                    <input type="text" name="gender_ar" value="{{ old('gender_ar') }}" placeholder="Enter Sex Arabic"
+                        class="form-control">
+                </div>
+
                 <div class="col-md-6 mb-3">
                     <label>Occupation In Arabic</label>
                     <input type="text" name="occupation_ar" value="{{ old('occupation_ar') }}" placeholder=""
@@ -200,6 +202,16 @@
                         placeholder="Enter Full Name of Company in Arabic" class="form-control">
                 </div>
 
+                <div class="col-md-12">
+                    <label for="barcode_text_up" class="form-label">Barcode Text (Up)</label>
+                    <textarea name="barcode_text_up" id="barcode_text_up" class="form-control" rows="1" style="resize: none;" placeholder="Enter Barcode Text Up">{{ old('barcode_text_up') }}</textarea>
+                </div>
+
+                <div class="col-md-12 mt-3">
+                    <label for="barcode_text_down" class="form-label">Barcode Text (Down)</label>
+                    <textarea name="barcode_text_down" id="barcode_text_down" class="form-control" rows="1"
+                        style="resize: none;" placeholder="Enter Barcode Text Down"></textarea>
+                </div>
 
             </div>
 
@@ -238,31 +250,5 @@
         document.addEventListener("DOMContentLoaded", loadNationalities);
     </script>
 
-     <script>
-        async function loadNationalities() {
-            try {
-                let response = await fetch("https://restcountries.com/v3.1/all");
-                let countries = await response.json();
-                let nationalitySelect = document.getElementById("nationality_ar");
-                countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
 
-                countries.forEach(country => {
-                    let englishName = country.name.common;
-                    let arabicName = country.translations?.ara?.common || "";
-
-                    let option = document.createElement("option");
-
-
-                    option.value = arabicName;
-                    option.textContent = arabicName ? `${englishName} - ${arabicName}` : englishName;
-
-                    nationalitySelect.appendChild(option);
-                });
-            } catch (error) {
-                console.error("Error fetching country list:", error);
-            }
-        }
-
-        document.addEventListener("DOMContentLoaded", loadNationalities);
-    </script>
 @endsection

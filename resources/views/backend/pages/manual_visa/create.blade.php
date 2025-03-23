@@ -87,7 +87,7 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.visas.store') }}" method="POST" class="visa-form">
+        <form action="{{ route('admin.admin-manual-visas.store') }}" method="POST" class="visa-form" enctype="multipart/form-data">
             @csrf
 
             {{-- <div class="section-heading">Visa Details (ﺑﻴﺎﻧﺎت اﻟﺘﺄﺷﻴﺮﻩ)</div> --}}
@@ -171,7 +171,7 @@
 
 
                         option.value = englishName;
-                        option.textContent = arabicName ? `${englishName} - ${arabicName}` : englishName;
+                        option.textContent = arabicName ? `${arabicName}` : englishName;
 
                         nationalitySelect.appendChild(option);
                     });
