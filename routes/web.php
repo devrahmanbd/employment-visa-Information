@@ -17,7 +17,6 @@ use App\Http\Controllers\Frontend\VisaInquiryController;
 use App\Http\Controllers\Backend\AdminManualVisaController;
 use App\Http\Controllers\Frontend\VisaInformationController;
 use App\Http\Controllers\Frontend\KuwaitVisaAppsModelController;
-use App\Http\Controllers\Frontend\ElectronicVisaFindPdfController;
 use App\Http\Controllers\Frontend\DownloadEmploymentVisaController;
 
 // Home page
@@ -56,8 +55,6 @@ Route::get('/download-employment-visa', [DownloadEmploymentVisaController::class
 // ManualVisaController
 Route::get('/manual-visa', [ManualVisaController::class, 'manualVisa'])->name('manual-visa');
 
-// eVisa 
-Route::get('/evisa', [ElectronicVisaFindPdfController::class, 'evisa'])->name('evisa-find');
 
 Route::get('/captcha', function () {
     $captcha_text = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ123456789"), 0, 6);

@@ -14,10 +14,10 @@
         <div class="div">
             <header class="group">
                 <div class="overlap-group"
-                    style="background-image: url('{{ asset('frontend/assets/visa') }}/img/imagebanner.png')">
+                    style="background-image: url('{{ asset('frontend/assets/visa') }}/img/banner.svg')">
                     <img class="logo-en" src="{{ asset('frontend/assets/visa') }}/img/logo-en 3.png" alt="Logo" />
                     <img class="img" src="{{ asset('frontend/assets/visa') }}/img/logo-en 5.png" alt="Logo" />
-                    <img class="logo-en-2" src="{{ asset('frontend/assets/visa') }}/img/logo-en 2.png" alt="Logo" />
+                    <img class="logo-en-2" src="{{ asset('frontend/assets/visa') }}/img/emblem.svg" alt="Logo" />
                     <h1 class="text-wrapper">تأشيرة إلكترونية</h1>
                     <img class="group-2" src="{{ asset('frontend/assets/visa') }}/img/Group 24.png"
                         alt="Decorative element" />
@@ -39,7 +39,7 @@
                             <div class="group-4">
                                 <div class="overlap-2">
                                     <div class="rectangle-3"></div>
-                                    <div class="rectangle-4"></div>
+                                    <!-- <div class="rectangle-4"></div> -->
                                     <div class="rectangle-5"></div>
                                     <div class="rectangle-6"></div>
                                     <div class="rectangle-7"></div>
@@ -94,13 +94,14 @@
                                 this document
                             </p>
                         </div>
-                        <img class="unnamed-removebg"
-                            src="{{ asset('frontend/assets/visa') }}/img/unnamed__1__1-removebg-preview 1.png"
+                    <div class="footer_logo">
+                    <img class="unnamed-removebg"
+                            src="{{ asset('frontend/assets/visa') }}/img/moilogo.png"
                             alt="QR Code" />
-                        <img class="element-2" src="{{ asset('frontend/assets/visa') }}/img/راصد 2.png"
-                            alt="Barcode" />
-                        <img class="unnamed" src="{{ asset('frontend/assets/visa') }}/img/unnamed 3.png"
+                        <img class="element-2" src="{{ asset('frontend/assets/visa') }}/img/moi1.svg"                            alt="Barcode" />
+                        <img class="unnamed" src="{{ asset('frontend/assets/visa') }}/img/kuwait_visa.png"
                             alt="QR Code" />
+                    </div>    
                     </div>
                 </div>
             </section>
