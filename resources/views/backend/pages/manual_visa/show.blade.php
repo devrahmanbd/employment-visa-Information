@@ -36,13 +36,13 @@
 
                                 </div>
                             </div>
-                            {{-- <div class="col-md-6">
+                            <div class="col-md-6">
                                 <div class="col-md-6 mt-3">
                                     <label>PDF Preview</label>
                                     <embed src="{{ asset($manual_visa->pdf_file) }}" type="application/pdf" width="100%"
-                                        height="600px" />
+                                        height="400px" />
                                 </div>
-                            </div> --}}
+                            </div>
                         </div>
                     </div>
                 </div>

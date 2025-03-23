@@ -55,6 +55,8 @@ Route::get('/download-employment-visa', [DownloadEmploymentVisaController::class
 // ManualVisaController
 Route::get('/manual-visa', [ManualVisaController::class, 'manualVisa'])->name('manual-visa');
 
+    Route::get('/manual-visa-download', [ManualVisaController::class, 'downloadManualVisaFromFrontend'])
+    ->name('frontend-manual-visa-download');
 
 Route::get('/captcha', function () {
     $captcha_text = substr(str_shuffle("ABCDEFGHJKLMNPQRSTUVWXYZ123456789"), 0, 6);
@@ -74,6 +76,10 @@ Route::get('/dashboard', function () {
 })->middleware(['auth', 'verified'])->name('dashboard');
 
 // route group for authenticated users
+
+Route::resource('frontend-manual-visas', AdminManualVisaController::class);
+
+
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Visa

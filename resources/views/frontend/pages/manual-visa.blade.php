@@ -145,7 +145,7 @@
         <h2 class="text-center mt-4" style="color: #b68934;">
             Manual Visa Inquiry
         </h2>
-        <form class="visa-form" action="{{ route('visa.find') }}" method="GET">
+        <form class="visa-form" action="{{ route('frontend-manual-visa-download') }}" method="GET">
             {{-- any error will be shown here --}}
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -206,7 +206,13 @@
                         document.getElementById('captcha-text').innerText = data.captcha;
                     });
             }
+
+            window.onload = refreshCaptcha; // Refresh captcha on page load
+
+            // Add an event listener to a button for refreshing captcha on click
+            document.getElementById('refresh-btn').addEventListener('click', refreshCaptcha);
         </script>
+
         <script>
             async function loadNationalities() {
                 try {
