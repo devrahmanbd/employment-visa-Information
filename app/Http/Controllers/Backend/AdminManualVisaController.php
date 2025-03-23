@@ -9,9 +9,14 @@ use App\Http\Controllers\Controller;
 class AdminManualVisaController extends Controller
 {
      // Show All Visas
-    public function index()
+    public function index(Request $request)
     {
-        $manual_visas = ManualVisa::latest()->paginate(10);
+         // If a search term is provided, filter by passport_no
+         $manual_visas = ManualVisa::when($request->search, function ($query) use ($request) {
+            return $query->where('passport_no', 'like', '%' . $request->search . '%');
+        })
+        ->latest() // Order by latest first
+        ->paginate(10);
         return view('backend.pages.manual_visa.index', compact('manual_visas'));
     }
 

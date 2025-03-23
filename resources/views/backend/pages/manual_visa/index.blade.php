@@ -6,10 +6,29 @@
     <div class="container-fluid">
         <div class="card shadow">
             <div class="card-header bg-info text-white">
-                <h3 class="card-title m-0"><i class="fas fa-passport"></i> Manual Visa List</h3>
-                <a href="{{ route('admin.admin-manual-visas.create') }}" class="btn btn-success float-right">
-                    <i class="fas fa-passport"></i> Add Manual Visa
-                </a>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="card-title m-0"><i class="fas fa-passport"></i> Visa List</h3>
+
+                    <div class="d-flex">
+                        <!-- Search Form -->
+                        <form action="{{ route('admin.admin-manual-visas.index') }}" method="get"
+                            class="d-flex align-items-center">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control"
+                                    placeholder="Search by visa number" value="{{ request()->search }}"
+                                    aria-label="Search Manual Visa">
+                                <button type="submit" class="btn btn-primary input-group-append">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Add Visa Button -->
+                        <a href="{{ route('admin.admin-manual-visas.create') }}" class="btn btn-success ms-3 ml-3">
+                            <i class="fas fa-plus-circle"></i> Add Manual Visa
+                        </a>
+                    </div>
+                </div>
             </div>
 
             <div class="card-body">
