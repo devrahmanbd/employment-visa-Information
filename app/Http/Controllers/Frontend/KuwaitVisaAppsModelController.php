@@ -16,4 +16,8 @@ class KuwaitVisaAppsModelController extends Controller
     {
         return view('frontend.pages.visa-verification-scan');
     }
+
+    public function visaInquiries(){
+        return view('frontend.pages.evisa_inquiry_form');
+    }
 }

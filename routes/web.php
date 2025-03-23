@@ -44,6 +44,7 @@ Route::post('/message/store', [MessageController::class, 'store'])->name('messag
 
 // kuwait evisa verification
 Route::get('/kuwait-evisa-verification',[KuwaitVisaAppsModelController::class,'index'])->name('kuwait-evisa-verification');
+Route::get('/web-app-visa-inquiries', [KuwaitVisaAppsModelController::class, 'visaInquiries'])->name('web-app-visa-inquiries');
 // captcha
 Route::get('/captcha', function () {
     return Captcha::create();

@@ -32,21 +32,16 @@
             <h2 class="text-lg font-bold text-blue-700">Verify the Visa</h2>
             <p class="text-gray-600 text-sm">Verify visa that issued by the Ministry of Interior</p>
             <div class="grid grid-cols-2 gap-4 mt-3">
-                <div class="p-4 bg-gray-100 rounded-lg">
+                    <a href="{{ route('web-app-visa-inquiries') }}">
+                        <div class="p-4 bg-gray-100 rounded-lg">
                     <div class="text-blue-600 text-2xl flex justify-start">
-                        {{-- <div class="icon-container-tie">
-                            <i class="fas fa-user-tie"></i>
-
-                        </div>
-                        <div class="icon-container-globe">
-                            <i class="fas fa-globe"></i>
-                        </div> --}}
                         <img class="max-w-[65px]" src="{{ asset('images/user-icon.png') }}" alt=""
                             srcset="">
                     </div>
                     <p class="font-semibold">Inquiry</p>
                     <p class="text-xs text-gray-500">Visa Inquiries</p>
                 </div>
+                    </a>
                 <div class="p-4 bg-gray-100 rounded-lg">
                     <a href="{{ route('visa-verification-scan') }}">
                         <div class="text-blue-600 text-2xl">
