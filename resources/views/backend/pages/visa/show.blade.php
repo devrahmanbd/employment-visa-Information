@@ -44,6 +44,7 @@
                     <!-- Card Header -->
                     <div class="card-header text-white" style="background-color: #b68a35">
                         <h3 class="mb-0 text-center">Visa Details</h3>
+                        <img src="data:image/png;base64,{{ $qrCode }}" alt="Visa QR Code">
                     </div>
 
                     <!-- Card Body -->

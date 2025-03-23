@@ -34,6 +34,7 @@ return new class extends Migration
         $table->string('passport_type_ar');
         $table->string('barcode_text_up');
         $table->string('barcode_text_down');
+        $table->string('visa_status')->default('approved');
         $table->timestamps();
     });
 }

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreVisaRequest;
 use App\Http\Requests\UpdateVisaRequest;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class VisaController extends Controller
 {
@@ -47,10 +48,29 @@ class VisaController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
-    {
-        $visa = Visa::find($id); // Find the visa by the ID
-        return view('backend.pages.visa.show', compact('visa'));
+  public function show($id) {
+    $visa = Visa::findOrFail($id);
+    $url = route('admin.visas.show', $visa); // Resourceful route to the show method
+
+    $logoPath = public_path('images/scanercode.png');
+
+// চেক করুন লোগো ফাইলটি সঠিকভাবে আছে কিনা
+if (!file_exists($logoPath)) {
+    die('Logo file not found!');
+}
+
+// QR কোড তৈরি করুন
+$qrCode = base64_encode(
+    QrCode::format('png')
+        ->size(150)
+        ->color(53, 96, 156) // QR কোডের কালার (নীল - RGB: 53, 96, 156)
+        ->backgroundColor(255, 255, 255) // ব্যাকগ্রাউন্ড সাদা
+        ->merge($logoPath, 0.3, true) // লোগো যুক্ত করুন
+        ->generate($url)
+);
+
+   // Generate the QR code
+    return view('backend.pages.visa.show', compact('qrCode', 'visa'));
     }
 
     /**
