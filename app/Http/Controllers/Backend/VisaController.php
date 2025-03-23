@@ -13,9 +13,15 @@ class VisaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+   public function index(Request $request)
     {
-        $visas = Visa::latest()->paginate(10);
+        // If a search term is provided, filter by passport_no
+        $visas = Visa::when($request->search, function ($query) use ($request) {
+            return $query->where('passport_no', 'like', '%' . $request->search . '%');
+        })
+        ->latest() // Order by latest first
+        ->paginate(10); // Paginate the results with 10 items per page
+
         return view('backend.pages.visa.index', compact('visas'));
     }
 

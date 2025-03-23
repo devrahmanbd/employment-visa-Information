@@ -6,11 +6,30 @@
     <div class="container-fluid">
         <div class="card shadow">
             <div class="card-header bg-info text-white">
-                <h3 class="card-title m-0"><i class="fas fa-passport"></i> Visa List</h3>
-                <a href="{{ route('admin.visas.create') }}" class="btn btn-success float-right">
-                    <i class="fas fa-passport"></i> Add Visa
-                </a>
+                <div class="d-flex justify-content-between align-items-center">
+                    <h3 class="card-title m-0"><i class="fas fa-passport"></i> Visa List</h3>
+
+                    <div class="d-flex">
+                        <!-- Search Form -->
+                        <form action="{{ route('admin.visas.index') }}" method="get" class="d-flex align-items-center">
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control"
+                                    placeholder="Search by visa number" value="{{ request()->search }}"
+                                    aria-label="Search Visa">
+                                <button type="submit" class="btn btn-primary input-group-append">
+                                    <i class="fas fa-search"></i>
+                                </button>
+                            </div>
+                        </form>
+
+                        <!-- Add Visa Button -->
+                        <a href="{{ route('admin.visas.create') }}" class="btn btn-success ms-3 ml-3">
+                            <i class="fas fa-plus-circle"></i> Add Visa
+                        </a>
+                    </div>
+                </div>
             </div>
+
 
             <div class="card-body">
                 <table id="visaTable" class="table table-bordered table-striped">
@@ -18,7 +37,7 @@
                         <tr>
                             <th>#</th>
                             <th>Holder Name</th>
-                            <th>Visa Number</th>
+                            <th>Passport Number</th>
                             <th>visa Issue Date</th>
                             <th>Expiry Date</th>
                             <th>Actions</th>
@@ -29,7 +48,7 @@
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $visa->full_name_en }}</td>
-                                <td>{{ $visa->visa_number }}</td>
+                                <td>{{ $visa->passport_no }}</td>
                                 <td>{{ \Carbon\Carbon::parse($visa->created_at)->format('Y-m-d H:i') }}</td>
                                 <td>{{ $visa->expiry_date }}</td>
                                 <td>

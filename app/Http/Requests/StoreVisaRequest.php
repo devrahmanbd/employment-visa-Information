@@ -24,7 +24,6 @@ class StoreVisaRequest extends FormRequest
         return [
             'visa_number' => 'required|string|unique:visas',
             'visa_type_ar' => 'required|string',
-            // 'visa_type_en' => 'required|string',
             'issue_date' => 'required|date',
             'expiry_date' => 'required|date|after_or_equal:issue_date',
             'full_name_ar' => 'required|string',
