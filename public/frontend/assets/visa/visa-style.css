@@ -198,15 +198,15 @@
     width: 754px;
     height: 359px;
     top: 724px;
-    left: 21px;
+    left: 20px;
 }
 
 .main-file .overlap {
     position: relative;
     width: 756px;
     height: 360px;
-    top: -1px;
-    left: -1px;
+    /* top: -1px; */
+    /* left: -1px; */
 }
 
 .main-file .rectangle-2 {
@@ -252,12 +252,14 @@
 
 .main-file .rectangle-3 {
     position: absolute;
-    width: 754px;
-    height: 26px;
-    top: 0;
-    left: 0;
+    width: 754.5px;
+    height: 22px;
+    top: 1px;
+    /* left: -0.5px; */
+    /* right: 0.5px; */
     background-color: #dae0ea;
-    border-radius: 7px 7px 0px 0px;
+    border-radius: 6px 6px 0px 0px;
+    border-bottom: 1px solid #c1c4cb;
 }
 
 .main-file .rectangle-4 {

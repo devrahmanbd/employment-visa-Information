@@ -39,7 +39,7 @@
                             <div class="group-4">
                                 <div class="overlap-2">
                                     <div class="rectangle-3"></div>
-                                    <div class="rectangle-4"></div>
+                                    <!-- <div class="rectangle-4"></div> -->
                                     <div class="rectangle-5"></div>
                                     <div class="rectangle-6"></div>
                                     <div class="rectangle-7"></div>
