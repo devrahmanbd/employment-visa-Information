@@ -2,13 +2,32 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
+      - name: Checkout Code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.2'
+          # Enabling common PHP extensions as needed.
+          extensions: bcmath,bz2,calendar,exif,gd,gettext,gmp,intl,mbstring,opcache,pdo_mysql,pdo_pgsql,pgsql,redis,soap,sockets,xml,xmlrpc,zip
+          # Additional INI values as needed.
+          ini-values: post_max_size=256M,upload_max_filesize=256M
+
+      - name: Install Composer Dependencies
+        run: composer install --no-dev --prefer-dist --optimize-autoloader
+
+      - name: Install Node Modules
+        run: npm install
+
       - name: Deploy to cPanel
         id: deploy
         uses: pinkasey/cpanel-deploy-action@v1.0.0
         with:
           hostname: 'https://server.seocifybd.xyz'
-          repository_root: '/home/seocifybd/public_html '
+          repository_root: '/home/seocifybd/public_html'
           branch: main
           cpanel_token: 'Z9B4VF58J2YQPOCZAYDPYBDIEHR1WB1K'
+
       - name: echo deploy-duration
         run: echo "Deployment took ${{ steps.deploy.outputs.duration }} milliseconds"
