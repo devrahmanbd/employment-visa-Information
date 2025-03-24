@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Frontend;
 use App\Models\Visa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class KuwaitVisaAppsModelController extends Controller
 {
@@ -39,10 +40,10 @@ class KuwaitVisaAppsModelController extends Controller
                 ->color(53, 96, 156) 
                 ->backgroundColor(255, 255, 255) 
                 ->merge($logoPath, 0.3, true)
-                ->generate($visa->evisaApps)
+                ->generate($evisaApps->barcode)
         );
 
         
-        return view('frontend.pages.evisa_web_app_details', compact('evisaApps'));
+        return view('frontend.pages.evisa_web_app_details', compact('evisaApps', 'qrCode'));
     }
 }
