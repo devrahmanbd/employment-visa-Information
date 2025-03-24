@@ -92,9 +92,29 @@
                     <input type="text" name="visa_number" value="{{ old('visa_number') }}" placeholder="Enter Visa Number"
                         class="form-control">
                 </div>
-                <div class="col-md-12 mb-3">
+                <div class="col-md-6 mb-3">
                     <label>Visa Type In Arabic</label>
                     <input type="text" name="visa_type_ar" value="{{ old('visa_type_ar') }}" placeholder="نوع التأشيرة"
+                        class="form-control">
+                </div>
+
+                <div class="col-md-6 mb-3">
+                    <label>Visa Type In English</label>
+                    <input type="text" name="visa_type_en" value="{{ old('visa_type_en') }}" placeholder="Visa Type In English"
+                        class="form-control">
+                </div>
+
+                {{-- visa_purpose and place_of_issue --}}
+
+                <div class="col-md-6">
+                    <label>Visa Purpose</label>
+                    <input type="text" name="visa_purpose" value="{{ old('visa_purpose') }}" placeholder="Enter Visa Purpose"
+                        class="form-control">
+                </div>
+
+                <div class="col-md-6">
+                    <label>Place of Issue</label>
+                    <input type="text" name="place_of_issue" value="{{ old('place_of_issue') }}" placeholder="Enter Place of Issue"
                         class="form-control">
                 </div>
 
@@ -174,21 +194,36 @@
                         placeholder="Enter Occupation In English">
                 </div>
 
-                <div class="col-md-12">
+                <div class="col-md-6">
                     <label>Passport No</label>
                     <input type="text" name="passport_no" value="{{ old('passport_no') }}"
                         placeholder="Enter Passport Number" class="form-control">
                 </div>
+                {{-- passport issue of place --}}
+                <div class="col-md-6">
+                    <label>Passport Issue Place</label>
+                    <input type="text" name="passport_issue_place" value="{{ old('passport_issue_place') }}"
+                        placeholder="Enter Passport Issue Place" class="form-control">
+                </div>
+
+                {{-- passport Type english --}}
+                <div class="col-md-6">
+                    <label>Passport Type In English</label>
+                    <input type="text" name="passport_type_en" value="{{ old('passport_type_en') }}"
+                        placeholder="Enter Passport Type In English" class="form-control">
+                </div>
+                 <div class="col-md-6 mb-3">
+                    <label>Passport Type In Arabic</label>
+                    <input type="text" name="passport_type_ar" value="{{ old('passport_type_ar') }}"
+                        placeholder="Passport Type In Arabic" class="form-control">
+                </div>
+
                 <div class="col-md-6">
                     <label>Passport Issue Date</label>
                     <input type="date" name="passport_issue_date" value="{{ old('passport_issue_date') }}"
                         class="form-control">
                 </div>
-                <div class="col-md-6 mb-3">
-                    <label>Passport Type In Arabic</label>
-                    <input type="text" name="passport_type_ar" value="{{ old('passport_type_ar') }}"
-                        placeholder="Passport Type In Arabic" class="form-control">
-                </div>
+               
                 <div class="col-md-6">
                     <label>Passport Expiry Date</label>
                     <input type="date" name="passport_expiry_date" value="{{ old('passport_expiry_date') }}"
@@ -204,6 +239,14 @@
                     <label>Full Name of Company in Arabic</label>
                     <input type="text" name="company_name_ar" value="{{ old('company_name_ar') }}"
                         placeholder="Enter Full Name of Company in Arabic" class="form-control">
+                </div>
+
+                {{-- phone number --}}
+
+                <div class="col-md-12">
+                    <label>Phone Number</label>
+                    <input type="text" name="phone_number" value="{{ old('phone_number') }}" placeholder="Enter Phone Number"
+                        class="form-control">
                 </div>
 
                 <div class="col-md-12">
