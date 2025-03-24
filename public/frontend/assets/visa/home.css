@@ -1,0 +1,17 @@
+@font-face {
+    font-family: "Helvetica Neue Arabic 75 Bold";
+    src: url("../../../fonts/HelveticaNeueLTArabic-Bold.ttf") format("opentype");
+    font-weight: bold;
+    font-style: normal;
+}
+
+h2.verify-title {
+    font-family: "Helvetica Neue Arabic 75 Bold";
+    font-weight: 700;
+    font-size: 24px;
+    color: #2965bd;
+    margin-bottom: 10px;
+}
+.app-banner{
+    width: 100vw;
+}
