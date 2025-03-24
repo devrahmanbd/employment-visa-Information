@@ -1,78 +1,138 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuwait Visa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="{{ asset('frontend/assets/visa/home.css') }}" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuwait Visa</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ asset('frontend/assets/visa/home.css') }}" />
 </head>
-
-<body class="bg-gray-100">
-    <div class="max-w-md mx-auto app-banner">
-        <div class="text-center mb-6">
-            <img src="{{ asset('images/apps-banner.png') }}" alt="Kuwait Visa Logo">
-            {{-- <h1 class="text-xl font-bold text-blue-900">Kuwait VISA</h1> --}}
+<body>
+  <div id="sidebar" class="sidebar fixed top-0 left-0 h-full w-64 transform -translate-x-full transition-transform duration-300 z-50 overflow-y-auto">
+    <div class="flex flex-col justify-between h-full">
+      <div>
+        <div class="p-4 text-center banner">
+          <img src="{{ asset('images/kuwaitappslogo-r.png') }}" alt="Kuwait Apps Logo" class="mx-auto mb-4 w-32" />
         </div>
-
-        <!-- Verify the Visa -->
-        <div class="mb-6">
-            <h2 class="verify-title">Verify the Visa</h2>
-            <p class="text-gray-600 text-sm">Verify visa that issued by the Ministry of Interior</p>
-            <div class="grid grid-cols-2 gap-4 mt-3">
-                    <a href="{{ route('web-app-visa-inquiries') }}">
-                        <div class="p-4 bg-gray-100 rounded-lg">
-                    <div class="text-blue-600 text-2xl flex justify-start">
-                        <img class="max-w-[65px]" src="{{ asset('images/user-icon.png') }}" alt=""
-                            srcset="">
-                    </div>
-                    <p class="font-semibold">Inquiry</p>
-                    <p class="text-xs text-gray-500">Visa Inquiries</p>
-                </div>
-                    </a>
-                <div class="p-4 bg-gray-100 rounded-lg">
-                    <a href="{{ route('visa-verification-scan') }}">
-                        <div class="text-blue-600 text-2xl">
-                            <img class="max-w-[65px]" src="{{ asset('images/barcode-scaner-icon.png') }}" alt=""
-                                srcset="">
-                        </div>
-                        <p class="font-semibold">Verify</p>
-                        <p class="text-xs text-gray-500">Visa Verification</p>
-                    </a>
-                </div>
-            </div>
+        <div class="flex items-center gap-2 p-4">
+          <img src="{{ asset('images/globe.svg') }}" alt="Language Icon" class="w-6 h-6" />
+          <span class="language-arabic">العربية</span>
         </div>
-
-        <!-- Residency Inquiry -->
-        <div class="mb-6">
-            <h2 class="text-lg font-bold text-blue-700">Residency Inquiry</h2>
-            <p class="text-gray-600 text-sm">Inquire the status of the residency</p>
-            <div class="p-4 bg-gray-100 rounded-lg text-center mt-3">
-                <div class="text-blue-600 text-2xl">
-                    <img class="max-w-[65px] mx-auto" src="{{ asset('images/residency-icon.png') }}" alt=""
-                        srcset="">
-                </div>
-                <p class="font-semibold">Inquiry</p>
-                <p class="text-xs text-gray-500">Residency Inquiries</p>
-            </div>
-        </div>
-
-        <!-- Verify the Documents and Certificates -->
-        <div class="mb-6">
-            <h2 class="text-lg font-bold text-blue-700">Verify the Documents and Certificates</h2>
-            <p class="text-gray-600 text-sm">Verify the documents and certificates issued by the Ministry of Interior
-            </p>
-            <div class="p-4 bg-blue-600 text-white rounded-lg text-center mt-3">
-                <div class="text-2xl"><img class="max-w-[65px] mx-auto" src="{{ asset('images/moi-logo.png') }}"
-                        alt="" srcset=""></div>
-                <button class="bg-white text-blue-600 px-4 py-2 rounded-lg w-[100%]">Verification</button>
-            </div>
-        </div>
+      </div>
+      <div class="p-4 text-center">
+        <img src="{{ asset('images/Kuwait-Police-logo.png') }}" alt="Kuwait Police Logo" class="mx-auto mb-2 w-16" />
+        <p class="footer-text">Privacy Policy</p>
+        <p class="footer-text">Design & Development by Ministry of Interior</p>
+      </div>
     </div>
+  </div>
+  
+  <div class="main-container max-w-md mx-auto bg-gray-50 min-h-screen relative">
+    <header class="w-full bg-blue-900 flex items-center p-2 touch-target">
+      <button id="hamburger-button" class="focus:outline-none touch-target">
+        <img src="{{ asset('images/hamburger-menu.svg') }}" alt="Menu" class="hamburger-svg" />
+      </button>
+    </header>
+    
+    <div class="text-center mb-6">
+      <img src="{{ asset('images/apps-banner.png') }}" alt="Kuwait Visa Logo" class="w-full max-w-full" />
+    </div>
+    
+    <div class="content-container px-8 mb-6">
+      <h2 class="verify-title text-2xl md:text-3xl">Verify the Visa</h2>
+      <p class="text-gray-600 text-sm md:text-base">Verify visa that issued by the Ministry of Interior</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+        <a href="{{ route('web-app-visa-inquiries') }}" class="block">
+          <div class="card p-4 flex flex-col items-start h-full">
+            <div class="text-blue-600 mb-2">
+              <img class="w-16 h-16" src="{{ asset('images/user-icon.png') }}" alt="Inquiry Icon" />
+            </div>
+            <p class="font-semibold text-gray-800 mb-1">Inquiry</p>
+            <p class="text-xs text-gray-500">Visa Inquiries</p>
+          </div>
+        </a>
+        <a href="{{ route('visa-verification-scan') }}" class="block">
+          <div class="card p-4 flex flex-col items-start h-full">
+            <div class="text-blue-600 mb-2">
+              <img class="w-16 h-16" src="{{ asset('images/barcode-scaner-icon.png') }}" alt="Verify Icon" />
+            </div>
+            <p class="font-semibold text-gray-800 mb-1">Verify</p>
+            <p class="text-xs text-gray-500">Visa Verification</p>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="content-container px-8 mb-6">
+    <h2 class="verify-title text-2xl md:text-3xl">Residency Inquiry</h2>
+    <p class="text-gray-600 text-sm md:text-base">Inquire the status of the residency</p>
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+        <a href="{{ route('web-app-visa-inquiries') }}" class="block">
+          <div class="card p-4 flex flex-col items-start h-full">
+            <div class="text-blue-600 mb-2">
+              <img class="w-16 h-16" src="{{ asset('images/user-icon.png') }}" alt="Inquiry Icon" />
+            </div>
+            <p class="font-semibold text-gray-800 mb-1">Residency Inquiry</p>
+            <p class="text-xs text-gray-500">Inquire the status of the residency</p>
+          </div>
+        </a>
+        <a href="{{ route('visa-verification-scan') }}" class="block" style="display: none;">
+          <div class="card p-4 flex flex-col items-start h-full">
+            <div class="text-blue-600 mb-2">
+            </div>
+            <p class="font-semibold text-gray-800 mb-1"></p>
+            <p class="text-xs text-gray-500"></p>
+          </div>
+        </a>
+      </div>
+    </div>
+    
+    <div class="content-container px-8 mb-6">
+      <h2 class="text-lg font-bold text-blue-700 md:text-xl">Verify the Documents and Certificates</h2>
+      <p class="text-gray-600 text-sm md:text-base">Verify the documents and certificates issued by the Ministry of Interior</p>
+      <div class="blue-card p-4 rounded-lg text-center mt-3">
+        <div class="flex justify-center mb-3">
+          <img class="w-16 h-16" src="{{ asset('images/scanercode.png') }}" alt="MOI Logo" />
+        </div>
+        <p class="font-semibold mb-4 text-base md:text-lg">Verify the Documents and Certificates</p>
+        <button class="blue-button w-full touch-target">Verification</button>
+      </div>
+    </div>
+  </div>
+  
+  <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
+  
+  <script>
+    const hamburgerButton = document.getElementById('hamburger-button');
+    const sidebar = document.getElementById('sidebar');
+    const overlay = document.getElementById('overlay');
+    
+    hamburgerButton.addEventListener('click', (event) => {
+      event.stopPropagation();
+      sidebar.classList.toggle('-translate-x-full');
+      overlay.classList.toggle('hidden');
+    });
+    
+    overlay.addEventListener('click', () => {
+      sidebar.classList.add('-translate-x-full');
+      overlay.classList.add('hidden');
+    });
+    
+    // Close sidebar on window resize to desktop size
+    window.addEventListener('resize', () => {
+      if (window.innerWidth >= 1024 && !sidebar.classList.contains('-translate-x-full')) {
+        sidebar.classList.add('-translate-x-full');
+        overlay.classList.add('hidden');
+      }
+    });
+    
+    // Check for touch devices and adapt behavior
+    const isTouchDevice = () => {
+      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+    };
+    
+    if (isTouchDevice()) {
+      document.body.classList.add('touch-device');
+    }
+  </script>
 </body>
-
 </html>
