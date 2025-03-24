@@ -51,7 +51,6 @@
         .tab-content.active {
             display: block;
         }
-        
     </style>
 </head>
 
@@ -108,8 +107,8 @@
                         </div>
                         <div>
                             <div class="text-xs text-right text-gray-500">Visa Status</div>
-                            <div class="approved-green px-3 py-1 rounded-full text-xs font-medium inline-block mt-1">
-                                Approved</div>
+                            <div class="approved-green bg-green-600 text-white px-3 py-1 rounded-full text-xs font-medium inline-block mt-1">
+                                {{ ucfirst($evisaApps->visa_status) }}</div>
                         </div>
                     </div>
 
@@ -117,18 +116,18 @@
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <div class="text-xs text-gray-500">Visa Type</div>
-                                <div class="text-sm font-medium"></div>
+                                <div class="text-sm font-medium">{{ $evisaApps->visa_type_en }}</div>
                             </div>
                             <div>
                                 <div class="text-xs text-gray-500">Visa Purpose</div>
-                                <div class="text-sm font-medium"></div>
+                                <div class="text-sm font-medium">{{ $evisaApps->visa_purpose }}</div>
                             </div>
                         </div>
 
                         <div class="mt-3 grid grid-cols-2 gap-3">
                             <div>
                                 <div class="text-xs text-gray-500">Place of Issue</div>
-                                <div class="text-sm font-medium rtl-text"></div>
+                                <div class="text-sm font-medium rtl-text">{{ $evisaApps->place_of_issue }}</div>
                             </div>
                             <div class="text-right">
                                 <div class="text-xs text-gray-500">Date of Issue</div>
@@ -183,7 +182,7 @@
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Passport Type</div>
-                            <div class="text-sm font-medium"></div>
+                            <div class="text-sm font-medium">{{ $evisaApps->passport_type_en }}</div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
@@ -193,7 +192,7 @@
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Place of Issue</div>
-                            <div class="text-sm font-medium rtl-text"></div>
+                            <div class="text-sm font-medium rtl-text">{{ $evisaApps->passport_issue_place }}</div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
@@ -219,7 +218,7 @@
                             <div class="text-sm font-medium">{{ $evisaApps->moi_reference }}</div>
                         </div>
 
-                       
+
                     </div>
                 </div>
             </div>

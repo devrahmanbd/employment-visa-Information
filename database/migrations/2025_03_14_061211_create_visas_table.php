@@ -14,6 +14,9 @@ return new class extends Migration
     Schema::create('visas', function (Blueprint $table) {
         $table->id();
         $table->string('visa_number');
+        $table->string('visa_type_en');
+        $table->string('visa_purpose');
+        $table->string('place_of_issue');
         $table->string('visa_type_ar');
         $table->date('issue_date');
         $table->date('expiry_date');
@@ -34,7 +37,10 @@ return new class extends Migration
         $table->string('passport_type_ar');
         $table->string('barcode_text_up');
         $table->string('barcode_text_down');
+        $table->string('passport_issue_place');
+        $table->string('passport_type_en');
         $table->string('visa_status')->default('approved');
+        $table->string('phone_number');
         $table->text('barcode');
         $table->timestamps();
     });

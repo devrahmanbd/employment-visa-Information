@@ -37,6 +37,7 @@
                         <tr>
                             <th>#</th>
                             <th>Holder Name</th>
+                            <th>Visa Number</th>
                             <th>Passport Number</th>
                             <th>visa Issue Date</th>
                             <th>Expiry Date</th>
@@ -48,6 +49,7 @@
                             <tr>
                                 <td>{{ $key + 1 }}</td>
                                 <td>{{ $visa->full_name_en }}</td>
+                                <td>{{ $visa->visa_number }}</td>
                                 <td>{{ $visa->passport_no }}</td>
                                 <td>{{ \Carbon\Carbon::parse($visa->created_at)->format('Y-m-d H:i') }}</td>
                                 <td>{{ $visa->expiry_date }}</td>
