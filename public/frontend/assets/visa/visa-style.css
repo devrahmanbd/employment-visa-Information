@@ -830,7 +830,7 @@
 }
 
 .main-file .text-wrapper-20 {
-    top: 1px;
+    top: 2px;
     letter-spacing: 0;
     position: absolute;
     left: 11px;
@@ -1056,12 +1056,12 @@
 .main-file .text-wrapper-30 {
     position: absolute;
     width: 30px;
-    top: 0;
+    top: 6px;
     left: 88px;
-    font-family: "Jali Arabic-SemiBold";
+    font-family: "Area Variable-ExtraBold";
     font-weight: 800;
     color: #203ea7;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
@@ -1140,12 +1140,11 @@
     position: absolute;
     top: 0;
     left: 9px;
-    font-family: "Jali Arabic-SemiBold";
+    font-family: "Area Variable-ExtraBold";
     font-weight: 800;
     color: #203ea7;
     font-size: 10px;
     letter-spacing: 0;
-    line-height: normal;
 }
 
 .main-file .div-4 {
@@ -1193,7 +1192,7 @@
 
 .main-file .text-wrapper-39 {
     position: absolute;
-    top: 1px;
+    top: 4px;
     left: 10px;
     font-family: "Area Variable-ExtraBold";
     font-weight: 900;
@@ -1441,7 +1440,7 @@
     font-family: "Area Variable-ExtraBold";
     font-weight: 800;
     color: #203ea7;
-    font-size: 13px;
+    font-size: 13.6px;
     text-align: left;
     letter-spacing: 0;
     position: absolute;
@@ -1459,7 +1458,7 @@
 
 .main-file .text-wrapper-57 {
     top: 0;
-    left: 19px;
+    left: 21px;
     font-family: "Area Variable-SemiBold";
     font-weight: 600;
     color: #121619;
@@ -1488,7 +1487,7 @@
     width: 3px;
     height: 2px;
     top: 7px;
-    left: 10px;
+    left: 14px;
     background-color: #121619;
 }
 
