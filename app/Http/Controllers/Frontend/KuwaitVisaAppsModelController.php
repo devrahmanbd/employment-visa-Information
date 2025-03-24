@@ -29,6 +29,19 @@ class KuwaitVisaAppsModelController extends Controller
         ->where('passport_no', $request->passport_number)
         ->first();
 
+        $logoPath = public_path('images/scanercode.png');
+        if (!file_exists($logoPath)) {
+            die('Logo file not found!');
+        }
+        $qrCode = base64_encode(
+            QrCode::format('png')
+                ->size(150)
+                ->color(53, 96, 156) 
+                ->backgroundColor(255, 255, 255) 
+                ->merge($logoPath, 0.3, true)
+                ->generate($visa->evisaApps)
+        );
+
         
         return view('frontend.pages.evisa_web_app_details', compact('evisaApps'));
     }

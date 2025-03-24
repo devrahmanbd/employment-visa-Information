@@ -65,25 +65,20 @@ class VisaController extends Controller
      * Display the specified resource.
      */
   public function show($id) {
-    $visa = Visa::findOrFail($id);
-    $url = route('admin.visas.show', $visa); // Resourceful route to the show method
+    $visa = Visa::findOrFail($id); // Resourceful route to the show method
 
     $logoPath = public_path('images/scanercode.png');
-
-
-if (!file_exists($logoPath)) {
-    die('Logo file not found!');
-}
-
-
-$qrCode = base64_encode(
-    QrCode::format('png')
-        ->size(150)
-        ->color(53, 96, 156) 
-        ->backgroundColor(255, 255, 255) 
-        ->merge($logoPath, 0.3, true)
-        ->generate($url)
-);
+        if (!file_exists($logoPath)) {
+            die('Logo file not found!');
+        }
+        $qrCode = base64_encode(
+            QrCode::format('png')
+                ->size(150)
+                ->color(53, 96, 156) 
+                ->backgroundColor(255, 255, 255) 
+                ->merge($logoPath, 0.3, true)
+                ->generate($visa->barcode)
+        );
 
    // Generate the QR code
     return view('backend.pages.visa.show', compact('qrCode', 'visa'));
