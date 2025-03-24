@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Electronic Visa - State of Kuwait</title>
     <link rel="stylesheet" href="{{ asset('frontend/assets/visa/visa-global.css') }}" />
-    <link rel="stylesheet" href="{{ asset('frontend/assets/visa/visa-style.css') }}" />
+    <link rel="stylesheet" href="{{ mix('frontend/assets/visa/visa-style.css') }}" />
+
 </head>
 
 <body>
