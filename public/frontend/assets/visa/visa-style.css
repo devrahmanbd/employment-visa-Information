@@ -164,9 +164,9 @@
 
 .main-file .group-2 {
     position: absolute;
-    width: 770px;
-    height: 9px;
-    top: 142px;
+    width: 774px;
+    height: 10px;
+    top: 139px;
     left: 10px;
 }
 
@@ -533,8 +533,8 @@
     white-space: nowrap;
 }
 .main-file .element {
-    top: -8px;
-    left: 335px;
+    top: -9px;
+    left: 272px;
     font-family: "Jali Arabic-SemiBold";
     font-weight: 600;
     color: #949eaf;
@@ -677,7 +677,7 @@
     font-family: "Jali Arabic-SemiBold";
     font-weight: 600;
     color: #1b3694;
-    font-size: 11.5px;
+    font-size: 11px;
     letter-spacing: 0;
     position: absolute;
     line-height: normal;
@@ -745,7 +745,7 @@
 
 .main-file .text-wrapper-14 {
     position: absolute;
-    top: 0;
+    top: 6px;
     left: 0;
     font-family: "Jali Arabic-Bold";
     font-weight: 900;
@@ -757,7 +757,7 @@
 
 .main-file .text-wrapper-15 {
     position: absolute;
-    top: 15px;
+    top: 20px;
     left: 2px;
     font-family: "Jali Arabic-SemiBold";
     color: #121619;
@@ -767,7 +767,7 @@
 }
 
 .main-file .text-wrapper-16 {
-    top: 0;
+    top: 10px;
     left: 16px;
     font-family: "Area Variable-SemiBold";
     font-weight: 600;
@@ -782,7 +782,7 @@
 
 .main-file .text-wrapper-17 {
     position: absolute;
-    top: 69px;
+    top: 71px;
     left: 16px;
     font-family: "Jali Arabic-Light";
     font-weight: 1000;
@@ -794,7 +794,7 @@
 }
 
 .main-file .text-wrapper-18 {
-    top: 81px;
+    top: 82px;
     left: 16px;
     font-family: "Jali Arabic-Light";
     font-weight: 1000;
@@ -807,7 +807,7 @@
 }
 
 .main-file .text-wrapper-19 {
-    top: 48px;
+    top: 52px;
     left: 32px;
     font-family: "Jali Arabic-SemiBold";
     font-weight: 600;
@@ -842,7 +842,7 @@
 }
 
 .main-file .text-wrapper-21 {
-    top: 0;
+    top: 0px;
     left: 82px;
     font-family: "Area Variable-ExtraBold";
     font-weight: 800;
@@ -982,7 +982,7 @@
 }
 
 .main-file .text-wrapper-25 {
-    top: 315px;
+    top: 304px;
     left: 526px;
     font-family: "Calibri-Bold";
     font-weight: 700;
@@ -995,7 +995,7 @@
 }
 
 .main-file .text-wrapper-26 {
-    top: 332px;
+    top: 320px;
     left: 303px;
     font-family: "Area Variable-ExtraBold";
     font-weight: 900;
@@ -1011,7 +1011,7 @@
     position: absolute;
     width: 158px;
     height: 50px;
-    top: 200px;
+    top: 187px;
     left: 395px;
 }
 
@@ -1086,7 +1086,7 @@
     position: absolute;
     width: 125px;
     height: 38px;
-    top: 265px;
+    top: 254px;
     left: 432px;
 }
 
@@ -1132,7 +1132,7 @@
     position: absolute;
     width: 120px;
     height: 40px;
-    top: 149px;
+    top: 145px;
     left: 432px;
 }
 
@@ -1187,7 +1187,7 @@
     position: absolute;
     width: 131px;
     height: 38px;
-    top: 107px;
+    top: 108px;
     left: 421px;
 }
 
@@ -1217,7 +1217,7 @@
 }
 
 .main-file .text-wrapper-41 {
-    top: 18px;
+    top: 12px;
     left: 66px;
     font-family: "Jali Arabic-SemiBold";
     /* font-weight: 900; */
@@ -1266,8 +1266,8 @@
 
 .main-file .text-wrapper-44 {
     position: absolute;
-    top: 47px;
-    left: 0;
+    top: 48px;
+    left: 2px;
     font-family: "Area Variable-ExtraBold";
     font-weight: 800;
     color: #203ea7;
@@ -1277,8 +1277,8 @@
 }
 
 .main-file .text-wrapper-45 {
-    top: 47px;
-    left: 65px;
+    top: 48px;
+    left: 68px;
     font-family: "Area Variable-SemiBold";
     font-weight: 600;
     color: #203ea7;
@@ -1291,7 +1291,7 @@
 }
 
 .main-file .text-wrapper-46 {
-    top: 66px;
+    top: 60px;
     left: 2px;
     font-family: "Jali Arabic-SemiBold";
     /* font-weight: 900; */
@@ -1304,12 +1304,12 @@
 
 .main-file .text-wrapper-47 {
     position: absolute;
-    top: 100px;
-    left: 1px;
+    top: 88px;
+    left: 2px;
     font-family: "Area Variable-ExtraBold";
     font-weight: 900;
     color: #203ea7;
-    font-size: 11.5px;
+    font-size: 11px;
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
@@ -1325,19 +1325,19 @@
 
 .main-file .text-wrapper-48 {
     position: absolute;
-    top: 0;
+    top: -8px;
     left: 0;
     font-family: "Jali Arabic-SemiBold";
     font-weight: 900;
     color: #203ea7;
-    font-size: 11.5px;
+    font-size: 11px;
     letter-spacing: 0;
     line-height: normal;
 }
 
 .main-file .text-wrapper-49 {
     position: absolute;
-    top: 17px;
+    top: 5px;
     left: 1px;
     font-family: 'Jali Latin Variable Trial-SemiBold';
     font-weight: 700;
@@ -1356,8 +1356,8 @@
 }
 
 .main-file .text-wrapper-50 {
-    top: 0;
-    left: 0;
+    top: -8px;
+    left: 2px;
     font-family: "Area Variable-SemiBold";
     font-weight: 600;
     color: #203ea7;
@@ -1370,7 +1370,7 @@
 }
 
 .main-file .text-wrapper-51 {
-    top: 13px;
+    top: 4px;
     left: 6px;
     font-family: "Jali Arabic-Bold";
     font-weight: 900;
@@ -1385,7 +1385,7 @@
 
 .main-file .text-wrapper-52 {
     position: absolute;
-    top: 115px;
+    top: 102px;
     left: 2px;
     font-family: "Jali Latin Variable Trial-SemiBold";
     /* font-weight: 500; */
@@ -1398,7 +1398,7 @@
 
 .main-file .text-wrapper-53 {
     position: absolute;
-    top: 212px;
+    top: 196px;
     left: 1px;
     font-family: "Area Variable-ExtraBold";
     font-weight: 800;
@@ -1411,7 +1411,7 @@
 
 .main-file .text-wrapper-54 {
     position: absolute;
-    top: 248px;
+    top: 226px;
     left: 2px;
     font-family: "Jali Arabic-Bold";
     font-weight: 900;
@@ -1422,7 +1422,7 @@
 }
 
 .main-file .text-wrapper-55 {
-    top: 228px;
+    top: 209px;
     left: 2px;
     font-family: "Jali Arabic-Bold";
     font-weight: 900;
@@ -1436,12 +1436,12 @@
 }
 
 .main-file .text-wrapper-56 {
-    top: 211px;
+    top: 190px;
     left: 74px;
     font-family: "Area Variable-ExtraBold";
     font-weight: 800;
     color: #203ea7;
-    font-size: 11.6px;
+    font-size: 10.6px;
     text-align: left;
     letter-spacing: 0;
     position: absolute;
@@ -1496,7 +1496,7 @@
     position: absolute;
     width: 273px;
     height: 20px;
-    top: 343px;
+    top: 325px;
     left: 138px;
 }
 
