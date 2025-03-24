@@ -74,7 +74,7 @@
                 <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg mt-6 flex justify-center">
                     <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
                         <!-- QR Scanner using html5-qrcode -->
-                        <div id="reader" class="w-full"></div>
+                        <div id="reader" class="w-full" style="height: 300px;"></div>
                         <!-- QR Focus Box (Animated) -->
                         <div class="absolute w-36 h-36 border-4 border-blue-500 rounded-lg pointer-events-none animate-scan-box"
                             style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
@@ -92,12 +92,13 @@
     <!-- QR Scanner Script -->
     <script>
         function onScanSuccess(decodedText, decodedResult) {
-            // Display the scanned QR code
             const resultElem = document.getElementById("barcode-result");
-            resultElem.innerText = "QR Code: " + decodedText;
-            resultElem.style.color = "green";
+            if (resultElem) {
+                resultElem.innerText = "QR Code: " + decodedText;
+                resultElem.style.color = "green";
+            }
             console.log("Scanned Code:", decodedText);
-            // Send API Request using jQuery AJAX
+
             $.ajax({
                 url: `/barcode-search-evisa`,
                 type: 'GET',
@@ -107,9 +108,9 @@
                 success: function(data) {
                     if (data.success) {
                         console.log("Visa Data:", data);
-                        window.location.href = data.route; // Perform the redirect based on the response route URL
+                        window.location.href = data.route; // Redirect based on returned route URL
                     } else {
-                        alert("Visa not found!"); // Can also show a more detailed message if required
+                        alert("Visa not found!");
                     }
                 },
                 error: function(error) {
@@ -118,6 +119,7 @@
                 }
             });
         }
+
         // Start the QR Code Scanner using html5-qrcode
         const html5QrCode = new Html5Qrcode("reader");
         html5QrCode.start({
