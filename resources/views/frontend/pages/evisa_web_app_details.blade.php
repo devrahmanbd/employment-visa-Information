@@ -51,11 +51,12 @@
         .tab-content.active {
             display: block;
         }
+        
     </style>
 </head>
 
 <body>
-    <div class="max-w-md mx-auto bg-white shadow">
+    <div class="max-w-md mx-auto bg-[#F7F8FA] shadow h-screen">
         <!-- Header -->
         <div class="header-blue text-white px-4 py-3 flex items-center">
             <button class="mr-2">
@@ -103,7 +104,7 @@
                     <div class="flex justify-between items-start">
                         <div>
                             <div class="text-xs text-gray-500">Visa Number</div>
-                            <div class="text-sm font-medium">214284</div>
+                            <div class="text-sm font-medium">{{ $evisaApps->visa_number }}</div>
                         </div>
                         <div>
                             <div class="text-xs text-right text-gray-500">Visa Status</div>
@@ -116,22 +117,22 @@
                         <div class="grid grid-cols-2 gap-3">
                             <div>
                                 <div class="text-xs text-gray-500">Visa Type</div>
-                                <div class="text-sm font-medium">Private Sector Work Visa</div>
+                                <div class="text-sm font-medium"></div>
                             </div>
                             <div>
                                 <div class="text-xs text-gray-500">Visa Purpose</div>
-                                <div class="text-sm font-medium">Work</div>
+                                <div class="text-sm font-medium"></div>
                             </div>
                         </div>
 
                         <div class="mt-3 grid grid-cols-2 gap-3">
                             <div>
                                 <div class="text-xs text-gray-500">Place of Issue</div>
-                                <div class="text-sm font-medium rtl-text">المملكة العربية السعودية</div>
+                                <div class="text-sm font-medium rtl-text"></div>
                             </div>
                             <div class="text-right">
                                 <div class="text-xs text-gray-500">Date of Issue</div>
-                                <div class="text-sm font-medium">2023-11-26</div>
+                                <div class="text-sm font-medium">{{ $evisaApps->issue_date }}</div>
                             </div>
                         </div>
 
@@ -139,7 +140,7 @@
                             <div></div>
                             <div class="text-right">
                                 <div class="text-xs text-gray-500">Date of Expiry</div>
-                                <div class="text-sm font-medium">2025-02-27</div>
+                                <div class="text-sm font-medium">{{ $evisaApps->expiry_date }}</div>
                             </div>
                         </div>
                     </div>
@@ -152,75 +153,92 @@
                     <div class="divide-y divide-gray-200">
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Full Name</div>
-                            <div class="text-sm font-medium">Lama</div>
+                            <div class="text-sm font-medium">{{ $evisaApps->full_name_en }}</div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">MOI Reference</div>
-                            <div class="text-sm font-medium">000000000</div>
+                            <div class="text-sm font-medium">{{ $evisaApps->moi_reference }}</div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Occupation</div>
-                            <div class="text-sm font-medium">EXECUTIVE SECRETARY</div>
+                            <div class="text-sm font-medium">{{ $evisaApps->occupation_en }}</div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Nationality</div>
-                            <div class="text-sm font-medium">INDIA</div>
+                            <div class="text-sm font-medium uppercase">{{ $evisaApps->nationality_en }}</div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Gender</div>
-                            <div class="text-sm font-medium">Female</div>
+                            <div class="text-sm font-medium">{{ $evisaApps->gender }}</div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Passport No</div>
-                            <div class="text-sm font-medium">00000</div>
+                            <div class="text-sm font-medium">{{ $evisaApps->passport_no }}</div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Passport Type</div>
-                            <div class="text-sm font-medium">Normal</div>
+                            <div class="text-sm font-medium"></div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Date of Birth</div>
-                            <div class="text-sm font-medium">1988-08-09</div>
+                            <div class="text-sm font-medium">{{ $evisaApps->dob }}</div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Place of Issue</div>
-                            <div class="text-sm font-medium rtl-text">الإمارات</div>
+                            <div class="text-sm font-medium rtl-text"></div>
                         </div>
 
                         <div class="py-2.5 flex justify-between">
                             <div class="text-xs text-gray-500">Date of Expiry</div>
-                            <div class="text-sm font-medium">2030-10-01</div>
+                            <div class="text-sm font-medium">{{ $evisaApps->passport_expiry_date }}</div>
                         </div>
+                    </div>
+                </div>
+
+
+
+                <div>
+                    <div class="visa-holder-blue text-sm font-medium mb-4">Employer / Family Breadwinner Details</div>
+
+                    <div class="divide-y divide-gray-200">
+                        <div class="py-2.5 flex justify-between">
+                            <div class="text-xs text-gray-500">Full Name</div>
+                            <div class="text-sm font-medium">{{ $evisaApps->full_name_en }}</div>
+                        </div>
+
+                        <div class="py-2.5 flex justify-between">
+                            <div class="text-xs text-gray-500">MOI Reference</div>
+                            <div class="text-sm font-medium">{{ $evisaApps->moi_reference }}</div>
+                        </div>
+
+                       
                     </div>
                 </div>
             </div>
 
+
             <!-- QR Code Tab Content -->
-            <div id="qr-content" class="tab-content h-screen">
+            <div id="qr-content" class="tab-content h-scree">
                 <div class="flex flex-col items-center justify-center py-8">
-                    <div
-                        class="w-64 h-64 bg-gray-100 border border-gray-300 rounded-lg flex items-center justify-center mb-6">
-                        <!-- QR Code placeholder -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-32 w-32 text-gray-400" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1"
-                                d="M4 4h4v4H4V4z M10 4h2v2h-2V4z M14 4h2v2h-2V4z M18 4h2v2h-2V4z M4 8h2v2H4V8z M8 8h4v4H8V8z M14 8h2v2h-2V8z M18 8h2v4h-2V8z M4 12h2v2H4v-2z M10 12h2v2h-2v-2z M4 16h4v4H4v-4z M10 16h2v2h-2v-2z M14 16h6v2h-6v-2z M18 12h2v2h-2v-2z" />
-                        </svg>
+                    <div class="text-center mb-6">
+                        <p class="text-sm text-blue-500 font-bold">Scan this QR code to verify visa details</p>
                     </div>
-                    <div class="text-center">
-                        <h3 class="text-lg font-medium text-gray-900 mb-2">Visa QR Code</h3>
-                        <p class="text-sm text-gray-500">Scan this QR code to verify visa details</p>
+                    <div class="w-80 h-80 flex items-center justify-center mb-6">
+                        <!-- QR Code Placeholder with Thicker Border -->
+                        <img src="data:image/png;base64,{{ $qrCode }}" alt="Visa QR Code" class="w-80 h-80">
                     </div>
                 </div>
             </div>
+
+
 
             <!-- No Data State (Hidden by default) -->
             <div id="no-data" class="hidden text-center py-12">
