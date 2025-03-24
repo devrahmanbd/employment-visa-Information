@@ -27,7 +27,6 @@
     font-family: "Jali Arabic-Bold";
     src: url("../../../fonts/Jali Arabic Bold.ttf") format("opentype");
 }
-/* Area Variable-SemiBold */
 @font-face {
     font-family: "Area Variable-SemiBold";
     src: url("../../../fonts/Area-Semibold.otf") format("opentype");
