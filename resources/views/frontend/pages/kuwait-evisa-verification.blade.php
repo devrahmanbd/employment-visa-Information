@@ -9,27 +9,19 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
-    <style>
-        .w-32 {
-            width: 26rem !important;
-        }
-
-        .icon-container-globe {
-            margin: 7px -4px;
-        }
-    </style>
+    <link rel="stylesheet" href="{{ asset('frontend/assets/visa/home.css') }}" />
 </head>
 
 <body class="bg-gray-100">
-    <div class="max-w-md mx-auto p-4 bg-white shadow-lg rounded-lg">
+    <div class="max-w-md mx-auto app-banner">
         <div class="text-center mb-6">
-            <img src="{{ asset('images/apps-banner.png') }}" alt="Kuwait Visa Logo" class="mx-auto w-32">
+            <img src="{{ asset('images/apps-banner.png') }}" alt="Kuwait Visa Logo">
             {{-- <h1 class="text-xl font-bold text-blue-900">Kuwait VISA</h1> --}}
         </div>
 
         <!-- Verify the Visa -->
         <div class="mb-6">
-            <h2 class="text-lg font-bold text-blue-700">Verify the Visa</h2>
+            <h2 class="verify-title">Verify the Visa</h2>
             <p class="text-gray-600 text-sm">Verify visa that issued by the Ministry of Interior</p>
             <div class="grid grid-cols-2 gap-4 mt-3">
                     <a href="{{ route('web-app-visa-inquiries') }}">
