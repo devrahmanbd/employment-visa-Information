@@ -164,9 +164,9 @@
 
 .main-file .group-2 {
     position: absolute;
-    width: 770px;
-    height: 9px;
-    top: 142px;
+    width: 774px;
+    height: 10px;
+    top: 139px;
     left: 10px;
 }
 
@@ -533,8 +533,8 @@
     white-space: nowrap;
 }
 .main-file .element {
-    top: -8px;
-    left: 335px;
+    top: -9px;
+    left: 272px;
     font-family: "Jali Arabic-SemiBold";
     font-weight: 600;
     color: #949eaf;
