@@ -69,7 +69,7 @@
         <a href="{{ route('web-app-visa-inquiries') }}" class="block">
           <div class="card p-4 flex flex-col items-start h-full">
             <div class="text-blue-600 mb-2">
-              <img class="w-16 h-16" src="{{ asset('images/user-icon.png') }}" alt="Inquiry Icon" />
+              <img class="w-16 h-16" src="{{ asset('images/scanner.svg') }}" alt="Inquiry Icon" />
             </div>
             <p class="font-semibold text-gray-800 mb-1">Residency Inquiry</p>
             <p class="text-xs text-gray-500">Inquire the status of the residency</p>
