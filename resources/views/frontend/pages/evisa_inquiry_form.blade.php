@@ -48,7 +48,7 @@
         <div class="p-6">
             <p class="text-gray-600 text-sm mb-4">Fill the following information to retrieve the visa details</p>
 
-            <form action="" method="POST">
+            <form action="{{ route('web-app-evisa-details') }}" method="POST">
                 @csrf
                 <div class="space-y-4">
                     <div>
