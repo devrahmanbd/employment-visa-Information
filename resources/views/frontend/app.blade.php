@@ -7,6 +7,15 @@
     <title>{{ $setting['site_title'] ?? 'Employment Visa Information - Kuwait' }}</title>
     {{-- favicon --}}
     <link rel="icon" href="{{ asset($setting['favicon']) }}" type="image/x-icon" />
+
+    <link rel="manifest" href="{{ asset('manifest.json') }}">
+    <script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js')
+                .then(() => console.log("Service Worker Registered"));
+        }
+    </script>
+
     {{-- Styles --}}
     @include('frontend.includes.styles')
     <style>
@@ -74,6 +83,26 @@
         <div class="container">
             @yield('content')
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="installModal" tabindex="-1" aria-labelledby="installModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered"> <!-- Center Modal -->
+                <div class="modal-content">
+                    <div class="modal-body d-flex flex-column align-items-center">
+                        <p class="text-center" style="font-size: 1rem; color: blue;">
+                            The user must Install Kuwait Visa Apps before entering this website.
+                        </p>
+                        <button id="install-pwa-btn" class="btn btn-light mt-3"
+                            style="border: 2px solid blue; background-color: transparent;">
+                            Install
+                            <img src="{{ asset('images/kuwaitappslogo-r.png') }}" width="40px" alt="kuwait apps">
+                            apps
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- Footer -->
@@ -129,7 +158,7 @@
         function updateDateTime() {
             let now = new Date();
 
-        
+
             let options = {
                 timeZone: 'Asia/Kuwait',
                 year: 'numeric',
@@ -171,6 +200,35 @@
             }
         });
     </script> --}}
+
+    <script>
+        let deferredPrompt;
+        const installButton = document.getElementById('install-pwa-btn');
+
+        // Bootstrap Modal Control
+        const modal = new bootstrap.Modal(document.getElementById('installModal'));
+
+        // Event Listener to show the modal
+        window.addEventListener('beforeinstallprompt', (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            installButton.style.display = 'block'; // Install বাটন দেখান
+
+            // Show the modal
+            modal.show();
+        });
+
+        // Install PWA Button Action
+        installButton.addEventListener('click', () => {
+            if (deferredPrompt) {
+                deferredPrompt.prompt(); // PWA Install 
+                deferredPrompt.userChoice.then((choiceResult) => {
+                    deferredPrompt = null;
+                    modal.hide(); // Modal 
+                });
+            }
+        });
+    </script>
 </body>
 
 </html>

@@ -88,6 +88,9 @@ Route::get('/dashboard', function () {
 Route::resource('frontend-manual-visas', AdminManualVisaController::class);
 
 
+Route::get('/offline', function () {
+    return view('frontend.offline');
+});
 
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Visa
