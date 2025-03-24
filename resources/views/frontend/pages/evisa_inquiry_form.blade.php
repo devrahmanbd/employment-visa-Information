@@ -35,7 +35,7 @@
 
         <!-- Header with Back Icon -->
         <div class="bg-[#35609c] flex items-center p-3 ">
-            <button class="mr-4">
+            <button class="mr-4"  onclick="window.history.back();">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"
                     stroke="currentColor" fill="none" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
