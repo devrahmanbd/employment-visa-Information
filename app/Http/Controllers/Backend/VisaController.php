@@ -39,11 +39,27 @@ class VisaController extends Controller
      * Store a newly created resource in storage.
      */
     public function store(StoreVisaRequest $request)
-    {
-        Visa::create($request->validated());
+{
+    // Validate the request data
+    $data = $request->validated();
 
-        return redirect()->route('admin.visas.index')->with('success', 'Visa added successfully');
-    }
+    // Generate a unique barcode:
+    //   Part 1: 32 hex characters
+    //   Part 2: 32 hex characters
+    //   Part 3: 8 uppercase alphanumeric characters
+    $part1 = bin2hex(random_bytes(16)); // 16 bytes -> 32 hex characters
+    $part2 = bin2hex(random_bytes(16)); // 16 bytes -> 32 hex characters
+    $part3 = strtoupper(substr(bin2hex(random_bytes(4)), 0, 8)); // 4 bytes -> 8 hex characters, converted to uppercase
+
+    // Concatenate the parts with '/' as a separator
+    $data['barcode'] = "{$part1}/{$part2}/{$part3}";
+
+    // Create the new Visa record
+    Visa::create($data);
+
+    return redirect()->route('admin.visas.index')
+                     ->with('success', 'Visa added successfully');
+}
 
     /**
      * Display the specified resource.
@@ -54,18 +70,18 @@ class VisaController extends Controller
 
     $logoPath = public_path('images/scanercode.png');
 
-// চেক করুন লোগো ফাইলটি সঠিকভাবে আছে কিনা
+
 if (!file_exists($logoPath)) {
     die('Logo file not found!');
 }
 
-// QR কোড তৈরি করুন
+
 $qrCode = base64_encode(
     QrCode::format('png')
         ->size(150)
-        ->color(53, 96, 156) // QR কোডের কালার (নীল - RGB: 53, 96, 156)
-        ->backgroundColor(255, 255, 255) // ব্যাকগ্রাউন্ড সাদা
-        ->merge($logoPath, 0.3, true) // লোগো যুক্ত করুন
+        ->color(53, 96, 156) 
+        ->backgroundColor(255, 255, 255) 
+        ->merge($logoPath, 0.3, true)
         ->generate($url)
 );
 
@@ -85,12 +101,33 @@ $qrCode = base64_encode(
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateVisaRequest $request, Visa $visa)
-    {
-    $visa->update($request->validated());
+   public function update(UpdateVisaRequest $request, Visa $visa)
+{
+    // Validate the request data
+    $data = $request->validated();
 
-    return redirect()->route('admin.visas.index')->with('success', 'Visa updated successfully');
+    // If you want to generate a new barcode on update, you can include this logic
+    // Otherwise, leave the existing barcode unchanged
+    if ($request->has('generate_new_barcode') && $request->generate_new_barcode) {
+        // Generate a unique barcode:
+        //   Part 1: 32 hex characters
+        //   Part 2: 32 hex characters
+        //   Part 3: 8 uppercase alphanumeric characters
+        $part1 = bin2hex(random_bytes(16)); // 16 bytes -> 32 hex characters
+        $part2 = bin2hex(random_bytes(16)); // 16 bytes -> 32 hex characters
+        $part3 = strtoupper(substr(bin2hex(random_bytes(4)), 0, 8)); // 4 bytes -> 8 hex characters, converted to uppercase
+
+        // Concatenate the parts with '/' as a separator
+        $data['barcode'] = "{$part1}/{$part2}/{$part3}";
     }
+
+    // Update the Visa record with the new data
+    $visa->update($data);
+
+    return redirect()->route('admin.visas.index')
+                     ->with('success', 'Visa updated successfully');
+}
+
 
     /**
      * Remove the specified resource from storage.
@@ -100,4 +137,7 @@ $qrCode = base64_encode(
         $visa->delete();
         return redirect()->route('admin.visas.index')->with('success', 'Visa deleted successfully');
     }
+
+
+      
 }

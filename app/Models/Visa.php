@@ -30,7 +30,8 @@ class Visa extends Model
         'barcode_text_up',
         'barcode_text_down',
         'passport_type_ar',
-        'visa_status'
+        'visa_status',
+        'barcode'
     ];   
     
 }

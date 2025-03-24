@@ -42,7 +42,8 @@ class UpdateVisaRequest extends FormRequest
             'gender_ar',
             'barcode_text_up',
             'barcode_text_down',
-            'passport_type_ar'
+            'passport_type_ar',
+            'barcode'
         ];
     }
 

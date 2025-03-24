@@ -9,6 +9,10 @@
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Include html5-qrcode -->
+    <script src="https://unpkg.com/html5-qrcode"></script>
+    <!-- Include jQuery -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
     <!-- Style for Animation -->
     <style>
@@ -44,13 +48,11 @@
             </button>
             <h1 class="text-lg font-semibold">Verify</h1>
         </div>
-
         <div class="p-4">
             <!-- Content Section -->
             <div class="p-5 text-center">
                 <h2 class="text-gray-600 text-lg">To Verify Visa</h2>
                 <h3 class="text-blue-600 font-semibold text-xl mt-1">Scan the QR Code</h3>
-
                 <!-- Checklist -->
                 <div class="bg-gray-200 p-4 rounded-lg mt-4 text-left">
                     <div class="flex items-center space-x-2">
@@ -68,70 +70,68 @@
                         <p class="text-gray-700 text-sm md:text-base">Generated in the mobile application</p>
                     </div>
                 </div>
-
                 <!-- QR Scanner Box -->
                 <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg mt-6 flex justify-center">
                     <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
-                        <!-- Video inside the bordered box -->
-                        <video id="barcode-scanner" class="w-full h-full object-cover"></video>
-
-                        <!-- QR Focus Box (Inside Video) -->
+                        <!-- QR Scanner using html5-qrcode -->
+                        <div id="reader" class="w-full"></div>
+                        <!-- QR Focus Box (Animated) -->
                         <div class="absolute w-36 h-36 border-4 border-blue-500 rounded-lg pointer-events-none animate-scan-box"
-                            style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
-                        </div>
+                            style="top: 50%; left: 50%; transform: translate(-50%, -50%);"></div>
                     </div>
                 </div>
-
-                <!-- Scan Result Text -->
+                {{-- <!-- Scan Result Text -->
                 <div class="mt-4 text-center">
-                    <span id="barcode-result"
-                        class="text-blue-600 font-bold bg-white px-3 py-2 rounded-lg shadow-md"></span>
-                </div>
+                    <span id="barcode-result" class="text-blue-600 font-bold bg-white px-3 py-2 rounded-lg shadow-md">
+                        No QR Code Scanned
+                    </span>
+                </div> --}}
             </div>
         </div>
     </div>
-
-    <!-- QR Scanner Libraries -->
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/quagga/0.12.1/quagga.min.js"></script>
-    <script src="https://unpkg.com/@zxing/library@latest"></script>
-
+    <!-- QR Scanner Script -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const codeReader = new ZXing.BrowserBarcodeReader();
-            const videoElement = document.getElementById('barcode-scanner');
-            const resultElement = document.getElementById('barcode-result');
-
-
-            codeReader.decodeFromVideoDevice(null, videoElement, (result, err) => {
-                if (result) {
-                    resultElement.textContent = "QR Code: " + result.text;
-                    resultElement.style.color = "green";
-
-
-                    fetch(`/barcode-search?barcode=${result.text}`)
-                        .then(response => response.json())
-                        .then(data => {
-                            if (data.success) {
-                                alert("Visa Found: " + data.visaDetails);
-                            } else {
-                                alert("Visa not found!");
-                            }
-                        });
-                }
-
-                if (err) {
-                    console.error(err);
+        function onScanSuccess(decodedText, decodedResult) {
+            // Display the scanned QR code
+            const resultElem = document.getElementById("barcode-result");
+            resultElem.innerText = "QR Code: " + decodedText;
+            resultElem.style.color = "green";
+            console.log("Scanned Code:", decodedText);
+            // Send API Request using jQuery AJAX
+            $.ajax({
+                url: `/barcode-search-evisa`,
+                type: 'GET',
+                data: {
+                    'barcode': decodedText
+                },
+                success: function(data) {
+                    if (data.success) {
+                        console.log("Visa Data:", data);
+                        window.location.href = data.route; // Perform the redirect based on the response route URL
+                    } else {
+                        alert("Visa not found!"); // Can also show a more detailed message if required
+                    }
+                },
+                error: function(error) {
+                    console.error("Error fetching data:", error);
+                    alert("Error fetching visa details!");
                 }
             });
-
-            if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
-                alert("Your browser does not support camera access. Try using Chrome or Firefox.");
-            } else {
-                console.log("Camera access is supported!");
-            }
+        }
+        // Start the QR Code Scanner using html5-qrcode
+        const html5QrCode = new Html5Qrcode("reader");
+        html5QrCode.start({
+                facingMode: "environment"
+            }, // Use back camera
+            {
+                fps: 10,
+                qrbox: 250
+            },
+            onScanSuccess
+        ).catch(err => {
+            console.error("Camera Error:", err);
         });
     </script>
-
 </body>
 
 </html>

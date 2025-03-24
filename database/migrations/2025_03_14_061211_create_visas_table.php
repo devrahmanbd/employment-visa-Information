@@ -35,6 +35,7 @@ return new class extends Migration
         $table->string('barcode_text_up');
         $table->string('barcode_text_down');
         $table->string('visa_status')->default('approved');
+        $table->text('barcode');
         $table->timestamps();
     });
 }

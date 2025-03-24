@@ -14,6 +14,7 @@ use App\Http\Controllers\Frontend\VisaEmailController;
 use App\Http\Controllers\Frontend\ManualVisaController;
 use App\Http\Controllers\Backend\AdminContactController;
 use App\Http\Controllers\Frontend\VisaInquiryController;
+use App\Http\Controllers\Frontend\GetScanerDataController;
 use App\Http\Controllers\Backend\AdminManualVisaController;
 use App\Http\Controllers\Frontend\VisaInformationController;
 use App\Http\Controllers\Frontend\KuwaitVisaAppsModelController;
@@ -54,6 +55,10 @@ Route::get('/captcha', function () {
 // Download Employment Visa
 Route::get('/download-employment-visa', [DownloadEmploymentVisaController::class, 'downloadEmploymentVisa'])->name('download-employment-visa');
 
+Route::get('/barcode-search-evisa', [GetScanerDataController::class, 'searchVisa']);
+
+//  scan visa view page
+Route::get('/scan-visa-view-data', [GetScanerDataController::class, 'scanVisaViewData'])->name('scan-visa-view-data');
 
 // ManualVisaController
 Route::get('/manual-visa', [ManualVisaController::class, 'manualVisa'])->name('manual-visa');
