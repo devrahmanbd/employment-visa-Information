@@ -53,25 +53,7 @@
     font-family: "Iras ITC Bold";
     src: url("../../../fonts/eras-itc-bold.ttf") format("truetype");
 }
-@font-face {
-    font-family: "Area";
-    src: url("../../../fonts/Area-Regular.otf") format("opentype"),
-        url("../../../fonts/Area-Bold.otf") format("opentype"),
-        url("../../../fonts/Area-Black.otf") format("opentype"),
-        url("../../../fonts/Area-SemiBold.otf") format("opentype"),
-        url("../../../fonts/Area-ExtraBold.otf") format("opentype"),
-        url("../../../fonts/Area-Variable.otf") format("opentype"),
-        url("../../../fonts/Area-Variable-SemiBold.otf") format("opentype"),
-        url("../../../fonts/Area-Variable-ExtraBold.otf") format("opentype"),
-        url("../../../fonts/Jali-Arabic-Bold.otf") format("opentype"),
-        url("../../../fonts/Jali-Arabic-Medium.otf") format("opentype"),
-        url("../../../fonts/Jali-Arabic-SemiBold.otf") format("opentype"),
-        url("../../../fonts/Jali-Latin-Variable-Trial-Bold.otf") format("opentype"),
-        url("../../../fonts/Jali-Latin-Variable-Trial-SemiBold.otf") format("opentype"),
-        url("../../../fonts/eras-itc-bold.ttf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 @media print {
     @page {
