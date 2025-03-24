@@ -11,20 +11,22 @@
 
 <body>
     <main class="main-file">
-        <div class="div">
+        <div class="paper">
             <header class="group">
                 <div class="overlap-group"
                     style="background-image: url('{{ asset('frontend/assets/visa') }}/img/banner.svg')">
-                    <img class="logo-en" src="{{ asset('frontend/assets/visa') }}/img/logo-en 3.png" alt="Logo" />
-                    <img class="img" src="{{ asset('frontend/assets/visa') }}/img/logo-en 5.png" alt="Logo" />
+                    <img class="logo-en" src="{{ asset('frontend/assets/visa') }}/img/watermark.png" alt="Logo" />
+                    <img class="img" src="{{ asset('frontend/assets/visa') }}/img/watermark.png" alt="Logo" />
                     <img class="logo-en-2" src="{{ asset('frontend/assets/visa') }}/img/emblem.svg" alt="Logo" />
                     <h1 class="text-wrapper">تأشيرة إلكترونية</h1>
                     <img class="group-2" src="{{ asset('frontend/assets/visa') }}/img/Group 24.png"
                         alt="Decorative element" />
-                    <img class="image" src="{{ asset('frontend/assets/visa') }}/img/image 11 (2) 1.png"
-                        alt="Decorative image" />
-                    <img class="image-2" src="{{ asset('frontend/assets/visa') }}/img/image 11 (2) 2.png"
-                        alt="Decorative image" />
+                    <!-- <img class="image" src="{{ asset('frontend/assets/visa') }}/img/image 11 (2) 1.png"
+                        alt="Decorative image" /> -->
+                        <h3 class="image">STATE OF KUWAIT</h3>
+                    <!-- <img class="image-2" src="{{ asset('frontend/assets/visa') }}/img/image 11 (2) 2.png"
+                        alt="Decorative image" /> -->
+                        <h3 class="image-2">Electronic Visa</h3>
                     <img class="ece-cc-ef"
                         src="{{ asset('frontend/assets/visa') }}/img/e11c10e4-9c0c-4ef1-9026-275f3a9c7f1d 3.png"
                         alt="Decorative element" />
@@ -46,8 +48,8 @@
                                     <div class="rectangle-8"></div>
                                     <div class="rectangle-9"></div>
                                     <div class="group-5">
-                                        <h2 class="text-wrapper-2">For Official Use</h2>
-                                        <h2 class="text-wrapper-3">للإستعمال الرسمي</h2>
+                                        <span class="text-wrapper-2">For Official Use</span>
+                                        <span class="text-wrapper-3">للإستعمال الرسمي</span>
                                         <div class="overlap-group-wrapper">
                                             <div class="overlap-group-2">
                                                 <h3 class="text-wrapper-4">Instructions</h3>
@@ -98,7 +100,7 @@
                     <img class="unnamed-removebg"
                             src="{{ asset('frontend/assets/visa') }}/img/moilogo.png"
                             alt="QR Code" />
-                        <img class="element-2" src="{{ asset('frontend/assets/visa') }}/img/moi1.svg"                            alt="Barcode" />
+                        <img class="element-2" src="{{ asset('frontend/assets/visa') }}/img/logo-3.png"                            alt="Barcode" />
                         <img class="unnamed" src="{{ asset('frontend/assets/visa') }}/img/kuwait_visa.png"
                             alt="QR Code" />
                     </div>    
@@ -152,7 +154,7 @@
                                     </div>
                                 </div>
                                 <p class="div-2">
-                                    <span class="span">{{ $line2 }}</span>
+                                    <span class="span-2">{{ $line2 }}</span>
                                 </p>
 
                             </div>
@@ -190,14 +192,14 @@
                         <div class="group-20">
                             <p class="text-wrapper-39">Issue Date</p>
                             <p class="text-wrapper-40">ﺗﺎرﻳﺦ اﻹﺻﺪار</p>
-                            <p class="text-wrapper-41" style="font-weight:900">2025-01-15</p>
+                            <p class="text-wrapper-41" >2025-01-15</p>
                         </div>
                         <div class="group-21">
                             <p class="text-wrapper-42">Visa Type</p>
                             <p class="text-wrapper-43">نوع التأشيرة</p>
                             <p class="text-wrapper-44">Expiry Date</p>
                             <p class="text-wrapper-45">تاريخ الإنتهاء</p>
-                            <p class="text-wrapper-46" style="font-weight: 900">2025-04-14</p>
+                            <p class="text-wrapper-46">2025-04-14</p>
                             <p class="text-wrapper-47">Nationality</p>
                             <div class="overlap-8">
                                 <p class="text-wrapper-48">Sex</p>
