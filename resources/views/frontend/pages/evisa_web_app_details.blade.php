@@ -58,7 +58,7 @@
     <div class="max-w-md mx-auto bg-[#F7F8FA] shadow h-screen">
         <!-- Header -->
         <div class="header-blue text-white px-4 py-3 flex items-center">
-            <button class="mr-2">
+            <button class="mr-2" onclick="window.history.back();">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none"
                     stroke="currentColor" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />
