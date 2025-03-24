@@ -10,24 +10,24 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <!-- Style for Animation -->
     <style>
         @keyframes scanAnimation {
             0% {
-                top: 0;
+                transform: translate(-50%, -50%) scale(1);
             }
 
             50% {
-                top: 100%;
+                transform: translate(-50%, -50%) scale(1.2);
             }
 
             100% {
-                top: 0;
+                transform: translate(-50%, -50%) scale(1);
             }
         }
 
-        .animate-scan {
-            animation: scanAnimation 2s infinite linear;
-            position: absolute;
+        .animate-scan-box {
+            animation: scanAnimation 2s infinite;
         }
     </style>
 </head>
@@ -70,18 +70,14 @@
                 </div>
 
                 <!-- QR Scanner Box -->
-                <div class="mt-6 flex justify-center">
-                    <div
-                        class="relative border-4 border-green-500 h-60 w-60 md:h-72 md:w-72 flex items-center justify-center overflow-hidden">
+                <div class="max-w-md mx-auto bg-white shadow-lg rounded-lg mt-6 flex justify-center">
+                    <div class="relative w-full h-full flex items-center justify-center overflow-hidden">
                         <!-- Video inside the bordered box -->
                         <video id="barcode-scanner" class="w-full h-full object-cover"></video>
 
                         <!-- QR Focus Box (Inside Video) -->
-                        <div class="absolute w-36 h-36 border-4 border-blue-500 rounded-lg pointer-events-none"
+                        <div class="absolute w-36 h-36 border-4 border-blue-500 rounded-lg pointer-events-none animate-scan-box"
                             style="top: 50%; left: 50%; transform: translate(-50%, -50%);">
-
-                            <!-- Scanning Line Animation -->
-                            <div class="absolute top-0 left-0 w-full h-1 bg-red-500 animate-scan"></div>
                         </div>
                     </div>
                 </div>
@@ -105,10 +101,12 @@
             const videoElement = document.getElementById('barcode-scanner');
             const resultElement = document.getElementById('barcode-result');
 
+
             codeReader.decodeFromVideoDevice(null, videoElement, (result, err) => {
                 if (result) {
                     resultElement.textContent = "QR Code: " + result.text;
                     resultElement.style.color = "green";
+
 
                     fetch(`/barcode-search?barcode=${result.text}`)
                         .then(response => response.json())
@@ -120,9 +118,12 @@
                             }
                         });
                 }
+
+                if (err) {
+                    console.error(err);
+                }
             });
 
-            // Camera permission check
             if (!navigator.mediaDevices || !navigator.mediaDevices.getUserMedia) {
                 alert("Your browser does not support camera access. Try using Chrome or Firefox.");
             } else {
