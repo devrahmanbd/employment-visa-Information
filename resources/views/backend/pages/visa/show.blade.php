@@ -7,10 +7,15 @@
     <title>Electronic Visa - State of Kuwait</title>
     <link rel="stylesheet" href="{{ asset('frontend/assets/visa/visa-global.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/visa/visa-style.css') }}" />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+
 </head>
 
 <body>
-    <main class="main-file">
+    <main class="main-file" id="visa-details">
         <div class="paper">
             <header class="group">
                 <div class="overlap-group"
@@ -225,6 +230,33 @@
             </section>
         </div>
     </main>
+
+    <button id="download-pdf">Download PDF</button>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('download-pdf').addEventListener('click', function() {
+                const {
+                    jsPDF
+                } = window.jspdf;
+                var pdf = new jsPDF('l', 'mm', [297, 210]);
+
+                let element = document.getElementById('visa-details');
+                if (!element) {
+                    console.error("Element with ID 'visa-details' not found.");
+                    return;
+                }
+
+                html2canvas(element).then(canvas => {
+                    let imgData = canvas.toDataURL('image/png');
+                    pdf.addImage(imgData, 'PNG', 10, 10, 190, 0);
+                    pdf.save("visa.pdf");
+                }).catch(error => console.error("Error in html2canvas:", error));
+            });
+        });
+    </script>
+
+
 </body>
 
 </html>

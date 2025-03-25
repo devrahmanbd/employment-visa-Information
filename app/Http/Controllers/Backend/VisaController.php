@@ -157,9 +157,8 @@ class VisaController extends Controller
         $pdf = Pdf::loadView('backend.pages.visa.show', compact('visa', 'qrCode'))
               ->setPaper('a4', 'portrait');
 
-        $fileName = $visa->full_name_en . '.pdf';
 
-        return $pdf->download($fileName);
+       return $pdf->download($visa->full_name_en . '.pdf');
     }
 
 
