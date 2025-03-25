@@ -67,7 +67,7 @@ class VisaController extends Controller
   public function show($id) {
     $visa = Visa::findOrFail($id); // Resourceful route to the show method
 
-    $logoPath = public_path('images/scanercode.png');
+    $logoPath = public_path('images/visa-barcode-logo.png');
         if (!file_exists($logoPath)) {
             die('Logo file not found!');
         }
