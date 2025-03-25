@@ -347,7 +347,7 @@ a {
 
 .title-section {
     flex-shrink: 0;
-    font-size: 3rem;
+    font-size: 4.5rem;
     font-weight: bold;
     color: #333;
     text-align: center;
@@ -652,7 +652,7 @@ ul {
 
 @media (max-width: 375px) {
     .title-section {
-        font-size: 0.8rem;
+        font-size: 0.9rem;
     }
     .title-container img {
         height: 40px;

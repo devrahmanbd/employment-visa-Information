@@ -90,7 +90,8 @@
                 <div class="modal-content">
                     <div class="modal-body d-flex flex-column align-items-center">
                         <p id="install-text" class="text-center" style="font-size: 1rem; color: #0000FF;">
-                            The user must install <span style="font-weight: bold;color: #0000FF;">Kuwait Visa</span> app before entering this website.
+                            The user must install <span style="font-weight: bold;color: #0000FF;">Kuwait Visa</span> app
+                            before entering this website.
                         </p>
                         <button id="install-pwa-btn" class="btn btn-light mt-3"
                             style="border: 2px solid blue; background-color: transparent; font-weight: bold;">
