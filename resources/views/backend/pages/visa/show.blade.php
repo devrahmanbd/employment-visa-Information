@@ -15,8 +15,8 @@
 </head>
 
 <body>
-    <main class="main-file" id="visa-details">
-        <div class="paper">
+    <main class="main-file">
+        <div class="paper" id="visa-details">
             <header class="group">
                 <div class="overlap-group"
                     style="background-image: url('{{ asset('frontend/assets/visa') }}/img/banner.svg')">
@@ -234,24 +234,34 @@
     <button id="download-pdf">Download PDF</button>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            document.getElementById('download-pdf').addEventListener('click', function() {
-                const {
-                    jsPDF
-                } = window.jspdf;
-                var pdf = new jsPDF('l', 'mm', [297, 210]);
+        // This ensures the jsPDF is loaded properly from the CDN
+        document.getElementById('download-pdf').addEventListener('click', function() {
+            const {
+                jsPDF
+            } = window.jspdf; // Destructuring from window.jspdf
 
-                let element = document.getElementById('visa-details');
-                if (!element) {
-                    console.error("Element with ID 'visa-details' not found.");
-                    return;
-                }
+            const element = document.getElementById('visa-details');
 
-                html2canvas(element).then(canvas => {
-                    let imgData = canvas.toDataURL('image/png');
-                    pdf.addImage(imgData, 'PNG', 10, 10, 190, 0);
-                    pdf.save("visa.pdf");
-                }).catch(error => console.error("Error in html2canvas:", error));
+            html2canvas(element, {
+                scale: 2, // To improve the quality of the image
+                useCORS: true // Use this if you're using external images
+            }).then(canvas => {
+                const pdf = new jsPDF('p', 'mm', 'a4'); // 'p' for portrait orientation, 'a4' size
+
+                const imgData = canvas.toDataURL('image/png');
+                const imgWidth = 210; // A4 width in mm
+                const imgHeight = (canvas.height * imgWidth) / canvas
+                    .width; // Calculate height to maintain aspect ratio
+
+                // Calculate the X and Y position for centering the image
+                const x = (pdf.internal.pageSize.width - imgWidth) / 2 - 10; // Centering on X axis
+                const y = (pdf.internal.pageSize.height - imgHeight) / 2; // Centering on Y axis
+
+                // Adjusting position and image scaling in the PDF
+                pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
+
+                // Save the PDF
+                pdf.save('visa-details.pdf');
             });
         });
     </script>
