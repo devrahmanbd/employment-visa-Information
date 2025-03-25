@@ -131,14 +131,12 @@
 
 .main-file .text-wrapper {
     top: 72px;
-    left: 646px;
+    left: 642px;
     font-family: "Area Variable-ExtraBold";
     font-weight: 900;
     color: #313a46;
-    font-size: 19px;
-    letter-spacing: -0.14px;
+    font-size: 18px;
     position: absolute;
-    line-height: normal;
     direction: rtl;
 }
 
@@ -163,14 +161,11 @@
 }
 
 .main-file .image-2 {
-    /* height: 15px; */
     top: 79px;
-    left: 59px;
+    left: 55px;
     position: absolute;
-    /* width: 140px; */
     font-family: "Iras ITC Bold";
     color: #4a5566;
-    letter-spacing: -1px;
     font-size: 14px;
 }
 
@@ -964,11 +959,10 @@
 
 .main-file .text-wrapper-25 {
     top: 304px;
-    left: 526px;
-    font-family: "Calibri-Bold";
-    font-weight: 700;
+    left: 524px;
+    font-family: "Jali Arabic-Bold";
     color: #203ea7;
-    font-size: 13px;
+    font-size: 10px;
     letter-spacing: 0;
     position: absolute;
     line-height: normal;
@@ -976,15 +970,13 @@
 }
 
 .main-file .text-wrapper-26 {
-    top: 320px;
-    left: 303px;
-    font-family: "Area Variable-ExtraBold";
+    top: 318px;
+    left: 278px;
+    font-family: "Jali Arabic-Bold";
     font-weight: 900;
     color: #000000;
     font-size: 13px;
-    letter-spacing: 0.34px;
     position: absolute;
-    line-height: normal;
     direction: rtl;
 }
 
@@ -1015,19 +1007,19 @@
 
 .main-file .div-3 {
     top: 17px;
-    left: -12px;
-    font-family: "Area Variable-SemiBold";
+    left: 36px;
+    font-family: "Jali Arabic-Bold";
     font-weight: 900;
     color: #121619;
-    font-size: 14.5px;
+    font-size: 14px;
     white-space: nowrap;
     position: absolute;
-    line-height: normal;
     direction: rtl;
 }
 
 .main-file .text-wrapper-28 {
-    letter-spacing: -0.03px;
+    font-family: "Jali Arabic-Bold";
+    font-size: 14px;
 }
 
 .main-file .text-wrapper-29 {
@@ -1453,19 +1445,16 @@
 
 .main-file .text-wrapper-58 {
     position: absolute;
-    top: 0;
-    left: 0;
-    font-family: "Area Variable-ExtraBold";
-    font-weight: 700;
+    top: -1px;
+    left: 5px;
+    font-family: "Jali Arabic-Bold";
     color: #121619;
-    font-size: 12.4px;
-    letter-spacing: 0;
-    line-height: normal;
+    font-size: 10px;
 }
 
 .main-file .group-23 {
     position: absolute;
-    width: 3px;
+    width: 2.5px;
     height: 2px;
     top: 7px;
     left: 14px;
@@ -1476,7 +1465,7 @@
     position: absolute;
     width: 273px;
     height: 20px;
-    top: 325px;
+    top: 326px;
     left: 138px;
 }
 

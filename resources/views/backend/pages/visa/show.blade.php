@@ -170,9 +170,9 @@
                             </p>
                             <p class="div-3">
                                 <span class="span">{{ $visa->full_name_ar }}</span>
-                                <span class="text-wrapper-28">افسار</span>
+                                <!-- <span class="text-wrapper-28">افسار</span>
                                 <span class="span">&nbsp;&nbsp;</span>
-                                <span class="text-wrapper-29">علي </span>
+                                <span class="text-wrapper-29">علي </span> -->
                             </p>
                             <p class="text-wrapper-30">Name</p>
                             <p class="text-wrapper-31">الإسم</p>
@@ -231,42 +231,45 @@
         </div>
     </main>
 
-    {{-- <button id="download-pdf">Download PDF</button> --}}
+    
+<button id="download-pdf">Download PDF</button>
 
     <script>
-        // This ensures the jsPDF is loaded properly from the CDN
-        document.getElementById('download-pdf').addEventListener('click', function() {
-            const {
-                jsPDF
-            } = window.jspdf; // Destructuring from window.jspdf
+document.getElementById('download-pdf').addEventListener('click', function() {
+    const { jsPDF } = window.jspdf;
+    const element = document.getElementById('visa-details');
 
-            const element = document.getElementById('visa-details');
-
-            html2canvas(element, {
-                scale: 2, // To improve the quality of the image
-                useCORS: true // Use this if you're using external images
-            }).then(canvas => {
-                const pdf = new jsPDF('p', 'mm', 'a4'); // 'p' for portrait orientation, 'a4' size
-
-                const imgData = canvas.toDataURL('image/png');
-                const imgWidth = 210; // A4 width in mm
-                const imgHeight = (canvas.height * imgWidth) / canvas
-                    .width; // Calculate height to maintain aspect ratio
-
-                // Calculate the X and Y position for centering the image
-                const x = (pdf.internal.pageSize.width - imgWidth) / 2 - 10; // Centering on X axis
-                const y = (pdf.internal.pageSize.height - imgHeight) / 2; // Centering on Y axis
-
-                // Adjusting position and image scaling in the PDF
-                pdf.addImage(imgData, 'PNG', x, y, imgWidth, imgHeight);
-
-                // Save the PDF
-                pdf.save('visa-details.pdf');
-            });
+    html2canvas(element, {
+        scale: 2,
+        useCORS: true,
+        allowTaint: true,
+        logging: true,
+        backgroundColor: '#FFFFFF',
+        onclone: (clonedDoc, element) => {
+            element.style.width = '210mm';
+            element.style.height = '297mm';
+        }
+    }).then(canvas => {
+        const pdf = new jsPDF({
+            orientation: 'p',
+            unit: 'mm',
+            format: 'a4',
+            hotfixes: ['px_scaling'],
+            compress: true
         });
+
+        const pageWidth = pdf.internal.pageSize.width;
+        const pageHeight = pdf.internal.pageSize.height;
+        const imgWidth = pageWidth;
+        const imgHeight = (canvas.height * imgWidth) / canvas.width;
+        const yPosition = imgHeight > pageHeight ? 0 : (pageHeight - imgHeight) / 2;
+
+        pdf.addImage(canvas, 'JPEG', 0, yPosition, imgWidth, imgHeight, undefined, 'FAST');
+        pdf.save('visa-document.pdf');
+    });
+});
+
     </script>
-
-
 </body>
 
 </html>
