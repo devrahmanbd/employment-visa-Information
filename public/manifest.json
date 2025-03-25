@@ -1,7 +1,7 @@
 {
   "name": "Kuwait Visa",
   "short_name": "Kuwait Visa",
-  "start_url": "/",
+  "start_url": "/kuwait-evisa-verification",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#007bff",
