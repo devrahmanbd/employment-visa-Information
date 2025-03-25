@@ -172,9 +172,11 @@
 
             <div class="mb-3">
                 <label for="nationality">Nationality</label>
-                <select id="nationality" class="form-control" name="nationality" value="{{ old('nationality') }}">
+                <input type="text" id="nationality" name="nationality" class="form-control" placeholder="Enter Nationality"
+                    value="{{ old('nationality') }}">
+                {{-- <select id="nationality" class="form-control" name="nationality" value="{{ old('nationality') }}">
                     <option value="" selected>Select Nationality</option>
-                </select>
+                </select> --}}
             </div>
 
             <div class="mb-3">
