@@ -18,20 +18,31 @@ class ManualVisaController extends Controller
     public function downloadManualVisaFromFrontend(Request $request)
         {
             
-            // validation
-            $manual_visa = ManualVisa::where('passport_no', $request->passport_no)
-                ->where('dob', $request->dob)
-                ->where('nationality_en', $request->nationality)
-                ->first();
+            
+                        // Validation rules
+            $validatedData = $request->validate([
+                'passport_no' => 'required|min:6|max:15',
+                'dob' => 'required|date',
+                'nationality' => 'required|string|max:50',
+                'captcha' => 'required',
+            ], [
+                'passport_no.required' => 'Passport number is required.',
+                'passport_no.min' => 'Passport number must be at least 6 characters.',
+                'passport_no.max' => 'Passport number cannot exceed 15 characters.',
 
-        //    if no manual visa found with the provided details
-            if (!$manual_visa) {
-                return back()->withErrors(['passport_no' => 'No Manual visa found with the provided details.']);
-            }
+                'dob.required' => 'Date of birth is required.',
+                'dob.date' => 'Invalid date format.',
 
-            // captcha validation
+                'nationality.required' => 'Nationality is required.',
+                'nationality.string' => 'Nationality must be a valid text.',
+                'nationality.max' => 'Nationality cannot exceed 50 characters.',
+
+                'captcha.required' => 'Captcha is required.',
+            ]);
+
+            // Captcha validation
             if ($request->captcha !== Session::get('captcha')) {
-                return back()->withErrors(['captcha' => 'Invalid captcha, please try again.']);
+                return back()->withErrors(['captcha' => 'Enter the correct captcha.']);
             }
 
             // file path

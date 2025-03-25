@@ -149,13 +149,14 @@
             {{-- any error will be shown here --}}
             @if ($errors->any())
                 <div class="alert alert-danger text-center" style="color: rgb(248, 37, 37);">
-                    <ul>
+                    <ul class="list-unstyled">
                         @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
+                            <li class="text-danger">{{ $error }}</li>
                         @endforeach
                     </ul>
                 </div>
             @endif
+
             <div class="mb-3">
                 <label for="passport">Passport No.</label>
                 <input type="text" name="passport_no" id="passport" class="form-control" placeholder="Enter Passport No"
@@ -183,60 +184,35 @@
                     placeholder="Enter Captcha Here">
 
                 <div class="captcha-box">
-                    <div>
+                    <div class="d-flex justify-content-center align-items-center">
                         <span id="captcha-text">{{ session('captcha') }}</span>
                         <button type="button" onclick="refreshCaptcha()">⟳</button>
-                         <p id="captcha-error" style="color: red; display: none;">Captcha did not match. Try again.</p>
+                        @if ($errors->has('captcha'))
+                            <p style="color: red;">{{ $errors->first('captcha') }}</p>
+                        @endif
                     </div>
                 </div>
             </div>
 
-            @if ($errors->has('captcha'))
-                <p style="color: red;">{{ $errors->first('captcha') }}</p>
-            @endif
+
 
             <button type="submit" class="submit-btn">Submit and Find</button>
         </form>
     </div>
     @push('scripts')
         <script>
-            document.addEventListener("DOMContentLoaded", function () {
-    let generatedCaptcha = "";
+            function refreshCaptcha() {
+                fetch("{{ url('/captcha') }}")
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('captcha-text').innerText = data.captcha;
+                    });
+            }
 
-    function refreshCaptcha() {
-        fetch("{{ url('/captcha') }}")
-            .then(response => response.json())
-            .then(data => {
-                generatedCaptcha = data.captcha; // ক্যাপচা টেক্সট সংরক্ষণ করা
-                document.getElementById("captcha-text").innerText = generatedCaptcha;
-                document.getElementById("captcha-input").value = ""; // ইনপুট ফিল্ড ক্লিয়ার করা
-                document.getElementById("captcha-error").style.display = "none"; // পুরনো error message লুকানো
-            });
-    }
+            window.onload = refreshCaptcha; // Refresh captcha on page load
 
-    window.onload = refreshCaptcha; // পেজ লোড হলে ক্যাপচা রিফ্রেশ
-
-    document.getElementById("refresh-btn").addEventListener("click", refreshCaptcha);
-
-    document.getElementById("submit-btn").addEventListener("click", function () {
-        const userCaptcha = document.getElementById("captcha-input").value.trim();
-
-        if (userCaptcha === "") {
-            document.getElementById("captcha-error").innerText = "Captcha is required!";
-            document.getElementById("captcha-error").style.display = "block";
-            return;
-        }
-
-        if (userCaptcha !== generatedCaptcha) {
-            document.getElementById("captcha-error").innerText = "Captcha did not match. Try again.";
-            document.getElementById("captcha-error").style.display = "block";
-        } else {
-            document.getElementById("captcha-error").style.display = "none";
-            alert("Captcha Verified!"); // এখানে ফর্ম সাবমিট করতে পারেন
-        }
-    });
-});
-
+            // Add an event listener to a button for refreshing captcha on click
+            document.getElementById('refresh-btn').addEventListener('click', refreshCaptcha);
         </script>
 
         <script>
