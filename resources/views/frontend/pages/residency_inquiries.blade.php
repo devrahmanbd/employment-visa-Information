@@ -23,7 +23,7 @@
         }
 
         .btn-submit {
-            background-color: #2f79df;
+            background-color: #0a74e4;
             color: white;
         }
 
@@ -46,25 +46,25 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
-            <h1 class="text-xl font-bold text-white text-center flex-grow">Visa</h1>
+            <h1 class="text-xl font-bold text-white text-center flex-grow">Residency Inquiry</h1>
         </div>
 
         <!-- Form Section -->
         <div class="p-6">
-            <p class="text-gray-600 text-sm mb-4">Please enter the Civil id to verify the residency status</p>
+            <p class="text-blue-600 text-sm mb-4 font-bold">Please enter the Civil id to verify the residency status</p>
 
             <form id="visa-form">
                 <div class="space-y-4">
                     <div>
                         <label for="civil_id" class="text-xs text-gray-500">Civil ID</label>
                         <input type="text" name="civil_id" id="civil_id"
-                            class="w-full p-2 border border-gray-300 rounded-lg" placeholder="Enter the Civil id number"
+                            class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter the Civil id number"
                             required>
                         <span id="error-message" class="text-error"></span> <!-- Error message here -->
                     </div>
 
                     <div>
-                        <button type="submit" class="w-full py-2 rounded-lg btn-submit">Inquiry</button>
+                        <button type="submit" class="w-full py-3 rounded-lg btn-submit">Inquiry</button>
                     </div>
                 </div>
             </form>
@@ -72,7 +72,7 @@
     </div>
 
     <script>
-        document.getElementById('visa-form').addEventListener('submit', function (e) {
+        document.getElementById('visa-form').addEventListener('submit', function(e) {
             e.preventDefault(); // Prevent form submission
 
             var civilId = document.getElementById('civil_id').value;
