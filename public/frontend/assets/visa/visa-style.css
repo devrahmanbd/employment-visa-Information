@@ -8,7 +8,6 @@
     src: url("../../../fonts/OCR-B-Letterpress-M-OT.otf") format("opentype");
 }
 
-
 /* ocr-b-regular.ttf */
 @font-face {
     font-family: "OCR-B-Regular";
@@ -47,13 +46,13 @@
 /* Jali Latin Variable Trial-SemiBold */
 @font-face {
     font-family: "Jali Latin Variable Trial-SemiBold";
-    src: url("../../../fonts/JaliLatin-SemiBold.Trial-BF6569377f1e352.ttf") format("truetype");
+    src: url("../../../fonts/JaliLatin-SemiBold.Trial-BF6569377f1e352.ttf")
+        format("truetype");
 }
 @font-face {
     font-family: "Iras ITC Bold";
     src: url("../../../fonts/eras-itc-bold.ttf") format("truetype");
 }
-
 
 @media print {
     @page {
@@ -82,7 +81,7 @@
     width: 100%;
 }
 
-.main-file .paper{
+.main-file .paper {
     background-color: #ffffff;
     overflow: hidden;
     width: 794px;
@@ -170,7 +169,7 @@
     position: absolute;
     /* width: 140px; */
     font-family: "Iras ITC Bold";
-    color: #4A5566;
+    color: #4a5566;
     letter-spacing: -1px;
     font-size: 14px;
 }
@@ -1016,7 +1015,7 @@
 
 .main-file .div-3 {
     top: 17px;
-    left: 44px;
+    left: -12px;
     font-family: "Area Variable-SemiBold";
     font-weight: 900;
     color: #121619;
@@ -1076,7 +1075,7 @@
     position: absolute;
     top: 0;
     left: 9px;
-    font-family: 'Area Variable-ExtraBold';
+    font-family: "Area Variable-ExtraBold";
     font-weight: 600;
     color: #203ea7;
     font-size: 10px;
@@ -1320,7 +1319,7 @@
     position: absolute;
     top: 5px;
     left: 1px;
-    font-family: 'Jali Latin Variable Trial-SemiBold';
+    font-family: "Jali Latin Variable Trial-SemiBold";
     font-weight: 700;
     color: #121619;
     font-size: 13px;
@@ -1435,7 +1434,7 @@
     width: 138px;
     height: 17px;
     top: 23px;
-    left: 1px;
+    left: -21px;
 }
 
 .main-file .text-wrapper-57 {
@@ -1501,7 +1500,7 @@
     min-height: 100vh;
 }
 
-.paper{
+.paper {
     max-width: 794px;
     width: 100%;
     margin: 0 auto;
