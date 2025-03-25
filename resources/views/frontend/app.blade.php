@@ -84,16 +84,16 @@
             @yield('content')
         </div>
 
-        <!-- Modal -->
+        <!-- Install Modal -->
         <div class="modal fade" id="installModal" tabindex="-1" aria-labelledby="installModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered"> <!-- Center Modal -->
+            <div class="modal-dialog modal-dialog-centered">
                 <div class="modal-content">
                     <div class="modal-body d-flex flex-column align-items-center">
-                        <p class="text-center" style="font-size: 1rem; color: blue;">
-                            The user must install Kuwait Visa app before entering this website.
+                        <p id="install-text" class="text-center" style="font-size: 1rem; color: #0000FF;">
+                            The user must install <span style="font-weight: bold;color: #0000FF;">Kuwait Visa</span> app before entering this website.
                         </p>
                         <button id="install-pwa-btn" class="btn btn-light mt-3"
-                            style="border: 2px solid blue; background-color: transparent;">
+                            style="border: 2px solid blue; background-color: transparent; font-weight: bold;">
                             Install
                             <img src="{{ asset('images/kuwaitappslogo-r.png') }}" width="40px" alt="kuwait app">
                             app
@@ -102,6 +102,8 @@
                 </div>
             </div>
         </div>
+
+
 
     </div>
 
@@ -202,31 +204,42 @@
     </script> --}}
 
     <script>
-        let deferredPrompt;
-        const installButton = document.getElementById('install-pwa-btn');
+        document.addEventListener("DOMContentLoaded", function() {
+            let deferredPrompt;
+            const installButton = document.getElementById("install-pwa-btn");
+            const iosInstructions = document.getElementById("ios-instructions");
+            const modal = new bootstrap.Modal(document.getElementById("installModal"));
 
-        // Bootstrap Modal Control
-        const modal = new bootstrap.Modal(document.getElementById('installModal'));
-
-        // Event Listener to show the modal
-        window.addEventListener('beforeinstallprompt', (e) => {
-            e.preventDefault();
-            deferredPrompt = e;
-            installButton.style.display = 'block'; // Install বাটন দেখান
-
-            // Show the modal
-            modal.show();
-        });
-
-        // Install PWA Button Action
-        installButton.addEventListener('click', () => {
-            if (deferredPrompt) {
-                deferredPrompt.prompt(); // PWA Install 
-                deferredPrompt.userChoice.then((choiceResult) => {
-                    deferredPrompt = null;
-                    modal.hide(); // Modal 
-                });
+            function isIos() {
+                return /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
             }
+
+            function isInStandaloneMode() {
+                return (window.navigator.standalone === true);
+            }
+
+            if (isIos() && !isInStandaloneMode()) {
+                // iOS হলে Modal দেখান
+                iosInstructions.style.display = "block";
+                modal.show();
+            }
+
+            window.addEventListener("beforeinstallprompt", (e) => {
+                e.preventDefault();
+                deferredPrompt = e;
+                installButton.style.display = "block"; // Android PWA Install Button দেখান
+                modal.show();
+            });
+
+            installButton.addEventListener("click", () => {
+                if (deferredPrompt) {
+                    deferredPrompt.prompt();
+                    deferredPrompt.userChoice.then(() => {
+                        deferredPrompt = null;
+                        modal.hide();
+                    });
+                }
+            });
         });
     </script>
 </body>
