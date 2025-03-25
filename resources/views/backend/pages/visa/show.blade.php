@@ -170,9 +170,6 @@
                             </p>
                             <p class="div-3">
                                 <span class="span">{{ $visa->full_name_ar }}</span>
-                                <span class="text-wrapper-28">افسار</span>
-                                <span class="span">&nbsp;&nbsp;</span>
-                                <span class="text-wrapper-29">علي </span>
                             </p>
                             <p class="text-wrapper-30">Name</p>
                             <p class="text-wrapper-31">الإسم</p>
