@@ -11,8 +11,13 @@
     <div class="timeline">
         <h2 class="fw-bold"><ins>eVisa (Electronic Visa) checking rules</ins>:</h2>
 
-        <p class="">To check your Electronic Visa (eVisa), click on the logo image that says <strong>KV</strong> -
-            <strong>Kuwait Visa/Electronic Visa</strong> at the bottom right of this page.
+        <p class="">
+            First, click on the place where the <span class="fst-italic">Kuwait Police</span> logo is attached at the bottom of this page, Download or print
+            the Employment Visa, clicking here will automatically open a page, on that page there will be options written as
+            Manual Visa and eVisa (Electronic Visa). Since you want to download an eVisa/Electronic Visa, click on the eVisa
+            (Electronic Visa) option. Clicking here automatically opens a new page where the Electronic Visa Inquiry is
+            written. If you fill in all the correct information required of the Visa holder below that text, enter the
+            Captcha displayed on the screen and click on Submit and Find, the issued visa will be downloaded automatically.
         </p>
         <div class="timeline-item">
             <div class="timeline-icon">

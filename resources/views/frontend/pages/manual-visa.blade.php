@@ -148,7 +148,7 @@
         <form class="visa-form" action="{{ route('frontend-manual-visa-download') }}" method="GET">
             {{-- any error will be shown here --}}
             @if ($errors->any())
-                <div class="alert alert-danger">
+                <div class="alert alert-danger text-center" style="color: rgb(248, 37, 37);">
                     <ul>
                         @foreach ($errors->all() as $error)
                             <li>{{ $error }}</li>
@@ -172,11 +172,9 @@
 
             <div class="mb-3">
                 <label for="nationality">Nationality</label>
-                <input type="text" id="nationality" name="nationality" class="form-control" placeholder="Enter Nationality"
-                    value="{{ old('nationality') }}">
-                {{-- <select id="nationality" class="form-control" name="nationality" value="{{ old('nationality') }}">
+                <select id="nationality" class="form-control" name="nationality" value="{{ old('nationality') }}">
                     <option value="" selected>Select Nationality</option>
-                </select> --}}
+                </select>
             </div>
 
             <div class="mb-3">
@@ -188,6 +186,7 @@
                     <div>
                         <span id="captcha-text">{{ session('captcha') }}</span>
                         <button type="button" onclick="refreshCaptcha()">⟳</button>
+                         <p id="captcha-error" style="color: red; display: none;">Captcha did not match. Try again.</p>
                     </div>
                 </div>
             </div>
@@ -201,18 +200,43 @@
     </div>
     @push('scripts')
         <script>
-            function refreshCaptcha() {
-                fetch("{{ url('/captcha') }}")
-                    .then(response => response.json())
-                    .then(data => {
-                        document.getElementById('captcha-text').innerText = data.captcha;
-                    });
-            }
+            document.addEventListener("DOMContentLoaded", function () {
+    let generatedCaptcha = "";
 
-            window.onload = refreshCaptcha; // Refresh captcha on page load
+    function refreshCaptcha() {
+        fetch("{{ url('/captcha') }}")
+            .then(response => response.json())
+            .then(data => {
+                generatedCaptcha = data.captcha; // ক্যাপচা টেক্সট সংরক্ষণ করা
+                document.getElementById("captcha-text").innerText = generatedCaptcha;
+                document.getElementById("captcha-input").value = ""; // ইনপুট ফিল্ড ক্লিয়ার করা
+                document.getElementById("captcha-error").style.display = "none"; // পুরনো error message লুকানো
+            });
+    }
 
-            // Add an event listener to a button for refreshing captcha on click
-            document.getElementById('refresh-btn').addEventListener('click', refreshCaptcha);
+    window.onload = refreshCaptcha; // পেজ লোড হলে ক্যাপচা রিফ্রেশ
+
+    document.getElementById("refresh-btn").addEventListener("click", refreshCaptcha);
+
+    document.getElementById("submit-btn").addEventListener("click", function () {
+        const userCaptcha = document.getElementById("captcha-input").value.trim();
+
+        if (userCaptcha === "") {
+            document.getElementById("captcha-error").innerText = "Captcha is required!";
+            document.getElementById("captcha-error").style.display = "block";
+            return;
+        }
+
+        if (userCaptcha !== generatedCaptcha) {
+            document.getElementById("captcha-error").innerText = "Captcha did not match. Try again.";
+            document.getElementById("captcha-error").style.display = "block";
+        } else {
+            document.getElementById("captcha-error").style.display = "none";
+            alert("Captcha Verified!"); // এখানে ফর্ম সাবমিট করতে পারেন
+        }
+    });
+});
+
         </script>
 
         <script>
