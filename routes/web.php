@@ -95,6 +95,10 @@ Route::get('/offline', function () {
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Visa
     Route::resource('visas', VisaController::class);
+
+    Route::get('/evisa-download/{id}', [VisaController::class, 'downloadeVisa'])
+    ->name('evisa-download');
+    
     // manual visa
     Route::resource('admin-manual-visas', AdminManualVisaController::class);
     Route::get('/manual-visa-download/{id}', [AdminManualVisaController::class, 'downloadManualVisa'])

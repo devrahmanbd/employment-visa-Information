@@ -59,7 +59,8 @@
 
                                     <a href="{{ route('admin.visas.show', $visa->id) }}"
                                         class="btn btn-info btn-sm">Show</a>
-                                    <a href="" target="_blank" class="btn btn-info btn-sm">Download</a>
+                                    <a href="{{ route('admin.evisa-download', $visa->id) }}"
+                                        class="btn btn-info btn-sm">Download</a>
                                     <form action="{{ route('admin.visas.destroy', $visa->id) }}" method="POST"
                                         style="display:inline;">
                                         @csrf
