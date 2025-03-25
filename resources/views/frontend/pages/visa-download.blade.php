@@ -7,6 +7,7 @@
     <title>Electronic Visa - State of Kuwait</title>
     <link rel="stylesheet" href="{{ asset('frontend/assets/visa/visa-global.css') }}" />
     <link rel="stylesheet" href="{{ asset('frontend/assets/visa/visa-style.css') }}" />
+
 </head>
 
 <body>

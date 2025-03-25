@@ -27,10 +27,9 @@
     font-family: "Jali Arabic-Bold";
     src: url("../../../fonts/Jali Arabic Bold.ttf") format("opentype");
 }
-/* Area Variable-SemiBold */
 @font-face {
     font-family: "Area Variable-SemiBold";
-    src: url("../../../fonts/Area-SemiBold.otf") format("opentype");
+    src: url("../../../fonts/Area-Semibold.otf") format("opentype");
 }
 
 /* Jali Arabic-SemiBold */
@@ -54,25 +53,7 @@
     font-family: "Iras ITC Bold";
     src: url("../../../fonts/eras-itc-bold.ttf") format("truetype");
 }
-@font-face {
-    font-family: "Area";
-    src: url("../../../fonts/Area-Regular.otf") format("opentype"),
-        url("../../../fonts/Area-Bold.otf") format("opentype"),
-        url("../../../fonts/Area-Black.otf") format("opentype"),
-        url("../../../fonts/Area-SemiBold.otf") format("opentype"),
-        url("../../../fonts/Area-ExtraBold.otf") format("opentype"),
-        url("../../../fonts/Area-Variable.otf") format("opentype"),
-        url("../../../fonts/Area-Variable-SemiBold.otf") format("opentype"),
-        url("../../../fonts/Area-Variable-ExtraBold.otf") format("opentype"),
-        url("../../../fonts/Jali-Arabic-Bold.otf") format("opentype"),
-        url("../../../fonts/Jali-Arabic-Medium.otf") format("opentype"),
-        url("../../../fonts/Jali-Arabic-SemiBold.otf") format("opentype"),
-        url("../../../fonts/Jali-Latin-Variable-Trial-Bold.otf") format("opentype"),
-        url("../../../fonts/Jali-Latin-Variable-Trial-SemiBold.otf") format("opentype"),
-        url("../../../fonts/eras-itc-bold.ttf") format("opentype");
-    font-weight: normal;
-    font-style: normal;
-}
+
 
 @media print {
     @page {
@@ -830,7 +811,7 @@
 }
 
 .main-file .text-wrapper-20 {
-    top: 1px;
+    top: 2px;
     letter-spacing: 0;
     position: absolute;
     left: 11px;
@@ -1056,12 +1037,12 @@
 .main-file .text-wrapper-30 {
     position: absolute;
     width: 30px;
-    top: 0;
+    top: 6px;
     left: 88px;
-    font-family: "Jali Arabic-SemiBold";
+    font-family: "Area Variable-ExtraBold";
     font-weight: 800;
     color: #203ea7;
-    font-size: 12px;
+    font-size: 10px;
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
@@ -1140,12 +1121,11 @@
     position: absolute;
     top: 0;
     left: 9px;
-    font-family: "Jali Arabic-SemiBold";
+    font-family: "Area Variable-ExtraBold";
     font-weight: 800;
     color: #203ea7;
     font-size: 10px;
     letter-spacing: 0;
-    line-height: normal;
 }
 
 .main-file .div-4 {
@@ -1193,12 +1173,12 @@
 
 .main-file .text-wrapper-39 {
     position: absolute;
-    top: 1px;
+    top: 4px;
     left: 10px;
     font-family: "Area Variable-ExtraBold";
     font-weight: 900;
     color: #1c3798;
-    font-size: 10.4px;
+    font-size: 10px;
     letter-spacing: 0;
     line-height: normal;
 }
@@ -1271,7 +1251,7 @@
     font-family: "Area Variable-ExtraBold";
     font-weight: 800;
     color: #203ea7;
-    font-size: 10.5px;
+    font-size: 10px;
     letter-spacing: 0;
     line-height: normal;
 }
@@ -1309,7 +1289,7 @@
     font-family: "Area Variable-ExtraBold";
     font-weight: 900;
     color: #203ea7;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
@@ -1330,7 +1310,7 @@
     font-family: "Jali Arabic-SemiBold";
     font-weight: 900;
     color: #203ea7;
-    font-size: 11px;
+    font-size: 10px;
     letter-spacing: 0;
     line-height: normal;
 }
@@ -1403,7 +1383,7 @@
     font-family: "Area Variable-ExtraBold";
     font-weight: 800;
     color: #203ea7;
-    font-size: 10.6px;
+    font-size: 10px;
     letter-spacing: 0;
     line-height: normal;
     white-space: nowrap;
@@ -1436,12 +1416,12 @@
 }
 
 .main-file .text-wrapper-56 {
-    top: 190px;
+    top: 195px;
     left: 74px;
     font-family: "Area Variable-ExtraBold";
     font-weight: 800;
     color: #203ea7;
-    font-size: 10.6px;
+    font-size: 12px;
     text-align: left;
     letter-spacing: 0;
     position: absolute;
@@ -1459,7 +1439,7 @@
 
 .main-file .text-wrapper-57 {
     top: 0;
-    left: 19px;
+    left: 21px;
     font-family: "Area Variable-SemiBold";
     font-weight: 600;
     color: #121619;
@@ -1488,7 +1468,7 @@
     width: 3px;
     height: 2px;
     top: 7px;
-    left: 10px;
+    left: 14px;
     background-color: #121619;
 }
 
