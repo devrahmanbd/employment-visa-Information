@@ -34,6 +34,19 @@
     font-family: "Helvetica Neue Arabic 75 Bold";
     font-weight: 700;
   }
+  .width-sidebar-logo{
+    width: 10rem;
+  }
+  img.mx-auto.mb-4.width-sidebar-logo {
+    height: 15rem;
+    width: auto;
+}
+.card-position{
+    margin-bottom: -0.3rem;
+}
+.div#sidebar {
+  width: 90%;
+ }
   .footer-text{
 color: #172845;
 font-family: "Helvetica Neue Arabic 45 Light";
@@ -245,7 +258,9 @@ font-size: 11px;
     font-size: 16px;
     margin-bottom: 1rem;
   }
-  
+  .card.p-4.flex.flex-col.items-start.h-full {
+    height: 10rem;
+  }
   .blue-button, .verification-button {
     background-color: white;
     color: #1D4289;
@@ -276,7 +291,7 @@ font-size: 11px;
   }
   .grid-2-cols {
     display: grid;
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: 0 1fr;
     gap: 1rem;
   }
   .scrollable-container {

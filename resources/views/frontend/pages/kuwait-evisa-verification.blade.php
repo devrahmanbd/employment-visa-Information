@@ -12,7 +12,7 @@
     <div class="flex flex-col justify-between h-full">
       <div>
         <div class="p-4 text-center banner">
-          <img src="{{ asset('images/kuwaitappslogo-r.png') }}" alt="Kuwait Apps Logo" class="mx-auto mb-4 w-32" />
+          <img src="{{ asset('images/kuwaitappslogo-r.png') }}" alt="Kuwait Apps Logo" class="mx-auto mb-4 width-sidebar-logo" />
         </div>
         <div class="flex items-center gap-2 p-4">
           <img src="{{ asset('images/globe.svg') }}" alt="Language Icon" class="w-6 h-6" />
@@ -34,14 +34,14 @@
       </button>
     </header>
     
-    <div class="text-center mb-6">
+    <div class="text-center card-position">
       <img src="{{ asset('images/apps-banner.png') }}" alt="Kuwait Visa Logo" class="w-full max-w-full" />
     </div>
     
     <div class="content-container px-8 mb-6">
       <h2 class="verify-title text-2xl md:text-3xl">Verify the Visa</h2>
       <p class="text-gray-600 text-sm md:text-base">Verify visa that issued by the Ministry of Interior</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+      <div class="grid grid-cols-2 gap-4 mt-3">
         <a href="{{ route('web-app-visa-inquiries') }}" class="block">
           <div class="card p-4 flex flex-col items-start h-full">
             <div class="text-blue-600 mb-2">
@@ -65,14 +65,14 @@
     <div class="content-container px-8 mb-6">
     <h2 class="verify-title text-2xl md:text-3xl">Residency Inquiry</h2>
     <p class="text-gray-600 text-sm md:text-base">Inquire the status of the residency</p>
-      <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mt-3">
+      <div class="grid grid-cols-2 gap-4 mt-3">
         <a href="{{ route('web-app-visa-inquiries') }}" class="block">
           <div class="card p-4 flex flex-col items-start h-full">
             <div class="text-blue-600 mb-2">
               <img class="w-16 h-16" src="{{ asset('images/scanner.svg') }}" alt="Inquiry Icon" />
             </div>
-            <p class="font-semibold text-gray-800 mb-1">Residency Inquiry</p>
-            <p class="text-xs text-gray-500">Inquire the status of the residency</p>
+            <p class="font-semibold text-gray-800 mb-1">Inquiry</p>
+            <p class="text-xs text-gray-500">Residency Inquiries</p>
           </div>
         </a>
         <a href="{{ route('visa-verification-scan') }}" class="block" style="display: none;">
