@@ -90,13 +90,13 @@
                 <div class="modal-content">
                     <div class="modal-body d-flex flex-column align-items-center">
                         <p class="text-center" style="font-size: 1rem; color: blue;">
-                            The user must Install Kuwait Visa Apps before entering this website.
+                            The user must install Kuwait Visa app before entering this website.
                         </p>
                         <button id="install-pwa-btn" class="btn btn-light mt-3"
                             style="border: 2px solid blue; background-color: transparent;">
                             Install
-                            <img src="{{ asset('images/kuwaitappslogo-r.png') }}" width="40px" alt="kuwait apps">
-                            apps
+                            <img src="{{ asset('images/kuwaitappslogo-r.png') }}" width="40px" alt="kuwait app">
+                            app
                         </button>
                     </div>
                 </div>

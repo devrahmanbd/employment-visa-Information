@@ -143,9 +143,9 @@
 
     <div class="visa-form-container">
         <h2 class="text-center mt-4" style="color: #b68934;">
-            Manual Visa Inquiry
+            Electronic Visa Inquiry
         </h2>
-        <form class="visa-form" action="{{ route('frontend-manual-visa-download') }}" method="GET">
+        <form class="visa-form" action="{{ route('frontend-evisa-download') }}" method="GET">
             {{-- any error will be shown here --}}
             @if ($errors->any())
                 <div class="alert alert-danger">
@@ -172,11 +172,8 @@
 
             <div class="mb-3">
                 <label for="nationality">Nationality</label>
-                <input type="text" id="nationality" name="nationality" class="form-control" placeholder="Enter Nationality"
-                    value="{{ old('nationality') }}">
-                {{-- <select id="nationality" class="form-control" name="nationality" value="{{ old('nationality') }}">
-                    <option value="" selected>Select Nationality</option>
-                </select> --}}
+                <input type="text" id="nationality" name="nationality" class="form-control"
+                    placeholder="Enter Nationality" value="{{ old('nationality') }}">
             </div>
 
             <div class="mb-3">
@@ -215,7 +212,7 @@
             document.getElementById('refresh-btn').addEventListener('click', refreshCaptcha);
         </script>
 
-        <script>
+        {{-- <script>
             async function loadNationalities() {
                 try {
                     let response = await fetch("https://restcountries.com/v3.1/all");
@@ -241,6 +238,6 @@
             }
 
             document.addEventListener("DOMContentLoaded", loadNationalities);
-        </script>
+        </script> --}}
     @endpush
 @endsection

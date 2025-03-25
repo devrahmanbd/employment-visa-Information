@@ -24,6 +24,25 @@ class KuwaitVisaAppsModelController extends Controller
     }
 
     public function visaDetails(Request $request){
+        // validate the request
+        
+        $request->validate([
+        'visa_number' => 'required|digits:9',
+        'mio_reference' => 'required|digits:9',
+        'passport_number' => 'required|min:6|max:15',
+        ], [
+            'visa_number.required' => 'Invalid',
+            'visa_number.digits' => 'Invalid',
+
+            'mio_reference.required' => 'Invalid',
+            'mio_reference.digits' => 'Invalid',
+
+            'passport_number.required' => 'Invalid',
+            'passport_number.min' => 'Invalid',
+            'passport_number.max' => 'Invalid',
+        ]);
+
+        //  validation message blade file show
         
         $evisaApps = Visa::where('visa_number', $request->visa_number)
         ->where('moi_reference', $request->mio_reference)
@@ -42,7 +61,6 @@ class KuwaitVisaAppsModelController extends Controller
                 ->merge($logoPath, 0.3, true)
                 ->generate($evisaApps->barcode)
         );
-
         
         return view('frontend.pages.evisa_web_app_details', compact('evisaApps', 'qrCode'));
     }

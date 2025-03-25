@@ -17,6 +17,8 @@ use App\Http\Controllers\Frontend\VisaInquiryController;
 use App\Http\Controllers\Frontend\GetScanerDataController;
 use App\Http\Controllers\Backend\AdminManualVisaController;
 use App\Http\Controllers\Frontend\VisaInformationController;
+use App\Http\Controllers\Frontend\UserElectronicVisaDownload;
+use App\Http\Controllers\Frontend\ResidencyInquiriesController;
 use App\Http\Controllers\Frontend\KuwaitVisaAppsModelController;
 use App\Http\Controllers\Frontend\DownloadEmploymentVisaController;
 
@@ -60,6 +62,8 @@ Route::get('/barcode-search-evisa', [GetScanerDataController::class, 'searchVisa
 //  scan visa view page
 Route::get('/scan-visa-view-data', [GetScanerDataController::class, 'scanVisaViewData'])->name('scan-visa-view-data');
 
+// ResidencyInquiriesController
+Route::get('/residency-inquiries', [ResidencyInquiriesController::class, 'residencyInquiries'])->name('residency-inquiries');
 // ManualVisaController
 Route::get('/manual-visa', [ManualVisaController::class, 'manualVisa'])->name('manual-visa');
 
@@ -74,6 +78,12 @@ Route::get('/captcha', function () {
     return response()->json(['captcha' => $captcha_text]);
 });
 
+// UserElectronicVisaDownload
+
+Route::get('/user-electronic-visa-download', [UserElectronicVisaDownload::class, 'userElectronicVisaDownload'])->name('user-electronic-visa-download');
+
+// frontend-eVisa-download 
+Route::get('/frontend-evisa-download', [UserElectronicVisaDownload::class, 'frontendEvisaDownload'])->name('frontend-evisa-download');
 
 
 // visa verification
