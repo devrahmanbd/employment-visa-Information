@@ -114,7 +114,7 @@
                             alt="Background pattern" />
                         <div class="group-10">
                             <div class="overlap-group-3">
-                                <p class="text-wrapper-10">بنجلاديش</p>
+                                <p class="text-wrapper-10">{{ $visa->nationality_ar }}</p>
                                 <p class="text-wrapper-11">الجنسية</p>
                             </div>
                         </div>
@@ -124,51 +124,47 @@
                         <h2 class="text-wrapper-12">دولة الكويت</h2>
                         <h2 class="text-wrapper-13">تأشيرة إلكترونية</h2>
                         <div class="group-11">
-                            <img class="image-4" src="{{ asset('frontend/assets/visa') }}/img/image 3.png"
-                                alt="Passport photo" />
+                            <img class="image-4" src="data:image/png;base64,{{ $qrCode }}" alt="Visa QR Code">
                             <div class="overlap-6">
                                 <p class="text-wrapper-14">Passport No.</p>
-                                <p class="text-wrapper-15">A04645325</p>
+                                <p class="text-wrapper-15">{{ $visa->passport_no }}</p>
                             </div>
                             <p class="text-wrapper-16">رقم الجواز</p>
-                            <p class="text-wrapper-17">2022-09-15</p>
-                            <p class="text-wrapper-18">2032-09-14</p>
-                            <p class="text-wrapper-19">عادي</p>
+                            <p class="text-wrapper-17">{{ $visa->passport_issue_date }}</p>
+                            <p class="text-wrapper-18">{{ $visa->passport_expiry_date }}</p>
+                            <p class="text-wrapper-19">{{ $visa->passport_type_ar }}</p>
                         </div>
                         <div class="group-12">
                             <p class="text-wrapper-20">Visa Number</p>
                             <p class="text-wrapper-21">رﻗﻢ اﻟﺘﺄﺷﻴﺮة</p>
-                            <p class="text-wrapper-22">267797222</p>
+                            <p class="text-wrapper-22">{{ $visa->visa_number }}</p>
                         </div>
                         <div class="group-13">
                             <div class="overlap-7">
                                 <div class="group-14">
                                     <div class="overlap-group-4">
-                                        @php
-                                            $line1 = 'VBKWTALI<<ABDUL<MAZID<AFSAR<<<<<<<<<<<<<<<<<<';
-                                            $line2 = '2677972224BGD8602019M250115436<<<<<<<<<<<<<<<';
-                                        @endphp
+
                                         <p class="VBKWTALI-ABDUL-MAZID">
-                                            {{ $line1 }}
+                                            {{ $visa->barcode_text_up }}
                                         </p>
                                     </div>
                                 </div>
                                 <p class="div-2">
-                                    <span class="span-2">{{ $line2 }}</span>
+                                    <span class="span-2">{{ $visa->barcode_text_down }}</span>
                                 </p>
 
                             </div>
                         </div>
                         <p class="text-wrapper-25">الكفيل</p>
                         <p class="text-wrapper-26">
-                            شركه الفيصليه لمقاولات تنظيف المباني والطرق والمدن
+                            {{ $visa->company_name_ar }}
                         </p>
                         <div class="group-17">
                             <p class="ABDUL-MAZID-AFSAR">
-                                <span class="span">ABDUL MAZID AFSAR ALI</span>
+                                <span class="span">{{ $visa->full_name_en }}</span>
                             </p>
                             <p class="div-3">
-                                <span class="span">عبدالمزيد </span>
+                                <span class="span">{{ $visa->full_name_ar }}</span>
                                 <span class="text-wrapper-28">افسار</span>
                                 <span class="span">&nbsp;&nbsp;</span>
                                 <span class="text-wrapper-29">علي </span>
@@ -179,7 +175,7 @@
                         <div class="group-18">
                             <p class="text-wrapper-32">Birth Date</p>
                             <p class="text-wrapper-33">تاريخ الميلاد</p>
-                            <p class="text-wrapper-34">1986-02-01</p>
+                            <p class="text-wrapper-34">{{ $visa->dob }}</p>
                         </div>
                         <div class="group-19">
                             <p class="text-wrapper-35">Reference</p>
@@ -187,37 +183,37 @@
                                 <span class="text-wrapper-36">رقم المر</span>
                                 <span class="text-wrapper-37">جع</span>
                             </p>
-                            <p class="text-wrapper-38">367493676</p>
+                            <p class="text-wrapper-38">{{ $visa->moi_reference }}</p>
                         </div>
                         <div class="group-20">
                             <p class="text-wrapper-39">Issue Date</p>
                             <p class="text-wrapper-40">ﺗﺎرﻳﺦ اﻹﺻﺪار</p>
-                            <p class="text-wrapper-41">2025-01-15</p>
+                            <p class="text-wrapper-41">{{ $visa->issue_date }}</p>
                         </div>
                         <div class="group-21">
                             <p class="text-wrapper-42">Visa Type</p>
                             <p class="text-wrapper-43">نوع التأشيرة</p>
                             <p class="text-wrapper-44">Expiry Date</p>
                             <p class="text-wrapper-45">تاريخ الإنتهاء</p>
-                            <p class="text-wrapper-46">2025-04-14</p>
+                            <p class="text-wrapper-46">{{ $visa->expiry_date }}</p>
                             <p class="text-wrapper-47">Nationality</p>
                             <div class="overlap-8">
                                 <p class="text-wrapper-48">Sex</p>
-                                <p class="text-wrapper-49">M</p>
+                                <p class="text-wrapper-49">{{ $visa->gender }}</p>
                             </div>
                             <div class="overlap-9">
                                 <p class="text-wrapper-50">النوع</p>
-                                <p class="text-wrapper-51">ذكر</p>
+                                <p class="text-wrapper-51">{{ $visa->gender_ar }}</p>
                             </div>
-                            <p class="text-wrapper-52">BANGLADESH</p>
+                            <p class="text-wrapper-52">{{ $visa->nationality_en }}</p>
                             <p class="text-wrapper-53">Occupation</p>
-                            <p class="text-wrapper-54">CLEANER</p>
-                            <p class="text-wrapper-55">عامل تنظيف / مكاتب</p>
+                            <p class="text-wrapper-54">{{ $visa->occupation_en }}</p>
+                            <p class="text-wrapper-55"> {{ $visa->occupation_ar }}</p>
                             <p class="text-wrapper-56">المهنة</p>
                             <div class="group-22">
-                                <p class="text-wrapper-57">سمة دخول عمل اهلى</p>
-                                <p class="text-wrapper-58">B</p>
-                                <div class="group-23"></div>
+                                <p class="text-wrapper-57">{{ $visa->visa_type_ar }}</p>
+                                {{-- <p class="text-wrapper-58">{{ $visa->visa_type_en }}</p> --}}
+                                {{-- <div class="group-23"></div> --}}
                             </div>
                         </div>
                         <img class="STATE-f-KUWAIT"

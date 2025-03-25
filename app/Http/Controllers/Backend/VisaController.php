@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 
 use App\Models\Visa;
+use Barryvdh\DomPDF\Facade\Pdf;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreVisaRequest;
@@ -67,7 +68,7 @@ class VisaController extends Controller
   public function show($id) {
     $visa = Visa::findOrFail($id); // Resourceful route to the show method
 
-    $logoPath = public_path('images/scanercode.png');
+    $logoPath = public_path('images/visa-barcode-logo.png');
         if (!file_exists($logoPath)) {
             die('Logo file not found!');
         }
@@ -131,6 +132,34 @@ class VisaController extends Controller
     {
         $visa->delete();
         return redirect()->route('admin.visas.index')->with('success', 'Visa deleted successfully');
+    }
+
+   public function downloadeVisa($id)
+    {
+        $visa = Visa::find($id);
+        if (!$visa) {
+            abort(404, 'Visa not found');
+        }
+
+         $logoPath = public_path('images/visa-barcode-logo.png');
+        if (!file_exists($logoPath)) {
+            die('Logo file not found!');
+        }
+        $qrCode = base64_encode(
+            QrCode::format('png')
+                ->size(150)
+                ->color(53, 96, 156) 
+                ->backgroundColor(255, 255, 255) 
+                ->merge($logoPath, 0.3, true)
+                ->generate($visa->barcode)
+        );
+
+        $pdf = Pdf::loadView('backend.pages.visa.show', compact('visa', 'qrCode'))
+              ->setPaper('a4', 'portrait');
+
+        $fileName = $visa->full_name_en . '.pdf';
+
+        return $pdf->download($fileName);
     }
 
 
