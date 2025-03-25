@@ -102,37 +102,36 @@
   <div id="overlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden"></div>
   
   <script>
-    const hamburgerButton = document.getElementById('hamburger-button');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
-    
-    hamburgerButton.addEventListener('click', (event) => {
-      event.stopPropagation();
-      sidebar.classList.toggle('-translate-x-full');
-      overlay.classList.toggle('hidden');
+document.getElementById('download-pdf').addEventListener('click', function() {
+    const { jsPDF } = window.jspdf;
+    const element = document.getElementById('visa-details');
+
+    // Set the scale to match A4 dimensions at 300 DPI
+    const scale = 300 / 96; // 300 DPI / 96 DPI (default screen resolution)
+    const pdfWidth = 210;
+    const pdfHeight = 297;
+
+    html2canvas(element, {
+        scale: scale,
+        useCORS: true,
+        allowTaint: true,
+        backgroundColor: '#FFFFFF'
+    }).then(canvas => {
+        const pdf = new jsPDF({
+            orientation: 'portrait',
+            unit: 'mm',
+            format: [pdfWidth, pdfHeight]
+        });
+
+        const imgData = canvas.toDataURL('image/jpeg', 1.0);
+
+        // Add image at exact A4 dimensions without any scaling or positioning
+        pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+
+        pdf.save('visa-details.pdf');
     });
-    
-    overlay.addEventListener('click', () => {
-      sidebar.classList.add('-translate-x-full');
-      overlay.classList.add('hidden');
-    });
-    
-    // Close sidebar on window resize to desktop size
-    window.addEventListener('resize', () => {
-      if (window.innerWidth >= 1024 && !sidebar.classList.contains('-translate-x-full')) {
-        sidebar.classList.add('-translate-x-full');
-        overlay.classList.add('hidden');
-      }
-    });
-    
-    // Check for touch devices and adapt behavior
-    const isTouchDevice = () => {
-      return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
-    };
-    
-    if (isTouchDevice()) {
-      document.body.classList.add('touch-device');
-    }
+});
+
   </script>
 </body>
 </html>

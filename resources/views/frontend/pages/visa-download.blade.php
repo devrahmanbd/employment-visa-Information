@@ -169,10 +169,10 @@
                                 <span class="span">ABDUL MAZID AFSAR ALI</span>
                             </p>
                             <p class="div-3">
-                                <span class="span">عبدالمزيد </span>
-                                <span class="text-wrapper-28">افسار</span>
+                                <span class="text-wrapper-28">عبد المجيد افسار علي</span>
+                                <!-- <span class="text-wrapper-28"></span>
                                 <span class="span">&nbsp;&nbsp;</span>
-                                <span class="text-wrapper-29">علي </span>
+                                <span class="text-wrapper-29"> </span> -->
                             </p>
                             <p class="text-wrapper-30">Name</p>
                             <p class="text-wrapper-31">الإسم</p>
