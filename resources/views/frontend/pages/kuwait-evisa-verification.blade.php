@@ -66,7 +66,7 @@
     <h2 class="verify-title text-2xl md:text-3xl">Residency Inquiry</h2>
     <p class="text-gray-600 text-sm md:text-base">Inquire the status of the residency</p>
       <div class="grid grid-cols-2 gap-4 mt-3">
-        <a href="{{ route('web-app-visa-inquiries') }}" class="block">
+        <a href="{{ route('residency-inquiries') }}" class="block">
           <div class="card p-4 flex flex-col items-start h-full">
             <div class="text-blue-600 mb-2">
               <img class="w-16 h-16" src="{{ asset('images/scanner.svg') }}" alt="Inquiry Icon" />
