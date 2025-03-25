@@ -170,9 +170,9 @@
                             </p>
                             <p class="div-3">
                                 <span class="span">{{ $visa->full_name_ar }}</span>
-                                <!-- <span class="text-wrapper-28">افسار</span>
+                                <span class="text-wrapper-28">افسار</span>
                                 <span class="span">&nbsp;&nbsp;</span>
-                                <span class="text-wrapper-29">علي </span> -->
+                                <span class="text-wrapper-29">علي </span>
                             </p>
                             <p class="text-wrapper-30">Name</p>
                             <p class="text-wrapper-31">الإسم</p>
@@ -239,33 +239,29 @@ document.getElementById('download-pdf').addEventListener('click', function() {
     const { jsPDF } = window.jspdf;
     const element = document.getElementById('visa-details');
 
+    // Set the scale to match A4 dimensions at 300 DPI
+    const scale = 300 / 96; // 300 DPI / 96 DPI (default screen resolution)
+    const pdfWidth = 210;
+    const pdfHeight = 297;
+
     html2canvas(element, {
-        scale: 2,
+        scale: scale,
         useCORS: true,
         allowTaint: true,
-        logging: true,
-        backgroundColor: '#FFFFFF',
-        onclone: (clonedDoc, element) => {
-            element.style.width = '210mm';
-            element.style.height = '297mm';
-        }
+        backgroundColor: '#FFFFFF'
     }).then(canvas => {
         const pdf = new jsPDF({
-            orientation: 'p',
+            orientation: 'portrait',
             unit: 'mm',
-            format: 'a4',
-            hotfixes: ['px_scaling'],
-            compress: true
+            format: [pdfWidth, pdfHeight]
         });
 
-        const pageWidth = pdf.internal.pageSize.width;
-        const pageHeight = pdf.internal.pageSize.height;
-        const imgWidth = pageWidth;
-        const imgHeight = (canvas.height * imgWidth) / canvas.width;
-        const yPosition = imgHeight > pageHeight ? 0 : (pageHeight - imgHeight) / 2;
+        const imgData = canvas.toDataURL('image/jpeg', 1.0);
 
-        pdf.addImage(canvas, 'JPEG', 0, yPosition, imgWidth, imgHeight, undefined, 'FAST');
-        pdf.save('visa-document.pdf');
+        // Add image at exact A4 dimensions without any scaling or positioning
+        pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+
+        pdf.save('visa-details.pdf');
     });
 });
 
