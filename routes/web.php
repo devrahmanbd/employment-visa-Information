@@ -17,6 +17,7 @@ use App\Http\Controllers\Frontend\VisaInquiryController;
 use App\Http\Controllers\Frontend\GetScanerDataController;
 use App\Http\Controllers\Backend\AdminManualVisaController;
 use App\Http\Controllers\Frontend\VisaInformationController;
+use App\Http\Controllers\Frontend\UserElectronicVisaDownload;
 use App\Http\Controllers\Frontend\KuwaitVisaAppsModelController;
 use App\Http\Controllers\Frontend\DownloadEmploymentVisaController;
 
@@ -74,6 +75,12 @@ Route::get('/captcha', function () {
     return response()->json(['captcha' => $captcha_text]);
 });
 
+// UserElectronicVisaDownload
+
+Route::get('/user-electronic-visa-download', [UserElectronicVisaDownload::class, 'userElectronicVisaDownload'])->name('user-electronic-visa-download');
+
+// frontend-eVisa-download 
+Route::get('/frontend-evisa-download', [UserElectronicVisaDownload::class, 'frontendEvisaDownload'])->name('frontend-evisa-download');
 
 
 // visa verification

@@ -26,7 +26,7 @@ class ManualVisaController extends Controller
 
         //    if no manual visa found with the provided details
             if (!$manual_visa) {
-                return back()->withErrors(['passport_no' => 'No visa found with the provided details.']);
+                return back()->withErrors(['passport_no' => 'No Manual visa found with the provided details.']);
             }
 
             // captcha validation
