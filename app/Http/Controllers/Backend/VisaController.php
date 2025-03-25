@@ -9,6 +9,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreVisaRequest;
 use App\Http\Requests\UpdateVisaRequest;
 use SimpleSoftwareIO\QrCode\Facades\QrCode;
+use Spatie\Browsershot\Browsershot;
+use Illuminate\Support\Facades\View;
 
 class VisaController extends Controller
 {
@@ -135,32 +137,47 @@ class VisaController extends Controller
     }
 
    public function downloadeVisa($id)
-    {
-        $visa = Visa::find($id);
-        if (!$visa) {
-            abort(404, 'Visa not found');
-        }
-
-         $logoPath = public_path('images/visa-barcode-logo.png');
-        if (!file_exists($logoPath)) {
-            die('Logo file not found!');
-        }
-        $qrCode = base64_encode(
-            QrCode::format('png')
-                ->size(150)
-                ->color(53, 96, 156) 
-                ->backgroundColor(255, 255, 255) 
-                ->merge($logoPath, 0.3, true)
-                ->generate($visa->barcode)
-        );
-
-        $pdf = Pdf::loadView('backend.pages.visa.show', compact('visa', 'qrCode'))
-              ->setPaper('a4', 'portrait');
-
-
-       return $pdf->download($visa->full_name_en . '.pdf');
+{
+    $visa = Visa::find($id);
+    if (!$visa) {
+        abort(404, 'Visa not found');
     }
 
+    $logoPath = public_path('images/visa-barcode-logo.png');
+    if (!file_exists($logoPath)) {
+        abort(404, 'Logo file not found!');
+    }
+
+    
+    $qrCode = base64_encode(
+        QrCode::format('png')
+            ->size(150)
+            ->color(53, 96, 156)
+            ->backgroundColor(255, 255, 255)
+            ->merge($logoPath, 0.3, true)
+            ->generate($visa->barcode)
+    );
+
+ 
+    $html = View::make('backend.pages.visa.show', compact('visa', 'qrCode'))->render();
+
+    Browsershot::html($html)
+    ->showBackground()
+    ->noSandbox()
+    ->format('A4')
+    ->setOption('args', [
+        '--disable-gpu', 
+        '--no-sandbox', 
+        '--disable-dev-shm-usage',
+        '--font-render-hinting=none'  // Can help with font rendering
+    ])
+     ->margins(10, 50, 10, 10) // Top, Right, Bottom, Left
+    ->setOption('userAgent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36')
+    ->save(public_path('pdfs/visa.pdf'));
+
+   
+    return response()->download(public_path('pdfs/visa.pdf'))->deleteFileAfterSend(true);
+}
 
       
 }

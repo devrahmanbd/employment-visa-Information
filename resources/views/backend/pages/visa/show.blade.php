@@ -231,7 +231,7 @@
         </div>
     </main>
 
-    <button id="download-pdf">Download PDF</button>
+    {{-- <button id="download-pdf">Download PDF</button> --}}
 
     <script>
         // This ensures the jsPDF is loaded properly from the CDN
