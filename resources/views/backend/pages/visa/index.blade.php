@@ -44,6 +44,7 @@
                             <th>Passport Number</th>
                             <th>visa Issue Date</th>
                             <th>Expiry Date</th>
+                            <th>Status</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
@@ -74,8 +75,11 @@
                                     <!-- Status Change Button -->
                                     <button id="changeStatusBtn"
                                         class="btn btn-sm my-2 btn-{{ $currentStatus['bg'] }} text-{{ $currentStatus['text'] }}">
-                                        <i class="fas fa-sync-alt me-1"></i> {{ ucfirst($status) }}
+                                        {{ ucfirst($status) }}
                                     </button>
+                                </td>
+                                <td>
+                                    
                                     <a href="{{ route('admin.visas.edit', $visa->id) }}"
                                         class="btn btn-primary btn-sm">Edit</a>
 
