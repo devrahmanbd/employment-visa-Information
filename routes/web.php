@@ -28,9 +28,13 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
 // Visa Information page
 Route::get('/visa-information', [VisaInformationController::class, 'index'])->name('visa-information');
+// message
+Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
 
 // Contact page
 Route::get('/contact', [ContactController::class, 'index'])->name('contact');
+// Visa Email page
+Route::get('/visa-email', [VisaEmailController::class, 'index'])->name('visa-email');
 
 // Visa Inquiry page
 Route::get('/visa-inquiry',[VisaInquiryController::class, 'index'])->name('visa-inquiry');
@@ -40,10 +44,7 @@ Route::get('/visa-find',[VisaInquiryController::class, 'find'])->name('visa.find
 Route::get('/visa-details/{id}',[VisaInquiryController::class, 'details'])->name('visa.details');
 Route::get('/visa-inquiry', [VisaInquiryController::class, 'index'])->name('visa-inquiry');
 Route::get('/visa-download', [VisaInquiryController::class, 'download'])->name('visa.download');
-// Visa Email page
-Route::get('/visa-email', [VisaEmailController::class, 'index'])->name('visa-email');
 
-Route::post('/message/store', [MessageController::class, 'store'])->name('message.store');
 
 // kuwait evisa verification
 Route::get('/kuwait-evisa-verification',[KuwaitVisaAppsModelController::class,'index'])->name('kuwait-evisa-verification');
