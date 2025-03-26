@@ -45,6 +45,11 @@ class ManualVisaController extends Controller
                 return back()->withErrors(['captcha' => 'Enter the correct captcha.']);
             }
 
+             $manual_visa = ManualVisa::where('passport_no', 'LIKE', "%{$request->passport_no}%")
+            ->where('nationality_en', 'LIKE', "%{$request->nationality}%")
+            ->where('dob', 'LIKE', "%{$request->dob}%")
+            ->first();
+
             // file path
             $filePath = public_path($manual_visa->pdf_file);
             $newFileName = $manual_visa->file_owner_name . '.pdf';
