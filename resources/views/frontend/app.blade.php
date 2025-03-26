@@ -22,22 +22,54 @@
         html {
             scroll-behavior: smooth;
         }
-
-        /* Prevent Text Selection */
-        /* body {
-            user-select: none;
-            -webkit-user-select: none;
-            -moz-user-select: none;
-            -ms-user-select: none;
-        } */
     </style>
 </head>
 
 <body>
-    <!-- Date Bar -->
+<!DOCTYPE html>
+<html lang="en">
+<?php
+function getKuwaitTime() {
+    date_default_timezone_set('Asia/Kuwait');
+    $url = 'https://timeapi.io/api/time/current/zone?timeZone=Asia/Kuwait';
+    
+    $curl = curl_init();
+    curl_setopt_array($curl, [
+        CURLOPT_URL => $url,
+        CURLOPT_RETURNTRANSFER => true,
+        CURLOPT_HTTPHEADER => ['accept: application/json'],
+        CURLOPT_SSL_VERIFYPEER => false,
+        CURLOPT_TIMEOUT => 3
+    ]);
+    
+    try {
+        $response = curl_exec($curl);
+        $httpCode = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        
+        if ($httpCode !== 200) throw new Exception("API Error: HTTP $httpCode");
+        if (!$response) throw new Exception(curl_error($curl));
+        
+        $data = json_decode($response, true);
+        
+        if (!isset($data['dateTime'])) {
+            throw new Exception("Invalid API response format");
+        }
+        
+        return (new DateTime($data['dateTime']))->format('d-m-Y h:i:s A');
+        
+    } catch (Exception $e) {
+        return date('d-m-Y h:i:s A');
+    } finally {
+        curl_close($curl);
+    }
+}
+
+$kuwaitTime = getKuwaitTime();
+?>
     <div class="date-bar">
         <div class="container">
-            <i class="fas fa-calendar-alt"></i> <span id="datetime"></span>
+            <i class="fas fa-calendar-alt"></i> 
+            <span id="datetime"><?= htmlspecialchars($kuwaitTime) ?></span>
         </div>
     </div>
     <div class="title-container">
@@ -47,6 +79,26 @@
         </div>
         <a href="{{ route('home') }}"><img src="{{ asset($setting['right_logo']) }}" alt="Right Image"></a>
     </div>
+
+    <script>
+        function refreshTime() {
+            fetch(window.location.href, {
+                headers: {
+                    'X-Requested-With': 'XMLHttpRequest',
+                    'Cache-Control': 'no-cache'
+                }
+            })
+            .then(response => response.text())
+            .then(text => {
+                const parser = new DOMParser();
+                const doc = parser.parseFromString(text, 'text/html');
+                const newTime = doc.getElementById('datetime').textContent;
+                document.getElementById('datetime').textContent = newTime;
+            });
+        }
+        
+        setInterval(refreshTime, 30000);
+    </script>
 
 
     <!-- Navigation Menu -->
@@ -206,32 +258,40 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            let deferredPrompt;
-            const installButton = document.getElementById("install-pwa-btn");
-            const iosInstructions = document.getElementById("ios-instructions");
-            const modal = new bootstrap.Modal(document.getElementById("installModal"));
+    let deferredPrompt;
+    const installButton = document.getElementById("install-pwa-btn");
+    const iosInstructions = document.getElementById("ios-instructions");
+    const modalElement = document.getElementById("installModal");
+    let modal;
 
-            function isIos() {
-                return /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
-            }
+    function isIos() {
+        return /iPhone|iPad|iPod/.test(navigator.userAgent) && !window.MSStream;
+    }
 
-            function isInStandaloneMode() {
-                return (window.navigator.standalone === true);
-            }
+    function isInStandaloneMode() {
+        return (window.navigator.standalone === true);
+    }
 
-            if (isIos() && !isInStandaloneMode()) {
-                // iOS হলে Modal দেখান
+    if (modalElement) {
+        modal = new bootstrap.Modal(modalElement);
+
+        if (isIos() && !isInStandaloneMode()) {
+            if (iosInstructions) {
                 iosInstructions.style.display = "block";
-                modal.show();
             }
+            modal.show();
+        }
 
-            window.addEventListener("beforeinstallprompt", (e) => {
-                e.preventDefault();
-                deferredPrompt = e;
-                installButton.style.display = "block"; // Android PWA Install Button দেখান
-                modal.show();
-            });
+        window.addEventListener("beforeinstallprompt", (e) => {
+            e.preventDefault();
+            deferredPrompt = e;
+            if (installButton) {
+                installButton.style.display = "block";
+            }
+            modal.show();
+        });
 
+        if (installButton) {
             installButton.addEventListener("click", () => {
                 if (deferredPrompt) {
                     deferredPrompt.prompt();
@@ -241,7 +301,10 @@
                     });
                 }
             });
-        });
+        }
+    }
+});
+
     </script>
 </body>
 
