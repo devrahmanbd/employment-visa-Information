@@ -2,8 +2,8 @@
 
 ## ✅ Task 1: Implement Visa Status Update System
 
--   [ ] Admin panel থেকে visa status পরিবর্তন এবং আপডেটের ব্যবস্থা করা
--   [ ] Approved, Awaiting Approval, Rejected, Processing স্ট্যাটাস যুক্ত করা
+-   [ Done ] Admin panel থেকে visa status পরিবর্তন এবং আপডেটের ব্যবস্থা করা
+-   [ DOne ] Approved, Awaiting Approval, Rejected, Processing স্ট্যাটাস যুক্ত করা
 
 ## ✅ Task 2: Email Notifications
 
