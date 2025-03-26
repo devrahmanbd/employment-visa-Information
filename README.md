@@ -36,7 +36,7 @@ Fix with commit: #07ee5caa7a0ac63de0a470acf66cbd0180eca43e
 
 -   [x] ফুটারের লেখাগুলি **আরও স্ট্যান্ডার্ড করা**
 
-
+Fix with: d9832a9fc3bdd26b44b2bc881194d38f5ecc6317
 
 ## ✅ Task 4: Apps Development
 
