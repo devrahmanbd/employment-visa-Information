@@ -2,82 +2,81 @@
 
 @section('content')
 @push('styles')
-        <style>
-            body {
-                background-color: #f5faf5;
-                font-family: Arial, sans-serif;
-            }
+    <style>
+        body {
+            background-color: #f5faf5;
+            font-family: 'Arial', sans-serif;
+        }
 
-            .visa-form-container {
-                max-width: 1200px;
-                background-color: #eef7ee;
-                padding: 15px 15px;
-                border-radius: 15px;
-                margin: 10px 10px;
-                box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
-            }
+        .visa-form-container {
+            max-width: 1200px;
+            background-color: #eef7ee;
+            padding: 25px;
+            border-radius: 15px;
+            margin: 20px auto;
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        }
 
-            .visa-form label {
-                font-weight: bold;
-                margin-bottom: 5px;
-                display: block;
-            }
+        .visa-form label {
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+            color: #333;
+        }
 
-            .visa-form input,
-            .visa-form select,
-            .visa-form textarea {
-                border: 1px solid #ced4da;
-                border-radius: 8px;
-                padding: 10px;
-                font-size: 1rem;
-                width: 100%;
-                box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
-                margin-bottom: 15px;
-            }
+        .visa-form .form-control {
+            border: 1px solid #ced4da;
+            border-radius: 8px;
+            padding: 10px;
+            font-size: 1rem;
+            box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.08);
+            transition: border-color 0.3s ease;
+        }
 
-            .submit-btn {
-                background-color: #b68a35;
-                color: white;
-                font-weight: bold;
-                padding: 8px;
-                border-radius: 8px;
-                font-size: 1rem;
-                width: 100%;
-                border: none;
-                transition: background 0.3s ease, transform 0.2s ease;
-            }
+        .visa-form .form-control:focus {
+            border-color: #b68a35;
+            box-shadow: 0 0 5px rgba(182, 138, 53, 0.3);
+        }
 
-            .submit-btn:hover {
-                background-color: #9b702e;
-                transform: scale(1.02);
-            }
+        .submit-btn {
+            background-color: #b68a35;
+            color: white;
+            font-weight: bold;
+            padding: 12px;
+            border-radius: 8px;
+            font-size: 1rem;
+            width: 100%;
+            border: none;
+            transition: background 0.3s ease, transform 0.2s ease;
+        }
 
-            .section-heading {
-                font-size: 22px;
-                font-weight: bold;
-                margin-top: 5px;
-                color: #0000FE;
-                text-align: center;
-            }
+        .submit-btn:hover {
+            background-color: #9b702e;
+            transform: scale(1.02);
+        }
 
-            hr {
-                border: 1px solid #b68a35;
-                margin: 20px 0;
-            }
+        .pdf-preview-container {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 15px;
+        }
 
-            .col-6 {
-                border: 1px solid #c9c8c8;
-                padding: 10px;
-                border-radius: 8px;
-            }
-        </style>
-    @endpush
+        .error-message {
+            color: #dc3545;
+            font-size: 0.9rem;
+            margin-top: 5px;
+        }
+    </style>
+@endpush
+
+<div class="container-fluid">
     <div class="visa-form-container">
-        <h2 class="text-center">Edit Manual Visa</h2>
+        <h2 class="text-center mb-4">Edit Manual Visa</h2>
 
         @if ($errors->any())
             <div class="alert alert-danger">
-                <ul>
+                <ul class="mb-0">
                     @foreach ($errors->all() as $error)
                         <li>{{ $error }}</li>
                     @endforeach
@@ -85,87 +84,112 @@
             </div>
         @endif
 
-        <form action="{{ route('admin.admin-manual-visas.update', $manualVisa->id) }}" method="POST" enctype="multipart/form-data">
+        <form action="{{ route('admin.admin-manual-visas.update', $manualVisa->id) }}" method="POST" enctype="multipart/form-data" class="visa-form">
             @csrf
             @method('PUT')
 
-            <hr>
-            <div class="row">
-                <div class="col-6">
-                    <div class="col-md-12">
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="mb-3">
                         <label for="pdf_file">Visa PDF File</label>
-                        <input type="file" name="pdf_file" id="pdf_file" class="form-control">
+                        <input type="file" name="pdf_file" id="pdf_file" class="form-control" accept=".pdf">
                         @if($manualVisa->pdf_file)
-                            <a href="{{ asset($manualVisa->pdf_file) }}" target="_blank">View Current PDF</a>
+                            <small class="text-muted">
+                                <a href="{{ asset($manualVisa->pdf_file) }}" target="_blank" class="text-primary">
+                                    View Current PDF
+                                </a>
+                            </small>
                         @endif
                     </div>
 
-                    <div class="col-md-12">
-                        <label>Passport Number</label>
-                        <input type="text" name="passport_no" value="{{ old('passport_no', $manualVisa->passport_no) }}" class="form-control">
+                    <div class="mb-3">
+                        <label for="passport_no">Passport Number</label>
+                        <input type="text" name="passport_no" id="passport_no" 
+                               value="{{ old('passport_no', $manualVisa->passport_no) }}" 
+                               class="form-control @error('passport_no') is-invalid @enderror">
+                        @error('passport_no')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
                     </div>
 
-                    <div class="col-md-12">
-                        <label>Date of Birth</label>
-                        <input type="date" name="dob" value="{{ old('dob', $manualVisa->dob) }}" class="form-control">
+                    <div class="mb-3">
+                        <label for="dob">Date of Birth</label>
+                        <input type="date" name="dob" id="dob" 
+                               value="{{ old('dob', $manualVisa->dob) }}" 
+                               class="form-control @error('dob') is-invalid @enderror">
+                        @error('dob')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
                     </div>
 
-                    <div class="col-md-12 mb-5">
-                        <label>Nationality</label>
-                        <input type="text" name="nationality_en" id="nationality_en" value="{{ old('nationality_en', $manualVisa->nationality_en) }}" class="form-control">
+                    <div class="mb-3">
+                        <label for="nationality_en">Nationality</label>
+                        <select name="nationality_en" id="nationality_en" 
+                                class="form-control @error('nationality_en') is-invalid @enderror">
+                            <option value="">Select Nationality</option>
+                        </select>
+                        @error('nationality_en')
+                            <div class="error-message">{{ $message }}</div>
+                        @enderror
                     </div>
 
-                    <div class="col-md-12">
-                        <button type="submit" class="submit-btn">Update Visa</button>
-                    </div>
+                    <button type="submit" class="submit-btn mt-3">Update Visa</button>
                 </div>
 
-                <div class="col-6">
-                    <div class="col-md-6 mt-3">
+                <div class="col-md-6">
+                    <div class="pdf-preview-container">
                         <label>PDF Preview</label>
-                        <iframe id="pdf_preview" style="width: 100%; height: 400px; border: 1px solid #ccc;"
-                            @if($manualVisa->pdf_file) src="{{ asset($manualVisa->pdf_file) }}" @endif></iframe>
+                        <iframe id="pdf_preview" 
+                                style="width: 100%; height: 400px; border: 1px solid #ddd; border-radius: 8px;"
+                                @if($manualVisa->pdf_file) src="{{ asset($manualVisa->pdf_file) }}" @endif>
+                        </iframe>
                     </div>
                 </div>
             </div>
         </form>
     </div>
+</div>
 
-    @push('script')
-        <script>
-            document.getElementById('pdf_file').addEventListener('change', function(event) {
-                var file = event.target.files[0];
+@push('scripts')
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const pdfFileInput = document.getElementById('pdf_file');
+            const pdfPreview = document.getElementById('pdf_preview');
+
+            pdfFileInput.addEventListener('change', function(event) {
+                const file = event.target.files[0];
                 if (file && file.type === "application/pdf") {
-                    var pdfPreview = document.getElementById('pdf_preview');
-                    var objectURL = URL.createObjectURL(file);
+                    const objectURL = URL.createObjectURL(file);
                     pdfPreview.src = objectURL;
                 } else {
                     alert("Please upload a valid PDF file.");
+                    event.target.value = ''; // Clear the input
                 }
             });
 
             async function loadNationalities() {
                 try {
-                    let response = await fetch("https://restcountries.com/v3.1/all");
-                    let countries = await response.json();
-                    let nationalitySelect = document.getElementById("nationality_en");
-                    countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
+                    const response = await fetch("https://restcountries.com/v3.1/all");
+                    const countries = await response.json();
+                    const nationalitySelect = document.getElementById("nationality_en");
 
-                    countries.forEach(country => {
-                        let englishName = country.name.common;
-                        let option = document.createElement("option");
-                        option.value = englishName;
-                        option.textContent = englishName;
-                        nationalitySelect.appendChild(option);
-                    });
+                    countries
+                        .map(country => country.name.common)
+                        .sort()
+                        .forEach(name => {
+                            const option = new Option(name, name);
+                            nationalitySelect.add(option);
+                        });
 
+                    // Set the current nationality
                     nationalitySelect.value = "{{ old('nationality_en', $manualVisa->nationality_en) }}";
                 } catch (error) {
                     console.error("Error fetching country list:", error);
                 }
             }
 
-            document.addEventListener("DOMContentLoaded", loadNationalities);
-        </script>
-    @endpush
+            loadNationalities();
+        });
+    </script>
+@endpush
 @endsection
