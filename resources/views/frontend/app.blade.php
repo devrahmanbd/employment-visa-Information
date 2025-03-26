@@ -73,11 +73,13 @@ $kuwaitTime = getKuwaitTime();
         </div>
     </div>
     <div class="title-container">
-        <a href="{{ route('home') }}"><img src="{{ asset($setting['left_logo']) }}" alt="Left Image"></a>
+
+    <a href="{{ route('home') }}"><img src="{{ asset($setting['right_logo']) }}" alt="Right Image"></a>
         <div class="title-section">
             {{ $setting['site_title'] ?? 'Kuwait eVisa Information - Kuwait' }}
         </div>
-        <a href="{{ route('home') }}"><img src="{{ asset($setting['right_logo']) }}" alt="Right Image"></a>
+
+        <a href="{{ route('home') }}"><img src="{{ asset($setting['left_logo']) }}" alt="Left Image"></a>
     </div>
 
     <script>
