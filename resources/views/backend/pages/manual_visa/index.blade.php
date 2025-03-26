@@ -60,12 +60,13 @@
                                         class="btn btn-info btn-sm">
                                         </i> Download
                                     </a>
-                                    <form action="{{ route('admin.admin-manual-visas.destroy', $manual_visa->id) }}"
+                                    <form id="delete-form-{{ $manual_visa->id }}"
+                                        action="{{ route('admin.admin-manual-visas.destroy', $manual_visa->id) }}"
                                         method="POST" style="display:inline;">
                                         @csrf
                                         @method('DELETE')
-                                        <button type="submit" class="btn btn-danger btn-sm"
-                                            onclick="return confirm('Are you sure?')">Delete</button>
+                                        <button type="button" class="btn btn-danger btn-sm"
+                                            onclick="confirmDelete({{ $manual_visa->id }})">Delete</button>
                                     </form>
                                 </td>
                             </tr>
@@ -76,6 +77,25 @@
         </div>
     </div>
 
+    @push('script')
+        <script>
+            function confirmDelete(visaId) {
+                Swal.fire({
+                    title: "Are you sure?",
+                    text: "You won't be able to revert this!",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#d33",
+                    cancelButtonColor: "#3085d6",
+                    confirmButtonText: "Yes, delete it!"
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        document.getElementById('delete-form-' + visaId).submit();
+                    }
+                });
+            }
+        </script>
+    @endpush
 
 
 @endsection

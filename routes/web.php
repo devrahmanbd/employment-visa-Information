@@ -105,6 +105,8 @@ Route::get('/offline', function () {
 Route::middleware('auth')->prefix('admin')->name('admin.')->group(function () {
     // Visa
     Route::resource('visas', VisaController::class);
+    Route::post('/update-visa-status', [VisaController::class, 'updateVisaStatus'])->name('updateVisaStatus');
+
 
     Route::get('/evisa-download/{id}', [VisaController::class, 'downloadeVisa'])
     ->name('evisa-download');

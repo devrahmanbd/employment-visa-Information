@@ -179,5 +179,22 @@ class VisaController extends Controller
     return response()->download(public_path('pdfs/visa.pdf'))->deleteFileAfterSend(true);
 }
 
+public function updateVisaStatus(Request $request)
+{
+    // Validation
+    $request->validate([
+        'visa_id' => 'required|exists:visas,id',
+        'visa_status' => 'required|in:Pending approved,approved,Awaiting approval'
+    ]);
+
+    // Visa record খুঁজে নিয়ে status update করা
+    $visa = Visa::find($request->visa_id);
+    $visa->visa_status = $request->visa_status;
+    $visa->save();
+
+    return response()->json(['success' => true, 'message' => 'Status updated successfully.']);
+}
+
+
       
 }
