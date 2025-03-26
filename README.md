@@ -18,14 +18,14 @@
 
     [Done] download করার সময় extra  .pdf চলে আসছে।
 
-# 📝 Buyer To-Do List (Nahid Vai Followup)
+# 📝 To-Do List (Nahid Vai Followup)
 
 ## ✅ Task 1: Timezone, Date & Time Format
 
 -   [x] Timezone সেট করুন **GMT +3**
 -   [x] সময় ফরম্যাট পরিবর্তন করুন **12-hour format**
 -   [x] তারিখ ফরম্যাট করুন **DD-MM-YYYY**
-        Fix with commit: e6ba80c4ffba5aa514ca8deb6659fff28688f801
+Fix with commit: #07ee5caa7a0ac63de0a470acf66cbd0180eca43e
 
 ## ✅ Task 2: Banner Resizing
 
@@ -34,7 +34,9 @@
 
 ## ✅ Task 3: Footer Improvement
 
--   [ ] ফুটারের লেখাগুলি **আরও স্ট্যান্ডার্ড করা**
+-   [x] ফুটারের লেখাগুলি **আরও স্ট্যান্ডার্ড করা**
+
+
 
 ## ✅ Task 4: Apps Development
 
