@@ -56,7 +56,7 @@ function getKuwaitTime() {
         }
         
         return (new DateTime($data['dateTime']))->format('d-m-Y h:i:s A');
-        
+
     } catch (Exception $e) {
         return date('d-m-Y h:i:s A');
     } finally {
@@ -212,31 +212,23 @@ $kuwaitTime = getKuwaitTime();
 
     @include('frontend.includes.scripts')
     <script>
-        function updateDateTime() {
-            let now = new Date();
+function updateDateTime() {
+    let now = new Date();
+    
+    let day = String(now.getDate()).padStart(2, '0');
+    let month = String(now.getMonth() + 1).padStart(2, '0');
+    let year = now.getFullYear();
+    
+    let hour = String(now.getHours() % 12 || 12).padStart(2, '0');
+    let minute = String(now.getMinutes()).padStart(2, '0');
+    let second = String(now.getSeconds()).padStart(2, '0');
+    let ampm = now.getHours() >= 12 ? 'PM' : 'AM';
+    
+    let formattedDate = `${day}-${month}-${year} ${hour}:${minute}:${second} ${ampm}`;
+    
+    document.getElementById('datetime').innerHTML = formattedDate;
+}
 
-
-            let options = {
-                timeZone: 'Asia/Kuwait',
-                year: 'numeric',
-                month: '2-digit',
-                day: '2-digit',
-                hour: '2-digit',
-                minute: '2-digit',
-                second: '2-digit',
-                hour12: true
-            };
-
-            let formattedDate = new Intl.DateTimeFormat('en-US', options).format(now);
-
-            document.getElementById('datetime').innerHTML = formattedDate;
-        }
-
-
-        updateDateTime();
-
-
-        setInterval(updateDateTime, 1000);
     </script>
 
     {{-- <script>
