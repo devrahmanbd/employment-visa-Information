@@ -45,6 +45,7 @@ class AdminManualVisaController extends Controller
             }
 
             $originalName = $request->file('pdf_file')->getClientOriginalName();
+            $fileNameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
             $extension = $request->file('pdf_file')->getClientOriginalExtension();
 
             $fileName = date('Y-m-d_H-i-s') . '_' .pathinfo($originalName, PATHINFO_FILENAME) . '.' . $extension;
@@ -53,13 +54,12 @@ class AdminManualVisaController extends Controller
             $pdfPath = 'pdfs/' . $fileName; 
         }
 
-
         // Store Visa
         ManualVisa::create([
             'passport_no' => $request->passport_no,
             'dob' => $request->dob,
             'nationality_en' => $request->nationality_en,
-            'file_owner_name' => $originalName,
+            'file_owner_name' => $fileNameWithoutExtension,
             'pdf_file' => $pdfPath,
         ]);
 
@@ -109,6 +109,7 @@ class AdminManualVisaController extends Controller
 
         // Upload new PDF file
         $originalName = $request->file('pdf_file')->getClientOriginalName();
+        $fileNameWithoutExtension = pathinfo($originalName, PATHINFO_FILENAME);
         $extension = $request->file('pdf_file')->getClientOriginalExtension();
         $fileName = date('Y-m-d_H-i-s') . '_' . pathinfo($originalName, PATHINFO_FILENAME) . '.' . $extension;
         $request->file('pdf_file')->move($destinationPath, $fileName);
@@ -123,7 +124,7 @@ class AdminManualVisaController extends Controller
         'passport_no' => $request->passport_no,
         'dob' => $request->dob,
         'nationality_en' => $request->nationality_en,
-        'file_owner_name' => $originalName ?? $manualVisa->file_owner_name,
+        'file_owner_name' => $fileNameWithoutExtension ?? $manualVisa->file_owner_name,
         'pdf_file' => $pdfPath,
     ]);
 

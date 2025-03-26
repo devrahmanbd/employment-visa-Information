@@ -16,7 +16,7 @@
 
 ## ✅ Task 4: Manual Visa Inquiry
 
-    [Inprocess] download করার সময় extra  .pdf ছলে আসছে।
+    [Done] download করার সময় extra  .pdf চলে আসছে।
 
 # 📝 Buyer To-Do List (Nahid Vai Followup)
 
