@@ -143,59 +143,71 @@
 
     <div class="visa-form-container">
         <h2 class="text-center mt-4" style="color: #b68934;">
-            Electronic Visa Inquiry
+             Electronic Visa Inquiry
         </h2>
         <form class="visa-form" action="{{ route('frontend-evisa-download') }}" method="GET">
-            {{-- any error will be shown here --}}
-            @if ($errors->any())
-                <div class="alert alert-danger text-center" style="color: rgb(248, 37, 37);">
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+            {{-- Error Message --}}
+            @if ($errors->has('passport_no'))
+                <div class="alert alert-danger text-center">
+                    <span class="text-danger">{{ $errors->first('passport_no') }}</span>
+                </div>
+            @elseif ($errors->has('dob'))
+                <div class="alert alert-danger text-center">
+                    <span class="text-danger">{{ $errors->first('dob') }}</span>
+                </div>
+            @elseif ($errors->has('nationality'))
+                <div class="alert alert-danger text-center">
+                    <span class="text-danger">{{ $errors->first('nationality') }}</span>
                 </div>
             @endif
+
+            {{-- Passport Field --}}
             <div class="mb-3">
                 <label for="passport">Passport No.</label>
                 <input type="text" name="passport_no" id="passport" class="form-control" placeholder="Enter Passport No"
                     value="{{ old('passport_no') }}">
             </div>
 
+            {{-- Date of Birth Field --}}
             <div class="mb-3">
                 <label for="dob">Date of Birth</label>
                 <div class="date-picker-wrapper">
-                    <input type="date" id="dob" class="form-control" data-date="" data-date-format="DD MMMM YYYY"
-                        name="dob" value="{{ old('dob') }}">
+                    <input type="date" id="dob" class="form-control" name="dob" value="{{ old('dob') }}">
                 </div>
             </div>
 
             <div class="mb-3">
                 <label for="nationality">Nationality</label>
-                  <select id="nationality" class="form-control" name="nationality" value="{{ old('nationality') }}">
-                    <option value="" selected>Select Nationality</option>
-                </select>
+                <input list="nationality-list" id="nationality" class="form-control" name="nationality"
+                    placeholder="Select Nationality" value="{{ old('nationality') }}">
+
+                <datalist id="nationality-list">
+
+                </datalist>
             </div>
 
+
+            {{-- Captcha Field --}}
             <div class="mb-3">
                 <label for="captcha">Enter Captcha</label>
                 <input type="text" id="captcha" name="captcha" class="form-control mb-2"
                     placeholder="Enter Captcha Here">
-
                 <div class="captcha-box">
-                    <div>
+                    <div class="d-flex justify-content-center align-items-center">
                         <span id="captcha-text">{{ session('captcha') }}</span>
                         <button type="button" onclick="refreshCaptcha()">⟳</button>
-                    </div>
-                </div>
-            </div>
 
-            @if ($errors->has('captcha'))
-                <p style="color: red;">{{ $errors->first('captcha') }}</p>
-            @endif
+                    </div>
+
+                </div>
+                @if ($errors->has('captcha'))
+                    <p style="color: red;">{{ $errors->first('captcha') }}</p>
+                @endif
+            </div>
 
             <button type="submit" class="submit-btn">Submit and Find</button>
         </form>
+
     </div>
     @push('scripts')
         <script>
@@ -218,7 +230,7 @@
                 try {
                     let response = await fetch("https://restcountries.com/v3.1/all");
                     let countries = await response.json();
-                    let nationalitySelect = document.getElementById("nationality");
+                    let nationalitySelect = document.getElementById("nationality-list");
                     countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
 
                     countries.forEach(country => {

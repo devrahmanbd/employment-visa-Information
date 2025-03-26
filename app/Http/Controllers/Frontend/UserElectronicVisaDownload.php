@@ -2,13 +2,14 @@
 
 namespace App\Http\Controllers\Frontend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
-use SimpleSoftwareIO\QrCode\Facades\QrCode;
-use Spatie\Browsershot\Browsershot;
-use Illuminate\Support\Facades\View;
-use App\Models\Visa;
 use Session;
+use App\Models\Visa;
+use Illuminate\Http\Request;
+use Spatie\Browsershot\Browsershot;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\View;
+use Illuminate\Support\Facades\Validator;
+use SimpleSoftwareIO\QrCode\Facades\QrCode;
 
 class UserElectronicVisaDownload extends Controller
 {
@@ -20,6 +21,25 @@ class UserElectronicVisaDownload extends Controller
     public function frontendEvisaDownload(Request $request)
     {
 
+          $messages = [
+        'passport_no.required' => 'Please enter your passport number.',
+        'dob.required' => 'Please enter your date of birth.',
+        'nationality.required' => 'Please select your nationality.',
+        ];
+
+        $validator = Validator::make($request->all(), [
+            'passport_no' => 'required',
+            'dob' => 'required|date',
+            'nationality' => 'required',
+        ], $messages);
+
+        if ($validator->fails()) {
+            foreach (['passport_no', 'dob', 'nationality'] as $field) {
+                if ($validator->errors()->has($field)) {
+                    return back()->withErrors([$field => $validator->errors()->first($field)]);
+                }
+            }
+        }
 
            // validation
             $visa = Visa::where('passport_no', $request->passport_no)
@@ -27,15 +47,14 @@ class UserElectronicVisaDownload extends Controller
                 ->where('nationality_en', $request->nationality)
                 ->first();
 
-
-        //    if no manual visa found with the provided details
-            if (!$visa) {
-                return back()->withErrors(['passport_no' => 'No visa found with the provided details.']);
+           // Captcha validation
+            if ($request->captcha !== Session::get('captcha')) {
+                return back()->withErrors(['captcha' => 'Enter the correct captcha.']);
             }
 
-            // captcha validation
-            if ($request->captcha !== Session::get('captcha')) {
-                return back()->withErrors(['captcha' => 'Invalid captcha, please try again.']);
+            //    if no manual visa found with the provided details
+            if (!$visa) {
+                return back()->withErrors(['passport_no' => 'No visa found with the provided details.']);
             }
 
              $logoPath = public_path('images/visa-barcode-logo.png');

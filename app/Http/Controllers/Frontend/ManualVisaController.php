@@ -6,6 +6,7 @@ use App\Models\ManualVisa;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Session;
+use Illuminate\Support\Facades\Validator;
 
 class ManualVisaController extends Controller
 {
@@ -19,26 +20,25 @@ class ManualVisaController extends Controller
         {
             
             
-                        // Validation rules
-            $validatedData = $request->validate([
-                'passport_no' => 'required|min:6|max:15',
-                'dob' => 'required|date',
-                'nationality' => 'required|string|max:50',
-                'captcha' => 'required',
-            ], [
-                'passport_no.required' => 'Passport number is required.',
-                'passport_no.min' => 'Passport number must be at least 6 characters.',
-                'passport_no.max' => 'Passport number cannot exceed 15 characters.',
+         $messages = [
+        'passport_no.required' => 'Please enter your passport number.',
+        'dob.required' => 'Please enter your date of birth.',
+        'nationality.required' => 'Please select your nationality.',
+        ];
 
-                'dob.required' => 'Date of birth is required.',
-                'dob.date' => 'Invalid date format.',
+        $validator = Validator::make($request->all(), [
+            'passport_no' => 'required',
+            'dob' => 'required|date',
+            'nationality' => 'required',
+        ], $messages);
 
-                'nationality.required' => 'Nationality is required.',
-                'nationality.string' => 'Nationality must be a valid text.',
-                'nationality.max' => 'Nationality cannot exceed 50 characters.',
-
-                'captcha.required' => 'Captcha is required.',
-            ]);
+        if ($validator->fails()) {
+            foreach (['passport_no', 'dob', 'nationality'] as $field) {
+                if ($validator->errors()->has($field)) {
+                    return back()->withErrors([$field => $validator->errors()->first($field)]);
+                }
+            }
+        }
 
             // Captcha validation
             if ($request->captcha !== Session::get('captcha')) {
