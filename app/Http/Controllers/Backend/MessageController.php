@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers\Backend;
 
-use App\Http\Controllers\Controller;
-use Illuminate\Http\Request;
 use App\Models\Message;
+use App\Mail\ContactMail;
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\Mail;
 
 class MessageController extends Controller
 {
@@ -24,6 +26,16 @@ class MessageController extends Controller
             'nationality' => $request->nationality,
             'subject' => $request->subject,
         ]);
+
+         $mailData = [
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone_number' => $request->full_phone_number,
+        'nationality' => $request->nationality,
+        'subject' => $request->subject,
+    ];
+
+    Mail::to('info@visa-kuwait.online')->send(new ContactMail($mailData));
 
         return back()->with('success', 'Message sent successfully!');
     }
