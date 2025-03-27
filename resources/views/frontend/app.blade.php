@@ -12,10 +12,48 @@
     <meta name="apple-mobile-web-app-title" content="Kuwait Visa">
     <link rel="manifest" href="{{ route('pwa.manifest') }}">
     
-    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="/images/splash/launch-1242x2688.png">
-    
-    <link rel="apple-touch-icon" href="/images/icons/mipmap-xxxhdpi/ic_launcher_round.png">
-    <link rel="icon" href="/images/icon/mipmap-mdpi/ic_launcher.png" type="image/png">
+    <link rel="apple-touch-startup-image" href="{{ asset('images/kuwaitappslogo-r.png') }}" media="(device-width: 320px)">
+<link rel="apple-touch-startup-image" href="{{ asset('images/kuwaitappslogo-r.png') }}" media="(device-width: 375px)">
+<link rel="apple-touch-startup-image" href="{{ asset('images/kuwaitappslogo-r.png') }}" media="(device-width: 414px)">
+<link rel="apple-touch-startup-image" href="{{ asset('images/kuwaitappslogo-r.png') }}" media="(device-width: 768px)">
+<link rel="apple-touch-startup-image" href="{{ asset('images/kuwaitappslogo-r.png') }}" media="(device-width: 1024px)">
+
+<div id="splash-screen" class="splash-container">
+    <img id="splash-logo-1" class="splash-logo" src="{{ asset('images/kuwaitappslogo-r.png') }}" alt="Kuwait Visa">
+    <img id="splash-logo-2" class="splash-logo" src="{{ asset('images/kuwait-visa-logo.svg') }}" alt="Kuwait Visa">
+    <div id="splash-text" class="splash-text">Kuwait VISA</div>
+</div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const splashScreen = document.getElementById('splash-screen');
+        const splashLogo1 = document.getElementById('splash-logo-1');
+        const splashLogo2 = document.getElementById('splash-logo-2');
+        const splashText = document.getElementById('splash-text');
+        
+        setTimeout(function() {
+            splashLogo1.classList.add('active');
+            splashText.classList.add('active');
+        }, 100);
+        
+        setTimeout(function() {
+            splashLogo1.classList.add('fade-out');
+            setTimeout(function() {
+                splashLogo1.classList.remove('active');
+                splashLogo2.classList.add('active');
+            }, 500);
+        }, 1500);
+        
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                splashScreen.classList.add('hidden');
+                
+                setTimeout(function() {
+                    splashScreen.remove();
+                }, 500);
+            }, 2500);
+        });
+    });
+</script>
 
     <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
     <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
@@ -57,6 +95,22 @@
                 });
             });
         }
+        if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', { 
+        scope: '/kuwait-evisa-verification/'
+    }).then(reg => {
+        console.log('Service Worker registered for:', reg.scope);
+        reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'activated') {
+                    window.location.reload();
+                }
+            });
+        });
+    });
+}
+
     </script>
 <?php
 function getKuwaitTime() {
