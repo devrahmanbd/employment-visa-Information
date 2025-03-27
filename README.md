@@ -8,7 +8,7 @@
 ## ✅ Task 2: Email Notifications
 
 -   [x] Contact Mail থেকে উজার মেইল পাঠালে সার্ভারের মেইলে মেইল যাবে
-    [x] User verify mail check then send contact mail.
+    [inprocess] User verify mail check then send contact mail.
 
 ## ✅ Task 3: System Functionality Testing
 
