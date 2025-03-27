@@ -7,7 +7,8 @@
 
 ## ✅ Task 2: Email Notifications
 
--   [X] Contact Mail থেকে উজার মেইল পাঠালে সার্ভারের মেইলে মেইল যাবে
+-   [x] Contact Mail থেকে উজার মেইল পাঠালে সার্ভারের মেইলে মেইল যাবে
+    [inprocess] User verify mail check then send contact mail.
 
 ## ✅ Task 3: System Functionality Testing
 
@@ -25,7 +26,7 @@
 -   [x] Timezone সেট করুন **GMT +3**
 -   [x] সময় ফরম্যাট পরিবর্তন করুন **12-hour format**
 -   [x] তারিখ ফরম্যাট করুন **DD-MM-YYYY**
-Fix with commit: #07ee5caa7a0ac63de0a470acf66cbd0180eca43e
+        Fix with commit: #07ee5caa7a0ac63de0a470acf66cbd0180eca43e
 
 ## ✅ Task 2: Banner Resizing
 

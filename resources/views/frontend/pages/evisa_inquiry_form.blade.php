@@ -54,7 +54,7 @@
                     <div>
                         <label for="visa_number" class="text-sm text-black-500">Visa Number</label>
                         <input type="text" name="visa_number" id="visa_number"
-                            class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your visa number">
+                            class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your visa number" value="{{ old('visa_number') }}"  >
 
                         @error('visa_number')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
@@ -64,7 +64,7 @@
                     <div>
                         <label for="mio_reference" class="text-sm text-black-500">MOI Reference</label>
                         <input type="text" name="mio_reference" id="mio_reference"
-                            class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your MOI reference">
+                            class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your MOI reference" value="{{ old('mio_reference') }}">
 
                         @error('mio_reference')
                             <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
@@ -75,7 +75,7 @@
                         <label for="passport_number" class="text-sm text-black-500">Passport Number</label>
                         <input type="text" name="passport_number" id="passport_number"
                             class="w-full p-3 border border-gray-300 rounded-lg"
-                            placeholder="Enter your passport number">
+                            placeholder="Enter your passport number" value="{{ old('passport_number') }}">
                     </div>
 
                     <div>

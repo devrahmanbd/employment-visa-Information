@@ -121,34 +121,37 @@
             <br>
             <div class="mb-3">
                 <label class="required">Name</label>
-                <input type="text" name="name" class="form-control" placeholder="Enter your name" required>
+                <input type="text" name="name" class="form-control" placeholder="Enter your name" value="{{ old('name') }}" required>
             </div>
 
             <div class="mb-3">
                 <label class="required">Email</label>
-                <input type="email" name="email" class="form-control" placeholder="Enter your email" required>
+                <input type="email" name="email" class="form-control" placeholder="Enter your email" value="{{ old('email') }}" required>
             </div>
 
             <div class="mb-3">
                 <label>Phone Number</label>
                 <div class="phone-input">
                     <input type="tel" name="phone_number" id="phone" class="form-control" required>
-                    <input type="hidden" name="full_phone_number" id="full_phone_number">
+                    <input type="hidden" name="full_phone_number" id="full_phone_number" value="{{ old('full_phone_number') }}">
                 </div>
             </div>
 
-            <div class="mb-3">
-                <label>Nationality</label>
-                <select name="nationality" id="nationality" class="form-control" required>
-                    <option value="" selected>Select Nationality</option>
-                </select>
+             <div class="mb-3">
+                <label for="nationality">Nationality</label>
+                <input list="nationality-list" id="nationality" class="form-control" name="nationality"
+                    placeholder="Select Nationality" value="{{ old('nationality') }}">
+
+                <datalist id="nationality-list">
+
+                </datalist>
             </div>
 
             <div class="mb-3">
                 <label>Subject</label>
                 <div class="textarea-container">
                     <textarea name="subject" id="subject" class="form-control" rows="4" placeholder="Enter your main text here"
-                        maxlength="500" required></textarea>
+                        maxlength="500" required>{{ old('subject') }}</textarea>
                     <span class="char-counter">500/500</span>
                 </div>
             </div>
@@ -199,12 +202,12 @@
             });
         </script>
 
-        <script>
+          <script>
             async function loadNationalities() {
                 try {
                     let response = await fetch("https://restcountries.com/v3.1/all");
                     let countries = await response.json();
-                    let nationalitySelect = document.getElementById("nationality");
+                    let nationalitySelect = document.getElementById("nationality-list");
                     countries.sort((a, b) => a.name.common.localeCompare(b.name.common));
 
                     countries.forEach(country => {
