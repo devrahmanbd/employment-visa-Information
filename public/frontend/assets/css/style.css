@@ -2,6 +2,7 @@
     font-family: "Arial Rounded MT Bold";
     src: url("../../../fonts/arial-mt-regular.ttf") format("truetype");
 }
+
 body {
     font-family: "Arial Rounded MT Bold";
     font-weight: 700;
@@ -10,6 +11,7 @@ body {
     padding: 0;
     overflow-x: hidden;
 }
+
 .date-bar {
     background-color: #b68934;
     color: white;
@@ -281,11 +283,12 @@ a {
         font-size: 1.5rem;
     }
 }
+
 .nav-link {
     position: relative;
     padding: 8px 12px;
     transition: color 0.3s ease-in-out;
-    display: inline-block; 
+    display: inline-block;
 }
 
 .nav-link::after {
@@ -315,6 +318,7 @@ a {
 
     border-radius: 5px;
 }
+
 .title-container {
     display: flex;
     align-items: center;
@@ -342,6 +346,7 @@ a {
     font-size: 1.1rem;
     line-height: 1.6;
 }
+
 .container {
     max-width: 1200px;
     margin: auto;
@@ -351,6 +356,7 @@ a {
     background: #b68a35;
     padding: 2px 0;
 }
+
 a.nav-link {
     padding: 2px 0px;
 }
@@ -580,6 +586,7 @@ ul {
     margin-bottom: 10px;
     font-weight: 500 !important;
 }
+
 @media (max-width: 1100px) {
     .title-section {
         overflow: auto;
@@ -614,6 +621,7 @@ ul {
     .date-bar {
         padding: 8px 0px;
     }
+
     .title-container img {
         height: 50px;
     }
@@ -635,10 +643,12 @@ ul {
     .title-section {
         font-size: 0.9rem;
     }
+
     .title-container img {
         height: 40px;
     }
 }
+
 .timeline {
     margin: 0 auto;
     position: relative;
@@ -744,6 +754,7 @@ ul {
         font-size: 0.813rem;
     }
 }
+
 /* Main footer container */
 .footer {
     background-color: #b68934 !important;
@@ -834,11 +845,11 @@ ul {
         margin-bottom: 15px !important;
         text-align: center !important;
     }
-    
+
     .col-lg-4.col-md-12.footer-section {
         text-align: center !important;
     }
-    
+
     .btn-email {
         margin: 10px auto !important;
         display: inline-flex !important;
@@ -850,15 +861,16 @@ ul {
         flex-wrap: wrap !important;
         gap: 10px !important;
     }
-    
+
     .footer {
         padding: 15px 0 !important;
     }
-    
+
     .footer-section h3 {
         margin-bottom: 10px !important;
     }
 }
+
 .title-container {
     display: flex !important;
     flex-direction: row !important;
@@ -873,11 +885,11 @@ ul {
 
 .title-container a {
     flex-shrink: 0 !important;
-    max-width: 15% !important; 
+    max-width: 15% !important;
 }
 
 .title-container img {
-    max-height: 70px !important; 
+    max-height: 70px !important;
     width: auto !important;
 }
 
@@ -887,7 +899,7 @@ ul {
     overflow: hidden !important;
     text-align: center !important;
     flex-grow: 1 !important;
-    margin: 0 10px !important; 
+    margin: 0 10px !important;
 }
 
 @media (max-width: 1200px) {
@@ -914,7 +926,7 @@ ul {
     }
 
     .title-container img {
-        max-height: 50px !important; 
+        max-height: 50px !important;
     }
 }
 
@@ -926,62 +938,66 @@ ul {
     }
 
     .title-container img {
-        max-height: 40px !important; 
+        max-height: 40px !important;
     }
 }
 
 @media (max-width: 450px) {
     .title-section {
-        font-size: 1.2rem !important; 
+        font-size: 1.2rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
 
     .title-container img {
-        max-height: 35px !important; 
+        max-height: 35px !important;
     }
 }
+
 @media (max-width: 400px) {
     .title-section {
-        font-size: 1rem !important; 
+        font-size: 1rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
 
     .title-container img {
-        max-height: 30px !important; 
+        max-height: 30px !important;
     }
 }
+
 @media (max-width: 340px) {
     .title-section {
-        font-size: 0.8rem !important; 
+        font-size: 0.8rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
 
     .title-container img {
-        max-height: 30px !important; 
+        max-height: 30px !important;
     }
 }
+
 @media (max-width: 290px) {
     .title-section {
-        font-size: 0.6rem !important; 
+        font-size: 0.6rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
 
     .title-container img {
-        max-height: 25px !important; 
+        max-height: 25px !important;
     }
 }
+
 @media (max-width: 230px) {
     .title-section {
-        font-size: 0.5rem !important; 
+        font-size: 0.5rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
 
     .title-container img {
-        max-height: 20px !important; 
+        max-height: 20px !important;
     }
 }
