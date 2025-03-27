@@ -105,7 +105,7 @@ $kuwaitTime = getKuwaitTime();
     <div class="title-container" style="justify-content:space-between">
 
     <a href="{{ route('home') }}"><img src="{{ asset($setting['right_logo']) }}" alt="Right Image"></a>
-        <div class="title-section">
+        <div class="title-section" style="overflow: hidden;">
             {{ $setting['site_title'] ?? 'Kuwait eVisa Information - Kuwait' }}
         </div>
 
