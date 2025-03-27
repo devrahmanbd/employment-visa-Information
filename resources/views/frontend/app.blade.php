@@ -102,7 +102,7 @@ $kuwaitTime = getKuwaitTime();
             <span id="datetime"><?= htmlspecialchars($kuwaitTime) ?></span>
         </div>
     </div>
-    <div class="title-container">
+    <div class="title-container" style="justify-content:space-between">
 
     <a href="{{ route('home') }}"><img src="{{ asset($setting['right_logo']) }}" alt="Right Image"></a>
         <div class="title-section">
