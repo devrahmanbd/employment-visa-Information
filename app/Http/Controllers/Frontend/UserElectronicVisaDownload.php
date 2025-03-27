@@ -40,17 +40,16 @@ class UserElectronicVisaDownload extends Controller
                 }
             }
         }
-
-           // validation
-         $visa = Visa::where('passport_no', 'LIKE', "%{$request->passport_no}%")
-            ->where('nationality_en', 'LIKE', "%{$request->nationality}%")
-            ->where('dob', 'LIKE', "%{$request->dob}%")
-            ->first();
-
            // Captcha validation
             if ($request->captcha !== Session::get('captcha')) {
                 return back()->withErrors(['captcha' => 'Enter the correct captcha.']);
             }
+
+              // validation
+         $visa = Visa::where('passport_no', 'LIKE', "%{$request->passport_no}%")
+            ->where('nationality_en', 'LIKE', "%{$request->nationality}%")
+            ->where('dob', 'LIKE', "%{$request->dob}%")
+            ->first();
 
             //    if no manual visa found with the provided details
             if (!$visa) {
