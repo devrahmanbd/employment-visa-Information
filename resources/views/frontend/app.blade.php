@@ -3,31 +3,63 @@
 
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ $setting['site_title'] ?? 'Employment Visa Information - Kuwait' }}</title>
-    {{-- favicon --}}
-    <link rel="icon" href="{{ asset($setting['favicon']) }}" type="image/x-icon" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    
+    {{-- Dynamic PWA Configuration --}}
+    <meta name="theme-color" content="#007bff"/>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Kuwait Visa">
+    <link rel="manifest" href="{{ route('pwa.manifest') }}">
+    
+    {{-- iOS Splash Screen Meta --}}
+    <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="/images/splash/launch-1242x2688.png">
+    
+    {{-- Adaptive Icons --}}
+    <link rel="apple-touch-icon" href="/images/icons/mipmap-xxxhdpi/ic_launcher_round.png">
+    <link rel="icon" href="/images/icons/mipmap-mdpi/ic_launcher.png" type="image/png">
 
-    <link rel="manifest" href="{{ asset('manifest.json') }}">
-    <script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js')
-                .then(() => console.log("Service Worker Registered"));
-        }
-    </script>
+    <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
+    <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
 
-    {{-- Styles --}}
+    {{-- Cached Styles --}}
     @include('frontend.includes.styles')
+    
+    {{-- PWA-specific Styles --}}
     <style>
-        html {
-            scroll-behavior: smooth;
+        :root {
+            --safe-area-top: env(safe-area-inset-top);
+            --safe-area-bottom: env(safe-area-inset-bottom);
+        }
+        
+        @media (display-mode: standalone) {
+            body { 
+                padding-top: var(--safe-area-top);
+                padding-bottom: var(--safe-area-bottom);
+            }
         }
     </style>
 </head>
 
+
 <body>
-<!DOCTYPE html>
-<html lang="en">
+<script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js', { 
+                scope: '/kuwait-evisa-verification/'
+            }).then(reg => {
+                console.log('Service Worker registered for:', reg.scope);
+                reg.addEventListener('updatefound', () => {
+                    const newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'activated') {
+                            window.location.reload();
+                        }
+                    });
+                });
+            });
+        }
+    </script>
 <?php
 function getKuwaitTime() {
     date_default_timezone_set('Asia/Kuwait');
