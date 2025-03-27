@@ -8,16 +8,14 @@
     
     {{-- Dynamic PWA Configuration --}}
     <meta name="theme-color" content="#007bff"/>
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Kuwait Visa">
     <link rel="manifest" href="{{ route('pwa.manifest') }}">
     
-    {{-- iOS Splash Screen Meta --}}
     <link rel="apple-touch-startup-image" media="(device-width: 414px) and (device-height: 896px) and (-webkit-device-pixel-ratio: 3)" href="/images/splash/launch-1242x2688.png">
     
-    {{-- Adaptive Icons --}}
     <link rel="apple-touch-icon" href="/images/icons/mipmap-xxxhdpi/ic_launcher_round.png">
-    <link rel="icon" href="/images/icons/mipmap-mdpi/ic_launcher.png" type="image/png">
+    <link rel="icon" href="/images/icon/mipmap-mdpi/ic_launcher.png" type="image/png">
 
     <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
     <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
