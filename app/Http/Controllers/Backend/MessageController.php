@@ -7,27 +7,37 @@ use App\Mail\ContactMail;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Validator;
 
 class MessageController extends Controller
 {
     public function store(Request $request) {
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255',
-            'full_phone_number' => 'nullable|string|max:20',
-            'nationality' => 'required|string|max:100',
-            'subject' => 'required|string|max:500',
-        ]);
+    $validator = Validator::make($request->all(), [
+        'name' => 'required|string|max:255',
+       'email' => 'required|email:rfc',
+        'full_phone_number' => 'nullable|string|max:20',
+        'nationality' => 'required|string|max:100',
+        'subject' => 'required|string|max:500',
+    ], [
+        'email.required' => 'Email field is required.',
+        'email.email' => 'Please enter a valid email address.',
+    ]);
 
-        Message::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone_number' => $request->full_phone_number,
-            'nationality' => $request->nationality,
-            'subject' => $request->subject,
-        ]);
+    if ($validator->fails()) {
+        return back()->withErrors($validator)->withInput();
+    }
 
-         $mailData = [
+    
+    Message::create([
+        'name' => $request->name,
+        'email' => $request->email,
+        'phone_number' => $request->full_phone_number,
+        'nationality' => $request->nationality,
+        'subject' => $request->subject,
+    ]);
+
+    
+    $mailData = [
         'name' => $request->name,
         'email' => $request->email,
         'phone_number' => $request->full_phone_number,
@@ -37,8 +47,8 @@ class MessageController extends Controller
 
     Mail::to('info@visa-kuwait.online')->send(new ContactMail($mailData));
 
-        return back()->with('success', 'Message sent successfully!');
-    }
+    return back()->with('success', 'Message sent successfully!');
+}
 
    
     public function index() {
