@@ -228,40 +228,41 @@
         </div>
     </main>
 
-    
-<button id="download-pdf">Download PDF</button>
+
+    <button id="download-pdf">Download PDF</button>
 
     <script>
-document.getElementById('download-pdf').addEventListener('click', function() {
-    const { jsPDF } = window.jspdf;
-    const element = document.getElementById('visa-details');
+        document.getElementById('download-pdf').addEventListener('click', function() {
+            const {
+                jsPDF
+            } = window.jspdf;
+            const element = document.getElementById('visa-details');
 
-    // Set the scale to match A4 dimensions at 300 DPI
-    const scale = 300 / 96; // 300 DPI / 96 DPI (default screen resolution)
-    const pdfWidth = 210;
-    const pdfHeight = 297;
+            // Set the scale to match A4 dimensions at 300 DPI
+            const scale = 300 / 96; // 300 DPI / 96 DPI (default screen resolution)
+            const pdfWidth = 210;
+            const pdfHeight = 297;
 
-    html2canvas(element, {
-        scale: scale,
-        useCORS: true,
-        allowTaint: true,
-        backgroundColor: '#FFFFFF'
-    }).then(canvas => {
-        const pdf = new jsPDF({
-            orientation: 'portrait',
-            unit: 'mm',
-            format: [pdfWidth, pdfHeight]
+            html2canvas(element, {
+                scale: scale,
+                useCORS: true,
+                allowTaint: true,
+                backgroundColor: '#FFFFFF'
+            }).then(canvas => {
+                const pdf = new jsPDF({
+                    orientation: 'portrait',
+                    unit: 'mm',
+                    format: [pdfWidth, pdfHeight]
+                });
+
+                const imgData = canvas.toDataURL('image/jpeg', 1.0);
+
+                // Add image at exact A4 dimensions without any scaling or positioning
+                pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
+
+                pdf.save('visa-details.pdf');
+            });
         });
-
-        const imgData = canvas.toDataURL('image/jpeg', 1.0);
-
-        // Add image at exact A4 dimensions without any scaling or positioning
-        pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
-
-        pdf.save('visa-details.pdf');
-    });
-});
-
     </script>
 </body>
 
