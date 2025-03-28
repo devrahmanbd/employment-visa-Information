@@ -2,10 +2,19 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kuwait Visa</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta name="theme-color" content="#007bff"/>
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-title" content="Kuwait Visa">
+    <link rel="manifest" href="{{ route('pwa.manifest') }}">
+    <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
+    <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="manifest" href="{{ route('pwa.manifest') }}">
     <style>
       @font-face {
         font-family: "Helvetica Neue Arabic 75 Bold";
@@ -304,7 +313,6 @@
       initializeBodyClickToCloseSidebar();
     });
     function initializeSplashScreen() {
-      const splashScreen = document.getElementById('splash-screen');
       const splashImage1 = document.getElementById('splash-image-1');
       const splashImage2 = document.getElementById('splash-image-2');
       const mainContent = document.querySelector('.main-container');

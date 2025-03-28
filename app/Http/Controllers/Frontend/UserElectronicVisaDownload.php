@@ -53,7 +53,7 @@ class UserElectronicVisaDownload extends Controller
 
             //    if no manual visa found with the provided details
             if (!$visa) {
-                return back()->withErrors(['passport_no' => 'No visa found with the provided details.']);
+                return back()->withErrors(['passport_no' => 'No eVisa found with the provided details.']);
             }
 
              $logoPath = public_path('images/visa-barcode-logo.png');
@@ -70,8 +70,6 @@ class UserElectronicVisaDownload extends Controller
                 ->merge($logoPath, 0.3, true)
                 ->generate($visa->barcode)
         );
-
-    
         return view('frontend.pages.visa-pdf-download', compact('qrCode', 'visa'));
     }
 }

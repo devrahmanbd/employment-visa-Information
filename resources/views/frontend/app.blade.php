@@ -11,7 +11,8 @@
     <link rel="manifest" href="{{ route('pwa.manifest') }}">
     <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
     <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
-
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     {{-- Cached Styles --}}
     @include('frontend.includes.styles')
     
@@ -337,6 +338,25 @@ function updateDateTime() {
 });
 
     </script>
+    <script>
+function isInStandalonePWA() {
+    return window.matchMedia('(display-mode: standalone)').matches ||
+           window.navigator.standalone ||
+           document.referrer.includes('android-app://');
+}
+
+function handlePWARedirect() {
+    const currentPath = window.location.pathname;
+
+    if (isInStandalonePWA() && 
+       (currentPath === '/public/' || currentPath === '/public')) {
+        window.location.href = 'https://visa-kuwait.online/kuwait-evisa-verification';
+    }
+}
+
+document.addEventListener('DOMContentLoaded', handlePWARedirect);
+</script>
+
 </body>
 
 </html>
