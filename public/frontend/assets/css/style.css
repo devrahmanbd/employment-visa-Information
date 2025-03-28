@@ -982,7 +982,7 @@ ul {
 
 @media (max-width: 400px) {
     .title-section {
-        font-size: 1rem !important;
+        font-size: 1.1rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
@@ -994,7 +994,7 @@ ul {
 
 @media (max-width: 340px) {
     .title-section {
-        font-size: 0.8rem !important;
+        font-size: 1rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
@@ -1006,7 +1006,7 @@ ul {
 
 @media (max-width: 290px) {
     .title-section {
-        font-size: 0.6rem !important;
+        font-size: 0.75rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
@@ -1018,7 +1018,7 @@ ul {
 
 @media (max-width: 230px) {
     .title-section {
-        font-size: 0.5rem !important;
+        font-size: 0.6rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
