@@ -33,39 +33,6 @@
 
 
 <body>
-<script>
-        if ('serviceWorker' in navigator) {
-            navigator.serviceWorker.register('/sw.js', { 
-                scope: '/kuwait-evisa-verification/'
-            }).then(reg => {
-                console.log('Service Worker registered for:', reg.scope);
-                reg.addEventListener('updatefound', () => {
-                    const newWorker = reg.installing;
-                    newWorker.addEventListener('statechange', () => {
-                        if (newWorker.state === 'activated') {
-                            window.location.reload();
-                        }
-                    });
-                });
-            });
-        }
-        if ('serviceWorker' in navigator) {
-    navigator.serviceWorker.register('/sw.js', { 
-        scope: '/kuwait-evisa-verification/'
-    }).then(reg => {
-        console.log('Service Worker registered for:', reg.scope);
-        reg.addEventListener('updatefound', () => {
-            const newWorker = reg.installing;
-            newWorker.addEventListener('statechange', () => {
-                if (newWorker.state === 'activated') {
-                    window.location.reload();
-                }
-            });
-        });
-    });
-}
-
-    </script>
 <?php
 function getKuwaitTime() {
     date_default_timezone_set('Asia/Kuwait');
@@ -288,7 +255,39 @@ function updateDateTime() {
         });
     </script> --}}
 
-    <script>
+<script>
+        if ('serviceWorker' in navigator) {
+            navigator.serviceWorker.register('/sw.js', { 
+                scope: '/kuwait-evisa-verification/'
+            }).then(reg => {
+                console.log('Service Worker registered for:', reg.scope);
+                reg.addEventListener('updatefound', () => {
+                    const newWorker = reg.installing;
+                    newWorker.addEventListener('statechange', () => {
+                        if (newWorker.state === 'activated') {
+                            window.location.reload();
+                        }
+                    });
+                });
+            });
+        }
+        if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js', { 
+        scope: '/kuwait-evisa-verification/'
+    }).then(reg => {
+        console.log('Service Worker registered for:', reg.scope);
+        reg.addEventListener('updatefound', () => {
+            const newWorker = reg.installing;
+            newWorker.addEventListener('statechange', () => {
+                if (newWorker.state === 'activated') {
+                    window.location.reload();
+                }
+            });
+        });
+    });
+}
+
+
         document.addEventListener("DOMContentLoaded", function() {
     let deferredPrompt;
     const installButton = document.getElementById("install-pwa-btn");
@@ -336,9 +335,6 @@ function updateDateTime() {
         }
     }
 });
-
-    </script>
-    <script>
 function isInStandalonePWA() {
     return window.matchMedia('(display-mode: standalone)').matches ||
            window.navigator.standalone ||
