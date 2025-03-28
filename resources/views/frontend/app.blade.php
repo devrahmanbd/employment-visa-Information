@@ -5,8 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    
-    {{-- Dynamic PWA Configuration --}}
     <meta name="theme-color" content="#007bff"/>
     <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-title" content="Kuwait Visa">
@@ -23,7 +21,6 @@
     {{-- Cached Styles --}}
     @include('frontend.includes.styles')
     
-    {{-- PWA-specific Styles --}}
     <style>
         :root {
             --safe-area-top: env(safe-area-inset-top);

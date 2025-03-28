@@ -11,3 +11,13 @@ self.addEventListener('fetch', (event) => {
         fetch(event.request).catch(() => caches.match('/offline'))
     );
 });
+self.addEventListener('install', (e) => {
+    e.waitUntil(
+      caches.open('kuwait-visa').then(cache => 
+        cache.addAll([
+          '/kuwait-evisa-verification/'
+        ])
+      )
+    );
+  });
+  
