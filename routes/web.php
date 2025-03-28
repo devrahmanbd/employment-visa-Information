@@ -53,7 +53,7 @@ Route::get('/manifest.json', function() {
             'message' => $e->getMessage()
         ], 500);
     }
-})->name('pwa.manifest'); // Important: Add route name
+})->name('pwa.manifest');
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [AboutController::class, 'index'])->name('about');
