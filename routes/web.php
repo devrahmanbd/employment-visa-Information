@@ -25,22 +25,22 @@ use App\Http\Controllers\Frontend\DownloadEmploymentVisaController;
 Route::get('/manifest.json', function() {
     try {
         return response()->json([
-            'name' => config('app.name', 'Kuwait Visa'), // Fallback name
+            'name' => config('app.name', 'Kuwait Visa'),
             'short_name' => 'Kuwait Visa',
-            'start_url' => url('/kuwait-evisa-verification'),
+            'start_url' => url('/kuwait-evisa-verification/'),
             'scope' => '/kuwait-evisa-verification/',
             'display' => 'standalone',
             'background_color' => '#ffffff',
             'theme_color' => '#007bff',
             'icons' => [
                 [
-                    'src' => asset('images/icons/mipmap-mdpi/ic_launcher.png'),
+                    'src' => asset('images/icon/mipmap-mdpi/ic_launcher.png'),
                     'sizes' => '48x48',
                     'type' => 'image/png',
                     'purpose' => 'any maskable'
                 ],
                 [
-                    'src' => asset('images/icons/mipmap-xxxhdpi/ic_launcher_round.png'),
+                    'src' => asset('images/icon/mipmap-xxxhdpi/ic_launcher_round.png'),
                     'sizes' => '512x512',
                     'type' => 'image/png',
                     'purpose' => 'maskable'
