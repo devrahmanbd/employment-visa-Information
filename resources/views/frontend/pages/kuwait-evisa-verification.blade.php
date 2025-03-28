@@ -1,224 +1,266 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-    <meta charset="UTF-8" />
-    <title>Kuwait Visa</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <meta name="theme-color" content="#007bff"/>
-    <meta name="mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-title" content="Kuwait Visa">
-    <link rel="manifest" href="{{ route('pwa.manifest') }}">
-    <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
-    <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="manifest" href="{{ route('pwa.manifest') }}">
-    <style>
-      @font-face {
-        font-family: "Helvetica Neue Arabic 75 Bold";
-        src: url("../../../fonts/HelveticaNeueLTArabic-Bold.ttf") format("opentype");
-        font-weight: bold;
-        font-style: normal;
-      }
-      @font-face {
-        font-family: "Helvetica Neue Arabic 45 Light";
-        src: url("../../../fonts/HelveticaNeueLTArabic-Light.ttf") format("opentype");
-        font-weight: normal;
-        font-style: normal;
-      }
-      html, body {
-        font-family: "Helvetica Neue Arabic 45 Light" !important;
-        background-color: #F5F5F5 !important;
-        margin: 0 !important;
-        padding: 0 !important;
-        height: 100% !important;
-        width: 100% !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        position: relative !important;
-      }
-      #splash-screen {
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        background-color: #fff !important;
-        z-index: 100 !important;
-        transition: opacity 0.5s ease !important;
-        overflow: hidden !important;
-      }
-      #splash-image-1,
-      #splash-image-2 {
-        position: absolute !important;
-        top: 50% !important;
-        left: 50% !important;
-        transform: translate(-50%, -50%) !important;
-        height: auto !important;
-        transition: opacity 0.5s ease !important;
-      }
-      #splash-image-1 {
-        max-width: 200px !important;
-      }
-      #splash-image-2 {
-        max-width: 70% !important;
-        opacity: 0 !important;
-      }
-      header {
-        background-color: #082A64 !important;
-        width: 100% !important;
-      }
-      .hamburger-svg {
-        height: 2rem !important;
-        color: #fff !important;
-      }
+  <meta charset="UTF-8" />
+  <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="theme-color" content="#082A64" />
+  <meta name="application-name" content="Kuwait Visa" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Kuwait Visa" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="msapplication-TileColor" content="#082A64" />
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/icon/mipmap-xhdpi/ic_launcher.png') }}">
+  <link rel="manifest" href="{{ route('pwa.manifest') }}">
+  <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
+
+  <style>
+    @font-face {
+      font-family: "Helvetica Neue Arabic 75 Bold";
+      src: url("../../../fonts/HelveticaNeueLTArabic-Bold.ttf") format("opentype");
+      font-weight: bold;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Helvetica Neue Arabic 45 Light";
+      src: url("../../../fonts/HelveticaNeueLTArabic-Light.ttf") format("opentype");
+      font-weight: normal;
+      font-style: normal;
+    }
+
+    /* Global Styles */
+    html, body {
+      font-family: "Helvetica Neue Arabic 45 Light" !important;
+      background-color: #F5F5F5 !important;
+      margin: 0 !important;
+      padding: 0 !important;
+      height: 100% !important;
+      width: 100% !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      position: relative !important;
+    }
+
+    /* SPLASH SCREEN */
+    #splash-screen {
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      background-color: #fff !important;
+      z-index: 100 !important;
+      transition: opacity 0.5s ease !important;
+      overflow: hidden !important;
+    }
+    #splash-image-1,
+    #splash-image-2 {
+      position: absolute !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      height: auto !important;
+      transition: opacity 0.5s ease !important;
+    }
+    #splash-image-1 {
+      max-width: 80px !important;      
+    }
+    #splash-image-2 {
+      max-width: 70% !important;
+      opacity: 0 !important;
+      align-items: start;
+    }
+
+    /* HEADER */
+    header {
+      background-color: #082A64 !important;
+      width: 100% !important;
+    }
+    .hamburger-svg {
+      height: 2rem !important;
+      color: #fff !important;
+    }
+
+    /* SIDEBAR (scrolling turned off) */
+    .sidebar {
+      background-color: white !important;
+      width: 280px !important;
+      height: 100% !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      z-index: 50 !important;
+      transform: translateX(-100%) !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: space-between !important;
+      overflow: hidden !important; /* disable scrolling */
+      -webkit-overflow-scrolling: touch !important;
+      transition: transform 0.3s ease !important;
+    }
+    .sidebar-visible {
+      transform: translateX(0) !important;
+    }
+    .banner {
+      background-color: #E5E8EF !important;
+    }
+    .width-sidebar-logo {
+      width: 10rem !important;
+    }
+    .footer-text {
+      color: #172845 !important;
+      font-family: "Helvetica Neue Arabic 45 Light" !important;
+      font-size: 11px !important;
+    }
+    .language-arabic {
+      font-family: "Helvetica Neue Arabic 45 Light" !important;
+      color: #072a64 !important;
+    }
+    #overlay {
+      position: fixed !important;
+      inset: 0 !important;
+      background-color: rgba(0, 0, 0, 0.5) !important;
+      z-index: 40 !important;
+      display: none !important;
+    }
+
+    /* MAIN CONTAINER */
+    .main-container {
+      max-width: 100% !important;
+      margin: 0 auto !important;
+      background-color: #fff !important;
+      min-height: 100vh !important;
+      overflow-y: auto !important;
+      -webkit-overflow-scrolling: touch !important;
+      position: relative !important;
+      visibility: visible !important;
+    }
+    .content-container {
+      padding: 1rem !important;
+      margin-bottom: 1rem !important;
+      overflow-y: visible !important;
+    }
+
+    /* HEADINGS & TEXT SIZING */
+    h2.verify-title {
+      font-family: "Helvetica Neue Arabic 75 Bold" !important;
+      font-weight: 700 !important;
+      font-size: 26px !important;
+      color: #072A64 !important;
+      margin-bottom: 12px !important;
+    }
+    p.text-gray-600 {
+      color: #555 !important;
+      font-size: 14px !important;
+    }
+    p.text-xs {
+      font-size: 13px !important;
+    }
+
+    /* CARD STYLES */
+    .card {
+      background-color: #EEF0F5 !important;
+      border-radius: 0.5rem !important;
+      padding: 1rem !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: flex-start !important;
+      margin-bottom: 1rem !important;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+      min-height: 8rem !important;
+    }
+    .card img {
+      width: 50px !important;
+      height: 50px !important;
+      object-fit: contain !important;
+      margin-bottom: 0.5rem !important;
+    }
+
+    /* BLUE CARD */
+    .blue-card {
+      background-color: #0D3C91 !important;
+      color: white !important;
+      border-radius: 0.5rem !important;
+      padding: 1.25rem !important;
+      text-align: center !important;
+      margin-bottom: 1rem !important;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
+    }
+    .blue-card img {
+      width: 50px !important;
+      height: 50px !important;
+      margin: 0 auto 0.75rem !important;
+    }
+
+    /* BUTTONS */
+    .blue-button, .verification-button {
+      background-color: white !important;
+      color: #0D3C91 !important;
+      border-radius: 0.5rem !important;
+      padding: 0.75rem 1rem !important;
+      font-family: "Helvetica Neue Arabic 75 Bold" !important;
+      border: none !important;
+      width: 100% !important;
+      font-size: 16px !important;
+      cursor: pointer !important;
+    }
+    .blue-button:hover, .verification-button:hover {
+      background-color: #f0f2f7 !important;
+    }
+
+    /* BANNER: FULL WIDTH, AUTO HEIGHT, FULL IMAGE */
+    .app-banner {
+      display: block !important;
+      width: 100% !important;
+      height: auto !important;
+      object-fit: contain !important;
+    }
+
+    /* TOUCH TARGET */
+    .touch-target {
+      min-height: 44px !important;
+      min-width: 44px !important;
+    }
+
+    /* MEDIA QUERIES FOR RESPONSIVENESS */
+    @media (max-width: 640px) {
       .sidebar {
-        background-color: white !important;
-        width: 280px !important;
-        height: 100% !important;
-        position: fixed !important;
-        top: 0 !important;
-        left: 0 !important;
-        z-index: 50 !important;
-        transform: translateX(-100%) !important;
-        display: flex !important;
-        flex-direction: column !important;
-        justify-content: space-between !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        transition: transform 0.3s ease !important;
-      }
-      .sidebar-visible {
-        transform: translateX(0) !important;
-      }
-      .banner {
-        background-color: #E5E8EF !important;
-      }
-      .width-sidebar-logo {
-        width: 10rem !important;
-      }
-      .footer-text {
-        color: #172845 !important;
-        font-family: "Helvetica Neue Arabic 45 Light" !important;
-        font-size: 11px !important;
-      }
-      .language-arabic {
-        font-family: "Helvetica Neue Arabic 45 Light" !important;
-        color: #072a64 !important;
-      }
-      .main-container {
-        max-width: 100% !important;
-        margin: 0 auto !important;
-        background-color: white !important;
-        min-height: 100vh !important;
-        overflow-y: auto !important;
-        -webkit-overflow-scrolling: touch !important;
-        position: relative !important;
-        visibility: visible !important;
+        width: 85% !important;
+        max-width: 280px !important;
       }
       .content-container {
-        padding: 0.75rem 1rem !important;
-        margin-bottom: 1rem !important;
-        overflow-y: visible !important;
+        padding-left: 1rem !important;
+        padding-right: 1rem !important;
+      }
+      html, body, .main-container {
+        overflow-x: hidden !important;
       }
       h2.verify-title {
-        font-family: "Helvetica Neue Arabic 75 Bold" !important;
-        font-weight: 700 !important;
-        font-size: 24px !important;
-        color: #2965bd !important;
-        margin-bottom: 10px !important;
-      }
-      p.font-semibold, .font-semibold {
-        font-family: "Helvetica Neue Arabic 75 Bold" !important;
-        font-weight: 700 !important;
+        font-size: 22px !important;
       }
       .card {
-        background-color: #F0F2F7 !important;
-        border-radius: 0.5rem !important;
-        padding: 1rem !important;
-        display: flex !important;
-        flex-direction: column !important;
-        align-items: flex-start !important;
-        margin-bottom: 1rem !important;
+        min-height: 7rem !important;
       }
-      .card img {
-        width: 60px !important;
-        height: 60px !important;
-        object-fit: contain !important;
-        margin-bottom: 0.5rem !important;
+    }
+
+    /* iOS FIXES */
+    @supports (-webkit-touch-callout: none) {
+      html, body {
+        height: -webkit-fill-available !important;
+        -webkit-overflow-scrolling: touch !important;
       }
-      .card.p-4.flex.flex-col.items-start.h-full {
-        height: 10rem !important;
+      .main-container {
+        min-height: -webkit-fill-available !important;
       }
-      .blue-card {
-        background-color: #1D4289 !important;
-        color: white !important;
-        border-radius: 0.5rem !important;
-        padding: 1.25rem !important;
-        text-align: center !important;
-        margin-bottom: 1rem !important;
-      }
-      .blue-button, .verification-button {
-        background-color: white !important;
-        color: #1D4289 !important;
-        border-radius: 0.5rem !important;
-        padding: 0.75rem 1rem !important;
-        font-family: "Helvetica Neue Arabic 75 Bold" !important;
-        border: none !important;
-        width: 100% !important;
-        font-size: 16px !important;
-        cursor: pointer !important;
-      }
-      .blue-button:hover, .verification-button:hover {
-        background-color: #f8f9fa !important;
-      }
-      #overlay {
-        position: fixed !important;
-        inset: 0 !important;
-        background-color: rgba(0, 0, 0, 0.5) !important;
-        z-index: 40 !important;
-        display: none !important;
-      }
-      .touch-target {
-        min-height: 44px !important;
-        min-width: 44px !important;
-      }
-      
-      @media (max-width: 640px) {
-        .sidebar {
-          width: 85% !important;
-          max-width: 280px !important;
-        }
-        .content-container {
-          padding-left: 1rem !important;
-          padding-right: 1rem !important;
-        }
-        html, body, .main-container {
-          overflow-x: hidden !important;
-        }
-      }
-      @media (min-width: 768px) {
-        .main-container {
-          max-width: 640px !important;
-          margin: 0 auto !important;
-        }
-      }
-      @supports (-webkit-touch-callout: none) {
-        html, body {
-          height: -webkit-fill-available !important;
-          -webkit-overflow-scrolling: touch !important;
-        }
-        .main-container {
-          min-height: -webkit-fill-available !important;
-        }
-      }
-    </style>
+    }
+  </style>
 </head>
 <body>
   <div id="splash-screen">
-    <img id="splash-image-1" src="{{ asset('images/ic_launcher.png') }}" alt="Kuwait Visa Logo" />
+    <img id="splash-image-1" src="{{ asset('images/splash-1.png') }}" alt="Kuwait Visa Logo" />
     <img id="splash-image-2" src="{{ asset('images/app-splash.png') }}" alt="Kuwait Visa Splash" />
   </div>
   <header class="w-full flex items-center p-2 touch-target">
@@ -247,15 +289,14 @@
   <div id="overlay"></div>
   <div class="main-container">
     <div class="text-center card-position">
-      <img src="{{ asset('images/apps-banner.png') }}" alt="Kuwait Visa Logo" class="w-full" />
+      <img src="{{ asset('images/apps-banner.png') }}" alt="Kuwait Visa Logo" class="app-banner" />
     </div>
-    
     <div class="content-container">
       <h2 class="verify-title">Verify the Visa</h2>
       <p class="text-gray-600 text-sm">Verify visa that issued by the Ministry of Interior</p>
       <div class="grid grid-cols-2 gap-4 mt-3">
         <a href="{{ route('web-app-visa-inquiries') }}" class="block">
-          <div class="card p-4 flex flex-col items-start h-full">
+          <div class="card p-4 flex flex-col items-start">
             <div class="text-blue-600 mb-2">
               <img class="w-16 h-16" src="{{ asset('images/user-icon.png') }}" alt="Inquiry Icon" />
             </div>
@@ -264,7 +305,7 @@
           </div>
         </a>
         <a href="{{ route('visa-verification-scan') }}" class="block">
-          <div class="card p-4 flex flex-col items-start h-full">
+          <div class="card p-4 flex flex-col items-start">
             <div class="text-blue-600 mb-2">
               <img class="w-16 h-16" src="{{ asset('images/barcode-scaner-icon.png') }}" alt="Verify Icon" />
             </div>
@@ -274,13 +315,12 @@
         </a>
       </div>
     </div>
-    
     <div class="content-container">
       <h2 class="verify-title">Residency Inquiry</h2>
       <p class="text-gray-600 text-sm">Inquire the status of the residency</p>
       <div class="grid grid-cols-2 gap-4 mt-3">
         <a href="{{ route('residency-inquiries') }}" class="block">
-          <div class="card p-4 flex flex-col items-start h-full">
+          <div class="card p-4 flex flex-col items-start">
             <div class="text-blue-600 mb-2">
               <img class="w-16 h-16" src="{{ asset('images/scanner.svg') }}" alt="Inquiry Icon" />
             </div>
@@ -289,11 +329,10 @@
           </div>
         </a>
         <a href="{{ route('visa-verification-scan') }}" class="block" style="display: none;">
-          <div class="card p-4 flex flex-col items-start h-full"></div>
+          <div class="card p-4 flex flex-col items-start"></div>
         </a>
       </div>
     </div>
-    
     <div class="content-container">
       <h2 class="text-lg font-bold text-blue-700">Verify the Documents and Certificates</h2>
       <p class="text-gray-600 text-sm">Verify the documents and certificates issued by the Ministry of Interior</p>
@@ -312,6 +351,7 @@
       initializeSidebar();
       initializeBodyClickToCloseSidebar();
     });
+
     function initializeSplashScreen() {
       const splashScreen = document.getElementById('splash-screen');
       const splashImage1 = document.getElementById('splash-image-1');
@@ -322,10 +362,13 @@
         console.warn('Splash screen elements not found');
         return;
       }
+      // Fade out first, fade in second
       setTimeout(() => {
         splashImage1.style.setProperty('opacity', '0', 'important');
         splashImage2.style.setProperty('opacity', '1', 'important');
       }, 1500);
+
+      // Fade out entire splash after 4.5s
       setTimeout(() => {
         splashScreen.style.setProperty('opacity', '0', 'important');
         mainContent.style.visibility = 'visible';
@@ -372,6 +415,7 @@
       window.sidebar = sidebar;
       window.hamburgerButton = hamburgerButton;
     }
+
     function initializeBodyClickToCloseSidebar() {
       document.addEventListener('click', function(e) {
         if (
@@ -384,6 +428,7 @@
         }
       });
     }
+
     if ('serviceWorker' in navigator) {
       window.addEventListener('load', () => {
         navigator.serviceWorker
