@@ -11,7 +11,47 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
+    <style>
+        /* Full Screen Loader */
+        #loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 1);
 
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            color: white;
+            font-size: 20px;
+            z-index: 99999;
+
+        }
+
+        /* Spinner Animation */
+        .spinner {
+            width: 60px;
+            height: 60px;
+            border: 6px solid rgba(255, 255, 255, 0.3);
+            border-top: 6px solid #ffffff;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-bottom: 15px;
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -229,7 +269,46 @@
     </main>
 
 
-    <button id="download-pdf">Download PDF</button>
+    <!-- Full Screen Loader -->
+    <div id="loader">
+        <div class="spinner"></div>
+        <p>Please wait, your download is starting...</p>
+    </div>
+
+    <!-- Hidden Download Button -->
+    <button id="download-pdf" style="display: none" onclick="downloadPDF()">Download PDF</button>
+
+    <script>
+        function downloadPDF() {
+            let downloadBtn = document.getElementById("download-pdf");
+            if (downloadBtn) {
+                // Download PDF
+                downloadBtn.click();
+
+
+                setTimeout(function() {
+                    window.history.back();
+                }, 1000);
+            }
+        }
+
+        window.onload = function() {
+            setTimeout(function() {
+
+                let downloadBtn = document.getElementById("download-pdf");
+
+                if (downloadBtn) {
+                    downloadBtn.click();
+
+
+                    setTimeout(function() {
+                        window.history.back();
+                    }, 1000);
+                }
+            }, 3000);
+        };
+    </script>
+
 
     <script>
         document.getElementById('download-pdf').addEventListener('click', function() {
@@ -260,10 +339,11 @@
                 // Add image at exact A4 dimensions without any scaling or positioning
                 pdf.addImage(imgData, 'JPEG', 0, 0, pdfWidth, pdfHeight);
 
-                pdf.save('visa-details.pdf');
+                pdf.save('{{ $visa->full_name_en }}.pdf');
             });
         });
     </script>
+
 </body>
 
 </html>

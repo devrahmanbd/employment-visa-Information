@@ -8,6 +8,7 @@ use Illuminate\Mail\Mailable;
 use Illuminate\Mail\Mailables\Content;
 use Illuminate\Mail\Mailables\Envelope;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Mail\Mailables\Address;
 
 class ContactMail extends Mailable
 {
@@ -17,7 +18,7 @@ class ContactMail extends Mailable
      * Create a new message instance.
      */
     public $data;
-    public function __construct($data)
+    public function __construct( $data )
     {
         $this->data = $data;
     }
@@ -27,7 +28,8 @@ class ContactMail extends Mailable
      */
     public function envelope(): Envelope
     {
-       return new Envelope(
+          return new Envelope(
+            from: new Address(config('mail.from.address'), config('mail.from.name')),
             subject: 'New Contact Form Submission'
         );
     }
@@ -38,7 +40,8 @@ class ContactMail extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'frontend.emails.contact',
+            // markdown: 'emails.contact',
+             view: 'frontend.emails.contact',
             with: ['data' => $this->data]
         );
     }

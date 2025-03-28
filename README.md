@@ -7,8 +7,8 @@
 
 ## ✅ Task 2: Email Notifications
 
--   [x] Contact Mail থেকে উজার মেইল পাঠালে সার্ভারের মেইলে মেইল যাবে
-    [inprocess] User verify mail check then send contact mail.
+-   [Done] Contact Mail থেকে উজার মেইল পাঠালে সার্ভারের মেইলে মেইল যাবে
+    [Done] User verify mail check then send contact mail.
 
 ## ✅ Task 3: System Functionality Testing
 
@@ -53,5 +53,5 @@ Fix with: d9832a9fc3bdd26b44b2bc881194d38f5ecc6317
 
 ## ✅ Task 7: Visa Page PDF Generation
 
--   [ ] **Admin Panel থেকে অটোমেটিক্যালি PDF আপলোডের ব্যবস্থা করা**
--   [ ] **End-user যেন ডাটা এন্ট্রি দিয়ে PDF ডাউনলোড করতে পারে সে ব্যবস্থা করা**
+-   [Check Process ] **Admin Panel থেকে অটোমেটিক্যালি PDF আপলোডের ব্যবস্থা করা**
+-   [Check Process ] **End-user যেন ডাটা এন্ট্রি দিয়ে PDF ডাউনলোড করতে পারে সে ব্যবস্থা করা**

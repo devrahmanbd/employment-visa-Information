@@ -72,23 +72,6 @@ class UserElectronicVisaDownload extends Controller
         );
 
     
-        $html = View::make('backend.pages.visa.show', compact('visa', 'qrCode'))->render();
-
-        Browsershot::html($html)
-        ->showBackground()
-        ->noSandbox()
-        ->format('A4')
-        ->setOption('args', [
-            '--disable-gpu', 
-            '--no-sandbox', 
-            '--disable-dev-shm-usage',
-            '--font-render-hinting=none'  // Can help with font rendering
-        ])
-        ->margins(10, 50, 10, 10) // Top, Right, Bottom, Left
-        ->setOption('userAgent', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/110.0.0.0 Safari/537.36')
-        ->save(public_path('pdfs/visa.pdf'));
-
-    
-        return response()->download(public_path('pdfs/visa.pdf'))->deleteFileAfterSend(true);
+        return view('frontend.pages.visa-pdf-download', compact('qrCode', 'visa'));
     }
 }

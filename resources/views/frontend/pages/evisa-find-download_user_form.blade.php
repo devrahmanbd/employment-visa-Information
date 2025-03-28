@@ -23,7 +23,7 @@
                 background-color: #eef7ee;
                 padding: 40px;
                 border-radius: 15px;
-                margin: 50px auto;
+                margin: 0px auto;
                 box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.15);
                 font-family: "Arial Rounded MT Bold";
             }
@@ -142,7 +142,7 @@
 
 
     <div class="visa-form-container">
-        <h2 class="text-center mt-4" style="color: #b68934;">
+        <h2 class="text-center fw-bold" style="color: #b68934;">
              Electronic Visa Inquiry
         </h2>
         <form class="visa-form" action="{{ route('frontend-evisa-download') }}" method="GET">

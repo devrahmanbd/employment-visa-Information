@@ -786,7 +786,7 @@
                 <div class="text-center mb-6 pb-4 text-red-700">
                     {{-- verify icon border circle  --}}
                     <div class="flex justify-center items-center my-2">
-                        {{-- <img src="{{ asset('images/verify-logo.png') }}" alt="Verify Icon" class="w-16"> --}}
+                        <img src="{{ asset('images/awaiting-aproval-image.png') }}" alt="Verify Icon" class="w-16">
                     </div>
                     <h3 class="text-red-600 text-xs font-bold">وثيقة غير صالحة</h3>
                     <h3 class="text-red-600 text-xs font-bold">Invalid Document</h3>
