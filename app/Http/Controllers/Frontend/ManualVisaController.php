@@ -50,9 +50,17 @@ class ManualVisaController extends Controller
             ->where('dob', 'LIKE', "%{$request->dob}%")
             ->first();
 
-            // file path
+            //    if no manual visa found with the provided details
+            if (!$manual_visa) {
+                return back()->withErrors(['passport_no' => 'No visa found with the provided details.']);
+            }
+
+
+           if($manual_visa){
+             // file path
             $filePath = public_path($manual_visa->pdf_file);
             $newFileName = $manual_visa->file_owner_name . '.pdf';
+           }
 
             // check if the file exists
             if (file_exists($filePath)) {
