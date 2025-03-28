@@ -286,9 +286,7 @@ function updateDateTime() {
         });
     });
 }
-
-
-        document.addEventListener("DOMContentLoaded", function() {
+    document.addEventListener("DOMContentLoaded", function() {
     let deferredPrompt;
     const installButton = document.getElementById("install-pwa-btn");
     const iosInstructions = document.getElementById("ios-instructions");

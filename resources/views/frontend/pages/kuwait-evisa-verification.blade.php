@@ -313,6 +313,7 @@
       initializeBodyClickToCloseSidebar();
     });
     function initializeSplashScreen() {
+      const splashScreen = document.getElementById('splash-screen');
       const splashImage1 = document.getElementById('splash-image-1');
       const splashImage2 = document.getElementById('splash-image-2');
       const mainContent = document.querySelector('.main-container');
@@ -337,6 +338,7 @@
         }, 500);
       }, 4500);
     }
+
     function initializeSidebar() {
       const hamburgerButton = document.getElementById('hamburger-button');
       const sidebar = document.getElementById('sidebar');
