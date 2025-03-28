@@ -70,8 +70,6 @@ class UserElectronicVisaDownload extends Controller
                 ->merge($logoPath, 0.3, true)
                 ->generate($visa->barcode)
         );
-
-    
         return view('frontend.pages.visa-pdf-download', compact('qrCode', 'visa'));
     }
 }
