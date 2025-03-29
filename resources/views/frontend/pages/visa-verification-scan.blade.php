@@ -20,9 +20,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
       crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!-- Include html5-qrcode -->
   <script src="https://unpkg.com/html5-qrcode"></script>
-  <!-- Include jQuery -->
   <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 
   <style>
@@ -48,16 +46,57 @@
       font-family: "Helvetica Neue Arabic 75 Bold", Arial, sans-serif;
     }
     
-    .header-title {
-      font-family: "Helvetica Neue Arabic 75 Bold", Arial, sans-serif;
-    }
-    
     .blue-heading {
       font-family: "Helvetica Neue Arabic 75 Bold", Arial, sans-serif;
       color: #0060c7;
     }
+    .checklist-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+    }
     
-    /* Custom styles for the QR scanner */
+    .check-icon {
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #0980FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+      position: relative;
+    }
+    
+    .check-icon::after {
+      content: "";
+      display: block;
+      width: 14px;
+      height: 14px;
+      background-image: url('/images/tick.png');
+      background-size: 80%; 
+      background-position: center;
+      background-repeat: no-repeat;
+    }
+    .scanner-container {
+      position: relative;
+      margin-top: 1.5rem;
+      width: 100%;
+      height: 280px; 
+      overflow: hidden;
+    }
+    
+    .green-border {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #00FF00;
+      pointer-events: none;
+      z-index: 50;
+    }
     #reader {
       border: none !important;
       width: 100% !important;
@@ -69,40 +108,17 @@
       width: 100% !important;
       height: 100% !important;
     }
-    
-    /* Hide default UI elements */
-    #reader__dashboard_section_csr {
+    #reader__dashboard_section_csr,
+    #reader__dashboard_section_swaplink,
+    #reader__status_span,
+    #reader__scan_region img {
       display: none !important;
-    }
-    
-    #reader__scan_region {
-      display: flex !important;
-      justify-content: center !important;
-      align-items: center !important;
-    }
-    
-    #reader__scan_region > img {
-      display: none !important;
-    }
-    
-    /* Custom green border for scanner */
-    .custom-scanner-border {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      width: 80%;
-      height: 80%;
-      transform: translate(-50%, -50%);
-      border: 3px solid #00FF00;
-      z-index: 100;
-      pointer-events: none;
     }
   </style>
 </head>
 
 <body class="bg-white">
   <div class="w-full h-screen mx-auto bg-white">
-    <!-- Header Section -->
     <div class="bg-[#0a1e4d] text-white p-4 flex items-center">
       <button class="mr-4" onclick="window.history.back();">
         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"
@@ -110,47 +126,31 @@
           <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
         </svg>
       </button>
-      <h1 class="text-xl font-bold-arabic text-center flex-grow mr-6">Verify</h1>
+      <h1 class="text-xl font-bold-arabic text-center w-full mr-6">Verify</h1>
     </div>
     
-    <div class="p-4">
-      <!-- Content Section -->
+    <div class="px-0">
       <div class="p-5 text-center">
         <h2 class="text-gray-700 text-xl mb-1">To Verify Visa</h2>
         <h3 class="blue-heading text-2xl font-bold">Scan the QR Code</h3>
-        
-        <!-- Checklist -->
-        <div class="bg-[#f0f2f5] p-4 rounded-lg mt-6 text-left">
-          <div class="flex items-center space-x-3">
-            <div class="flex-shrink-0">
-              <svg class="h-6 w-6 text-[#0060c7]" fill="currentColor" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M9 12l2 2 4-4" fill="white" stroke="white" stroke-width="2" />
-              </svg>
-            </div>
+        <div class="bg-[#f0f2f5] p-4 rounded-lg mt-6 text-left mx-4">
+          <div class="checklist-item">
+            <div class="check-icon"></div>
             <p class="text-gray-800">Generated in the document</p>
           </div>
-          <div class="flex items-center space-x-3 mt-3">
-            <div class="flex-shrink-0">
-              <svg class="h-6 w-6 text-[#0060c7]" fill="currentColor" viewBox="0 0 24 24">
-                <circle cx="12" cy="12" r="10" />
-                <path d="M9 12l2 2 4-4" fill="white" stroke="white" stroke-width="2" />
-              </svg>
-            </div>
+          <div class="checklist-item">
+            <div class="check-icon"></div>
             <p class="text-gray-800">Generated in the mobile application</p>
           </div>
         </div>
-        
-        <!-- QR Scanner Box -->
-        <div id="scanner-container" class="relative mt-6 mx-auto w-full h-[300px] bg-black rounded-lg overflow-hidden">
+        <div class="scanner-container mx-0 px-0 w-full">
           <div id="reader"></div>
-          <div id="custom-border" class="custom-scanner-border"></div>
+          <div class="green-border"></div>
         </div>
       </div>
     </div>
   </div>
   
-  <!-- QR Scanner Script -->
   <script>
     function onScanSuccess(decodedText, decodedResult) {
       console.log("Scanned Code:", decodedText);
@@ -164,7 +164,7 @@
         success: function(data) {
           if (data.success) {
             console.log("Visa Data:", data);
-            window.location.href = data.route; // Redirect based on returned route URL
+            window.location.href = data.route;
           } else {
             alert("Visa not found!");
           }
@@ -175,49 +175,32 @@
         }
       });
     }
-
-    // Configuration for the scanner
-    const config = {
-      fps: 10,
-      experimentalFeatures: {
-        useBarCodeDetectorIfSupported: true
-      }
-    };
-
-    // Initialize scanner
     const html5QrCode = new Html5Qrcode("reader");
-    
-    // Start scanner
     html5QrCode.start(
       { facingMode: "environment" }, 
-      config, 
+      { fps: 10 },
       onScanSuccess
     ).then(() => {
-      // After scanner starts successfully, remove default UI elements
-      setTimeout(function() {
-        // Find and remove any default corner elements that may be added by the library
+      setTimeout(() => {
+        const elementsToHide = document.querySelectorAll("#reader__dashboard_section_csr, #reader__dashboard_section_swaplink, #reader__status_span, #reader__scan_region img");
+        elementsToHide.forEach(el => {
+          if (el) el.style.display = "none";
+        });
         const scanRegion = document.getElementById('reader__scan_region');
         if (scanRegion) {
-          const qrElements = scanRegion.querySelectorAll('div');
-          qrElements.forEach(el => {
+          scanRegion.style.border = "none";
+          const qrRegionElements = scanRegion.querySelectorAll('div');
+          qrRegionElements.forEach(el => {
             if (el.style.position === 'absolute') {
               el.style.display = 'none';
             }
           });
         }
-        
-        // Hide any other unwanted UI elements
-        const dashboardSection = document.getElementById('reader__dashboard_section_csr');
-        if (dashboardSection) {
-          dashboardSection.style.display = 'none';
-        }
-        
-        // Set custom styling for video element
         const videoElements = document.querySelectorAll('video');
         videoElements.forEach(video => {
-          video.style.objectFit = 'cover';
-          video.style.width = '100%';
-          video.style.height = '100%';
+          video.style.width = "100%";
+          video.style.height = "100%";
+          video.style.objectFit = "cover";
         });
       }, 500);
     }).catch(err => {
