@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
+  <title>Kuwait eVisa Information -  Kuwait</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -13,9 +13,9 @@
   <meta name="apple-mobile-web-app-title" content="Kuwait Visa" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="msapplication-TileColor" content="#0a1e4d" />
-  <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/icon/mipmap-xhdpi/ic_launcher.png') }}">
-  <link rel="manifest" href="{{ route('pwa.manifest') }}">
-  <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="http://localhost/images/icon/mipmap-xhdpi/ic_launcher.png">
+  <link rel="manifest" href="http://localhost/manifest.json">
+  <meta name="description" content="Official Kuwait electronic visa verification system">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -76,29 +76,28 @@
     }
     
     .scanner-container {
-  position: relative;
-  margin-top: 1.5rem;
-  width: 100vw !important;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 20rem; /* Changed from 15rem to 20rem */
-  overflow: hidden;
-  margin-bottom: 5rem;
-}
+      position: relative;
+      margin-top: 1.5rem;
+      width: 100vw !important;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 20rem; /* Changed from 15rem to 20rem */
+      overflow: hidden;
+      margin-bottom: 5rem;
+    }
     
-.green-border {
-  position: absolute;
-  top: 2.5rem; /* Added padding of 2.5rem from top */
-  left: 2.5rem; /* Changed from 10% to 2.5rem */
-  right: 2.5rem; /* Changed from 10% to 2.5rem */
-  bottom: 2.5rem; /* Added padding of 2.5rem from bottom */
-  width: auto; /* Changed from 80% to auto */
-  border: 2px solid #00FF00;
-  pointer-events: none;
-  z-index: 50;
-  height: auto; /* Changed from 70% to auto */
-}
-
+    .green-border {
+      position: absolute;
+      top: 2.5rem; /* Added padding of 2.5rem from top */
+      left: 2.5rem; /* Changed from 10% to 2.5rem */
+      right: 2.5rem; /* Changed from 10% to 2.5rem */
+      bottom: 2.5rem; /* Added padding of 2.5rem from bottom */
+      width: auto; /* Changed from 80% to auto */
+      border: 2px solid #00FF00;
+      pointer-events: none;
+      z-index: 50;
+      height: auto; /* Changed from 70% to auto */
+    }
     
     /* Checklist styling with proper blue color */
     .checklist-item {
@@ -106,23 +105,23 @@
       align-items: center;
       margin-bottom: 12px;
     }
+    
     .blue-check {
-  width: 18px;
-  height: 18px;
-  border-radius: 50%;
-  background-color: #0980FF;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-right: 12px;
-  flex-shrink: 0;
-}
-
-.blue-check img {
-  width: 10px;
-  height: 10px;
-}
-
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      background-color: #0980FF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-right: 12px;
+      flex-shrink: 0;
+    }
+    
+    .blue-check svg {
+      width: 14px;
+      height: 14px;
+    }
   </style>
 </head>
 
@@ -148,15 +147,19 @@
         <!-- Checklist with Blue Circle Checkboxes -->
         <div class="bg-[#f0f2f5] p-4 rounded-lg mt-6 text-left mx-4">
           <div class="checklist-item">
-          <div class="blue-check">
-  <img src="{{ asset('images/tick.png') }}" alt="✓">
-</div>
+            <div class="blue-check">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12l5 5L20 7"></path>
+              </svg>
+            </div>
             <p class="text-gray-800">Generated in the document</p>
           </div>
           <div class="checklist-item">
-          <div class="blue-check">
-  <img src="{{ asset('images/tick.png') }}" alt="✓">
-</div>
+            <div class="blue-check">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" width="10" height="10" fill="none" stroke="white" stroke-width="3" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M5 12l5 5L20 7"></path>
+              </svg>
+            </div>
             <p class="text-gray-800">Generated in the mobile application</p>
           </div>
         </div>
