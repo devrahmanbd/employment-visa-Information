@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>Kuwait eVisa Information -  Kuwait</title>
+  <title>Visa</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
