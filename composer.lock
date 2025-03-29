@@ -4335,7 +4335,6 @@
                 "headless",
                 "image",
                 "pdf",
-                "puppeteer",
                 "screenshot",
                 "webpage"
             ],
