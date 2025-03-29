@@ -106,25 +106,23 @@
       align-items: center;
       margin-bottom: 12px;
     }
-    
     .blue-check {
-      width: 18px;
-      height: 18px;
-      border-radius: 50%;
-      background-color: #0980FF;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-right: 12px;
-      flex-shrink: 0;
-    }
-    
-    .blue-check::after {
-      content: "✓";
-      color: white;
-      font-size: 12px;
-      font-weight: bold;
-    }
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background-color: #0980FF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  flex-shrink: 0;
+}
+
+.blue-check img {
+  width: 10px;
+  height: 10px;
+}
+
   </style>
 </head>
 
@@ -150,11 +148,15 @@
         <!-- Checklist with Blue Circle Checkboxes -->
         <div class="bg-[#f0f2f5] p-4 rounded-lg mt-6 text-left mx-4">
           <div class="checklist-item">
-            <div class="blue-check"></div>
+          <div class="blue-check">
+  <img src="{{ asset('images/tick.png') }}" alt="✓">
+</div>
             <p class="text-gray-800">Generated in the document</p>
           </div>
           <div class="checklist-item">
-            <div class="blue-check"></div>
+          <div class="blue-check">
+  <img src="{{ asset('images/tick.png') }}" alt="✓">
+</div>
             <p class="text-gray-800">Generated in the mobile application</p>
           </div>
         </div>
