@@ -200,22 +200,16 @@
 
     // Initialize QR scanner
     const html5QrCode = new Html5Qrcode("reader");
-    
-    // Start scanner with full-width configuration
     html5QrCode.start(
       { facingMode: "environment" }, 
       { fps: 10 },
       onScanSuccess
     ).then(() => {
-      // Remove default UI elements after scanner starts
       setTimeout(() => {
-        // Hide unwanted elements
         const elementsToHide = document.querySelectorAll("#reader__dashboard_section_csr, #reader__dashboard_section_swaplink, #reader__status_span, #reader__scan_region img");
         elementsToHide.forEach(el => {
           if (el) el.style.display = "none";
         });
-        
-        // Find and remove default scan region elements
         const scanRegion = document.getElementById('reader__scan_region');
         if (scanRegion) {
           scanRegion.style.border = "none";
@@ -226,8 +220,6 @@
             }
           });
         }
-        
-        // Ensure video element fills container
         const videoElements = document.querySelectorAll('video');
         videoElements.forEach(video => {
           video.style.width = "100%";

@@ -902,28 +902,28 @@ ul {
 }
 @media (max-width: 1450px) {
     .title-section {
-        font-size: 5.5rem !important;
+        font-size: 4.5rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
 }
 @media (max-width: 1350px) {
     .title-section {
-        font-size: 5rem !important;
+        font-size: 4rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
 }
 @media (max-width: 1200px) {
     .title-section {
-        font-size: 4.5rem !important;
+        font-size: 3.5rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
 }
 @media (max-width: 1100px) {
     .title-section {
-        font-size: 4rem !important;
+        font-size: 3rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
@@ -945,6 +945,30 @@ ul {
 }
 @media (max-width: 768px) {
     .title-section {
+        font-size: 2.1rem !important;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+
+    .title-container img {
+        max-height: 95px !important;
+        width: auto;
+    }
+}
+@media (max-width: 680px) {
+    .title-section {
+        font-size: 2rem !important;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+
+    .title-container img {
+        max-height: 90px !important;
+        width: auto;
+    }
+}
+@media (max-width: 605px) {
+    .title-section {
         font-size: 1.8rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
@@ -955,7 +979,6 @@ ul {
         width: auto;
     }
 }
-
 @media (max-width: 576px) {
     .title-section {
         font-size: 1.5rem !important;
