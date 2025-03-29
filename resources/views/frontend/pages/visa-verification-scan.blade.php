@@ -2,7 +2,7 @@
 <html lang="en">
 
 <head>
-  <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
+  <title>Kuwait eVisa Information -  Kuwait</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -13,9 +13,9 @@
   <meta name="apple-mobile-web-app-title" content="Kuwait Visa" />
   <meta name="apple-mobile-web-app-status-bar-style" content="default" />
   <meta name="msapplication-TileColor" content="#0a1e4d" />
-  <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/icon/mipmap-xhdpi/ic_launcher.png') }}">
-  <link rel="manifest" href="{{ route('pwa.manifest') }}">
-  <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
+  <link rel="icon" type="image/png" sizes="192x192" href="http://localhost/images/icon/mipmap-xhdpi/ic_launcher.png">
+  <link rel="manifest" href="http://localhost/manifest.json">
+  <meta name="description" content="Official Kuwait electronic visa verification system">
 
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
       integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
@@ -50,6 +50,8 @@
       font-family: "Helvetica Neue Arabic 75 Bold", Arial, sans-serif;
       color: #0060c7;
     }
+    
+    /* Checklist styling - adjusted for smaller check icon and larger background image */
     .checklist-item {
       display: flex;
       align-items: center;
@@ -72,10 +74,10 @@
     .check-icon::after {
       content: "";
       display: block;
-      width: 14px;
+      width: 14px; 
       height: 14px;
       background-image: url('/images/tick.png');
-      background-size: 80%; 
+      background-size: 80%;
       background-position: center;
       background-repeat: no-repeat;
     }
@@ -83,24 +85,24 @@
       position: relative;
       margin-top: 1.5rem;
       width: 100%;
-      height: 280px; 
+      height: 280px;
       overflow: hidden;
     }
     
     .green-border {
       position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
+      top: 2rem;
+      left: 1rem;
+      right: 1rem;
       bottom: 0;
-      border: 2px solid #00FF00;
+      border: 1px solid #00FF00;
       pointer-events: none;
       z-index: 50;
     }
     #reader {
       border: none !important;
-      width: 100% !important;
-      height: 100% !important;
+      width: 90% !important;
+      height: 94% !important;
     }
     
     #reader video {
