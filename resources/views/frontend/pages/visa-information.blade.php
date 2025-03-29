@@ -83,35 +83,6 @@
             </p>
         </div>
 
-        <div class="">
-            <h2 class="fw-bold"><ins>To update Employment Visa applications and download issued Employment Visas
-                    automatically, follow the steps below</ins>:</h2>
-
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <div class="timeline-circle"></div>
-                </div>
-                <div class="timeline-content">
-                    <p>Click on the Present Visa Status button to know the correct information of the Employment Visa
-                        application. Fill the requested information correctly and type the Captcha correctly then click on
-                        Submit to see/know all the correct information related to the Empoyment Visa. </p>
-                </div>
-            </div>
-            <div class="timeline-item">
-                <div class="timeline-icon">
-                    <div class="timeline-circle"></div>
-                </div>
-                <div class="timeline-content">
-                    <p>If your desired Employment Visa has been issued then click
-                        on the Download or Print the Employment
-                        Visa button. Clicking on that button will show the options of Manual Employment Visa and eVisa
-                        (Electronic Visa). Click on the type of Visa you want to view/ download or print. Fill the requested
-                        information correctly and type the Captcha correctly then click on Submit. The issued Employment
-                        Visa will automatically be displayed or downloaded here.</p>
-                </div>
-            </div>
-        </div>
-
 
     </div>
     <div class="container text-center my-5">
