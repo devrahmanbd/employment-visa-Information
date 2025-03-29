@@ -51,7 +51,7 @@
       color: #0060c7;
     }
     
-    /* Checklist styling - adjusted for smaller check icon and larger background image */
+    /* Checklist styling - smaller circle with better checkmark */
     .checklist-item {
       display: flex;
       align-items: center;
@@ -59,8 +59,8 @@
     }
     
     .check-icon {
-      width: 18px;
-      height: 18px;
+      width: 16px;
+      height: 16px;
       border-radius: 50%;
       background-color: #0980FF;
       display: flex;
@@ -71,16 +71,15 @@
       position: relative;
     }
     
-    .check-icon::after {
-      content: "";
-      display: block;
-      width: 14px; 
-      height: 14px;
-      background-image: url('/images/tick.png');
-      background-size: 80%;
-      background-position: center;
-      background-repeat: no-repeat;
+    .check-icon::before {
+      content: "✓";
+      color: white;
+      font-size: 10px;
+      font-weight: bold;
+      line-height: 1;
     }
+    
+    /* Scanner container with smaller scan area */
     .scanner-container {
       position: relative;
       margin-top: 1.5rem;
@@ -89,20 +88,23 @@
       overflow: hidden;
     }
     
+    /* Green border - thinner and smaller area */
     .green-border {
       position: absolute;
-      top: 2rem;
-      left: 1rem;
-      right: 1rem;
-      bottom: 0;
-      border: 1px solid #00FF00;
+      top: 2.5rem;
+      left: 2rem;
+      right: 2rem;
+      bottom: 2rem;
+      border: 2px solid #00FF00;
       pointer-events: none;
       z-index: 50;
     }
+    
+    /* QR Scanner styling */
     #reader {
       border: none !important;
-      width: 90% !important;
-      height: 94% !important;
+      width: 100% !important;
+      height: 100% !important;
     }
     
     #reader video {
@@ -110,6 +112,8 @@
       width: 100% !important;
       height: 100% !important;
     }
+    
+    /* Hide unwanted scanner UI elements */
     #reader__dashboard_section_csr,
     #reader__dashboard_section_swaplink,
     #reader__status_span,
@@ -177,6 +181,7 @@
         }
       });
     }
+    
     const html5QrCode = new Html5Qrcode("reader");
     html5QrCode.start(
       { facingMode: "environment" }, 
@@ -188,6 +193,7 @@
         elementsToHide.forEach(el => {
           if (el) el.style.display = "none";
         });
+        
         const scanRegion = document.getElementById('reader__scan_region');
         if (scanRegion) {
           scanRegion.style.border = "none";
@@ -198,6 +204,7 @@
             }
           });
         }
+        
         const videoElements = document.querySelectorAll('video');
         videoElements.forEach(video => {
           video.style.width = "100%";
