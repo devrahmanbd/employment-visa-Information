@@ -2,89 +2,142 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuwait Visa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+<meta charset="UTF-8" />
+  <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="theme-color" content="#082A64" />
+  <meta name="application-name" content="Kuwait Visa" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Kuwait Visa" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="msapplication-TileColor" content="#082A64" />
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/icon/mipmap-xhdpi/ic_launcher.png') }}">
+  <link rel="manifest" href="{{ route('pwa.manifest') }}">
+  <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .w-32 {
-            width: 26rem !important;
+        @font-face {
+            font-family: "Helvetica Neue Arabic 75 Bold";
+            src: url("../../../fonts/HelveticaNeueLTArabic-Bold.ttf") format("opentype");
+            font-weight: bold;
+            font-style: normal;
         }
-
-        .icon-container-globe {
-            margin: 7px -4px;
+        
+        @font-face {
+            font-family: "Helvetica Neue Arabic 45 Light";
+            src: url("../../../fonts/HelveticaNeueLTArabic-Light.ttf") format("opentype");
+            font-weight: normal;
+            font-style: normal;
         }
-
-        .card {
-            border-radius: 15px;
+        
+        body {
+            font-family: "Helvetica Neue Arabic 45 Light", Arial, sans-serif;
+            background-color: white;
         }
-
-        .btn-submit {
-            background-color: #0a74e4;
-            color: white;
+        
+        .bold-text {
+            font-family: "Helvetica Neue Arabic 75 Bold", Arial, sans-serif;
         }
-
-        .text-error {
-            color: red;
-            font-size: 0.875rem;
+        
+        .header-title {
+            font-family: "Helvetica Neue Arabic 75 Bold", Arial, sans-serif;
+        }
+        
+        .blue-heading {
+            font-family: "Helvetica Neue Arabic 75 Bold", Arial, sans-serif;
+            color: #0060c7;
+        }
+        
+        .error-text {
+            color: #e53e3e;
+            font-size: 14px;
         }
     </style>
 </head>
 
-<body class="bg-gray-100 flex justify-center items-center min-h-screen">
-
-    <div class="card w-full h-screen max-w-md mx-auto min-h-[450px] bg-white shadow-lg">
-
+<body>
+    <div class="w-full min-h-screen bg-white">
         <!-- Header with Back Icon -->
-        <div class="bg-[#35609c] flex items-center p-3 ">
+        <div class="bg-[#0a1e4d] flex items-center p-4">
             <button class="mr-4" onclick="window.history.back();">
-                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"
-                    stroke="currentColor" fill="none" stroke-width="2">
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24" stroke="currentColor" fill="none" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
-            <h1 class="text-xl font-bold text-white text-center flex-grow">Residency Inquiry</h1>
+            <h1 class="text-xl header-title text-white text-center flex-grow">Residency Inquiry</h1>
         </div>
 
         <!-- Form Section -->
         <div class="p-6">
-            <p class="text-blue-600 text-sm mb-4 font-bold">Please enter the Civil id to verify the residency status</p>
+            <p class="blue-heading text-xl mb-6 font-bold">Please enter the Civil Id to verify the residency status</p>
 
-            <form id="visa-form">
-                <div class="space-y-4">
-                    <div>
-                        <label for="civil_id" class="text-xs text-gray-500">Civil ID</label>
-                        <input type="text" name="civil_id" id="civil_id"
-                            class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter the Civil id number"
-                            required>
-                        <span id="error-message" class="text-error"></span> <!-- Error message here -->
-                    </div>
+            <form id="residency-form">
+                <div>
+                    <label for="civil_id" class="block text-gray-800">Civil ID</label>
+                    <input type="text" id="civil_id" class="w-full p-3 border border-gray-300 rounded-lg mt-1" 
+                           placeholder="Enter the civil Id number">
+                    <p id="error-message" class="error-text mt-1">Required</p>
+                </div>
 
-                    <div>
-                        <button type="submit" class="w-full py-3 rounded-lg btn-submit">Inquiry</button>
-                    </div>
+                <div class="mt-8">
+                    <button type="submit" class="w-full py-4 bg-[#007bff] text-white rounded-lg text-lg bold-text">
+                        Inquiry
+                    </button>
                 </div>
             </form>
         </div>
     </div>
 
     <script>
-        document.getElementById('visa-form').addEventListener('submit', function(e) {
-            e.preventDefault(); // Prevent form submission
-
-            var civilId = document.getElementById('civil_id').value;
-            var errorMessage = document.getElementById('error-message');
-
-            // Simple validation for Civil ID (check if it's empty or not in valid format)
-            if (civilId) {
-                errorMessage.textContent = "Please enter a valid Civil ID number.";
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.getElementById('residency-form');
+            const civilIdInput = document.getElementById('civil_id');
+            const errorMessage = document.getElementById('error-message');
+            
+            // Initially hide error message until field is interacted with
+            errorMessage.style.display = 'none';
+            
+            // Validate on blur (when leaving the field)
+            civilIdInput.addEventListener('blur', function() {
+                validateCivilId();
+            });
+            
+            // Form submission
+            form.addEventListener('submit', function(event) {
+                event.preventDefault();
+                
+                const isValid = validateCivilId();
+                
+                if (isValid) {
+                    // Valid input but show "Invalid Data" message
+                    errorMessage.textContent = 'Invalid Data';
+                    errorMessage.style.display = 'block';
+                }
+                // If invalid, validateCivilId already shows appropriate message
+            });
+            
+            // Validation function
+            function validateCivilId() {
+                const value = civilIdInput.value.trim();
+                
+                if (value === '') {
+                    errorMessage.textContent = 'Required';
+                    errorMessage.style.display = 'block';
+                    return false;
+                } else if (!/^\d{9}$/.test(value)) {
+                    errorMessage.textContent = 'Invalid';
+                    errorMessage.style.display = 'block';
+                    return false;
+                } else {
+                    errorMessage.style.display = 'none';
+                    return true;
+                }
             }
         });
     </script>
-
 </body>
-
 </html>

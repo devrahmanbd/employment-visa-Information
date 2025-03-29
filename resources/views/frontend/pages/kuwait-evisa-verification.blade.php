@@ -31,7 +31,6 @@
       font-style: normal;
     }
 
-    /* Global Styles */
     html, body {
       font-family: "Helvetica Neue Arabic 45 Light" !important;
       background-color: #F5F5F5 !important;
@@ -43,8 +42,9 @@
       -webkit-overflow-scrolling: touch !important;
       position: relative !important;
     }
-
-    /* SPLASH SCREEN */
+    .optional-logo{
+      width: 2rem;
+    }
     #splash-screen {
       position: fixed !important;
       top: 0 !important;
@@ -73,8 +73,6 @@
       opacity: 0 !important;
       align-items: start;
     }
-
-    /* HEADER */
     header {
       background-color: #082A64 !important;
       width: 100% !important;
@@ -84,7 +82,7 @@
       color: #fff !important;
     }
 
-    /* SIDEBAR (scrolling turned off) */
+
     .sidebar {
       background-color: white !important;
       width: 280px !important;
@@ -97,7 +95,7 @@
       display: flex !important;
       flex-direction: column !important;
       justify-content: space-between !important;
-      overflow: hidden !important; /* disable scrolling */
+      overflow: hidden !important;
       -webkit-overflow-scrolling: touch !important;
       transition: transform 0.3s ease !important;
     }
@@ -108,7 +106,7 @@
       background-color: #E5E8EF !important;
     }
     .width-sidebar-logo {
-      width: 10rem !important;
+      width: 12rem !important;
     }
     .footer-text {
       color: #172845 !important;
@@ -126,8 +124,6 @@
       z-index: 40 !important;
       display: none !important;
     }
-
-    /* MAIN CONTAINER */
     .main-container {
       max-width: 100% !important;
       margin: 0 auto !important;
@@ -139,28 +135,24 @@
       visibility: visible !important;
     }
     .content-container {
-      padding: 1rem !important;
-      margin-bottom: 1rem !important;
+      padding: 1rem;
       overflow-y: visible !important;
     }
-
-    /* HEADINGS & TEXT SIZING */
     h2.verify-title {
       font-family: "Helvetica Neue Arabic 75 Bold" !important;
       font-weight: 700 !important;
-      font-size: 26px !important;
-      color: #072A64 !important;
-      margin-bottom: 12px !important;
+      font-size: 18px !important;
+      color: #2E68BF !important;
     }
     p.text-gray-600 {
       color: #555 !important;
       font-size: 14px !important;
+      margin-bottom: 10px;
     }
     p.text-xs {
       font-size: 13px !important;
     }
 
-    /* CARD STYLES */
     .card {
       background-color: #EEF0F5 !important;
       border-radius: 0.5rem !important;
@@ -173,13 +165,11 @@
       min-height: 8rem !important;
     }
     .card img {
-      width: 50px !important;
-      height: 50px !important;
+      width: auto !important;
+      height: 85px !important;
       object-fit: contain !important;
       margin-bottom: 0.5rem !important;
     }
-
-    /* BLUE CARD */
     .blue-card {
       background-color: #0D3C91 !important;
       color: white !important;
@@ -190,12 +180,11 @@
       box-shadow: 0 2px 5px rgba(0,0,0,0.1) !important;
     }
     .blue-card img {
-      width: 50px !important;
-      height: 50px !important;
+      width: auto !important;
+      height: 85px !important;
       margin: 0 auto 0.75rem !important;
     }
 
-    /* BUTTONS */
     .blue-button, .verification-button {
       background-color: white !important;
       color: #0D3C91 !important;
@@ -211,7 +200,6 @@
       background-color: #f0f2f7 !important;
     }
 
-    /* BANNER: FULL WIDTH, AUTO HEIGHT, FULL IMAGE */
     .app-banner {
       display: block !important;
       width: 100% !important;
@@ -219,13 +207,11 @@
       object-fit: contain !important;
     }
 
-    /* TOUCH TARGET */
     .touch-target {
       min-height: 44px !important;
       min-width: 44px !important;
     }
 
-    /* MEDIA QUERIES FOR RESPONSIVENESS */
     @media (max-width: 640px) {
       .sidebar {
         width: 85% !important;
@@ -239,14 +225,12 @@
         overflow-x: hidden !important;
       }
       h2.verify-title {
-        font-size: 22px !important;
+        font-size:18px !important;
       }
       .card {
         min-height: 7rem !important;
       }
     }
-
-    /* iOS FIXES */
     @supports (-webkit-touch-callout: none) {
       html, body {
         height: -webkit-fill-available !important;
@@ -275,12 +259,12 @@
           <img src="{{ asset('images/kuwaitappslogo-r.png') }}" alt="Kuwait Apps Logo" class="mx-auto mb-4 width-sidebar-logo" />
         </div>
         <div class="flex items-center gap-2 p-4" style="border-bottom: 1px solid #c7c7c7;">
-          <img src="{{ asset('images/globe.svg') }}" alt="Language Icon" class="w-6 h-6" />
+          <img src="{{ asset('images/globe.svg') }}" alt="Language Icon" class="optional-logo h-6" />
           <span class="language-arabic">العربية</span>
         </div>
       </div>
       <div class="p-4 text-center">
-        <img src="{{ asset('images/Kuwait-Police-logo.png') }}" alt="Kuwait Police Logo" class="mx-auto mb-2 w-6" />
+        <img src="{{ asset('images/Kuwait-Police-logo.png') }}" alt="Kuwait Police Logo" class="mx-auto mb-2 optional-logo" />
         <p class="footer-text">Privacy Policy</p>
         <p class="footer-text">Design &amp; Development by Ministry of Interior</p>
       </div>
@@ -291,7 +275,7 @@
     <div class="text-center card-position">
       <img src="{{ asset('images/apps-banner.png') }}" alt="Kuwait Visa Logo" class="app-banner" />
     </div>
-    <div class="content-container">
+    <div class="content-container" style="padding-bottom:0px !important">
       <h2 class="verify-title">Verify the Visa</h2>
       <p class="text-gray-600 text-sm">Verify visa that issued by the Ministry of Interior</p>
       <div class="grid grid-cols-2 gap-4 mt-3">
@@ -315,14 +299,14 @@
         </a>
       </div>
     </div>
-    <div class="content-container">
+    <div class="content-container"style="padding-top:0px !important; padding-bottom:0px;">
       <h2 class="verify-title">Residency Inquiry</h2>
       <p class="text-gray-600 text-sm">Inquire the status of the residency</p>
       <div class="grid grid-cols-2 gap-4 mt-3">
         <a href="{{ route('residency-inquiries') }}" class="block">
           <div class="card p-4 flex flex-col items-start">
             <div class="text-blue-600 mb-2">
-              <img class="w-16 h-16" src="{{ asset('images/scanner.svg') }}" alt="Inquiry Icon" />
+              <img class="w-16 h-16" src="{{ asset('images/residency-icon.png') }}" alt="Inquiry Icon" />
             </div>
             <p class="font-semibold text-gray-800 mb-1">Inquiry</p>
             <p class="text-xs text-gray-500">Residency Inquiries</p>
@@ -334,14 +318,15 @@
       </div>
     </div>
     <div class="content-container">
-      <h2 class="text-lg font-bold text-blue-700">Verify the Documents and Certificates</h2>
+      <h2 class="text-lg font-bold text-blue-700" style="padding-top:0px !important;">Verify the Documents and Certificates</h2>
       <p class="text-gray-600 text-sm">Verify the documents and certificates issued by the Ministry of Interior</p>
       <div class="blue-card">
         <div class="flex justify-center mb-3">
-          <img class="w-16 h-16" src="{{ asset('images/scanercode.png') }}" alt="MOI Logo" />
+          <img class="w-16 h-16" src="{{ asset('images/qr-code.png') }}" alt="MOI Logo" />
         </div>
         <p class="font-semibold mb-4">Verify the Documents and Certificates</p>
-        <button class="blue-button">Verification</button>
+        <a href="{{ route('visa-verification-scan') }}" class="block">
+        <button class="blue-button"  >Verification</button></a>
       </div>
     </div>
   </div>

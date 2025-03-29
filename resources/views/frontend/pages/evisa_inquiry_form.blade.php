@@ -3,83 +3,96 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kuwait Visa</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <title>{{ $setting['site_title'] ?? 'Kuwait eVisa System' }}</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <meta name="theme-color" content="#082A64" />
+  <meta name="application-name" content="Kuwait Visa" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Kuwait Visa" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="msapplication-TileColor" content="#082A64" />
+  <link rel="icon" type="image/png" sizes="192x192" href="{{ asset('images/icon/mipmap-xhdpi/ic_launcher.png') }}">
+  <link rel="manifest" href="{{ route('pwa.manifest') }}">
+  <meta name="description" content="{{ $setting['meta_description'] ?? 'Official Kuwait electronic visa verification system' }}">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        .w-32 {
-            width: 26rem !important;
+            @font-face {
+      font-family: "Helvetica Neue Arabic 75 Bold";
+      src: url("../../../fonts/HelveticaNeueLTArabic-Bold.ttf") format("opentype");
+      font-weight: bold;
+      font-style: normal;
+    }
+    @font-face {
+      font-family: "Helvetica Neue Arabic 45 Light";
+      src: url("../../../fonts/HelveticaNeueLTArabic-Light.ttf") format("opentype");
+      font-weight: normal;
+      font-style: normal;
+    }
+        body {
+            font-family: "Helvetica Neue Arabic 45 Light";
+            background-color: white;
         }
-
-        .icon-container-globe {
-            margin: 7px -4px;
+        
+        .error-text {
+            color: #ef4444;
+            font-size: 14px;
+            margin-top: 2px;
         }
-
-        .card {
-            border-radius: 15px;
-        }
-
-        .btn-submit {
-            background-color: #0060c7;
-            color: white;
+        .header-text{
+                  font-family: "Helvetica Neue Arabic 75 Bold"
         }
     </style>
 </head>
 
-<body class="bg-gray-100 flex justify-center items-center min-h-screen">
-
-    <div class="card w-full h-screen max-w-md mx-auto min-h-[450px] bg-white shadow-lg">
-        <!-- Header with Back Icon -->
-        <div class="bg-[#1d305b] flex items-center p-3 ">
+<body>
+    <div class="w-full max-w-md mx-auto bg-white">
+        <div class="bg-[#1d305b] flex items-center p-3">
             <button class="mr-4" onclick="window.history.back();">
                 <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 text-white" viewBox="0 0 24 24"
                     stroke="currentColor" fill="none" stroke-width="2">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7"></path>
                 </svg>
             </button>
-            <h1 class="text-xl font-bold text-white text-center flex-grow">Visa</h1>
+            <h1 class="text-xl font-bold text-white text-center flex-grow header-text">Visa</h1>
         </div>
-
-        <!-- Form Section -->
         <div class="p-6">
-            <p class="text-blue-700 text-sm mb-4 font-bold">Fill the following information to retrieve the visa details
-            </p>
+            <p class="text-[#0060c7] text-xl mb-6 font-semibold">Fill the following information to retrieve the visa details</p>
 
-            <form action="{{ route('web-app-evisa-details') }}" method="POST">
-                @csrf
-                <div class="space-y-4">
+            <form id="visaForm">
+                <div class="space-y-5">
                     <div>
-                        <label for="visa_number" class="text-sm text-black-500">Visa Number</label>
-                        <input type="text" name="visa_number" id="visa_number"
-                            class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your visa number" value="{{ old('visa_number') }}"  >
-
-                        @error('visa_number')
-                            <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
-                        @enderror
+                        <label for="visa_number" class="text-gray-800">Visa Number</label>
+                        <input type="text" id="visa_number" 
+                            class="w-full p-3 border border-gray-300 rounded-lg mt-1" 
+                            placeholder="Enter your visa number">
+                        <span id="visa_number_error" class="error-text hidden">Required</span>
                     </div>
 
                     <div>
-                        <label for="mio_reference" class="text-sm text-black-500">MOI Reference</label>
-                        <input type="text" name="mio_reference" id="mio_reference"
-                            class="w-full p-3 border border-gray-300 rounded-lg" placeholder="Enter your MOI reference" value="{{ old('mio_reference') }}">
-
-                        @error('mio_reference')
-                            <span class="text-red-500 text-sm mt-1">{{ $message }}</span>
-                        @enderror
+                        <label for="moi_reference" class="text-gray-800">MOI Reference</label>
+                        <input type="text" id="moi_reference" 
+                            class="w-full p-3 border border-gray-300 rounded-lg mt-1" 
+                            placeholder="Enter your MOI reference">
+                        <span id="moi_reference_error" class="error-text hidden">Required</span>
                     </div>
 
                     <div>
-                        <label for="passport_number" class="text-sm text-black-500">Passport Number</label>
-                        <input type="text" name="passport_number" id="passport_number"
-                            class="w-full p-3 border border-gray-300 rounded-lg"
-                            placeholder="Enter your passport number" value="{{ old('passport_number') }}">
+                        <label for="passport_number" class="text-gray-800">Passport Number</label>
+                        <input type="text" id="passport_number" 
+                            class="w-full p-3 border border-gray-300 rounded-lg mt-1" 
+                            placeholder="Enter your passport number">
+                        <span id="passport_number_error" class="error-text hidden">Required</span>
                     </div>
 
-                    <div>
-                        <button type="submit" class="w-full py-3 rounded-lg btn-submit">Inquiry</button>
+                    <div class="mt-8">
+                        <button type="submit" 
+                            class="w-full py-4 bg-[#0060c7] text-white rounded-lg text-lg font-medium">
+                            Inquiry
+                        </button>
                     </div>
                 </div>
             </form>
@@ -87,49 +100,85 @@
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Visa Number (Max 9 characters, only numbers)
-            document.getElementById("visa_number").addEventListener("input", function() {
-                this.value = this.value.replace(/\D/g, '').slice(0, 9);
-            });
-
-            // MOI Reference (Max 9 characters, only numbers)
-            document.getElementById("mio_reference").addEventListener("input", function() {
-                this.value = this.value.replace(/\D/g, '').slice(0, 9);
-            });
-
-            // Passport Number (Max 15 characters)
-            document.getElementById("passport_number").addEventListener("input", function() {
-                this.value = this.value.slice(0, 15);
-            });
-
-            // Form Submission Validation
-            document.querySelector("form").addEventListener("submit", function(event) {
-                let visaNumber = document.getElementById("visa_number").value.trim();
-                let mioReference = document.getElementById("mio_reference").value.trim();
-                let passportNumber = document.getElementById("passport_number").value.trim();
-
-                if (visaNumber.length === 0) {
-                    alert("Visa Number is required.");
-                    event.preventDefault();
-                    return;
+        document.addEventListener("DOMContentLoaded", function () {
+            const visaNumberInput = document.getElementById("visa_number");
+            const moiReferenceInput = document.getElementById("moi_reference");
+            const passportNumberInput = document.getElementById("passport_number");
+            
+            const visaNumberError = document.getElementById("visa_number_error");
+            const moiReferenceError = document.getElementById("moi_reference_error");
+            const passportNumberError = document.getElementById("passport_number_error");
+            
+            const form = document.getElementById("visaForm");
+            
+            // Validation functions
+            const validateVisaNumber = () => {
+                const value = visaNumberInput.value.trim();
+                if (value.length === 0) {
+                    visaNumberError.textContent = "Required";
+                    visaNumberError.classList.remove("hidden");
+                    return false;
+                } else if (!/^\d{9}$/.test(value)) {
+                    visaNumberError.textContent = "Invalid";
+                    visaNumberError.classList.remove("hidden");
+                    return false;
+                } else {
+                    visaNumberError.classList.add("hidden");
+                    return true;
                 }
-
-                if (mioReference.length === 0) {
-                    alert("MOI Reference is required.");
-                    event.preventDefault();
-                    return;
+            };
+            
+            const validateMoiReference = () => {
+                const value = moiReferenceInput.value.trim();
+                if (value.length === 0) {
+                    moiReferenceError.textContent = "Required";
+                    moiReferenceError.classList.remove("hidden");
+                    return false;
+                } else if (!/^\d{9}$/.test(value)) {
+                    moiReferenceError.textContent = "Invalid";
+                    moiReferenceError.classList.remove("hidden");
+                    return false;
+                } else {
+                    moiReferenceError.classList.add("hidden");
+                    return true;
                 }
-
-                if (passportNumber.length === 0) {
-                    alert("Passport Number is required.");
-                    event.preventDefault();
-                    return;
+            };
+            
+            const validatePassportNumber = () => {
+                const value = passportNumberInput.value.trim();
+                if (value.length === 0) {
+                    passportNumberError.textContent = "Required";
+                    passportNumberError.classList.remove("hidden");
+                    return false;
+                } else if (!/^[A-Za-z][0-9]{8}$/.test(value)) {
+                    passportNumberError.textContent = "Invalid";
+                    passportNumberError.classList.remove("hidden");
+                    return false;
+                } else {
+                    passportNumberError.classList.add("hidden");
+                    return true;
+                }
+            };
+            
+            // Add blur event listeners to validate on field exit
+            visaNumberInput.addEventListener("blur", validateVisaNumber);
+            moiReferenceInput.addEventListener("blur", validateMoiReference);
+            passportNumberInput.addEventListener("blur", validatePassportNumber);
+            
+            // Form submission validation
+            form.addEventListener("submit", function (event) {
+                event.preventDefault();
+                
+                const isVisaValid = validateVisaNumber();
+                const isMoiValid = validateMoiReference();
+                const isPassportValid = validatePassportNumber();
+                
+                if (isVisaValid && isMoiValid && isPassportValid) {
+                    // Form is valid, proceed with submission
+                    // form.submit(); // Uncomment this line when connecting to backend
                 }
             });
         });
     </script>
-
 </body>
-
 </html>
