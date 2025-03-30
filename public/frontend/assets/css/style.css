@@ -771,10 +771,10 @@ ul {
 
 .footer-section {
     margin-bottom: 20px !important;
+    align-content: center;
 }
 
 .footer-section h3 {
-    margin-bottom: 20px !important;
     text-transform: uppercase !important;
 }
 
@@ -783,9 +783,17 @@ ul {
     padding: 0 !important;
     margin: 0 !important;
 }
-
+.feature-title:after{
+    
+    content: "";
+    display: block;
+    height: 2px;
+    width: 4rem;
+    background: #fff;
+    margin-top: .6rem;
+}
 .footer-section li {
-    margin-bottom: 8px !important;
+    margin-bottom: 8px
 }
 
 .footer-section a {
