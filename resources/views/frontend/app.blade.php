@@ -17,6 +17,7 @@
     @include('frontend.includes.styles')
     
     <style>
+        
         :root {
             --safe-area-top: env(safe-area-inset-top);
             --safe-area-bottom: env(safe-area-inset-bottom);

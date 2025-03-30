@@ -2,16 +2,25 @@
     font-family: "Arial Rounded MT Bold";
     src: url("../../../fonts/arial-mt-regular.ttf") format("truetype");
 }
-
+@font-face {
+    font-family: "Candara";
+    src: url("../../../fonts/Candara.ttf") format("truetype");
+}
+@font-face {
+    font-family: "Candara Bold";
+    src: url("../../../fonts/Candara_Bold.ttf") format("truetype");
+}
 body {
-    font-family: "Arial Rounded MT Bold";
+    font-family: "Candara";
     font-weight: 700;
     font-size: 20px !important;
     margin: 0;
     padding: 0;
     overflow-x: hidden;
 }
-
+p, h1, h2, h3, span, a, body{
+    font-family: Candara;
+}
 .date-bar {
     background-color: #b68934;
     color: white;
@@ -117,9 +126,9 @@ a {
 }
 
 .footer {
-    background-color: #b68934;
+    background-color: #d49e39;
     color: white;
-    padding: 12px;
+    /* padding: 12px; */
 }
 
 .footer-section {
@@ -756,9 +765,8 @@ ul {
 }
 
 .footer {
-    background-color: #b68934 !important;
     color: white !important;
-    padding: 20px 0 !important;
+    padding: 20px 0 0 10px !important;
 }
 
 .footer-section {
@@ -808,7 +816,7 @@ ul {
     display: flex !important;
     justify-content: center !important;
     gap: 15px !important;
-    margin: 20px 0 !important;
+    margin: 0px 0 !important;
     align-items: center !important;
 }
 
@@ -816,8 +824,6 @@ ul {
     display: flex !important;
     align-items: center !important;
     justify-content: center !important;
-    width: 40px !important;
-    height: 40px !important;
     transition: transform 0.3s ease !important;
 }
 
@@ -826,8 +832,8 @@ ul {
 }
 
 .social-img {
-    width: 40px !important;
-    height: 40px !important;
+    width: 100%;
+    height: 30px !important;
     object-fit: contain !important;
 }
 
