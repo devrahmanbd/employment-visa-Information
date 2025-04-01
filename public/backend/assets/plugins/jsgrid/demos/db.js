@@ -79,14 +79,14 @@
             "Name": "Ezra Tillman",
             "Age": 51,
             "Country": 1,
-            "Address": "P.O. Box 738, 7583 Quisque St.",
+            "Address": "PO Box 738, 7583 Quisque St.",
             "Married": true
         },
         {
             "Name": "Dante Carter",
             "Age": 59,
             "Country": 1,
-            "Address": "P.O. Box 976, 6316 Lorem, St.",
+            "Address": "PO Box 976, 6316 Lorem, St.",
             "Married": false
         },
         {
@@ -114,7 +114,7 @@
             "Name": "Jonah Johns",
             "Age": 28,
             "Country": 5,
-            "Address": "P.O. Box 939, 9310 A Ave",
+            "Address": "PO Box 939, 9310 A Ave",
             "Married": false
         },
         {
@@ -156,14 +156,14 @@
             "Name": "Keely Silva",
             "Age": 24,
             "Country": 1,
-            "Address": "P.O. Box 153, 8995 Praesent Ave",
+            "Address": "PO Box 153, 8995 Praesent Ave",
             "Married": false
         },
         {
             "Name": "Hunter Pate",
             "Age": 73,
             "Country": 7,
-            "Address": "P.O. Box 771, 7599 Ante, Road",
+            "Address": "PO Box 771, 7599 Ante, Road",
             "Married": false
         },
         {
@@ -184,7 +184,7 @@
             "Name": "Jeanette Pate",
             "Age": 59,
             "Country": 2,
-            "Address": "P.O. Box 177, 7584 Amet, St.",
+            "Address": "PO Box 177, 7584 Amet, St.",
             "Married": false
         },
         {
@@ -198,7 +198,7 @@
             "Name": "Kenyon Stevens",
             "Age": 20,
             "Country": 3,
-            "Address": "P.O. Box 704, 4580 Gravida Rd.",
+            "Address": "PO Box 704, 4580 Gravida Rd.",
             "Married": false
         },
         {
@@ -212,7 +212,7 @@
             "Name": "Jelani Patel",
             "Age": 36,
             "Country": 2,
-            "Address": "P.O. Box 541, 5805 Nec Av.",
+            "Address": "PO Box 541, 5805 Nec Av.",
             "Married": true
         },
         {
@@ -233,14 +233,14 @@
             "Name": "Maisie Hodges",
             "Age": 70,
             "Country": 7,
-            "Address": "P.O. Box 445, 3880 Odio, Rd.",
+            "Address": "PO Box 445, 3880 Odio, Rd.",
             "Married": false
         },
         {
             "Name": "Kuame Calhoun",
             "Age": 39,
             "Country": 2,
-            "Address": "P.O. Box 609, 4105 Rutrum St.",
+            "Address": "PO Box 609, 4105 Rutrum St.",
             "Married": true
         },
         {
@@ -254,7 +254,7 @@
             "Name": "Fulton Parsons",
             "Age": 25,
             "Country": 7,
-            "Address": "P.O. Box 523, 3705 Sed Rd.",
+            "Address": "PO Box 523, 3705 Sed Rd.",
             "Married": false
         },
         {
@@ -275,7 +275,7 @@
             "Name": "Whilemina Frank",
             "Age": 20,
             "Country": 7,
-            "Address": "P.O. Box 681, 3938 Egestas. Av.",
+            "Address": "PO Box 681, 3938 Egestas. Av.",
             "Married": true
         },
         {
@@ -310,7 +310,7 @@
             "Name": "Kalia Nicholson",
             "Age": 67,
             "Country": 5,
-            "Address": "P.O. Box 871, 3023 Tellus Road",
+            "Address": "PO Box 871, 3023 Tellus Road",
             "Married": true
         },
         {
@@ -401,14 +401,14 @@
             "Name": "Willa Hobbs",
             "Age": 60,
             "Country": 6,
-            "Address": "P.O. Box 323, 158 Tristique St.",
+            "Address": "PO Box 323, 158 Tristique St.",
             "Married": false
         },
         {
             "Name": "Alexis Clements",
             "Age": 69,
             "Country": 5,
-            "Address": "P.O. Box 176, 5107 Proin Rd.",
+            "Address": "PO Box 176, 5107 Proin Rd.",
             "Married": false
         },
         {
@@ -422,7 +422,7 @@
             "Name": "Montana Silva",
             "Age": 79,
             "Country": 6,
-            "Address": "P.O. Box 120, 9766 Consectetuer St.",
+            "Address": "PO Box 120, 9766 Consectetuer St.",
             "Married": false
         },
         {
@@ -436,7 +436,7 @@
             "Name": "Christopher Morton",
             "Age": 35,
             "Country": 5,
-            "Address": "P.O. Box 234, 3651 Sodales Avenue",
+            "Address": "PO Box 234, 3651 Sodales Avenue",
             "Married": false
         },
         {
@@ -457,7 +457,7 @@
             "Name": "Kimberley Hurley",
             "Age": 65,
             "Country": 5,
-            "Address": "P.O. Box 637, 9915 Dictum St.",
+            "Address": "PO Box 637, 9915 Dictum St.",
             "Married": false
         },
         {
@@ -527,7 +527,7 @@
             "Name": "Clementine Tran",
             "Age": 43,
             "Country": 4,
-            "Address": "P.O. Box 176, 9865 Eu Rd.",
+            "Address": "PO Box 176, 9865 Eu Rd.",
             "Married": true
         },
         {
@@ -548,7 +548,7 @@
             "Name": "Shana Nolan",
             "Age": 79,
             "Country": 5,
-            "Address": "P.O. Box 603, 899 Eu St.",
+            "Address": "PO Box 603, 899 Eu St.",
             "Married": false
         },
         {
@@ -639,7 +639,7 @@
             "Name": "Amelia Rich",
             "Age": 56,
             "Country": 4,
-            "Address": "P.O. Box 734, 4717 Nunc Rd.",
+            "Address": "PO Box 734, 4717 Nunc Rd.",
             "Married": false
         },
         {
@@ -667,7 +667,7 @@
             "Name": "Austin Andrews",
             "Age": 55,
             "Country": 7,
-            "Address": "P.O. Box 274, 5505 Sociis Rd.",
+            "Address": "PO Box 274, 5505 Sociis Rd.",
             "Married": false
         },
         {
@@ -681,7 +681,7 @@
             "Name": "Adria Beach",
             "Age": 29,
             "Country": 2,
-            "Address": "P.O. Box 183, 2717 Nunc Avenue",
+            "Address": "PO Box 183, 2717 Nunc Avenue",
             "Married": true
         },
         {
@@ -723,7 +723,7 @@
             "Name": "Kyra Cummings",
             "Age": 43,
             "Country": 4,
-            "Address": "P.O. Box 702, 6621 Mus. Av.",
+            "Address": "PO Box 702, 6621 Mus. Av.",
             "Married": false
         },
         {
