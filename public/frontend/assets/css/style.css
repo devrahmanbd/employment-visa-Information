@@ -128,7 +128,6 @@ a {
 .footer {
     background-color: #d49e39;
     color: white;
-    /* padding: 12px; */
 }
 
 .footer-section {
@@ -766,7 +765,7 @@ ul {
 
 .footer {
     color: white !important;
-    padding: 20px 0 0 10px !important;
+    padding: 20px 0 0 0 !important;
 }
 
 .footer-section {
@@ -788,9 +787,13 @@ ul {
     content: "";
     display: block;
     height: 2px;
-    width: 4rem;
+    width: 25%;
     background: #fff;
     margin-top: .6rem;
+}
+
+.feature-title{
+    justify-items: start;
 }
 .footer-section li {
     margin-bottom: 8px
@@ -1063,4 +1066,11 @@ ul {
     .title-container img {
         max-height: 20px !important;
     }
+}
+
+@media (max-width: 992px) {
+.feature-title{
+    justify-items: center;
+    /* justify-items: start; */
+}
 }

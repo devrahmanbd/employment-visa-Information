@@ -182,7 +182,7 @@ $kuwaitTime = getKuwaitTime();
                 </div>
 
                 <div class="col-lg-4 col-md-6 footer-section">
-                    <h3 class="fw-bold">Physical Location</h3>
+                    <h3 class="fw-bold feature-title">Physical Location</h3>
                     <ul>
                         <li>{!! nl2br(e($setting['address'])) !!}</li>
                     </ul>
