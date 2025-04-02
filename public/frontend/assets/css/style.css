@@ -128,7 +128,6 @@ a {
 .footer {
     background-color: #d49e39;
     color: white;
-    /* padding: 12px; */
 }
 
 .footer-section {
@@ -766,7 +765,7 @@ ul {
 
 .footer {
     color: white !important;
-    padding: 20px 0 0 10px !important;
+    padding: 20px 0 0 0 !important;
 }
 
 .footer-section {
@@ -788,9 +787,13 @@ ul {
     content: "";
     display: block;
     height: 2px;
-    width: 4rem;
+    width: 25%;
     background: #fff;
     margin-top: .6rem;
+}
+
+.feature-title{
+    justify-items: start;
 }
 .footer-section li {
     margin-bottom: 8px
@@ -907,143 +910,187 @@ ul {
     flex-grow: 1 !important;
     margin: 0 10px !important;
 }
-@media (max-width: 1700px) {
+@media (max-width: 2200px) {
     .title-section {
-        font-size: 6rem !important;
-        margin-left: 5px !important;
-        margin-right: 5px !important;
+        font-size: 5.5rem !important;
     }
 }
-@media (max-width: 1450px) {
+@media (max-width: 2050px) {
+    .title-section {
+        font-size: 5rem !important;
+    }
+}
+@media (max-width: 1900px) {
     .title-section {
         font-size: 4.5rem !important;
-        margin-left: 5px !important;
-        margin-right: 5px !important;
     }
 }
-@media (max-width: 1350px) {
+@media (max-width: 1750px) {
     .title-section {
-        font-size: 4rem !important;
-        margin-left: 5px !important;
+        font-size: 4.2rem !important;
+    }
+}
+@media (max-width: 1700px) {
+    .title-section {
+        font-size: 3.8rem !important;
+        margin-left: 4px !important;
         margin-right: 5px !important;
     }
 }
-@media (max-width: 1200px) {
+@media (max-width: 1485px) {
     .title-section {
         font-size: 3.5rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
 }
-@media (max-width: 1100px) {
+@media (max-width: 1450px) {
+    .title-section {
+        font-size: 3.2rem !important;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+}
+@media (max-width: 1350px) {
     .title-section {
         font-size: 3rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
 }
-
-@media (max-width: 992px) {
+@media (max-width: 1200px) {
+    .title-section {
+        font-size: 2.8rem !important;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+}
+@media (max-width: 1230px) {
     .title-section {
         font-size: 2.5rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
 }
+@media (max-width: 1080px) {
+    .title-section {
+        font-size: 2rem !important;
+    }
+    .title-container img{
+    height: 90px;
+    width: auto;
+    margin: 0 10px;
+    }
+}
+@media (max-width: 992px) {
+    .title-section {
+        font-size: 2.1rem !important;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+}
+@media (max-width: 900px) {
+    .title-section {
+        font-size: 2rem !important;
+    }
+}
+@media (max-width: 865px) {
+    .title-section {
+        font-size: 1.8rem !important;
+        margin-left: 5px !important;
+        margin-right: 5px !important;
+    }
+}
 @media (max-width: 850px) {
     .title-section {
-        font-size: 2.2rem !important;
+        font-size: 1.6rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
 }
 @media (max-width: 768px) {
     .title-section {
-        font-size: 2.1rem !important;
-        margin-left: 5px !important;
-        margin-right: 5px !important;
+        font-size: 1.3rem !important;
     }
 
     .title-container img {
-        max-height: 95px !important;
+        max-height: 70px !important;
         width: auto;
     }
 }
 @media (max-width: 680px) {
     .title-section {
-        font-size: 2rem !important;
+        font-size: 1.1rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
-    }
-
-    .title-container img {
-        max-height: 90px !important;
-        width: auto;
     }
 }
 @media (max-width: 605px) {
     .title-section {
-        font-size: 1.8rem !important;
+        font-size: 1rem !important;
         margin-left: 5px !important;
         margin-right: 5px !important;
     }
 
     .title-container img {
-        max-height: 95px !important;
+        max-height: 65px !important;
         width: auto;
     }
 }
 @media (max-width: 576px) {
     .title-section {
-        font-size: 1.5rem !important;
+        font-size: 1em !important;
         margin-left: 3px !important;
         margin-right: 3px !important;
     }
 
     .title-container img {
-        max-height: 40px !important;
+        max-height: 55px !important;
     }
 }
 
 @media (max-width: 450px) {
     .title-section {
-        font-size: 1.2rem !important;
+        font-size: .8rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
 
     .title-container img {
-        max-height: 35px !important;
+        max-height: 45px !important;
     }
 }
 
 @media (max-width: 400px) {
     .title-section {
-        font-size: 1.1rem !important;
+        font-size: .7rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
 
     .title-container img {
-        max-height: 30px !important;
+        max-height: 50px !important;
     }
 }
 
-@media (max-width: 340px) {
+@media (max-width: 350px) {
     .title-section {
-        font-size: 1rem !important;
+        font-size: .6rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
 
     .title-container img {
-        max-height: 30px !important;
+        max-height: 40px !important;
+    }
+    .title-container {
+        padding: 0px!important;
     }
 }
 
-@media (max-width: 290px) {
+@media (max-width: 300px) {
     .title-section {
-        font-size: 0.75rem !important;
+        font-size: 0.5rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
@@ -1055,7 +1102,7 @@ ul {
 
 @media (max-width: 230px) {
     .title-section {
-        font-size: 0.6rem !important;
+        font-size: 0.4rem !important;
         margin-left: 2px !important;
         margin-right: 2px !important;
     }
@@ -1063,4 +1110,11 @@ ul {
     .title-container img {
         max-height: 20px !important;
     }
+}
+
+@media (max-width: 992px) {
+.feature-title{
+    justify-items: center;
+    /* justify-items: start; */
+}
 }
